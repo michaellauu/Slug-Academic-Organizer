@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anthonydevelops/Slug-Academic-Organizer.git"
+    "url": "git+https://github.com/chtzou/Slug-Academic-Organizer.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anthonydevelops/Slug-Academic-Organizer/issues"
+    "url": "https://github.com/chtzou/Slug-Academic-Organizer/issues"
   },
-  "homepage": "https://github.com/anthonydevelops/Slug-Academic-Organizer#readme",
+  "homepage": "https://github.com/chtzou/Slug-Academic-Organizer#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "request": "^2.88.0",
