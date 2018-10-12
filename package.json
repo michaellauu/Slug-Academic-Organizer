@@ -1,0 +1,28 @@
+{
+  "name": "slug-academic-organizer",
+  "version": "1.0.0",
+  "description": "Our project is to create a web app to help students keep track of their educational goals in fulfilling GEs and Major requirements. The current system that UCSC offers is honestly kind of nightmare to use and navigate, so we want to provide platform to make it simple and easy for students to record their progress.",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "scraper": "node scraper.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chtzou/Slug-Academic-Organizer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chtzou/Slug-Academic-Organizer/issues"
+  },
+  "homepage": "https://github.com/chtzou/Slug-Academic-Organizer#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
