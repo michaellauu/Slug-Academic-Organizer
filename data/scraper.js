@@ -11,7 +11,7 @@ module.exports.getDepartments = () => {
     .then(html => {
       $("h2", html)
         .map((i, elem) => {
-          console.log(i, $(elem).text());
+          console.log($(elem).text());
         })
         .get()
         .join(" ");
@@ -26,7 +26,7 @@ module.exports.getCourses = () => {
     .then(html => {
       $("li", html)
         .map((i, elem) => {
-          console.log(i, $(elem).text());
+          console.log($(elem).text());
         })
         .get()
         .join(" ");
@@ -39,23 +39,20 @@ module.exports.getCourses = () => {
 module.exports.checkCourse = title => {
   rp(url)
     .then(html => {
-      $("li", html)
-        .map((i, elem) => {
-          let str = $(elem)
-            .text()
-            .split(":");
-          if (title.toUpperCase() === str[0]) {
-            return true;
-          }
-        })
-        .get()
-        .join(" ");
+      $("li", html).map((i, elem) => {
+        let str = $(elem)
+          .text()
+          .split(":");
+        if (title.toUpperCase() === str[0].toUpperCase()) {
+          return true, console.log("Course is valid");
+        }
+      });
+
+      return false, console.log("Course invalid");
     })
     .catch(e => {
       console.log(e);
     });
-
-  return false;
 };
 
 // WE CAN COME BACK TO THIS METHOD IF WE FIND IT MORE HELPFUL

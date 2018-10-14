@@ -1,7 +1,21 @@
 const scraper = require("./scraper");
 
-// console.log(scraper.getDepartments());
-// console.log(scraper.getCourses());
-if (scraper.checkCourse("ams290a")) {
-  console.log("Course is valid");
-}
+// FOCUSED ON SOE DEPARTMENTS
+
+// Returns all departments
+scraper.getDepartments();
+
+// Returns all courses
+setTimeout(() => {
+  scraper.getCourses();
+}, 2500);
+
+// Returns true since course exists
+setTimeout(() => {
+  scraper.checkCourse("ams290a");
+}, 7500);
+
+// Returns false since course doesn't exist
+setTimeout(() => {
+  scraper.checkCourse("ams290a290");
+}, 10000);
