@@ -6,6 +6,17 @@ const rp = require("request-promise-native");
 const $ = require("cheerio");
 const url = "https://courses.soe.ucsc.edu/";
 
+/* Use of scraper documentation can be found here:
+ * https://www.npmjs.com/package/cheerio
+ * https://www.npmjs.com/package/request-promise-native
+ * 
+ * I chose request-promise-native so that it relies on 
+ * native promises rather then Bluebird (idk what that is)
+ * promises. Also, cheerio looks almost identical to jQuery,
+ * so I chose it because of the simplicity. Using ES6 features.
+*/
+
+// Get all departments in SOE
 module.exports.getDepartments = () => {
   rp(url)
     .then(html => {
@@ -21,6 +32,7 @@ module.exports.getDepartments = () => {
     });
 };
 
+// Get all courses in SOE
 module.exports.getCourses = () => {
   rp(url)
     .then(html => {
@@ -36,6 +48,7 @@ module.exports.getCourses = () => {
     });
 };
 
+// Check if course exists by courseID
 module.exports.checkCourse = title => {
   rp(url)
     .then(html => {
@@ -54,54 +67,3 @@ module.exports.checkCourse = title => {
       console.log(e);
     });
 };
-
-// WE CAN COME BACK TO THIS METHOD IF WE FIND IT MORE HELPFUL
-// ILL TRY TO EXPLAIN THIS OTHER APPROACH
-// // Gets all the terms available
-// module.exports.getTerms = () => {
-//   rp(baseURL)
-//     .then(html => {
-//       $("#term_dropdown", html)
-//         .children()
-//         .map((i, elem) => {
-//           console.log(i, $(elem).html());
-//         })
-//         .get()
-//         .join(" ");
-//     })
-//     .catch(e => {
-//       console.log(e);
-//     });
-// };
-
-// // Gets all the subjects available
-// module.exports.getSubjects = () => {
-//   rp(baseURL)
-//     .then(html => {
-//       $("#subject", html)
-//         .children()
-//         .map((i, elem) => {
-//           console.log(i, $(elem).html());
-//         })
-//         .get()
-//         .join(" ");
-//     })
-//     .catch(e => {
-//       console.log(e);
-//     });
-// };
-
-// // Gets all the contents of listed [OPEN] classes
-// module.exports.getClasses = () => {
-//   rp(baseURL)
-//     .then(html => {
-//       console.log(
-//         $("div > .panel-heading-custom", html)
-//           .contents()
-//           .html()
-//       );
-//     })
-//     .catch(e => {
-//       console.log(e);
-//     });
-// };

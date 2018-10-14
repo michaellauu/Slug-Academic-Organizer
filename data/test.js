@@ -1,6 +1,8 @@
 const scraper = require("./scraper");
 
-// FOCUSED ON SOE DEPARTMENTS
+/* Simple test file for scraper.js, if more functions
+ * are developed, I'll be testing them here for now
+*/
 
 // Returns all departments
 scraper.getDepartments();
