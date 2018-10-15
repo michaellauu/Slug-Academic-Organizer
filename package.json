@@ -9,8 +9,8 @@
   "scripts": {
     "test": "node test.js",
     "server": "nodemon server.js",
-    "client": "cd client && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,9 @@
   },
   "homepage": "https://github.com/chtzou/Slug-Academic-Organizer#readme",
   "dependencies": {
-    "express": "^4.16.2",
     "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "nodemon": "^1.18.4",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
   },
