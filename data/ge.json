@@ -1,0 +1,60 @@
+{
+  "CC": {
+    "disc": "Cross-Cultural Analysis",
+    "credits": 5
+  },
+  "ER": {
+    "disc": "Ethnicity and Race",
+    "credits": 5
+  },
+  "IM": {
+    "disc": "Interpreting Arts and Media",
+    "credits": 5
+  },
+  "MF": {
+    "disc": "Mathematical and Formal Reasoning",
+    "credits": 5
+  },
+  "SI": {
+    "disc": "Scientific Inquiry",
+    "credits": 5
+  },
+  "SR": {
+    "disc": "Statistical Reasoning",
+    "credits": 5
+  },
+  "TA": {
+    "disc": "Textual Analysis and Interpretation",
+    " credits": 5
+  },
+  "PE": {
+    "disc": "Perspectives",
+    "types": {
+      "PE-E": "Environmental Awareness",
+      "PE-H": "Human Behavior",
+      "PE-T": "Technology and Society"
+    },
+    "credits": 5
+  },
+  "PR": {
+    "disc": "Practice",
+    "types": {
+      "PR-E": "Collaborative Endeavor",
+      "PR-C": "Creative Process",
+      "PR-S": "Service Learning"
+    },
+    "credits": 2
+  },
+  "C1": {
+    "disc": "Core Composition 1",
+    "credits": 5
+  },
+  "C2": {
+    "disc": "Core Composition 2",
+    "credits": 5
+  },
+  "DC": {
+    "disc": "Disciplinary Communication",
+    "credits": 5
+  }
+}

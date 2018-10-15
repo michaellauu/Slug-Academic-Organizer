@@ -7,7 +7,6 @@
     "lib": "lib"
   },
   "scripts": {
-    "scraper": "node scraper.js",
     "test": "node test.js",
     "server": "nodemon server.js",
     "client": "cd client && yarn start",

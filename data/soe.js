@@ -9,11 +9,6 @@ const url = "https://courses.soe.ucsc.edu/";
 /* Use of scraper documentation can be found here:
  * https://www.npmjs.com/package/cheerio
  * https://www.npmjs.com/package/request-promise-native
- * 
- * I chose request-promise-native so that it relies on 
- * native promises rather then Bluebird (idk what that is)
- * promises. Also, cheerio looks almost identical to jQuery,
- * so I chose it because of the simplicity. Using ES6 features.
 */
 
 // Get all departments in SOE
@@ -24,8 +19,7 @@ module.exports.getDepartments = () => {
         .map((i, elem) => {
           console.log($(elem).text());
         })
-        .get()
-        .join(" ");
+        .get();
     })
     .catch(e => {
       console.log(e);
@@ -40,8 +34,7 @@ module.exports.getCourses = () => {
         .map((i, elem) => {
           console.log($(elem).text());
         })
-        .get()
-        .join(" ");
+        .get();
     })
     .catch(e => {
       console.log(e);
