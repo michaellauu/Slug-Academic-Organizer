@@ -7,11 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "scraper": "node scraper.js",
     "test": "node test.js",
     "server": "nodemon server.js",
-    "client": "cd client && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -26,6 +25,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
+    "nodemon": "^1.18.4",
     "mongoose": "^5.3.4",
     "react-router-dom": "^4.3.1",
     "request": "^2.88.0",
