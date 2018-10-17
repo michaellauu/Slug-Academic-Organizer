@@ -3,6 +3,7 @@
 // Refer to test.js which handles testing for the web scraper
 
 const axios = require("axios");
+// const adapter = require("axios/lib/adapters/http");
 const cheerio = require("cheerio");
 const cmps = "https://courses.soe.ucsc.edu/courses/cmps";
 
@@ -12,9 +13,9 @@ const cmps = "https://courses.soe.ucsc.edu/courses/cmps";
 */
 
 // Get all departments in SOE
-const getDepartments = async () => {
+const getDepartments = () => {
   try {
-    const res = await axios.get("https://courses.soe.ucsc.edu/");
+    const res = axios.get("https://courses.soe.ucsc.edu/");
     const html = res.data;
     const $ = cheerio.load(html);
     let departments = [];

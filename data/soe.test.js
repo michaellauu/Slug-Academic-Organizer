@@ -11,33 +11,39 @@ const ge = require("./ge.json");
 // soe.js -------------------------------------------------
 
 // All departments
-it("Returns all SOE departments", () => {
+test("Returns all SOE departments", () => {
   expect.assertions(1);
-  return expect(soe.getDepartments()).resolves.toContain("Computer Science");
+  return soe.getDepartments().then(data => {
+    expect(data).toContain("Computer Science");
+  });
 });
 
 // All courses
-it("Returns all SOE courses", () => {
+test("Returns all SOE courses", () => {
   expect.assertions(1);
-  return expect(soe.getCourses()).resolves.toContain(
-    "CMPS115: Introduction to Software Engineering"
-  );
+  return soe.getDepartments().then(data => {
+    expect(data).toContain("CMPS115: Introduction to Software Engineering");
+  });
 });
 
 // Check if course exists: true
 test("Returns true: course exists", () => {
   expect.assertions(1);
-  return expect(soe.checkCourse("cmps5j")).resolves.toBeTruthy();
+  return soe.checkCourse("cmps5j").then(data => {
+    expect(data).toBeTruthy();
+  });
 });
 
 // Check if course exists: false
 test("Returns false: course doesn't exist", () => {
   expect.assertions(1);
-  return expect(soe.checkCourse("121cmps")).resolves.toBeFalsy();
+  return soe.checkCourse("121cmps").then(data => {
+    expect(data).toBeFalsy();
+  });
 });
 
-// Returns all courses currently
-soe.quarterSchedule("cmps5j");
+// // Returns all courses currently
+// soe.quarterSchedule("cmps5j");
 
 // generalEd.js -------------------------------------------
 
