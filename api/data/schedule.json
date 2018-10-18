@@ -1,0 +1,1193 @@
+[
+    {
+        "courseID": "CMPS5C",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS5J",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Adam M. Smith (amsmith)",
+            "Section 01",
+            "David Harrison (dcharris)",
+            "Section 01",
+            "Faisal Nawab (fnawab)"
+        ]
+    },
+    {
+        "courseID": "CMPS5P",
+        "quarters": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Peter Alvaro (palvaro)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS10",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS11",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Narges Norouzi (nanorouz)"
+        ]
+    },
+    {
+        "courseID": "CMPS12A",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Narges Norouzi (nanorouz)",
+            "Section 01",
+            "Charles Mc Dowell (mcdowell)",
+            "Section 01",
+            "Cormac A Flanagan (cormac)"
+        ]
+    },
+    {
+        "courseID": "CMPS12B",
+        "quarters": [
+            "Fall18",
+            "Fall18",
+            "Winter19",
+            "Winter19",
+            "Spring19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "C. Seshadhri (sesh)",
+            "Section 02",
+            "Nina T Bhatti (ntbhatti)",
+            "Section 01",
+            "Nina T Bhatti (ntbhatti)",
+            "Section 02",
+            "Patrick Tantalo (ptantalo)",
+            "Section 01",
+            "Patrick Tantalo (ptantalo)",
+            "Section 02",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS12L",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Narges Norouzi (nanorouz)",
+            "Section 01",
+            "Charles Mc Dowell (mcdowell)",
+            "Section 01",
+            "Cormac A Flanagan (cormac)"
+        ]
+    },
+    {
+        "courseID": "CMPS12M",
+        "quarters": [
+            "Fall18",
+            "Fall18",
+            "Winter19",
+            "Winter19",
+            "Spring19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "C. Seshadhri (sesh)",
+            "Section 02",
+            "Nina T Bhatti (ntbhatti)",
+            "Section 01",
+            "Nina T Bhatti (ntbhatti)",
+            "Section 02",
+            "Patrick Tantalo (ptantalo)",
+            "Section 01",
+            "Patrick Tantalo (ptantalo)",
+            "Section 02",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS13H",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS13L",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS17",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS20",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS25",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS26",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS60M",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS80B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS80G",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS80J",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS80K",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS80L",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS80S",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS80V",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS101",
+        "quarters": [
+            "Fall18",
+            "Fall18",
+            "Winter19",
+            "Winter19",
+            "Spring19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "C. Seshadhri (sesh)",
+            "Section 02",
+            "Patrick Tantalo (ptantalo)",
+            "Section 01",
+            "Sheldon J Finkelstein (shel)",
+            "Section 02",
+            "Delbert D. Bailey (ddbailey)",
+            "Section 01",
+            "Patrick Tantalo (ptantalo)",
+            "Section 02",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS102",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Abhradeep Guha Thakurta (aguhatha)",
+            "Section 01",
+            "David Helmbold (dph)",
+            "Section 01",
+            "Allen Van Gelder (avg)"
+        ]
+    },
+    {
+        "courseID": "CMPS104A",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Wesley Mackey (wmackey)",
+            "Section 01",
+            "Wesley Mackey (wmackey)"
+        ]
+    },
+    {
+        "courseID": "CMPS104B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS105",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS107",
+        "quarters": [
+            "Winter19",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Carlos Maltzahn (carlosm)",
+            "Section 50",
+            "Carlos Maltzahn (carlosm)"
+        ]
+    },
+    {
+        "courseID": "CMPS109",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Harrison (dcharris)",
+            "Section 01",
+            "Wesley Mackey (wmackey)",
+            "Section 01",
+            "Wesley Mackey (wmackey)"
+        ]
+    },
+    {
+        "courseID": "CMPS111",
+        "quarters": [
+            "Fall18",
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Faisal Nawab (fnawab)",
+            "Section 02",
+            "Darrell Long (darrell)",
+            "Section 01",
+            "David Harrison (dcharris)",
+            "Section 01",
+            "David Harrison (dcharris)"
+        ]
+    },
+    {
+        "courseID": "CMPS112",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Wesley Mackey (wmackey)",
+            "Section 01",
+            "Wesley Mackey (wmackey)",
+            "Section 01",
+            "Owen Arden (oarden)"
+        ]
+    },
+    {
+        "courseID": "CMPS115",
+        "quarters": [
+            "Fall18",
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Richard K Jullig (rjullig)",
+            "Section 02",
+            "Richard K Jullig (rjullig)"
+        ]
+    },
+    {
+        "courseID": "CMPS116",
+        "quarters": [
+            "Winter19",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Richard K Jullig (rjullig)",
+            "Section 02",
+            "Richard K Jullig (rjullig)"
+        ]
+    },
+    {
+        "courseID": "CMPS117",
+        "quarters": [
+            "Spring19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Richard K Jullig (rjullig)",
+            "Section 02",
+            "Richard K Jullig (rjullig)"
+        ]
+    },
+    {
+        "courseID": "CMPS119",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS121",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Narges Norouzi (nanorouz)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS122",
+        "quarters": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Owen Arden (oarden)",
+            "Section 01",
+            "David Harrison (dcharris)"
+        ]
+    },
+    {
+        "courseID": "CMPS128",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Peter Alvaro (palvaro)",
+            "Section 01",
+            "Lindsey Kuper (lkuper)"
+        ]
+    },
+    {
+        "courseID": "CMPS129",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS130",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Delbert D. Bailey (ddbailey)",
+            "Section 01",
+            "C. Seshadhri (sesh)",
+            "Section 01",
+            "Delbert D. Bailey (ddbailey)"
+        ]
+    },
+    {
+        "courseID": "CMPS132",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Allen Van Gelder (avg)"
+        ]
+    },
+    {
+        "courseID": "CMPS132W",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Allen Van Gelder (avg)"
+        ]
+    },
+    {
+        "courseID": "CMPS140",
+        "quarters": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yang Liu (yangliu)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS142",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Snigdha Chaturvedi (snchatur)"
+        ]
+    },
+    {
+        "courseID": "CMPS143",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marilyn A Walker (mawalker)"
+        ]
+    },
+    {
+        "courseID": "CMPS144",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Narges Norouzi (nanorouz)"
+        ]
+    },
+    {
+        "courseID": "CMPS146",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS148",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS153",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS160",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "James E Davis (davisje)",
+            "Section 01",
+            "James E Davis (davisje)"
+        ]
+    },
+    {
+        "courseID": "CMPS160L",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "James E Davis (davisje)",
+            "Section 01",
+            "James E Davis (davisje)"
+        ]
+    },
+    {
+        "courseID": "CMPS161",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Alex Pang (pang)"
+        ]
+    },
+    {
+        "courseID": "CMPS161L",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Alex Pang (pang)"
+        ]
+    },
+    {
+        "courseID": "CMPS162",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS162L",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS164",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS164L",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS165",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS166A",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS166B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS168",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS170",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS171",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS172",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS177",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS178",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS179",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS180",
+        "quarters": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sheldon J Finkelstein (shel)",
+            "Section 01",
+            "Sheldon J Finkelstein (shel)"
+        ]
+    },
+    {
+        "courseID": "CMPS180W",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS181",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sheldon J Finkelstein (shel)"
+        ]
+    },
+    {
+        "courseID": "CMPS182",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sheldon J Finkelstein (shel)"
+        ]
+    },
+    {
+        "courseID": "CMPS183",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Luca de Alfaro (luca)",
+            "Section 01",
+            "Luca de Alfaro (luca)"
+        ]
+    },
+    {
+        "courseID": "CMPS184",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Suresh Kumar Lodha (lodha)"
+        ]
+    },
+    {
+        "courseID": "CMPS185",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Harrison (dcharris)",
+            "Section 01",
+            "Phokion Kolaitis (kolaitis)"
+        ]
+    },
+    {
+        "courseID": "CMPS190X",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS191",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS194",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS200",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Alex Pang (pang)"
+        ]
+    },
+    {
+        "courseID": "CMPS201",
+        "quarters": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Patrick Tantalo (ptantalo)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPS203",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Cormac A Flanagan (cormac)"
+        ]
+    },
+    {
+        "courseID": "CMPS204",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS210",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS211",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Allen Van Gelder (avg)"
+        ]
+    },
+    {
+        "courseID": "CMPS217",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Phokion Kolaitis (kolaitis)"
+        ]
+    },
+    {
+        "courseID": "CMPS218",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yang Liu (yangliu)"
+        ]
+    },
+    {
+        "courseID": "CMPS221",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS223",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Owen Arden (oarden)"
+        ]
+    },
+    {
+        "courseID": "CMPS229",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Carlos Maltzahn (carlosm)"
+        ]
+    },
+    {
+        "courseID": "CMPS232",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Peter Alvaro (palvaro)"
+        ]
+    },
+    {
+        "courseID": "CMPS236",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS240",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Narges Norouzi (nanorouz)"
+        ]
+    },
+    {
+        "courseID": "CMPS241",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS242",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Helmbold (dph)",
+            "Section 01",
+            "Narges Norouzi (nanorouz)"
+        ]
+    },
+    {
+        "courseID": "CMPS244",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS245",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marilyn A Walker (mawalker)"
+        ]
+    },
+    {
+        "courseID": "CMPS247",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS248",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS250",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yu Zhang (yzhan419)",
+            "Cross-listed with EE 253"
+        ]
+    },
+    {
+        "courseID": "CMPS253",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS260",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "James E Davis (davisje)"
+        ]
+    },
+    {
+        "courseID": "CMPS261",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Alex Pang (pang)"
+        ]
+    },
+    {
+        "courseID": "CMPS262",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS263",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS265",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS266A",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff",
+            "Cross-listed with AMS 266A"
+        ]
+    },
+    {
+        "courseID": "CMPS266B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS266C",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS272",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS276",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS277",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Faisal Nawab (fnawab)"
+        ]
+    },
+    {
+        "courseID": "CMPS278",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Sheldon J Finkelstein (shel)"
+        ]
+    },
+    {
+        "courseID": "CMPS279",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS280A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS280D",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Peter Alvaro (palvaro)",
+            "Section 01",
+            "Peter Alvaro (palvaro)",
+            "Section 01",
+            "Peter Alvaro (palvaro)"
+        ]
+    },
+    {
+        "courseID": "CMPS280G",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS280H",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS280J",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS280L",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Phokion Kolaitis (kolaitis)",
+            "Section 01",
+            "Phokion Kolaitis (kolaitis)",
+            "Section 01",
+            "Phokion Kolaitis (kolaitis)"
+        ]
+    },
+    {
+        "courseID": "CMPS280M",
+        "quarters": [
+            "Winter19",
+            "Winter19",
+            "Spring19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff",
+            "Section 02",
+            "Lise Getoor (getoor)",
+            "Section 01",
+            "Staff",
+            "Section 02",
+            "Lise Getoor (getoor)"
+        ]
+    },
+    {
+        "courseID": "CMPS280S",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Carlos Maltzahn (carlosm)",
+            "Section 01",
+            "Carlos Maltzahn (carlosm)",
+            "Section 01",
+            "Carlos Maltzahn (carlosm)"
+        ]
+    },
+    {
+        "courseID": "CMPS280W",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS280X",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS280Z",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marilyn A Walker (mawalker)"
+        ]
+    },
+    {
+        "courseID": "CMPS290A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290C",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290D",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290E",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290F",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290G",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290H",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290I",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290J",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290L",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290P",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290Q",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290S",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Lindsey Kuper (lkuper)"
+        ]
+    },
+    {
+        "courseID": "CMPS290T",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290X",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPS290Y",
+        "quarters": [],
+        "sections": []
+    }
+]

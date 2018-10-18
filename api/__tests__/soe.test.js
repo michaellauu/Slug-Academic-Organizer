@@ -5,14 +5,14 @@ const GE = require("../data/ge.json");
  * are developed, I'll be testing them here for now
 */
 
-// soe.js -------------------------------------------------
+// BSOE ---------------------------------------------------
 
 describe("Test ge, department, & course validity", () => {
   test("Returns true: ge exists", () => {
     expect(SOE.checkGE("cc")).toEqual(true);
   });
 
-  test("Returns false: ge non-existent", () => {
+  test("Returns false: no ge", () => {
     expect(SOE.checkGE("fm")).toEqual(false);
   });
 
@@ -20,7 +20,7 @@ describe("Test ge, department, & course validity", () => {
     expect(SOE.checkDepartment("Computer Engineering")).toEqual(true);
   });
 
-  test("Returns false: department non-existent", () => {
+  test("Returns false: no department", () => {
     expect(SOE.checkDepartment("Applied")).toEqual(false);
   });
 
@@ -28,8 +28,20 @@ describe("Test ge, department, & course validity", () => {
     expect(SOE.checkCourse("cmps5j")).toEqual(true);
   });
 
-  test("Returns false: course non-existent", () => {
+  test("Returns false: no course", () => {
     expect(SOE.checkCourse("121cmps")).toEqual(false);
+  });
+});
+
+// Schedules ----------------------------------------------
+
+describe("Test various course schedules", () => {
+  test("Returns course logistical data", () => {
+    expect(SOE.checkSchedule("cmps5j")).toContain("Fall18");
+  });
+
+  test("Returns no course logistical data", () => {
+    expect(SOE.checkSchedule("cmps5c")).toEqual([]);
   });
 });
 
