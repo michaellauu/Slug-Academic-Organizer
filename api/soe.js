@@ -209,11 +209,11 @@ const checkSchedule = id => {
   // Loop through JSON to find a match
   for (let i = 0; i < schedules.length; i++) {
     if (schedules[i].courseID === id.toUpperCase()) {
-      return schedules[i].quarters;
+      return new Set(schedules[i].quarters);
     }
   }
 
-  return [];
+  return "No course found";
 };
 
 module.exports = {

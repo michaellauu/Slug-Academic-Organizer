@@ -40,8 +40,18 @@ describe("Test various course schedules", () => {
     expect(SOE.checkSchedule("cmps5j")).toContain("Fall18");
   });
 
-  test("Returns no course logistical data", () => {
-    expect(SOE.checkSchedule("cmps5c")).toEqual([]);
+  test("Returns course w/ no repeats", () => {
+    expect(SOE.checkSchedule("cmps12b")).toEqual(
+      new Set(["Fall18", "Winter19", "Spring19"])
+    );
+  });
+
+  test("Returns course w/ no logistical data", () => {
+    expect(SOE.checkSchedule("cmps5c")).toEqual(new Set());
+  });
+
+  test("Returns, can't find courseID", () => {
+    expect(SOE.checkSchedule("121cmps")).toBe("No course found");
   });
 });
 
