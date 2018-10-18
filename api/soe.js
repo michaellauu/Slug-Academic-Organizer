@@ -5,6 +5,7 @@
 const axios = require("axios");
 // const adapter = require("axios/lib/adapters/http");
 const cheerio = require("cheerio");
+const fs = require("fs");
 const cmps = "https://courses.soe.ucsc.edu/courses/cmps";
 
 /* Use of scraper documentation can be found here:
@@ -12,11 +13,10 @@ const cmps = "https://courses.soe.ucsc.edu/courses/cmps";
  * https://www.npmjs.com/package/request-promise-native
 */
 
-// Get all departments in SOE
-const getDepartments = () => {
-  try {
-    const res = axios.get("https://courses.soe.ucsc.edu/");
-    const html = res.data;
+/* Alternative way of using axios
+try {
+    const res = await axios.get("https://courses.soe.ucsc.edu/");
+    const html = await res.data;
     const $ = cheerio.load(html);
     let departments = [];
     $("h2").map((i, elem) => {
@@ -26,6 +26,34 @@ const getDepartments = () => {
   } catch (e) {
     console.log("error", e);
   }
+*/
+
+// Get all departments in SOE
+const getDepartments = () => {
+  axios
+    .get("https://courses.soe.ucsc.edu/")
+    .then(res => {
+      if (res.status === 200) {
+        const html = res.data;
+        const $ = cheerio.load(html);
+        let departments = [];
+        $("h2").map((i, elem) => {
+          departments[i] = {
+            title: $(elem)
+              .text()
+              .trim()
+          };
+        });
+        fs.writeFile(
+          "data/departments.json",
+          JSON.stringify(departments, null, 4),
+          err => {
+            console.log("File successfully written");
+          }
+        );
+      }
+    })
+    .catch(e => console.log(e));
 };
 
 // Get all courses in SOE
@@ -38,9 +66,21 @@ const getCourses = () => {
         const $ = cheerio.load(html);
         let courses = [];
         $("li").map((i, elem) => {
-          courses.push($(elem).text());
+          let str = $(elem)
+            .text()
+            .split(":");
+          courses[i] = {
+            courseID: str[0],
+            courseTitle: str[1]
+          };
         });
-        return courses;
+        fs.writeFile(
+          "data/courses.json",
+          JSON.stringify(courses, null, 4),
+          err => {
+            console.log("File successfully written");
+          }
+        );
       }
     })
     .catch(e => console.log(e));
@@ -48,8 +88,9 @@ const getCourses = () => {
 
 // Check if course exists by courseID
 const checkCourse = title => {
-  axios.get("https://courses.soe.ucsc.edu/").then(
-    res => {
+  axios
+    .get("https://courses.soe.ucsc.edu/")
+    .then(res => {
       if (res.status === 200) {
         const html = res.data;
         const $ = cheerio.load(html);
@@ -63,9 +104,8 @@ const checkCourse = title => {
         });
         return false;
       }
-    },
-    err => console.log(err)
-  );
+    })
+    .catch(e => console.log(e));
 };
 
 // module.exports.quarterSchedule = course => {
