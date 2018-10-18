@@ -19,8 +19,9 @@ app.get("/api", (req, res) => {
   res.send({ express: "Express is now connected" });
 });
 
-app.post("/api/getClasses", (req, res) => {
+app.post("/api/submitClass", (req, res) => {
   console.log(req.body.class);
+  console.log(req.body.location);
   //do stuff with the scraper?
   res.send({ express: "I don't know what to put here" });
 });
