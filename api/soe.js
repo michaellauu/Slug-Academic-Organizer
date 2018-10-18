@@ -8,7 +8,6 @@ const fs = require("fs");
 const classes = require("./data/courses.json");
 const branches = require("./data/departments.json");
 const general = require("./data/ge.json");
-const cmps = "https://courses.soe.ucsc.edu/courses/cmps";
 
 /* Use of scraper documentation can be found here:
  * https://www.npmjs.com/package/cheerio
@@ -120,69 +119,72 @@ const checkCourse = id => {
   return false;
 };
 
-// axios
-//     .get("https://courses.soe.ucsc.edu/")
-//     .then(res => {
-//       if (res.status === 200) {
-//         const html = res.data;
-//         const $ = cheerio.load(html);
-//         let departments = [];
-//         $("h2").map((i, elem) => {
-//           departments[i] = {
-//             title: $(elem)
-//               .text()
-//               .trim()
-//           };
-//         });
-//         fs.writeFile(
-//           "data/departments.json",
-//           JSON.stringify(departments, null, 4),
-//           err => {
-//             console.log("File successfully written");
-//           }
-//         );
-//       }
-//     })
-//     .catch(e => console.log(e));
+const getSchedule = () => {
+  axios.get("https://courses.soe.ucsc.edu/courses/cmps").then(res => {
+    if (res.status === 200) {
+      const html = res.data;
+      const $ = cheerio.load(html);
+      const schedules = [];
+      let offered = [];
+      $(".course-name").map((i, elem) => {
+        const title = $(elem)
+          .children("a")
+          .text()
+          .trim();
 
-// const getSchedule = course => {
-//   let info = [];
-//   const schedule = {};
-//   rp(cmps)
-//     .then(html => {
-//       $(".course-name", html).map((i, elem) => {
-//         let title = $(elem)
-//           .children("a")
-//           .text()
-//           .split(":");
-//         if (title[0].toUpperCase() === course.toUpperCase()) {
-//           const info = $(elem)
-//           .parent()
-//           .next()
-//           .children(".class")
-//           .find("li")
-//           .contents()
-//           .text()
-//           .split("\n")
-//           info.map(el => {
-//             if(el !==)
-//           })
-//           info.push();
-//           console.log(info);
-//           info.map(el => {
+        offered.push(
+          $(elem)
+            .parent()
+            .next()
+            .children(".class")
+            .find("li")
+            .children("a")
+            .attr("href")
+        );
 
-//           })
-//         }
-//       });
-//     })
-//     .catch(e => {
-//       console.log(e);
-//     });
-// };
+        offered = offered.filter(function(n) {
+          return n != null || undefined;
+        });
+
+        // Trying to figure out how to split string
+        // to return a <course>/<quarter>/<section>
+        offered = offered.filter(function(n) {
+          let link = n.split("/");
+          link = link.filter(function(q) {
+            return q != "courses";
+          });
+          return n == link;
+        });
+
+        console.log(offered);
+
+        const info = $(elem)
+          .parent()
+          .next()
+          .children(".class")
+          .find("li")
+          .contents()
+          .text()
+          .split("\n")
+          .map(tag => tag.trim())
+          .filter(function(n) {
+            return n != "";
+          });
+
+        schedules[i] = {
+          course: title,
+          quarters: info
+        };
+      });
+      console.log(schedules);
+    }
+  });
+};
 
 module.exports = {
   getDepartments,
   getCourses,
+  getSchedule,
   checkGE,
   checkDepartment,
   checkCourse
