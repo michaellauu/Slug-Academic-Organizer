@@ -1,29 +1,34 @@
 [
-    {
-        "title": "Applied Mathematics & Statistics"
-    },
-    {
-        "title": "Biomolecular Engineering"
-    },
-    {
-        "title": "Computational Media"
-    },
-    {
-        "title": "Computer Engineering"
-    },
-    {
-        "title": "Computer Science"
-    },
-    {
-        "title": "Electrical Engineering"
-    },
-    {
-        "title": "Games and Playable Media"
-    },
-    {
-        "title": "Information Systems Management"
-    },
-    {
-        "title": "Technology & Information Management"
-    }
+  {
+    "title": "Applied Mathematics & Statistics",
+    "url": "https://courses.soe.ucsc.edu/courses/ams"
+  },
+  {
+    "title": "Biomolecular Engineering",
+    "url": "https://courses.soe.ucsc.edu/courses/bme"
+  },
+  {
+    "title": "Computational Media",
+    "url": "https://courses.soe.ucsc.edu/courses/cmpm"
+  },
+  {
+    "title": "Computer Engineering",
+    "url": "https://courses.soe.ucsc.edu/courses/cmpe"
+  },
+  {
+    "title": "Computer Science",
+    "url": "https://courses.soe.ucsc.edu/courses/cmps"
+  },
+  {
+    "title": "Electrical Engineering",
+    "url": "https://courses.soe.ucsc.edu/courses/ee"
+  },
+  {
+    "title": "Games and Playable Media",
+    "url": "https://courses.soe.ucsc.edu/courses/game"
+  },
+  {
+    "title": "Technology & Information Management",
+    "url": "https://courses.soe.ucsc.edu/courses/tim"
+  }
 ]

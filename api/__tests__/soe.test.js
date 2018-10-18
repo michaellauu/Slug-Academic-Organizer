@@ -1,6 +1,5 @@
 const SOE = require("../soe");
-const GE = require("../ge.json");
-const axios = require("axios");
+const GE = require("../data/ge.json");
 
 /* Simple test file for scraper.js, if more functions
  * are developed, I'll be testing them here for now
@@ -8,27 +7,30 @@ const axios = require("axios");
 
 // soe.js -------------------------------------------------
 
-// All departments
+describe("Test ge, department, & course validity", () => {
+  test("Returns true: ge exists", () => {
+    expect(SOE.checkGE("cc")).toEqual(true);
+  });
 
-// All courses
+  test("Returns false: ge non-existent", () => {
+    expect(SOE.checkGE("fm")).toEqual(false);
+  });
 
-// Check if course exists: true
+  test("Returns true: department exists", () => {
+    expect(SOE.checkDepartment("Computer Engineering")).toEqual(true);
+  });
 
-// Check if course exists: false
+  test("Returns false: department non-existent", () => {
+    expect(SOE.checkDepartment("Applied")).toEqual(false);
+  });
 
-// Returns all courses currently
+  test("Returns true: course exists", () => {
+    expect(SOE.checkCourse("cmps5j")).toEqual(true);
+  });
+
+  test("Returns false: course non-existent", () => {
+    expect(SOE.checkCourse("121cmps")).toEqual(false);
+  });
+});
 
 // generalEd.js -------------------------------------------
-
-// console.log(ge.CC.disc);
-test("Returns description of CC ge", () => {
-  expect(GE.CC.disc).toBe("Cross-Cultural Analysis");
-});
-// console.log(ge.SR.credits);
-test("Returns minimum credit of SR ge", () => {
-  expect(GE.SR.credits).toBe(5);
-});
-// console.log(ge.PE.types["PE-E"]);
-test("Returns description of PE-E ge", () => {
-  expect(GE.PE.types["PE-E"]).toBe("Environmental Awareness");
-});

@@ -3,32 +3,23 @@
 // Refer to test.js which handles testing for the web scraper
 
 const axios = require("axios");
-// const adapter = require("axios/lib/adapters/http");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const classes = require("./data/courses.json");
+const branches = require("./data/departments.json");
+const general = require("./data/ge.json");
 const cmps = "https://courses.soe.ucsc.edu/courses/cmps";
 
 /* Use of scraper documentation can be found here:
  * https://www.npmjs.com/package/cheerio
- * https://www.npmjs.com/package/request-promise-native
+ * https://www.npmjs.com/package/axios
+ * https://nodejs.org/api/fs.html
 */
 
-/* Alternative way of using axios
-try {
-    const res = await axios.get("https://courses.soe.ucsc.edu/");
-    const html = await res.data;
-    const $ = cheerio.load(html);
-    let departments = [];
-    $("h2").map((i, elem) => {
-      departments.push($(elem).text());
-    });
-    return departments;
-  } catch (e) {
-    console.log("error", e);
-  }
-*/
-
-// Get all departments in SOE
+/* Return all BSOE departments in JSON
+ * DON'T CALL UNLESS FRESH JSON IS NEEDED
+ * go to ./data to check departments.json
+ */
 const getDepartments = () => {
   axios
     .get("https://courses.soe.ucsc.edu/")
@@ -37,6 +28,7 @@ const getDepartments = () => {
         const html = res.data;
         const $ = cheerio.load(html);
         let departments = [];
+        // Grab elements and store as object
         $("h2").map((i, elem) => {
           departments[i] = {
             title: $(elem)
@@ -44,6 +36,7 @@ const getDepartments = () => {
               .trim()
           };
         });
+        // Create JSON from departments
         fs.writeFile(
           "data/departments.json",
           JSON.stringify(departments, null, 4),
@@ -56,7 +49,10 @@ const getDepartments = () => {
     .catch(e => console.log(e));
 };
 
-// Get all courses in SOE
+/* Return all BSOE courses in JSON
+ * DON'T CALL UNLESS FRESH JSON IS NEEDED
+ * go to ./data to check courses.json
+ */
 const getCourses = () => {
   axios
     .get("https://courses.soe.ucsc.edu/")
@@ -65,15 +61,17 @@ const getCourses = () => {
         const html = res.data;
         const $ = cheerio.load(html);
         let courses = [];
+        // Grab elements and store as object
         $("li").map((i, elem) => {
           let str = $(elem)
             .text()
             .split(":");
           courses[i] = {
-            courseID: str[0],
-            courseTitle: str[1]
+            courseID: str[0].trim(),
+            courseTitle: str[1].trim()
           };
         });
+        // Create JSON from courses
         fs.writeFile(
           "data/courses.json",
           JSON.stringify(courses, null, 4),
@@ -86,29 +84,68 @@ const getCourses = () => {
     .catch(e => console.log(e));
 };
 
-// Check if course exists by courseID
-const checkCourse = title => {
-  axios
-    .get("https://courses.soe.ucsc.edu/")
-    .then(res => {
-      if (res.status === 200) {
-        const html = res.data;
-        const $ = cheerio.load(html);
-        $("li").map((i, elem) => {
-          let str = $(elem)
-            .text()
-            .split(":");
-          if (title.toUpperCase() === str[0]) {
-            return true;
-          }
-        });
-        return false;
-      }
-    })
-    .catch(e => console.log(e));
+// Check if ge exists
+const checkGE = ge => {
+  // Loop through JSON to find a match
+  for (let i = 0; i < general.length; i++) {
+    if (general[i].geID === ge.toUpperCase()) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
-// module.exports.quarterSchedule = course => {
+// Check if department exists by title
+const checkDepartment = office => {
+  // Loop through JSON to find a match
+  for (let i = 0; i < branches.length; i++) {
+    if (branches[i].title === office) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+// Check if course exists by courseID
+const checkCourse = id => {
+  // Loop through JSON to find a match
+  for (let i = 0; i < classes.length; i++) {
+    if (classes[i].courseID === id.toUpperCase()) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+// axios
+//     .get("https://courses.soe.ucsc.edu/")
+//     .then(res => {
+//       if (res.status === 200) {
+//         const html = res.data;
+//         const $ = cheerio.load(html);
+//         let departments = [];
+//         $("h2").map((i, elem) => {
+//           departments[i] = {
+//             title: $(elem)
+//               .text()
+//               .trim()
+//           };
+//         });
+//         fs.writeFile(
+//           "data/departments.json",
+//           JSON.stringify(departments, null, 4),
+//           err => {
+//             console.log("File successfully written");
+//           }
+//         );
+//       }
+//     })
+//     .catch(e => console.log(e));
+
+// const getSchedule = course => {
 //   let info = [];
 //   const schedule = {};
 //   rp(cmps)
@@ -146,5 +183,7 @@ const checkCourse = title => {
 module.exports = {
   getDepartments,
   getCourses,
+  checkGE,
+  checkDepartment,
   checkCourse
 };

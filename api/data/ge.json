@@ -1,34 +1,42 @@
-{
-  "CC": {
-    "disc": "Cross-Cultural Analysis",
+[
+  {
+    "geID": "CC",
+    "desc": "Cross-Cultural Analysis",
     "credits": 5
   },
-  "ER": {
-    "disc": "Ethnicity and Race",
+  {
+    "geID": "ER",
+    "desc": "Ethnicity and Race",
     "credits": 5
   },
-  "IM": {
-    "disc": "Interpreting Arts and Media",
+  {
+    "geID": "IM",
+    "desc": "Interpreting Arts and Media",
     "credits": 5
   },
-  "MF": {
-    "disc": "Mathematical and Formal Reasoning",
+  {
+    "geID": "MF",
+    "desc": "Mathematical and Formal Reasoning",
     "credits": 5
   },
-  "SI": {
-    "disc": "Scientific Inquiry",
+  {
+    "geID": "SI",
+    "desc": "Scientific Inquiry",
     "credits": 5
   },
-  "SR": {
-    "disc": "Statistical Reasoning",
+  {
+    "geID": "SR",
+    "desc": "Statistical Reasoning",
     "credits": 5
   },
-  "TA": {
-    "disc": "Textual Analysis and Interpretation",
-    " credits": 5
+  {
+    "geID": "TA",
+    "desc": "Textual Analysis and Interpretation",
+    "credits": 5
   },
-  "PE": {
-    "disc": "Perspectives",
+  {
+    "geID": "PE",
+    "desc": "Perspectives",
     "types": {
       "PE-E": "Environmental Awareness",
       "PE-H": "Human Behavior",
@@ -36,8 +44,9 @@
     },
     "credits": 5
   },
-  "PR": {
-    "disc": "Practice",
+  {
+    "geID": "PR",
+    "desc": "Practice",
     "types": {
       "PR-E": "Collaborative Endeavor",
       "PR-C": "Creative Process",
@@ -45,16 +54,19 @@
     },
     "credits": 2
   },
-  "C1": {
-    "disc": "Core Composition 1",
+  {
+    "geID": "C1",
+    "desc": "Core Composition 1",
     "credits": 5
   },
-  "C2": {
-    "disc": "Core Composition 2",
+  {
+    "geID": "C2",
+    "desc": "Core Composition 2",
     "credits": 5
   },
-  "DC": {
-    "disc": "Disciplinary Communication",
+  {
+    "geID": "DC",
+    "desc": "Disciplinary Communication",
     "credits": 5
   }
-}
+]
