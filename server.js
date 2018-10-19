@@ -14,7 +14,7 @@ app.use(
 app.use(bodyParser.json());
 
 app.get("/api", (req, res) => {
-  res.send({ express: Connected! });
+  res.send({ express: "Connected!" });
 });
 
 app.post("/api/getClasses", (req, res) => {
