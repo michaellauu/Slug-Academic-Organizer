@@ -1,12 +1,3193 @@
 [
     {
+        "courseID": "AMS3",
+        "courseTitle": "Precalculus for the Social Sciences",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Pascale Garaud (pgaraud)"
+        ]
+    },
+    {
+        "courseID": "AMS5",
+        "courseTitle": "Statistics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 02",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 02",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 02",
+            "Yonatan Katznelson (yorik)"
+        ]
+    },
+    {
+        "courseID": "AMS6",
+        "courseTitle": "Precalculus for Statistics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS7",
+        "courseTitle": "Statistical Methods for the Biological, Environmental, and Health Sciences",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Draper (draper)",
+            "Section 02",
+            "Bruno S Mendes (mendes)",
+            "Section 01",
+            "Staff",
+            "Section 01",
+            "Yonatan Katznelson (yorik)"
+        ]
+    },
+    {
+        "courseID": "AMS7L",
+        "courseTitle": "Statistical Methods for the Biological, Environmental, and Health Sciences Laboratory",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Matthew Joseph Heiner (mheiner)",
+            "Section 02",
+            "Sharmistha Guha (shguha)",
+            "Section 01",
+            "Staff",
+            "Section 02",
+            "Staff",
+            "Section 01",
+            "Staff",
+            "Section 02",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS10",
+        "courseTitle": "Mathematical Methods for Engineers I",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marcella Gomez (mgomez26)",
+            "Section 01",
+            "Nicholas H Brummell (brummell)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS10A",
+        "courseTitle": "Basic Mathematical Methods for Engineers I",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS11A",
+        "courseTitle": "Mathematical Methods for Economists I",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 01",
+            "Yonatan Katznelson (yorik)"
+        ]
+    },
+    {
+        "courseID": "AMS11B",
+        "courseTitle": "Mathematical Methods for Economists II",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Hongyun Wang (hongwang)"
+        ]
+    },
+    {
+        "courseID": "AMS15A",
+        "courseTitle": "Case-Study Calculus I",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS15B",
+        "courseTitle": "Case-Study Calculus II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS20",
+        "courseTitle": "Mathematical Methods for Engineers II",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Qi Gong (qgong)",
+            "Section 01",
+            "Abhishek Halder (ahalder)"
+        ]
+    },
+    {
+        "courseID": "AMS20A",
+        "courseTitle": "Basic Mathematical Methods for Engineers II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS27L",
+        "courseTitle": "Mathematical Methods for Engineers Laboratory",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS80A",
+        "courseTitle": "Gambling and Gaming",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rajarshi Guhaniyogi (rguhaniy)",
+            "Section 01",
+            "Bruno S Mendes (mendes)"
+        ]
+    },
+    {
+        "courseID": "AMS80B",
+        "courseTitle": "The Art of Data Visualization",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS100",
+        "courseTitle": "Mathematical Methods for Engineers III",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS107",
+        "courseTitle": "Introduction to Fluid Dynamics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)"
+        ]
+    },
+    {
+        "courseID": "AMS113",
+        "courseTitle": "Managerial Statistics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS114",
+        "courseTitle": "Introduction to Dynamical Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS115",
+        "courseTitle": "Stochastic Modeling in Biology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS129",
+        "courseTitle": "Foundations of Scientific Computing for Scientists and Engineers",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Youngjun Lee (ylee109)"
+        ]
+    },
+    {
+        "courseID": "AMS131",
+        "courseTitle": "Introduction to Probability Theory",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Athanasios Kottas (thanos)",
+            "Section 02",
+            "Raquel Prado (rprado)",
+            "Section 01",
+            "Ju Hee Lee (jle297)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS132",
+        "courseTitle": "Classical and Bayesian Inference",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS147",
+        "courseTitle": "Computational Methods and Applications",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS148",
+        "courseTitle": "GPU Programming for Scientific Computations",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS156",
+        "courseTitle": "Linear Regression",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS162",
+        "courseTitle": "Design and Analysis of Computer Simulation Experiments",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS200",
+        "courseTitle": "Research and Teaching in AMS",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Pascale Garaud (pgaraud)",
+            "Athanasios Kottas (thanos)"
+        ]
+    },
+    {
+        "courseID": "AMS202",
+        "courseTitle": "Linear Models in SAS",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS203",
+        "courseTitle": "Introduction of Probability Theory",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ju Hee Lee (jle297)"
+        ]
+    },
+    {
+        "courseID": "AMS204",
+        "courseTitle": "Introduction to Statistical Data Analysis",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Raquel Prado (rprado)"
+        ]
+    },
+    {
+        "courseID": "AMS205B",
+        "courseTitle": "Intermediate Classical Inference",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Abel Rodriguez (abel.rod)"
+        ]
+    },
+    {
+        "courseID": "AMS206",
+        "courseTitle": "Applied Bayesian Statistics",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Draper (draper)"
+        ]
+    },
+    {
+        "courseID": "AMS206B",
+        "courseTitle": "Intermediate Bayesian Inference",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ju Hee Lee (jle297)"
+        ]
+    },
+    {
+        "courseID": "AMS207",
+        "courseTitle": "Intermediate Bayesian Statistical Modeling",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno Sanso (bsanso)",
+            "Section 50",
+            "Bruno Sanso (bsanso)"
+        ]
+    },
+    {
+        "courseID": "AMS211",
+        "courseTitle": "Foundations of Applied Mathematics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Hongyun Wang (hongwang)"
+        ]
+    },
+    {
+        "courseID": "AMS212A",
+        "courseTitle": "Applied Mathematical Methods I",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marcella Gomez (mgomez26)"
+        ]
+    },
+    {
+        "courseID": "AMS212B",
+        "courseTitle": "Applied Mathematical Methods II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS213",
+        "courseTitle": "Numerical Solutions of Differential Equations",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS213A",
+        "courseTitle": "Numerical Linear Algebra",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Dongwook Lee (dlee79)"
+        ]
+    },
+    {
+        "courseID": "AMS213B",
+        "courseTitle": "Numerical Methods for the Solution of Differential equations",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Hongyun Wang (hongwang)"
+        ]
+    },
+    {
+        "courseID": "AMS214",
+        "courseTitle": "Applied Dynamical Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS215",
+        "courseTitle": "Stochastic Modeling in Biology",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marcella Gomez (mgomez26)"
+        ]
+    },
+    {
+        "courseID": "AMS216",
+        "courseTitle": "Stochastic Differential Equations",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS217",
+        "courseTitle": "Introduction to Fluid Dynamics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)"
+        ]
+    },
+    {
+        "courseID": "AMS221",
+        "courseTitle": "Bayesian Decision Theory",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno Sanso (bsanso)"
+        ]
+    },
+    {
+        "courseID": "AMS223",
+        "courseTitle": "Time Series Analysis",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS225",
+        "courseTitle": "Multivariate Statistical Methods",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS227",
+        "courseTitle": "Waves and Instabilities in Fluids",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS229",
+        "courseTitle": "Convex Optimization",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Abhishek Halder (ahalder)"
+        ]
+    },
+    {
+        "courseID": "AMS230",
+        "courseTitle": "Numerical Optimization",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Qi Gong (qgong)"
+        ]
+    },
+    {
+        "courseID": "AMS231",
+        "courseTitle": "Nonlinear Control Theory",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS232",
+        "courseTitle": "Applied Optimal Control",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Abhishek Halder (ahalder)"
+        ]
+    },
+    {
+        "courseID": "AMS236",
+        "courseTitle": "Motion Coordination of Robotic Networks",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS238",
+        "courseTitle": "Fundamentals of Uncertainty Quantification in Computational Science and Engineering",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS241",
+        "courseTitle": "Bayesian Nonparametric Methods",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS245",
+        "courseTitle": "Spatial Statistics",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno Sanso (bsanso)"
+        ]
+    },
+    {
+        "courseID": "AMS250",
+        "courseTitle": "An Introduction to High Performance Computing",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)"
+        ]
+    },
+    {
+        "courseID": "AMS256",
+        "courseTitle": "Linear Statistical Models",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Raquel Prado (rprado)"
+        ]
+    },
+    {
+        "courseID": "AMS260",
+        "courseTitle": "Computational Fluid Dynamics",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Dongwook Lee (dlee79)"
+        ]
+    },
+    {
+        "courseID": "AMS261",
+        "courseTitle": "Probability Theory with Markov Chains",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS263",
+        "courseTitle": "Stochastic Processes",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Rajarshi Guhaniyogi (rguhaniy)"
+        ]
+    },
+    {
+        "courseID": "AMS266A",
+        "courseTitle": "Data Visualization and Statistical Programming in R",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniel Spencer (daspence)"
+        ]
+    },
+    {
+        "courseID": "AMS266B",
+        "courseTitle": "Advanced Statistical Programming in R",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS266C",
+        "courseTitle": "Introduction to Data Wrangling",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS268",
+        "courseTitle": "Advanced Bayesian Computation",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS274",
+        "courseTitle": "Generalized Linear Models",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Athanasios Kottas (thanos)"
+        ]
+    },
+    {
+        "courseID": "AMS275",
+        "courseTitle": "Magnetohydrodynamics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS276",
+        "courseTitle": "Bayesian Survival Analysis and Clinical Trial Design",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS280A",
+        "courseTitle": "Seminar in Mathematical and Computational Biology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS280B",
+        "courseTitle": "Seminars in Statistical and Applied Mathematical Modeling",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ju Hee Lee (jle297)",
+            "AMS 280B section 01 intended for Statistics graduate students",
+            "Section 02",
+            "Marcella Gomez (mgomez26)",
+            "AMS 280B section 01 intended for Applied Mathematics graduate students",
+            "Section 01",
+            "Staff",
+            "AMS 280B section 01 intended for Statistics graduate students",
+            "Section 02",
+            "Abhishek Halder (ahalder)",
+            "AMS 280B section 02 intended for Applied Mathematics graduate students",
+            "Section 01",
+            "Rajarshi Guhaniyogi (rguhaniy)",
+            "AMS 280B section 01 intended for Statistics graduate students",
+            "Section 02",
+            "Daniele Venturi (venturi)",
+            "AMS 280B section 02 intended for Applied Mathematics graduate students"
+        ]
+    },
+    {
+        "courseID": "AMS280C",
+        "courseTitle": "Seminar in Geophysical & Astrophysical Fluid Dynamics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)",
+            "Section 01",
+            "Pascale Garaud (pgaraud)",
+            "Section 01",
+            "Dongwook Lee (dlee79)"
+        ]
+    },
+    {
+        "courseID": "AMS280D",
+        "courseTitle": "Seminar in Bayesian Statistical Methodology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS285",
+        "courseTitle": "Seminar in Career Skills",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS290A",
+        "courseTitle": "Topics in Mathematical and Computational Biology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS290B",
+        "courseTitle": "Advanced Topics in the Numerical Solution of PDEs",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS291",
+        "courseTitle": "Advanced Topics in Bayesian Statistics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME5",
+        "courseTitle": "Introduction to Biotechnology",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Wendy F Rothwell (wrothwel)",
+            "Section 01",
+            "Wendy F Rothwell (wrothwel)"
+        ]
+    },
+    {
+        "courseID": "BME18",
+        "courseTitle": "Scientific Principles of Life",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "David Haussler (haussler)"
+        ]
+    },
+    {
+        "courseID": "BME51A",
+        "courseTitle": "Applied Electronics for Bioengineers part 1",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Kevin Karplus (karplus)"
+        ]
+    },
+    {
+        "courseID": "BME51B",
+        "courseTitle": "Applied Electronics for Bioengineers part 2",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Kevin Karplus (karplus)"
+        ]
+    },
+    {
+        "courseID": "BME80G",
+        "courseTitle": "Bioethics in the 21st Century",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Sandra Lyn Dreisbach (sdreisba)"
+        ]
+    },
+    {
+        "courseID": "BME80H",
+        "courseTitle": "The Human Genome",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Wendy F Rothwell (wrothwel)",
+            "Section 01",
+            "Wendy F Rothwell (wrothwel)"
+        ]
+    },
+    {
+        "courseID": "BME88A",
+        "courseTitle": "BMES Freshman Design Seminar",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME101",
+        "courseTitle": "Applied Electronics for Bioengineers",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME101L",
+        "courseTitle": "Applied Electronics for Bioengineers Lab",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME105",
+        "courseTitle": "Genetics in the Genomics Era",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Angela Brooks (anbrooks)"
+        ]
+    },
+    {
+        "courseID": "BME110",
+        "courseTitle": "Computational Biology Tools",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Russell Corbett-Detig (rucorbet)",
+            "Section 01",
+            "Daniel H. Kim (dkim142)"
+        ]
+    },
+    {
+        "courseID": "BME122H",
+        "courseTitle": "Extreme Environmental Virology",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "David L Bernick (dbernick)"
+        ]
+    },
+    {
+        "courseID": "BME123A",
+        "courseTitle": "Bioengineering Project 1",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME123T",
+        "courseTitle": "Senior Thesis Presentation",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Terry Terhaar (tterhaar)"
+        ]
+    },
+    {
+        "courseID": "BME128",
+        "courseTitle": "Protein Engineering",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rebecca M Dubois (rmdubois)"
+        ]
+    },
+    {
+        "courseID": "BME128L",
+        "courseTitle": "Protein Engineering Laboratory",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rebecca M Dubois (rmdubois)"
+        ]
+    },
+    {
+        "courseID": "BME129A",
+        "courseTitle": "Project Design and Implementation in Biomolecular Engineering I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nader Pourmand (npourman)"
+        ]
+    },
+    {
+        "courseID": "BME129B",
+        "courseTitle": "Project Design and Implementation in Biomolecular Engineering II",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Mark Akeson (makeson)"
+        ]
+    },
+    {
+        "courseID": "BME129C",
+        "courseTitle": "Project Design and Implementation in Biomolecular Engineering III",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David L Bernick (dbernick)"
+        ]
+    },
+    {
+        "courseID": "BME130",
+        "courseTitle": "Genomes",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Richard E Green (regreen)"
+        ]
+    },
+    {
+        "courseID": "BME132",
+        "courseTitle": "Evolutionary Genomics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Russell Corbett-Detig (rucorbet)"
+        ]
+    },
+    {
+        "courseID": "BME140",
+        "courseTitle": "Bioinstrumentation",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nader Pourmand (npourman)"
+        ]
+    },
+    {
+        "courseID": "BME150",
+        "courseTitle": "Molecular Biomechanics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME155",
+        "courseTitle": "Biotechnology and Drug Development",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME160",
+        "courseTitle": "Research Programming in the Life Sciences",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David L Bernick (dbernick)",
+            "Section 01",
+            "David L Bernick (dbernick)"
+        ]
+    },
+    {
+        "courseID": "BME160L",
+        "courseTitle": "Research Programming in the Life Sciences Laboratory",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David L Bernick (dbernick)",
+            "Section 01",
+            "David L Bernick (dbernick)"
+        ]
+    },
+    {
+        "courseID": "BME163",
+        "courseTitle": "Applied Visualization and Analysis of Scientific Data",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Christopher Vollmers (vollmers)"
+        ]
+    },
+    {
+        "courseID": "BME170",
+        "courseTitle": "Frontiers in Drug Action and Discovery",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME177",
+        "courseTitle": "Engineering Stem Cells",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniel H. Kim (dkim142)"
+        ]
+    },
+    {
+        "courseID": "BME178",
+        "courseTitle": "Stem Cell Biology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME180",
+        "courseTitle": "Professional Practice in Bioengineering",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David L Bernick (dbernick)"
+        ]
+    },
+    {
+        "courseID": "BME185",
+        "courseTitle": "Technical Writing for Biomolecular Engineers",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Joy Hagen (joyhagen)"
+        ]
+    },
+    {
+        "courseID": "BME188A",
+        "courseTitle": "Synthetic Biology Mentored Research A",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME188B",
+        "courseTitle": "Synthetic Biology Mentored Research B",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME194",
+        "courseTitle": "Group Tutorial",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME194F",
+        "courseTitle": "Group Tutorial",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME200",
+        "courseTitle": "Research and Teaching in Bioinformatics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME201",
+        "courseTitle": "Scientific Writing",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Joshua M Stuart (jstuart)"
+        ]
+    },
+    {
+        "courseID": "BME205",
+        "courseTitle": "Bioinformatics Models and Algorithms",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "David L Bernick (dbernick)"
+        ]
+    },
+    {
+        "courseID": "BME207",
+        "courseTitle": "Biomolecular Recognition",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME215",
+        "courseTitle": "Applied Gene Technology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME222",
+        "courseTitle": "Applied Biotechnology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME225",
+        "courseTitle": "Protein Function in Biology and Bioinformatics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME228",
+        "courseTitle": "Protein Engineering",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME229",
+        "courseTitle": "Protein and Cell Engineering",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rebecca M Dubois (rmdubois)",
+            "Camilla E Forsberg (cforsber)"
+        ]
+    },
+    {
+        "courseID": "BME230A",
+        "courseTitle": "Introduction to Computational Genomics and Systems Biology",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benedict John Paten (bpaten)",
+            "Joshua M Stuart (jstuart)",
+            "David Haussler (haussler)"
+        ]
+    },
+    {
+        "courseID": "BME230B",
+        "courseTitle": "Advanced Computational Genomics and Systems Biology",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benedict John Paten (bpaten)",
+            "Joshua M Stuart (jstuart)",
+            "David Haussler (haussler)"
+        ]
+    },
+    {
+        "courseID": "BME232",
+        "courseTitle": "Evolutionary Genomics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Russell Corbett-Detig (rucorbet)"
+        ]
+    },
+    {
+        "courseID": "BME233",
+        "courseTitle": "A Technological History of Antibody Genetics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME235",
+        "courseTitle": "Banana Slug Genomics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME237",
+        "courseTitle": "Applied RNA Bioinformatics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME250",
+        "courseTitle": "Molecular Biomechanics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME255",
+        "courseTitle": "Biotechnology and Drug Development",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME263",
+        "courseTitle": "Applied Visualization and Analysis of Scientific Data",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Christopher Vollmers (vollmers)"
+        ]
+    },
+    {
+        "courseID": "BME268A",
+        "courseTitle": "Science and Justice",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME268B",
+        "courseTitle": "Science and Justice Research Seminar",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME270",
+        "courseTitle": "Frontiers in Drug Action and Discovery",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME280B",
+        "courseTitle": "Seminar on Bioinformatics & Bioengineering",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Richard E Green (regreen)",
+            "Section 01",
+            "Joshua M Stuart (jstuart)",
+            "Section 01",
+            "Todd M J Lowe (tmjlowe)"
+        ]
+    },
+    {
+        "courseID": "BME281A",
+        "courseTitle": "Seminar on Processive Enzymes and Nanopores",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Mark Akeson (makeson)",
+            "Section 01",
+            "Mark Akeson (makeson)"
+        ]
+    },
+    {
+        "courseID": "BME281B",
+        "courseTitle": "HIV Vaccine Research",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Phillip W Berman (pwb)",
+            "Section 01",
+            "Phillip W Berman (pwb)"
+        ]
+    },
+    {
+        "courseID": "BME281C",
+        "courseTitle": "Seminar in Cancer Genomics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Haussler (haussler)",
+            "Joshua M Stuart (jstuart)",
+            "Section 01",
+            "David Haussler (haussler)",
+            "Joshua M Stuart (jstuart)",
+            "Section 01",
+            "David Haussler (haussler)",
+            "Joshua M Stuart (jstuart)"
+        ]
+    },
+    {
+        "courseID": "BME281D",
+        "courseTitle": "Seminar on Protein Engineering",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rebecca M Dubois (rmdubois)",
+            "Section 01",
+            "Rebecca M Dubois (rmdubois)",
+            "Section 01",
+            "Rebecca M Dubois (rmdubois)"
+        ]
+    },
+    {
+        "courseID": "BME281E",
+        "courseTitle": "Seminar in Genomics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Richard E Green (regreen)",
+            "Section 01",
+            "Richard E Green (regreen)",
+            "Section 01",
+            "Richard E Green (regreen)"
+        ]
+    },
+    {
+        "courseID": "BME281F",
+        "courseTitle": "Seminar on Blood Cell Development",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Camilla E Forsberg (cforsber)",
+            "Section 01",
+            "Camilla E Forsberg (cforsber)",
+            "Section 01",
+            "Camilla E Forsberg (cforsber)"
+        ]
+    },
+    {
+        "courseID": "BME281G",
+        "courseTitle": "Seminar on Protein Structure and Function",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME281H",
+        "courseTitle": "Seminar in Comparative Genomics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Haussler (haussler)",
+            "Section 01",
+            "David Haussler (haussler)",
+            "Section 01",
+            "David Haussler (haussler)"
+        ]
+    },
+    {
+        "courseID": "BME281J",
+        "courseTitle": "Seminar in Computational Genomics & Biomedicine",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benedict John Paten (bpaten)",
+            "Section 01",
+            "Benedict John Paten (bpaten)",
+            "Section 01",
+            "Benedict John Paten (bpaten)"
+        ]
+    },
+    {
+        "courseID": "BME281K",
+        "courseTitle": "Seminar on Protein Structure Prediction",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Kevin Karplus (karplus)",
+            "Section 01",
+            "Kevin Karplus (karplus)"
+        ]
+    },
+    {
+        "courseID": "BME281L",
+        "courseTitle": "Seminar in Computational Genetics",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Todd M J Lowe (tmjlowe)",
+            "Section 01",
+            "Todd M J Lowe (tmjlowe)"
+        ]
+    },
+    {
+        "courseID": "BME281N",
+        "courseTitle": "Seminar in Transcriptomics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Angela Brooks (anbrooks)",
+            "Section 01",
+            "Angela Brooks (anbrooks)",
+            "Section 01",
+            "Angela Brooks (anbrooks)"
+        ]
+    },
+    {
+        "courseID": "BME281P",
+        "courseTitle": "Seminar on Nanotechnology and Biosensors",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nader Pourmand (npourman)",
+            "Section 01",
+            "Nader Pourmand (npourman)",
+            "Section 01",
+            "Nader Pourmand (npourman)"
+        ]
+    },
+    {
+        "courseID": "BME281R",
+        "courseTitle": "Seminar in Stem Cell Genomics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniel H. Kim (dkim142)",
+            "Section 01",
+            "Daniel H. Kim (dkim142)",
+            "Section 01",
+            "Daniel H. Kim (dkim142)"
+        ]
+    },
+    {
+        "courseID": "BME281S",
+        "courseTitle": "Seminar in Computational Functional Genomics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Joshua M Stuart (jstuart)",
+            "Section 01",
+            "Joshua M Stuart (jstuart)",
+            "Section 01",
+            "Joshua M Stuart (jstuart)"
+        ]
+    },
+    {
+        "courseID": "BME281V",
+        "courseTitle": "Immunogenomics Seminar",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Christopher Vollmers (vollmers)",
+            "Section 01",
+            "Christopher Vollmers (vollmers)",
+            "Section 01",
+            "Christopher Vollmers (vollmers)"
+        ]
+    },
+    {
+        "courseID": "BME281Z",
+        "courseTitle": "Seminar in Population and Evolutionary Genomics",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Russell Corbett-Detig (rucorbet)",
+            "Section 01",
+            "Russell Corbett-Detig (rucorbet)"
+        ]
+    },
+    {
+        "courseID": "BME293",
+        "courseTitle": "Seminar in Biomolecular Engineering",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "BME296",
+        "courseTitle": "Research in Bioinformatics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE1",
+        "courseTitle": "Hands-On Computer Engineering",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE3",
+        "courseTitle": "Personal Computer Concepts",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Gerald B Moulds (gmoulds)",
+            "Section 01",
+            "Gerald B Moulds (gmoulds)",
+            "Section 01",
+            "Gerald B Moulds (gmoulds)"
+        ]
+    },
+    {
+        "courseID": "CMPE7",
+        "courseTitle": "Statistical Reasoning in the Age of the Internet",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE8",
+        "courseTitle": "Robot Automation",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Maxwell J Dunne (mdunne)"
+        ]
+    },
+    {
+        "courseID": "CMPE9",
+        "courseTitle": "Introduction to Statics Dynamics & Biomechanics",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Michael Wehner (miwehner)"
+        ]
+    },
+    {
+        "courseID": "CMPE10",
+        "courseTitle": "Fundamentals of Robot Kinematics and Dynamics",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Dejan Milutinovic (dmilutin)"
+        ]
+    },
+    {
+        "courseID": "CMPE11",
+        "courseTitle": "Three-D prototyping",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE12",
+        "courseTitle": "Computer Systems and Assembly Language",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rebecca Jennifer Rashkin (rrashkin)",
+            "Section 01",
+            "Jose Renau (renau)",
+            "Section 01",
+            "Maxwell J Dunne (mdunne)"
+        ]
+    },
+    {
+        "courseID": "CMPE12L",
+        "courseTitle": "Computer Systems and Assembly Language Laboratory",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rebecca Jennifer Rashkin (rrashkin)",
+            "Section 01",
+            "Jose Renau (renau)",
+            "Section 01",
+            "Maxwell J Dunne (mdunne)"
+        ]
+    },
+    {
+        "courseID": "CMPE13",
+        "courseTitle": "Computer Systems and C Programming",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff",
+            "Section 01",
+            "Darrell Long (darrell)"
+        ]
+    },
+    {
+        "courseID": "CMPE13L",
+        "courseTitle": "Computer Systems and C Programming Laboratory",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff",
+            "Section 01",
+            "Darrell Long (darrell)"
+        ]
+    },
+    {
+        "courseID": "CMPE16",
+        "courseTitle": "Applied Discrete Mathematics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Tracy Larrabee (larrabee)",
+            "Section 01",
+            "Tracy Larrabee (larrabee)",
+            "Section 01",
+            "Martine Schlag (martine)"
+        ]
+    },
+    {
+        "courseID": "CMPE80A",
+        "courseTitle": "Universal Access",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Roberto Manduchi (manduchi)"
+        ]
+    },
+    {
+        "courseID": "CMPE80E",
+        "courseTitle": "Engineering Ethics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE80H",
+        "courseTitle": "History of Modern Computing",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE80N",
+        "courseTitle": "Introduction to Networking and the Internet",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Christina Parsa (cparsa)",
+            "Section 01",
+            "Patrick E Mantey (mantey)",
+            "Section 01",
+            "Christina Parsa (cparsa)"
+        ]
+    },
+    {
+        "courseID": "CMPE80U",
+        "courseTitle": "Ubiquitous and Mobile Computing",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE100",
+        "courseTitle": "Logic Design",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Maxwell J Dunne (mdunne)",
+            "Section 01",
+            "Martine Schlag (martine)",
+            "Section 01",
+            "Martine Schlag (martine)"
+        ]
+    },
+    {
+        "courseID": "CMPE100L",
+        "courseTitle": "Logic Design Laboratory",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Maxwell J Dunne (mdunne)",
+            "Section 01",
+            "Martine Schlag (martine)",
+            "Section 01",
+            "Martine Schlag (martine)"
+        ]
+    },
+    {
+        "courseID": "CMPE105",
+        "courseTitle": "Principles of Computer Systems Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ethan L. Miller (elm)"
+        ]
+    },
+    {
+        "courseID": "CMPE107",
+        "courseTitle": "Probability and Statistics for Engineers (formerly Math Systems",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Mircea S.V. Teodorescu (mteodore)",
+            "Section 01",
+            "J J Garcia-Luna-Aceves (jjaceves)"
+        ]
+    },
+    {
+        "courseID": "CMPE108",
+        "courseTitle": "Data Compression",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE110",
+        "courseTitle": "Computer Architecture",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ethan L. Miller (elm)",
+            "Section 01",
+            "Heiner Litz (hlitz)",
+            "Section 01",
+            "Jose Renau (renau)"
+        ]
+    },
+    {
+        "courseID": "CMPE112",
+        "courseTitle": "Computer and Game Console Architecture",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE113",
+        "courseTitle": "Parallel Programming",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE114",
+        "courseTitle": "Embedded Operating Systems",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE115",
+        "courseTitle": "Introduction to Solid Mechanics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE118",
+        "courseTitle": "Introduction to Mechatronics",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Michael Wehner (miwehner)",
+            "Gabriel Elkaim (elkaim)",
+            "Section 01",
+            "Gabriel Elkaim (elkaim)",
+            "Michael Wehner (miwehner)"
+        ]
+    },
+    {
+        "courseID": "CMPE118L",
+        "courseTitle": "Introduction to Mechatronics Laboratory",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Michael Wehner (miwehner)",
+            "Gabriel Elkaim (elkaim)",
+            "Section 01",
+            "Gabriel Elkaim (elkaim)",
+            "Michael Wehner (miwehner)"
+        ]
+    },
+    {
+        "courseID": "CMPE121",
+        "courseTitle": "Microprocessor System Design",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Anujan Varma (varma)",
+            "Section 01",
+            "Anujan Varma (varma)"
+        ]
+    },
+    {
+        "courseID": "CMPE121L",
+        "courseTitle": "Microprocessor System Design Laboratory",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Anujan Varma (varma)",
+            "Section 01",
+            "Anujan Varma (varma)"
+        ]
+    },
+    {
+        "courseID": "CMPE122",
+        "courseTitle": "Introduction to VLSI Digital System Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Matthew R Guthaus (mrg)"
+        ]
+    },
+    {
+        "courseID": "CMPE123A",
+        "courseTitle": "Engineering Design Project I",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE123B",
+        "courseTitle": "Engineering Design Project II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE125",
+        "courseTitle": "Logic Design with Verilog",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Heiner Litz (hlitz)"
+        ]
+    },
+    {
+        "courseID": "CMPE125L",
+        "courseTitle": "Logic Design with Verilog Laboratory",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Heiner Litz (hlitz)"
+        ]
+    },
+    {
+        "courseID": "CMPE129A",
+        "courseTitle": "Capstone Project I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Gabriel Elkaim (elkaim)"
+        ]
+    },
+    {
+        "courseID": "CMPE129B",
+        "courseTitle": "Capstone Project II",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Gabriel Elkaim (elkaim)",
+            "Section 02",
+            "Maxwell J Dunne (mdunne)"
+        ]
+    },
+    {
+        "courseID": "CMPE129C",
+        "courseTitle": "Capstone Project III",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Gabriel Elkaim (elkaim)",
+            "Section 02",
+            "Maxwell J Dunne (mdunne)"
+        ]
+    },
+    {
+        "courseID": "CMPE131",
+        "courseTitle": "Human-Computer Interaction",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE138",
+        "courseTitle": "Computer Interaction of Persons with Limited Vision",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE141",
+        "courseTitle": "Feedback Control Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Dejan Milutinovic (dmilutin)"
+        ]
+    },
+    {
+        "courseID": "CMPE142",
+        "courseTitle": "Introduction to Cyber-physical Systems",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE145",
+        "courseTitle": "Estimation and Introduction to Control of Stochastic Processes",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE149",
+        "courseTitle": "Introduction to Cyber-physical Systems",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ricardo Sanfelice (ricardo)"
+        ]
+    },
+    {
+        "courseID": "CMPE150",
+        "courseTitle": "Introduction to Computer Networks",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Katia Obraczka (obraczka)",
+            "Section 01",
+            "Christina Parsa (cparsa)",
+            "Section 01",
+            "Chen Qian (cqian12)"
+        ]
+    },
+    {
+        "courseID": "CMPE150L",
+        "courseTitle": "Introduction to Computer Networks Laboratory",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Katia Obraczka (obraczka)",
+            "Section 01",
+            "Christina Parsa (cparsa)",
+            "Section 01",
+            "Chen Qian (cqian12)"
+        ]
+    },
+    {
+        "courseID": "CMPE151",
+        "courseTitle": "Advanced Computer Networks (formerly Network Administration)",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPE151L",
+        "courseTitle": "Advanced Computer Networks Laboratory",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPE153",
+        "courseTitle": "Digital Signal Processing",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE156",
+        "courseTitle": "Network Programming",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPE156L",
+        "courseTitle": "Network Programming Laboratory",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPE161",
+        "courseTitle": "Mobile Sensing and Interaction",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Roberto Manduchi (manduchi)"
+        ]
+    },
+    {
+        "courseID": "CMPE167",
+        "courseTitle": "Sensing and Sensor Technologies",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Maxwell J Dunne (mdunne)"
+        ]
+    },
+    {
+        "courseID": "CMPE167L",
+        "courseTitle": "Sensing and Sensor Technologies Lab",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Maxwell J Dunne (mdunne)"
+        ]
+    },
+    {
+        "courseID": "CMPE177",
+        "courseTitle": "Applied Graph Theory and Algorithms",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE185",
+        "courseTitle": "Technical Writing for Computer Engineers",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Gerald B Moulds (gmoulds)",
+            "Section 01",
+            "Gerald B Moulds (gmoulds)",
+            "Section 01",
+            "Gerald B Moulds (gmoulds)"
+        ]
+    },
+    {
+        "courseID": "CMPE200",
+        "courseTitle": "Research and Teaching in Computer Science and Engineering",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Katia Obraczka (obraczka)"
+        ]
+    },
+    {
+        "courseID": "CMPE202",
+        "courseTitle": "Computer Architecture",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Jose Renau (renau)",
+            "Section 01",
+            "Scott Beamer (sbeamer)"
+        ]
+    },
+    {
+        "courseID": "CMPE215",
+        "courseTitle": "Models of Robotic Manipulation",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Michael Wehner (miwehner)"
+        ]
+    },
+    {
+        "courseID": "CMPE216",
+        "courseTitle": "Bio-inspired Locomotion",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Mircea S.V. Teodorescu (mteodore)"
+        ]
+    },
+    {
+        "courseID": "CMPE218",
+        "courseTitle": "Mechatronics",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Michael Wehner (miwehner)",
+            "Gabriel Elkaim (elkaim)",
+            "Section 01",
+            "Gabriel Elkaim (elkaim)",
+            "Michael Wehner (miwehner)"
+        ]
+    },
+    {
+        "courseID": "CMPE218L",
+        "courseTitle": "Mechatronics",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Michael Wehner (miwehner)",
+            "Gabriel Elkaim (elkaim)",
+            "Section 01",
+            "Gabriel Elkaim (elkaim)",
+            "Michael Wehner (miwehner)"
+        ]
+    },
+    {
+        "courseID": "CMPE220",
+        "courseTitle": "Advanced Parallel Processing",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Heiner Litz (hlitz)"
+        ]
+    },
+    {
+        "courseID": "CMPE221",
+        "courseTitle": "Advanced Microprocessor Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE221L",
+        "courseTitle": "Advanced Microprocessor Design Laboratory",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE222",
+        "courseTitle": "VLSI Digital System Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Matthew R Guthaus (mrg)"
+        ]
+    },
+    {
+        "courseID": "CMPE223",
+        "courseTitle": "VLSI System-on-a-Chip Design",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Matthew R Guthaus (mrg)"
+        ]
+    },
+    {
+        "courseID": "CMPE224",
+        "courseTitle": "Testing Digital Circuits",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE225",
+        "courseTitle": "Introduction to ASIC Systems Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE226",
+        "courseTitle": "Computer-Aided Analysis of Electrical Circuits",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE229",
+        "courseTitle": "Field-Programmable Gate Arrays Computer-Assisted Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE230",
+        "courseTitle": "Computer Performance Evaluation",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE231",
+        "courseTitle": "Human-Computer Interaction",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE232",
+        "courseTitle": "Arithmetic Processors",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE233",
+        "courseTitle": "Human Factors",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE235",
+        "courseTitle": "User Evaluation of Technology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE236",
+        "courseTitle": "Understanding Cryptography",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE240",
+        "courseTitle": "Introduction to Linear Dynamical Systems",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Mircea S.V. Teodorescu (mteodore)"
+        ]
+    },
+    {
+        "courseID": "CMPE241",
+        "courseTitle": "Introduction to Feedback Control Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ricardo Sanfelice (ricardo)"
+        ]
+    },
+    {
+        "courseID": "CMPE242",
+        "courseTitle": "Applied Feedback Control",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE243",
+        "courseTitle": "System Identification",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Dejan Milutinovic (dmilutin)"
+        ]
+    },
+    {
+        "courseID": "CMPE244",
+        "courseTitle": "Digital Control",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Patrick E Mantey (mantey)"
+        ]
+    },
+    {
+        "courseID": "CMPE245",
+        "courseTitle": "Estimation and Introduction to Control of Stochastic Processes",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE246",
+        "courseTitle": "Hybrid Dynamical Systems",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE247",
+        "courseTitle": "Advanced Feedback Control Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE248",
+        "courseTitle": "Games in Design and Control",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE249",
+        "courseTitle": "Introduction to Cyber-physical Systems",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ricardo Sanfelice (ricardo)"
+        ]
+    },
+    {
+        "courseID": "CMPE250",
+        "courseTitle": "Multimedia Systems",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE251",
+        "courseTitle": "Error-Control Coding",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE252A",
+        "courseTitle": "Computer Networks",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Chen Qian (cqian12)"
+        ]
+    },
+    {
+        "courseID": "CMPE252B",
+        "courseTitle": "Principles of Computer Communication",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "J J Garcia-Luna-Aceves (jjaceves)"
+        ]
+    },
+    {
+        "courseID": "CMPE253",
+        "courseTitle": "Network Security",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Chen Qian (cqian12)"
+        ]
+    },
+    {
+        "courseID": "CMPE254",
+        "courseTitle": "High Speed Computer Networks",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE256",
+        "courseTitle": "Design Project in Computer Networks",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE257",
+        "courseTitle": "Wireless and Mobile Networks",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Katia Obraczka (obraczka)"
+        ]
+    },
+    {
+        "courseID": "CMPE258",
+        "courseTitle": "Unix Networking Internals",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE259",
+        "courseTitle": "Sensor Networks",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE263",
+        "courseTitle": "Data Compression",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE264",
+        "courseTitle": "Image Analysis and Computer Vision",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Roberto Manduchi (manduchi)"
+        ]
+    },
+    {
+        "courseID": "CMPE277",
+        "courseTitle": "Graph Algorithms",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE280B",
+        "courseTitle": "Seminar on Bioinformatics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE280C",
+        "courseTitle": "Seminar on Control",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Dejan Milutinovic (dmilutin)",
+            "Section 02",
+            "Ricardo Sanfelice (ricardo)",
+            "Section 03",
+            "Mircea S.V. Teodorescu (mteodore)",
+            "Section 01",
+            "Dejan Milutinovic (dmilutin)",
+            "Section 02",
+            "Ricardo Sanfelice (ricardo)",
+            "Section 03",
+            "Mircea S.V. Teodorescu (mteodore)",
+            "Section 01",
+            "Dejan Milutinovic (dmilutin)",
+            "Section 02",
+            "Ricardo Sanfelice (ricardo)",
+            "Section 03",
+            "Mircea S.V. Teodorescu (mteodore)"
+        ]
+    },
+    {
+        "courseID": "CMPE280G",
+        "courseTitle": "VLSI/CAD Seminar",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Matthew R Guthaus (mrg)",
+            "Section 01",
+            "Matthew R Guthaus (mrg)"
+        ]
+    },
+    {
+        "courseID": "CMPE280N",
+        "courseTitle": "Seminar on Networks",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Katia Obraczka (obraczka)",
+            "Section 02",
+            "Chen Qian (cqian12)",
+            "Section 01",
+            "Katia Obraczka (obraczka)",
+            "Section 02",
+            "Chen Qian (cqian12)",
+            "Section 01",
+            "Katia Obraczka (obraczka)",
+            "Section 02",
+            "Chen Qian (cqian12)"
+        ]
+    },
+    {
+        "courseID": "CMPE280P",
+        "courseTitle": "Seminar on Parallel Processing",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Jose Renau (renau)",
+            "Section 01",
+            "Jose Renau (renau)",
+            "Section 01",
+            "Jose Renau (renau)"
+        ]
+    },
+    {
+        "courseID": "CMPE280S",
+        "courseTitle": "Seminar on Computer Systems",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Darrell Long (darrell)",
+            "Section 01",
+            "Ethan L. Miller (elm)",
+            "Section 01",
+            "Darrell Long (darrell)"
+        ]
+    },
+    {
+        "courseID": "CMPE280T",
+        "courseTitle": "Seminar on New Technologies",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE280V",
+        "courseTitle": "Seminar on Computer Vision",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Roberto Manduchi (manduchi)",
+            "Section 01",
+            "Roberto Manduchi (manduchi)",
+            "Section 01",
+            "Roberto Manduchi (manduchi)"
+        ]
+    },
+    {
+        "courseID": "CMPE285",
+        "courseTitle": "Technical Writing for Engineering Graduates",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Tracy Larrabee (larrabee)"
+        ]
+    },
+    {
+        "courseID": "CMPE290L",
+        "courseTitle": "Advanced Topics in VLSI Computer-Aided Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE290M",
+        "courseTitle": "Topics in Parallel Computation",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE290N",
+        "courseTitle": "Topics in Computer Performance",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE290V",
+        "courseTitle": "Advanced Topics in Visual Computing",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPE293",
+        "courseTitle": "Advanced Topics in Computer Engineering",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Scott Beamer (sbeamer)"
+        ]
+    },
+    {
+        "courseID": "CMPM25",
+        "courseTitle": "Introduction to 3D Modeling",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Christopher Fraser Yonge (cyonge)",
+            "Section 01",
+            "Christopher Fraser Yonge (cyonge)"
+        ]
+    },
+    {
+        "courseID": "CMPM26",
+        "courseTitle": "Introduction to 3D Animation",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM80A",
+        "courseTitle": "Accessible Games",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM80K",
+        "courseTitle": "Foundations of Video Game Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sri Hastuti Kurniawan (skurnia)"
+        ]
+    },
+    {
+        "courseID": "CMPM120",
+        "courseTitle": "Game Development Experience",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nathan Altice (naltice)"
+        ]
+    },
+    {
+        "courseID": "CMPM131",
+        "courseTitle": "User Experience for Interactive Media",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sri Hastuti Kurniawan (skurnia)"
+        ]
+    },
+    {
+        "courseID": "CMPM146",
+        "courseTitle": "Game AI",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniel G Shapiro (dgs)"
+        ]
+    },
+    {
+        "courseID": "CMPM147",
+        "courseTitle": "Generative Design",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Jim Whitehead (ejw)"
+        ]
+    },
+    {
+        "courseID": "CMPM148",
+        "courseTitle": "Interactive Narrative",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM150",
+        "courseTitle": "Creating Digital Audio",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nathan Altice (naltice)"
+        ]
+    },
+    {
+        "courseID": "CMPM151",
+        "courseTitle": "Algorithmic Music for Games",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPM163",
+        "courseTitle": "Game Graphics and Real-Time Rendering",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Angus Forbes (anforbes)"
+        ]
+    },
+    {
+        "courseID": "CMPM164",
+        "courseTitle": "Game Engines Lab",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM164L",
+        "courseTitle": "Game Engines Lab",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM170",
+        "courseTitle": "Game Design Studio I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nathan Altice (naltice)"
+        ]
+    },
+    {
+        "courseID": "CMPM171",
+        "courseTitle": "Games Design Studio II",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Adam M. Smith (amsmith)"
+        ]
+    },
+    {
+        "courseID": "CMPM172",
+        "courseTitle": "Game Design Studio III",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Adam M. Smith (amsmith)"
+        ]
+    },
+    {
+        "courseID": "CMPM176",
+        "courseTitle": "Game Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nathan Altice (naltice)"
+        ]
+    },
+    {
+        "courseID": "CMPM177",
+        "courseTitle": "Creative Strategies for Designing Interactive Media",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM178",
+        "courseTitle": "Human-Centered Design Research",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Katherine C Isbister (kisbiste)"
+        ]
+    },
+    {
+        "courseID": "CMPM179",
+        "courseTitle": "Game Design Practicum",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Joel Dreskin (jdreskin)",
+            "Section 01",
+            "Staff",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPM201",
+        "courseTitle": "Introduction to Computational Media",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniel G Shapiro (dgs)"
+        ]
+    },
+    {
+        "courseID": "CMPM202",
+        "courseTitle": "Computational Media Research",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Angus Forbes (anforbes)"
+        ]
+    },
+    {
+        "courseID": "CMPM203",
+        "courseTitle": "Computational Media Methods",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Katherine C Isbister (kisbiste)"
+        ]
+    },
+    {
+        "courseID": "CMPM204",
+        "courseTitle": "Computational Media Project Definition",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Sri Hastuti Kurniawan (skurnia)"
+        ]
+    },
+    {
+        "courseID": "CMPM206",
+        "courseTitle": "Computational Media Research Preparation",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Noah G Wardrip-Fruin (nwardrip)",
+            "Section 01",
+            "Noah G Wardrip-Fruin (nwardrip)",
+            "Section 01",
+            "Katherine C Isbister (kisbiste)"
+        ]
+    },
+    {
+        "courseID": "CMPM235",
+        "courseTitle": "User Evaluation of Technology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM244",
+        "courseTitle": "Artificial Intelligence in Games",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM245",
+        "courseTitle": "Computational Models of Discourse and Dialogue",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM248",
+        "courseTitle": "Interactive Narrative",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM265",
+        "courseTitle": "Generative Methods",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM280G",
+        "courseTitle": "Seminar in Generative Methods",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Adam M. Smith (amsmith)",
+            "Section 20",
+            "Jim Whitehead (ejw)"
+        ]
+    },
+    {
+        "courseID": "CMPM280H",
+        "courseTitle": "Seminar in Human Computer Interaction and Computational Media",
+        "terms": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Katherine C Isbister (kisbiste)",
+            "Section 01",
+            "Katherine C Isbister (kisbiste)"
+        ]
+    },
+    {
+        "courseID": "CMPM280K",
+        "courseTitle": "Seminar in Interactive Systems for Individuals with Special Needs",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sri Hastuti Kurniawan (skurnia)",
+            "Section 01",
+            "Sri Hastuti Kurniawan (skurnia)",
+            "Section 01",
+            "Sri Hastuti Kurniawan (skurnia)"
+        ]
+    },
+    {
+        "courseID": "CMPM280W",
+        "courseTitle": "Seminar in Digital Media",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM280X",
+        "courseTitle": "Seminar on Expressive AI",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Noah G Wardrip-Fruin (nwardrip)",
+            "Section 01",
+            "Noah G Wardrip-Fruin (nwardrip)",
+            "Section 01",
+            "Noah G Wardrip-Fruin (nwardrip)"
+        ]
+    },
+    {
+        "courseID": "CMPM290A",
+        "courseTitle": "Topics in Computational Media",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Angus Forbes (anforbes)",
+            "Section 01",
+            "Nathan Altice (naltice)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "CMPM290J",
+        "courseTitle": "Playable Media",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Noah G Wardrip-Fruin (nwardrip)"
+        ]
+    },
+    {
+        "courseID": "CMPM290K",
+        "courseTitle": "Social and Emotional Approaches to Human Computer Interaction",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "CMPM290P",
+        "courseTitle": "Topics in Computational Cinematography",
+        "terms": [],
+        "sections": []
+    },
+    {
         "courseID": "CMPS5C",
-        "quarters": [],
+        "courseTitle": "Introduction to Programming in C/C++",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS5J",
-        "quarters": [
+        "courseTitle": "Introduction to Programming in Java",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -22,7 +3203,8 @@
     },
     {
         "courseID": "CMPS5P",
-        "quarters": [
+        "courseTitle": "Introduction to Programming in Python",
+        "terms": [
             "Winter19",
             "Spring19"
         ],
@@ -35,12 +3217,14 @@
     },
     {
         "courseID": "CMPS10",
-        "quarters": [],
+        "courseTitle": "Introduction to Computer Science",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS11",
-        "quarters": [
+        "courseTitle": "Intermediate Programming",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -50,7 +3234,8 @@
     },
     {
         "courseID": "CMPS12A",
-        "quarters": [
+        "courseTitle": "Introduction to Programming (Accelerated)",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -66,7 +3251,8 @@
     },
     {
         "courseID": "CMPS12B",
-        "quarters": [
+        "courseTitle": "Introduction to Data Structures",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -88,7 +3274,8 @@
     },
     {
         "courseID": "CMPS12L",
-        "quarters": [
+        "courseTitle": "Computer Programming Laboratory",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -104,7 +3291,8 @@
     },
     {
         "courseID": "CMPS12M",
-        "quarters": [
+        "courseTitle": "Data Structures Laboratory",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -126,77 +3314,92 @@
     },
     {
         "courseID": "CMPS13H",
-        "quarters": [],
+        "courseTitle": "Introduction to Programming and Data Structures (Honors)",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS13L",
-        "quarters": [],
+        "courseTitle": "Introduction to Programming and Data Structures Laboratory",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS17",
-        "quarters": [],
+        "courseTitle": "Social Networks",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS20",
-        "quarters": [],
+        "courseTitle": "Game Design Experience",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS25",
-        "quarters": [],
+        "courseTitle": "Introduction to Computer Graphics",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS26",
-        "quarters": [],
+        "courseTitle": "Introduction to Computer Graphics",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS60M",
-        "quarters": [],
+        "courseTitle": "Scientific Computation with Matlab and Maple",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS80B",
-        "quarters": [],
+        "courseTitle": "Systems and Simulation",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS80G",
-        "quarters": [],
+        "courseTitle": "Introduction to Unix",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS80J",
-        "quarters": [],
+        "courseTitle": "Technology Targeted at Social Issues",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS80K",
-        "quarters": [],
+        "courseTitle": "Foundations of Interactive Game Design",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS80L",
-        "quarters": [],
+        "courseTitle": "Social Data Analytics and Visualization",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS80S",
-        "quarters": [],
+        "courseTitle": "From Software Innovation to Social Entrepreneurship",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS80V",
-        "quarters": [],
+        "courseTitle": "Creating Virtual Worlds on the Web",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS101",
-        "quarters": [
+        "courseTitle": "Algorithms and Abstract Data Types",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -218,7 +3421,8 @@
     },
     {
         "courseID": "CMPS102",
-        "quarters": [
+        "courseTitle": "Introduction to Analysis of Algorithms",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -234,7 +3438,8 @@
     },
     {
         "courseID": "CMPS104A",
-        "quarters": [
+        "courseTitle": "Fundamentals of Compiler Design I",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -247,17 +3452,20 @@
     },
     {
         "courseID": "CMPS104B",
-        "quarters": [],
+        "courseTitle": "Fundamentals of Compiler Design II",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS105",
-        "quarters": [],
+        "courseTitle": "Systems Programming",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS107",
-        "quarters": [
+        "courseTitle": "Open Source Programming",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -269,7 +3477,8 @@
     },
     {
         "courseID": "CMPS109",
-        "quarters": [
+        "courseTitle": "Advanced Programming",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -285,7 +3494,8 @@
     },
     {
         "courseID": "CMPS111",
-        "quarters": [
+        "courseTitle": "Introduction to Operating Systems",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -303,7 +3513,8 @@
     },
     {
         "courseID": "CMPS112",
-        "quarters": [
+        "courseTitle": "Comparative Programming Languages",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -319,7 +3530,8 @@
     },
     {
         "courseID": "CMPS115",
-        "quarters": [
+        "courseTitle": "Introduction to Software Engineering",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -331,7 +3543,8 @@
     },
     {
         "courseID": "CMPS116",
-        "quarters": [
+        "courseTitle": "Software Design Project",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -343,7 +3556,8 @@
     },
     {
         "courseID": "CMPS117",
-        "quarters": [
+        "courseTitle": "Software Design Project II",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -355,12 +3569,14 @@
     },
     {
         "courseID": "CMPS119",
-        "quarters": [],
+        "courseTitle": "Software for Society",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS121",
-        "quarters": [
+        "courseTitle": "Mobile Applications",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -373,7 +3589,8 @@
     },
     {
         "courseID": "CMPS122",
-        "quarters": [
+        "courseTitle": "Computer Security",
+        "terms": [
             "Winter19",
             "Spring19"
         ],
@@ -386,7 +3603,8 @@
     },
     {
         "courseID": "CMPS128",
-        "quarters": [
+        "courseTitle": "Distributed Systems",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -399,12 +3617,14 @@
     },
     {
         "courseID": "CMPS129",
-        "quarters": [],
+        "courseTitle": "Data Storage Systems",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS130",
-        "quarters": [
+        "courseTitle": "Computational Models",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -420,7 +3640,8 @@
     },
     {
         "courseID": "CMPS132",
-        "quarters": [
+        "courseTitle": "Computability and Computational Complexity",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -430,7 +3651,8 @@
     },
     {
         "courseID": "CMPS132W",
-        "quarters": [
+        "courseTitle": "Computability and Computational Complexity",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -440,7 +3662,8 @@
     },
     {
         "courseID": "CMPS140",
-        "quarters": [
+        "courseTitle": "Artificial Intelligence",
+        "terms": [
             "Winter19",
             "Spring19"
         ],
@@ -453,7 +3676,8 @@
     },
     {
         "courseID": "CMPS142",
-        "quarters": [
+        "courseTitle": "Machine Learning and Data Mining",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -463,7 +3687,8 @@
     },
     {
         "courseID": "CMPS143",
-        "quarters": [
+        "courseTitle": "Introduction to Natural Language Processing",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -473,7 +3698,8 @@
     },
     {
         "courseID": "CMPS144",
-        "quarters": [
+        "courseTitle": "Applied Machine Learning",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -483,22 +3709,26 @@
     },
     {
         "courseID": "CMPS146",
-        "quarters": [],
+        "courseTitle": "Game AI",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS148",
-        "quarters": [],
+        "courseTitle": "Interactive Narrative",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS153",
-        "quarters": [],
+        "courseTitle": "Functional Programming",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS160",
-        "quarters": [
+        "courseTitle": "Introduction to Computer Graphics",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -511,7 +3741,8 @@
     },
     {
         "courseID": "CMPS160L",
-        "quarters": [
+        "courseTitle": "Introduction to Computer Graphics Laboratory",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -524,7 +3755,8 @@
     },
     {
         "courseID": "CMPS161",
-        "quarters": [
+        "courseTitle": "Introduction to Data Visualization",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -534,7 +3766,8 @@
     },
     {
         "courseID": "CMPS161L",
-        "quarters": [
+        "courseTitle": "Data Visualization Lab",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -544,32 +3777,38 @@
     },
     {
         "courseID": "CMPS162",
-        "quarters": [],
+        "courseTitle": "Advanced Computer Graphics and Animation",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS162L",
-        "quarters": [],
+        "courseTitle": "Advanced Computer Graphics and Animation Lab",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS164",
-        "quarters": [],
+        "courseTitle": "Game Engines",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS164L",
-        "quarters": [],
+        "courseTitle": "Game Engines Lab",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS165",
-        "quarters": [],
+        "courseTitle": "Data Programming for Visualization",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS166A",
-        "quarters": [
+        "courseTitle": "Game Theory and Applications I",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -579,47 +3818,56 @@
     },
     {
         "courseID": "CMPS166B",
-        "quarters": [],
+        "courseTitle": "Game Theory and Applications II",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS168",
-        "quarters": [],
+        "courseTitle": "Introduction to Augmented Reality and Virtual Reality",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS170",
-        "quarters": [],
+        "courseTitle": "Game Design Studio I",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS171",
-        "quarters": [],
+        "courseTitle": "Games Design Studio II",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS172",
-        "quarters": [],
+        "courseTitle": "Game Design Studio III",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS177",
-        "quarters": [],
+        "courseTitle": "Creative Strategies for Designing Interactive Media",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS178",
-        "quarters": [],
+        "courseTitle": "Human-Centered Design Research",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS179",
-        "quarters": [],
+        "courseTitle": "Game Design Practicum",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS180",
-        "quarters": [
+        "courseTitle": "Database Systems I",
+        "terms": [
             "Fall18",
             "Winter19"
         ],
@@ -632,12 +3880,14 @@
     },
     {
         "courseID": "CMPS180W",
-        "quarters": [],
+        "courseTitle": "Database Systems",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS181",
-        "quarters": [
+        "courseTitle": "Database Systems II",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -647,7 +3897,8 @@
     },
     {
         "courseID": "CMPS182",
-        "quarters": [
+        "courseTitle": "Introduction to Database Management Systems",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -657,7 +3908,8 @@
     },
     {
         "courseID": "CMPS183",
-        "quarters": [
+        "courseTitle": "Web Applications",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -670,7 +3922,8 @@
     },
     {
         "courseID": "CMPS184",
-        "quarters": [
+        "courseTitle": "Data Wrangling and Web Scraping",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -680,7 +3933,8 @@
     },
     {
         "courseID": "CMPS185",
-        "quarters": [
+        "courseTitle": "Technical Writing and Communication in Computer Science",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -693,22 +3947,26 @@
     },
     {
         "courseID": "CMPS190X",
-        "quarters": [],
+        "courseTitle": "Methods of Cryptography",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS191",
-        "quarters": [],
+        "courseTitle": "Computer Science and Technology Seminar",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS194",
-        "quarters": [],
+        "courseTitle": "Group Tutorial",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS200",
-        "quarters": [
+        "courseTitle": "Research and Teaching in Computer Science and Engineering",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -718,7 +3976,8 @@
     },
     {
         "courseID": "CMPS201",
-        "quarters": [
+        "courseTitle": "Analysis of Algorithms",
+        "terms": [
             "Fall18",
             "Winter19"
         ],
@@ -731,7 +3990,8 @@
     },
     {
         "courseID": "CMPS203",
-        "quarters": [
+        "courseTitle": "Programming Languages",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -741,17 +4001,20 @@
     },
     {
         "courseID": "CMPS204",
-        "quarters": [],
+        "courseTitle": "Compiler Design",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS210",
-        "quarters": [],
+        "courseTitle": "Computational Models and Complexity",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS211",
-        "quarters": [
+        "courseTitle": "Combinatorial Algorithms",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -761,7 +4024,8 @@
     },
     {
         "courseID": "CMPS217",
-        "quarters": [
+        "courseTitle": "Logic in Computer Science",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -771,7 +4035,8 @@
     },
     {
         "courseID": "CMPS218",
-        "quarters": [
+        "courseTitle": "Foundations of Data Science",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -781,12 +4046,14 @@
     },
     {
         "courseID": "CMPS221",
-        "quarters": [],
+        "courseTitle": "Advanced Operating Systems",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS223",
-        "quarters": [
+        "courseTitle": "Advanced Computer Security",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -796,7 +4063,8 @@
     },
     {
         "courseID": "CMPS229",
-        "quarters": [
+        "courseTitle": "Storage Systems",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -806,7 +4074,8 @@
     },
     {
         "courseID": "CMPS232",
-        "quarters": [
+        "courseTitle": "Distributed Systems",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -816,12 +4085,14 @@
     },
     {
         "courseID": "CMPS236",
-        "quarters": [],
+        "courseTitle": "Understanding Cryptography",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS240",
-        "quarters": [
+        "courseTitle": "Artificial Intelligence",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -831,12 +4102,14 @@
     },
     {
         "courseID": "CMPS241",
-        "quarters": [],
+        "courseTitle": "Knowledge Engineering",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS242",
-        "quarters": [
+        "courseTitle": "Machine Learning",
+        "terms": [
             "Fall18",
             "Spring19"
         ],
@@ -849,12 +4122,14 @@
     },
     {
         "courseID": "CMPS244",
-        "quarters": [],
+        "courseTitle": "Artificial Intelligence in Games",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS245",
-        "quarters": [
+        "courseTitle": "Computational Models of Discourse and Dialogue",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -864,17 +4139,20 @@
     },
     {
         "courseID": "CMPS247",
-        "quarters": [],
+        "courseTitle": "AI",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS248",
-        "quarters": [],
+        "courseTitle": "Interactive Narrative",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS250",
-        "quarters": [
+        "courseTitle": "Introduction to Information Theory",
+        "terms": [
             "Spring19"
         ],
         "sections": [
@@ -885,12 +4163,14 @@
     },
     {
         "courseID": "CMPS253",
-        "quarters": [],
+        "courseTitle": "Advanced Programming Languages",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS260",
-        "quarters": [
+        "courseTitle": "Computer Graphics",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -900,7 +4180,8 @@
     },
     {
         "courseID": "CMPS261",
-        "quarters": [
+        "courseTitle": "Advanced Visualization",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -910,22 +4191,26 @@
     },
     {
         "courseID": "CMPS262",
-        "quarters": [],
+        "courseTitle": "Computer Animation",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS263",
-        "quarters": [],
+        "courseTitle": "Data Driven Discovery and Visualization",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS265",
-        "quarters": [],
+        "courseTitle": "Generative Methods",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS266A",
-        "quarters": [
+        "courseTitle": "Data Visualization and Statistical Programming in R",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -936,27 +4221,32 @@
     },
     {
         "courseID": "CMPS266B",
-        "quarters": [],
+        "courseTitle": "Advanced Statistical Programming in R",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS266C",
-        "quarters": [],
+        "courseTitle": "Introduction to Data Wrangling",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS272",
-        "quarters": [],
+        "courseTitle": "Evolutionary Game Theory",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS276",
-        "quarters": [],
+        "courseTitle": "Software Engineering",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS277",
-        "quarters": [
+        "courseTitle": "Principles of Database Systems",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -966,7 +4256,8 @@
     },
     {
         "courseID": "CMPS278",
-        "quarters": [
+        "courseTitle": "Design and Implementation of Database Systems",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -976,17 +4267,20 @@
     },
     {
         "courseID": "CMPS279",
-        "quarters": [],
+        "courseTitle": "Software Reuse and Component-Based Software Engineering",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS280A",
-        "quarters": [],
+        "courseTitle": "Seminar in Computer Science Research",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS280D",
-        "quarters": [
+        "courseTitle": "Seminar in Database Systems",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -1002,22 +4296,26 @@
     },
     {
         "courseID": "CMPS280G",
-        "quarters": [],
+        "courseTitle": "Seminar on Software Engineering",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS280H",
-        "quarters": [],
+        "courseTitle": "Seminar in Human Computation Systems",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS280J",
-        "quarters": [],
+        "courseTitle": "Seminar on Computer Graphics",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS280L",
-        "quarters": [
+        "courseTitle": "Seminar on Logic in Computer Science",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -1033,7 +4331,8 @@
     },
     {
         "courseID": "CMPS280M",
-        "quarters": [
+        "courseTitle": "Seminar on Machine Learning",
+        "terms": [
             "Winter19",
             "Spring19"
         ],
@@ -1050,7 +4349,8 @@
     },
     {
         "courseID": "CMPS280S",
-        "quarters": [
+        "courseTitle": "Seminar on Computer Systems",
+        "terms": [
             "Fall18",
             "Winter19",
             "Spring19"
@@ -1066,17 +4366,20 @@
     },
     {
         "courseID": "CMPS280W",
-        "quarters": [],
+        "courseTitle": "Seminar in Digital Media",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS280X",
-        "quarters": [],
+        "courseTitle": "Seminar on Expressive AI",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS280Z",
-        "quarters": [
+        "courseTitle": "Seminar in Natural Language Processing and Dialogue",
+        "terms": [
             "Winter19"
         ],
         "sections": [
@@ -1086,72 +4389,86 @@
     },
     {
         "courseID": "CMPS290A",
-        "quarters": [],
+        "courseTitle": "Topics in Algorithms and Complexity Theory",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290B",
-        "quarters": [],
+        "courseTitle": "Advanced Topics in Computer Graphics",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290C",
-        "quarters": [],
+        "courseTitle": "Advanced Topics in Machine Learning",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290D",
-        "quarters": [],
+        "courseTitle": "Neural Computation",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290E",
-        "quarters": [],
+        "courseTitle": "Object-Oriented Programming Methodology",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290F",
-        "quarters": [],
+        "courseTitle": "Applications of Combinatorics",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290G",
-        "quarters": [],
+        "courseTitle": "Topics in Software Engineering",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290H",
-        "quarters": [],
+        "courseTitle": "Topics in Database Systems",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290I",
-        "quarters": [],
+        "courseTitle": "Internet Technology and Policy",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290J",
-        "quarters": [],
+        "courseTitle": "Playable Media",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290L",
-        "quarters": [],
+        "courseTitle": "Topics in Crowdsourcing and Collaboration",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290P",
-        "quarters": [],
+        "courseTitle": "Data Privacy via Machine Learning, and Back",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290Q",
-        "quarters": [],
+        "courseTitle": "Topics in Programming Languages",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290S",
-        "quarters": [
+        "courseTitle": "Advanced Topics in Computer Systems",
+        "terms": [
             "Fall18"
         ],
         "sections": [
@@ -1161,17 +4478,1544 @@
     },
     {
         "courseID": "CMPS290T",
-        "quarters": [],
+        "courseTitle": "Topics in Computing for Society",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290X",
-        "quarters": [],
+        "courseTitle": "Cryptography and Computer Security",
+        "terms": [],
         "sections": []
     },
     {
         "courseID": "CMPS290Y",
-        "quarters": [],
+        "courseTitle": "Quantum Computing",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE80J",
+        "courseTitle": "Renewable Energy Sources",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yu Zhang (yzhan419)"
+        ]
+    },
+    {
+        "courseID": "EE80S",
+        "courseTitle": "Sustainability Engineering and Practice",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Katie Monsen (kmonsen)"
+        ]
+    },
+    {
+        "courseID": "EE80T",
+        "courseTitle": "Modern Electronic Technology and How It Works",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Kenneth Pedrotti (pedrotti)"
+        ]
+    },
+    {
+        "courseID": "EE81C",
+        "courseTitle": "Designing a Sustainable Future",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE101",
+        "courseTitle": "Introduction to Electronic Circuits",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sara Abrahamsson (sara)",
+            "Section 01",
+            "Sung-Mo Steve Kang (skang)"
+        ]
+    },
+    {
+        "courseID": "EE101L",
+        "courseTitle": "Introduction to Electronic Circuits Laboratory",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sara Abrahamsson (sara)",
+            "Section 01",
+            "Sung-Mo Steve Kang (skang)"
+        ]
+    },
+    {
+        "courseID": "EE103",
+        "courseTitle": "Signals and Systems",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sung-Mo Steve Kang (skang)",
+            "Section 01",
+            "Hamid R Sadjadpour (hamid)"
+        ]
+    },
+    {
+        "courseID": "EE103L",
+        "courseTitle": "Signals and Systems Lab",
+        "terms": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sung-Mo Steve Kang (skang)",
+            "Section 01",
+            "Hamid R Sadjadpour (hamid)"
+        ]
+    },
+    {
+        "courseID": "EE104",
+        "courseTitle": "Bio-electronics and Bio-instrumentations",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE115",
+        "courseTitle": "Introduction to Micro-Electro-Mechanical-Systems Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE122A",
+        "courseTitle": "Collaborative Sustainability Project Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE122B",
+        "courseTitle": "Collaborative Sustainability Project Implementation",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE122C",
+        "courseTitle": "Collaborative Sustainability Project Implementation",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE123A",
+        "courseTitle": "Engineering Design Project I",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE123B",
+        "courseTitle": "Engineering Design Project II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE129A",
+        "courseTitle": "Capstone Project I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)",
+            "Section 02",
+            "Tela Favaloro (tfavalor)"
+        ]
+    },
+    {
+        "courseID": "EE129B",
+        "courseTitle": "Capstone Project II",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)",
+            "Section 02",
+            "Tela Favaloro (tfavalor)"
+        ]
+    },
+    {
+        "courseID": "EE129C",
+        "courseTitle": "Capstone Project III",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)",
+            "Section 02",
+            "Tela Favaloro (tfavalor)"
+        ]
+    },
+    {
+        "courseID": "EE130",
+        "courseTitle": "Introduction to Optoelectronics and Photonics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)"
+        ]
+    },
+    {
+        "courseID": "EE130L",
+        "courseTitle": "Introduction to Optoelectronics Laboratory",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)"
+        ]
+    },
+    {
+        "courseID": "EE135",
+        "courseTitle": "Electromagnetic Fields and Waves",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)"
+        ]
+    },
+    {
+        "courseID": "EE135L",
+        "courseTitle": "Electromagnetic Fields and Waves Laboratory",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)"
+        ]
+    },
+    {
+        "courseID": "EE136",
+        "courseTitle": "Engineering Electromagnetics",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Keith Corzine (corzine)"
+        ]
+    },
+    {
+        "courseID": "EE145",
+        "courseTitle": "Properties of Materials",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nobuhiko P Kobayashi (nkobayas)"
+        ]
+    },
+    {
+        "courseID": "EE145L",
+        "courseTitle": "Properties of Materials Laboratory",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nobuhiko P Kobayashi (nkobayas)"
+        ]
+    },
+    {
+        "courseID": "EE151",
+        "courseTitle": "Communications Systems",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Hamid R Sadjadpour (hamid)"
+        ]
+    },
+    {
+        "courseID": "EE152",
+        "courseTitle": "Introduction to Wireless Communications",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benjamin Friedlander (bfriedla)"
+        ]
+    },
+    {
+        "courseID": "EE153",
+        "courseTitle": "Digital Signal Processing",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benjamin Friedlander (bfriedla)"
+        ]
+    },
+    {
+        "courseID": "EE154",
+        "courseTitle": "Feedback Control Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Dejan Milutinovic (dmilutin)",
+            "Taught by CE Faculty"
+        ]
+    },
+    {
+        "courseID": "EE157",
+        "courseTitle": "RF Hardware Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)"
+        ]
+    },
+    {
+        "courseID": "EE157L",
+        "courseTitle": "RF Hardware Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)"
+        ]
+    },
+    {
+        "courseID": "EE171",
+        "courseTitle": "Analog Electronics",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Kenneth Pedrotti (pedrotti)"
+        ]
+    },
+    {
+        "courseID": "EE171L",
+        "courseTitle": "Analog Electronics Laboratory",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Kenneth Pedrotti (pedrotti)"
+        ]
+    },
+    {
+        "courseID": "EE172",
+        "courseTitle": "Advanced Analog Circuits",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Kenneth Pedrotti (pedrotti)"
+        ]
+    },
+    {
+        "courseID": "EE173",
+        "courseTitle": "High-Speed Digital Design",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)"
+        ]
+    },
+    {
+        "courseID": "EE173L",
+        "courseTitle": "High-Speed Digital Design Laboratory",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)"
+        ]
+    },
+    {
+        "courseID": "EE174",
+        "courseTitle": "Introduction to EDA Tools for PCB Design",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Stephen C Petersen (ac6p)"
+        ]
+    },
+    {
+        "courseID": "EE175",
+        "courseTitle": "Energy Generation and Control",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Leila Parsa (lparsa)"
+        ]
+    },
+    {
+        "courseID": "EE175L",
+        "courseTitle": "Energy Generation and Control Laboratory",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Leila Parsa (lparsa)"
+        ]
+    },
+    {
+        "courseID": "EE176",
+        "courseTitle": "Energy Conversion and Control",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Leila Parsa (lparsa)"
+        ]
+    },
+    {
+        "courseID": "EE176L",
+        "courseTitle": "Energy Conversion and Control Laboratory",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Leila Parsa (lparsa)"
+        ]
+    },
+    {
+        "courseID": "EE177",
+        "courseTitle": "Power Electronics",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Keith Corzine (corzine)"
+        ]
+    },
+    {
+        "courseID": "EE177L",
+        "courseTitle": "Power Electronics Laboratory",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Keith Corzine (corzine)"
+        ]
+    },
+    {
+        "courseID": "EE178",
+        "courseTitle": "Device Electronics",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "EE180J",
+        "courseTitle": "Advanced Renewable Energy Sources",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yu Zhang (yzhan419)"
+        ]
+    },
+    {
+        "courseID": "EE181J",
+        "courseTitle": "Renewable Energy Sources in Practice",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE183",
+        "courseTitle": "Special Topics in Electrical Engineering",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Keith Corzine (corzine)",
+            "Section 01",
+            "Yu Zhang (yzhan419)"
+        ]
+    },
+    {
+        "courseID": "EE192",
+        "courseTitle": "Special Topics in Electrical Engineering",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE204",
+        "courseTitle": "Bio-Electronics And Bio-Instrumentations",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE211",
+        "courseTitle": "Introduction to Nanotechnology",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marco A Rolandi (mrolandi)"
+        ]
+    },
+    {
+        "courseID": "EE212",
+        "courseTitle": "Introduction to BioMEMS",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE213",
+        "courseTitle": "Nanocharacterization of Materials",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE215",
+        "courseTitle": "Micro-Electro-Mechanical Systems (MEMS) Design",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE216",
+        "courseTitle": "Nanomaterials and Nanometer-scale Device",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nobuhiko P Kobayashi (nkobayas)",
+            "Section 50",
+            "Nobuhiko P Kobayashi (nkobayas)"
+        ]
+    },
+    {
+        "courseID": "EE217",
+        "courseTitle": "Engineering of Thin Film Deposition",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nobuhiko P Kobayashi (nkobayas)",
+            "Section 50",
+            "Nobuhiko P Kobayashi (nkobayas)"
+        ]
+    },
+    {
+        "courseID": "EE218",
+        "courseTitle": "Fundamentals of Nanoelectronics",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)"
+        ]
+    },
+    {
+        "courseID": "EE221",
+        "courseTitle": "Advanced Analog Integrated Circuits",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Kenneth Pedrotti (pedrotti)"
+        ]
+    },
+    {
+        "courseID": "EE222",
+        "courseTitle": "High-Speed Low-Power Integrated Circuit Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sung-Mo Steve Kang (skang)",
+            "Section 50",
+            "Sung-Mo Steve Kang (skang)"
+        ]
+    },
+    {
+        "courseID": "EE226",
+        "courseTitle": "CMOS Radio Frequency Integrated Circuit Design",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff",
+            "Section 50",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "EE227",
+        "courseTitle": "Fundamentals of Semiconductor Physics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Toshishige Yamada (tyamada)",
+            "Section 50",
+            "Toshishige Yamada (tyamada)"
+        ]
+    },
+    {
+        "courseID": "EE230",
+        "courseTitle": "Optical Fiber Communication",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)"
+        ]
+    },
+    {
+        "courseID": "EE231",
+        "courseTitle": "Optical Electronics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE232",
+        "courseTitle": "Quantum Electronics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE236",
+        "courseTitle": "Integrated Biophotonics",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Holger Schmidt (hschmidt)"
+        ]
+    },
+    {
+        "courseID": "EE241",
+        "courseTitle": "Introduction to Feedback Control Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ricardo Sanfelice (ricardo)",
+            "Taught by CE Faculty"
+        ]
+    },
+    {
+        "courseID": "EE250",
+        "courseTitle": "Digital Signal Processing",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benjamin Friedlander (bfriedla)",
+            "Section 50",
+            "Benjamin Friedlander (bfriedla)"
+        ]
+    },
+    {
+        "courseID": "EE251",
+        "courseTitle": "Principles of Digital Communications",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Benjamin Friedlander (bfriedla)"
+        ]
+    },
+    {
+        "courseID": "EE252",
+        "courseTitle": "Wireless Communications",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benjamin Friedlander (bfriedla)",
+            "Section 50",
+            "Benjamin Friedlander (bfriedla)"
+        ]
+    },
+    {
+        "courseID": "EE253",
+        "courseTitle": "Introduction to Information Theory",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yu Zhang (yzhan419)",
+            "Section 50",
+            "Yu Zhang (yzhan419)"
+        ]
+    },
+    {
+        "courseID": "EE261",
+        "courseTitle": "Error Control Coding",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Hamid R Sadjadpour (hamid)"
+        ]
+    },
+    {
+        "courseID": "EE262",
+        "courseTitle": "Statistical Signal Processing",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Benjamin Friedlander (bfriedla)",
+            "Section 50",
+            "Benjamin Friedlander (bfriedla)"
+        ]
+    },
+    {
+        "courseID": "EE264",
+        "courseTitle": "Image Processing and Reconstruction",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE265",
+        "courseTitle": "Introduction to Inverse Problems",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE266",
+        "courseTitle": "Optics and Microscopy",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sara Abrahamsson (sara)"
+        ]
+    },
+    {
+        "courseID": "EE280A",
+        "courseTitle": "Current topics in Applied Microscopy and Neuronal Imaging",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sara Abrahamsson (sara)",
+            "Section 01",
+            "Sara Abrahamsson (sara)",
+            "Section 01",
+            "Sara Abrahamsson (sara)"
+        ]
+    },
+    {
+        "courseID": "EE280B",
+        "courseTitle": "Seminar on Integrated Bioelectronics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marco A Rolandi (mrolandi)",
+            "Section 01",
+            "Marco A Rolandi (mrolandi)",
+            "Section 01",
+            "Marco A Rolandi (mrolandi)"
+        ]
+    },
+    {
+        "courseID": "EE280I",
+        "courseTitle": "Seminar on Microscopy and Nanotechnology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE280M",
+        "courseTitle": "Seminar on Micro-Electro-Mechanical Systems (MEMS)",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE280N",
+        "courseTitle": "Seminar on Nanophotonics and Lab-on-Chip Systems",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)",
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)",
+            "Section 01",
+            "Ahmet Ali Yanik (yanik)"
+        ]
+    },
+    {
+        "courseID": "EE280O",
+        "courseTitle": "Seminar on Applied Optics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Holger Schmidt (hschmidt)",
+            "Section 01",
+            "Holger Schmidt (hschmidt)",
+            "Section 01",
+            "Holger Schmidt (hschmidt)"
+        ]
+    },
+    {
+        "courseID": "EE280Q",
+        "courseTitle": "Seminar on Quantum Electronics and Nanoelectronics",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE280Z",
+        "courseTitle": "Seminar on Smart Grids and Data Analytics",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yu Zhang (yzhan419)",
+            "Section 01",
+            "Yu Zhang (yzhan419)",
+            "Section 01",
+            "Yu Zhang (yzhan419)"
+        ]
+    },
+    {
+        "courseID": "EE283",
+        "courseTitle": "Special Topics in Electrical Engineering",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE288",
+        "courseTitle": "Radar, Synthetic Aperture Radar, and ISAR",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Farid U Dowla (fdowla)",
+            "Section 50",
+            "Farid U Dowla (fdowla)"
+        ]
+    },
+    {
+        "courseID": "EE289",
+        "courseTitle": "Adaptive Optics for Biological Imaging",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "EE290",
+        "courseTitle": "EE Graduate Seminar",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Sara Abrahamsson (sara)",
+            "Yu Zhang (yzhan419)",
+            "Section 01",
+            "Sara Abrahamsson (sara)",
+            "Yu Zhang (yzhan419)",
+            "Section 01",
+            "Sara Abrahamsson (sara)",
+            "Yu Zhang (yzhan419)"
+        ]
+    },
+    {
+        "courseID": "EE291",
+        "courseTitle": "Tomorrow's Professors, Engineers, and Entrepreneurs",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marco A Rolandi (mrolandi)"
+        ]
+    },
+    {
+        "courseID": "EE293",
+        "courseTitle": "Advanced Topics in Electrical Engineering",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Keith Corzine (corzine)",
+            "Section 01",
+            "Yu Zhang (yzhan419)",
+            "Section 01",
+            "Michael Mikio Oye (moye)",
+            "Section 02",
+            "Leila Parsa (lparsa)",
+            "Section 50",
+            "Michael Mikio Oye (moye)",
+            "Section 51",
+            "Leila Parsa (lparsa)"
+        ]
+    },
+    {
+        "courseID": "GAME200",
+        "courseTitle": "Game Design Systems",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME210",
+        "courseTitle": "Game Art Intensive",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME215",
+        "courseTitle": "Audio Direction",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "GAME221",
+        "courseTitle": "Professional Development for Game Makers 1",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME222",
+        "courseTitle": "Professional Development for Game Makers II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME223",
+        "courseTitle": "Professional Development for Games Makers III",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME230",
+        "courseTitle": "Fundamentals of Game Engineering",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 50",
+            "Walt David Johnson Destler (wdestler)"
+        ]
+    },
+    {
+        "courseID": "GAME231",
+        "courseTitle": "Game Technologies",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Edward Franklin Melcer (emelcer)"
+        ]
+    },
+    {
+        "courseID": "GAME232",
+        "courseTitle": "Advanced Game Technologies",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME235",
+        "courseTitle": "Game Development I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME236",
+        "courseTitle": "Game Development II",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME238",
+        "courseTitle": "Computer Graphics for Games",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME250",
+        "courseTitle": "Foundations of Serious Games",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Edward Franklin Melcer (emelcer)"
+        ]
+    },
+    {
+        "courseID": "GAME255",
+        "courseTitle": "Serious Games Studio I",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME256",
+        "courseTitle": "Serious Games Studio II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME257",
+        "courseTitle": "Serious Games Studio III",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME270",
+        "courseTitle": "Game and Playable Media Studio 1",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME271",
+        "courseTitle": "Game & Playable Media Studio II",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME272",
+        "courseTitle": "Game & Playable Media Studio III",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME273",
+        "courseTitle": "Game Production Intensive",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME280A",
+        "courseTitle": "Games Proseminar",
+        "terms": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Edward Franklin Melcer (emelcer)",
+            "Section 01",
+            "Michael B John (mbjohn)",
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME290A",
+        "courseTitle": "Advanced Topics in Games",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM20",
+        "courseTitle": "Innovation and Entrepreneurship Seminar",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM21",
+        "courseTitle": "Innovation and Entrepreneurship in Practice",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM50",
+        "courseTitle": "Business Information Systems",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)",
+            "Section 01",
+            "Staff",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM58",
+        "courseTitle": "Systems Analysis and Design",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM80A",
+        "courseTitle": "Development, Management, and Commercialization of Technology",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM80B",
+        "courseTitle": "Technology Value Chain Networks",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM80C",
+        "courseTitle": "Starting a New Technology Company",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM80L",
+        "courseTitle": "Entrepreneurial Organization & Leadership",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM101",
+        "courseTitle": "Management of Technology Seminar",
+        "terms": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)",
+            "Section 01",
+            "Subhas Desa (sdesa)",
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM105",
+        "courseTitle": "Management of Technology I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM115",
+        "courseTitle": "Entrepreneurial Organization & Leadership",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM125",
+        "courseTitle": "Management of Technology II",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM130",
+        "courseTitle": "Financial Engineering & Management in High Technology Firms",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM145",
+        "courseTitle": "Introduction to Data Mining",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM158",
+        "courseTitle": "Business Strategy and Information Systems",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Lee (dlee105)"
+        ]
+    },
+    {
+        "courseID": "TIM165",
+        "courseTitle": "Decision Analysis in Management",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)"
+        ]
+    },
+    {
+        "courseID": "TIM166A",
+        "courseTitle": "Game Theory and Applications I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "John T Musacchio (musacchi)"
+        ]
+    },
+    {
+        "courseID": "TIM194F",
+        "courseTitle": "Group Tutorial",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM204",
+        "courseTitle": "Introduction to Optimization in Business",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM205",
+        "courseTitle": "Management of Technology I",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM206",
+        "courseTitle": "Optimization Theory and Applications",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "John T Musacchio (musacchi)"
+        ]
+    },
+    {
+        "courseID": "TIM207",
+        "courseTitle": "Random Process Models in Engineering",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "John T Musacchio (musacchi)"
+        ]
+    },
+    {
+        "courseID": "TIM209",
+        "courseTitle": "Data Mining and Business Analytics in Knowledge Services",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM210",
+        "courseTitle": "Marketing Analytics and Engineering",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM211",
+        "courseTitle": "E-Business Technology and Strategy",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM215",
+        "courseTitle": "Organizations and Leadership",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM225",
+        "courseTitle": "Management of Technology II",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM230",
+        "courseTitle": "Financial Engineering and Management in High Technology Firms",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM240",
+        "courseTitle": "Information Technology for Decision Support",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM243",
+        "courseTitle": "Social Computing Research",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Lee (dlee105)"
+        ]
+    },
+    {
+        "courseID": "TIM245",
+        "courseTitle": "Data Mining",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM250",
+        "courseTitle": "Stochastic Optimization in Business Intelligence",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM251",
+        "courseTitle": "Large-Scale Web Analytics and Machine Learning",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM260",
+        "courseTitle": "Information Retrieval",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM270",
+        "courseTitle": "Service Engineering and Management",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM275",
+        "courseTitle": "Technology Management in Network Industries",
+        "terms": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)"
+        ]
+    },
+    {
+        "courseID": "TIM280A",
+        "courseTitle": "Graduate Research Seminar",
+        "terms": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)"
+        ]
+    },
+    {
+        "courseID": "TIM280I",
+        "courseTitle": "Seminar on Information Retrieval and Knowledge Management",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM280M",
+        "courseTitle": "Sales and Marketing for Technologists and Engineers",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM280S",
+        "courseTitle": "Seminar Topics",
+        "terms": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "David Lee (dlee105)"
+        ]
+    },
+    {
+        "courseID": "TIM283",
+        "courseTitle": "Special Topics in Technology Information Management",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM293",
+        "courseTitle": "Advanced Topics in Technology & Information Management",
+        "terms": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM299",
+        "courseTitle": "Thesis Research",
+        "terms": [],
         "sections": []
     }
 ]
