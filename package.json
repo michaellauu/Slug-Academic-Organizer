@@ -30,6 +30,7 @@
   "homepage": "https://github.com/chtzou/Slug-Academic-Organizer#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^3.0.2",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
     "mongoose": "^5.3.4",
