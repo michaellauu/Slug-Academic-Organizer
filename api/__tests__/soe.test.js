@@ -1,7 +1,7 @@
 const SOE = require("../soe");
 const GE = require("../data/ge.json");
 
-/* Simple test file for scraper.js, if more functions
+/* Simple test file for soe.js, if more functions
  * are developed, I'll be testing them here for now
 */
 
@@ -41,18 +41,18 @@ describe("Test various course schedules", () => {
   });
 
   test("Returns course w/ no repeats", () => {
-    expect(SOE.checkSchedule("cmps12b")).toEqual(
-      new Set(["Fall18", "Winter19", "Spring19"])
-    );
+    expect(SOE.checkSchedule("cmps12b")).toEqual([
+      "Fall18",
+      "Winter19",
+      "Spring19"
+    ]);
   });
 
   test("Returns course w/ no logistical data", () => {
-    expect(SOE.checkSchedule("cmps5c")).toEqual(new Set());
+    expect(SOE.checkSchedule("cmps5c")).toEqual([]);
   });
 
   test("Returns, can't find courseID", () => {
     expect(SOE.checkSchedule("121cmps")).toBe("No course found");
   });
 });
-
-// generalEd.js -------------------------------------------

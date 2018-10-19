@@ -68,10 +68,7 @@
         "courseID": "CMPS12B",
         "quarters": [
             "Fall18",
-            "Fall18",
             "Winter19",
-            "Winter19",
-            "Spring19",
             "Spring19"
         ],
         "sections": [
@@ -109,10 +106,7 @@
         "courseID": "CMPS12M",
         "quarters": [
             "Fall18",
-            "Fall18",
             "Winter19",
-            "Winter19",
-            "Spring19",
             "Spring19"
         ],
         "sections": [
@@ -204,10 +198,7 @@
         "courseID": "CMPS101",
         "quarters": [
             "Fall18",
-            "Fall18",
             "Winter19",
-            "Winter19",
-            "Spring19",
             "Spring19"
         ],
         "sections": [
@@ -267,7 +258,6 @@
     {
         "courseID": "CMPS107",
         "quarters": [
-            "Winter19",
             "Winter19"
         ],
         "sections": [
@@ -296,7 +286,6 @@
     {
         "courseID": "CMPS111",
         "quarters": [
-            "Fall18",
             "Fall18",
             "Winter19",
             "Spring19"
@@ -331,7 +320,6 @@
     {
         "courseID": "CMPS115",
         "quarters": [
-            "Fall18",
             "Fall18"
         ],
         "sections": [
@@ -344,7 +332,6 @@
     {
         "courseID": "CMPS116",
         "quarters": [
-            "Winter19",
             "Winter19"
         ],
         "sections": [
@@ -357,7 +344,6 @@
     {
         "courseID": "CMPS117",
         "quarters": [
-            "Spring19",
             "Spring19"
         ],
         "sections": [
@@ -1049,8 +1035,6 @@
         "courseID": "CMPS280M",
         "quarters": [
             "Winter19",
-            "Winter19",
-            "Spring19",
             "Spring19"
         ],
         "sections": [

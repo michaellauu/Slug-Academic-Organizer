@@ -139,14 +139,17 @@ const getSchedule = () => {
           });
 
         // If the course is offered, return data
-        if (season.length > 0 && section.length > 0)
+        if (season.length > 0 && section.length > 0) {
+          const available = season.map((i, el) => {
+            return i[2];
+          });
+
           schedule[i] = {
             courseID: courses[0],
-            quarters: season.map((i, el) => {
-              return i[2];
-            }),
+            quarters: [...new Set(available)],
             sections: section
           };
+        }
         // If the course is not offered, return blank data
         else {
           schedule[i] = {
@@ -209,7 +212,7 @@ const checkSchedule = id => {
   // Loop through JSON to find a match
   for (let i = 0; i < schedules.length; i++) {
     if (schedules[i].courseID === id.toUpperCase()) {
-      return new Set(schedules[i].quarters);
+      return schedules[i].quarters;
     }
   }
 
