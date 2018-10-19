@@ -5,8 +5,6 @@ var bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 5000;
 
-const depo = scraper.getDepartments();
-
 app.use(
   bodyParser.urlencoded({
     extended: true
@@ -16,7 +14,7 @@ app.use(
 app.use(bodyParser.json());
 
 app.get("/api", (req, res) => {
-  res.send({ express: depo });
+  res.send({ express: Connected! });
 });
 
 app.post("/api/getClasses", (req, res) => {
