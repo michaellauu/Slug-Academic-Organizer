@@ -7,10 +7,16 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "node test.js",
+    "test": "jest",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "verbose": true
   },
   "repository": {
     "type": "git",
@@ -23,14 +29,19 @@
   },
   "homepage": "https://github.com/chtzou/Slug-Academic-Organizer#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.2",
     "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "nodemon": "^1.18.4"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "concurrently": "^3.5.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1"
   }
 }

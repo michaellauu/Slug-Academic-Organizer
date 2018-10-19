@@ -1,0 +1,72 @@
+[
+  {
+    "geID": "CC",
+    "desc": "Cross-Cultural Analysis",
+    "credits": 5
+  },
+  {
+    "geID": "ER",
+    "desc": "Ethnicity and Race",
+    "credits": 5
+  },
+  {
+    "geID": "IM",
+    "desc": "Interpreting Arts and Media",
+    "credits": 5
+  },
+  {
+    "geID": "MF",
+    "desc": "Mathematical and Formal Reasoning",
+    "credits": 5
+  },
+  {
+    "geID": "SI",
+    "desc": "Scientific Inquiry",
+    "credits": 5
+  },
+  {
+    "geID": "SR",
+    "desc": "Statistical Reasoning",
+    "credits": 5
+  },
+  {
+    "geID": "TA",
+    "desc": "Textual Analysis and Interpretation",
+    "credits": 5
+  },
+  {
+    "geID": "PE",
+    "desc": "Perspectives",
+    "types": {
+      "PE-E": "Environmental Awareness",
+      "PE-H": "Human Behavior",
+      "PE-T": "Technology and Society"
+    },
+    "credits": 5
+  },
+  {
+    "geID": "PR",
+    "desc": "Practice",
+    "types": {
+      "PR-E": "Collaborative Endeavor",
+      "PR-C": "Creative Process",
+      "PR-S": "Service Learning"
+    },
+    "credits": 2
+  },
+  {
+    "geID": "C1",
+    "desc": "Core Composition 1",
+    "credits": 5
+  },
+  {
+    "geID": "C2",
+    "desc": "Core Composition 2",
+    "credits": 5
+  },
+  {
+    "geID": "DC",
+    "desc": "Disciplinary Communication",
+    "credits": 5
+  }
+]
