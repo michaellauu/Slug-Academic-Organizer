@@ -1,5 +1,5 @@
 const express = require("express");
-const scraper = require("./data/soe.js");
+const scraper = require("./api/soe.js");
 var bodyParser = require("body-parser");
 
 const app = express();
