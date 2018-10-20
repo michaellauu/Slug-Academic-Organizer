@@ -10,7 +10,7 @@
     "test": "node test.js",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
