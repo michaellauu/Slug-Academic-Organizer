@@ -6,6 +6,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 const path = require("path");
+const classes = require("./data/courses");
 
 const dirPath = path.join(__dirname, "/data/depo");
 
@@ -172,6 +173,65 @@ const getSchedule = () => {
   }
 };
 
+/* To test this function, create a temporary file in /api, call it
+ * temp.js, and in temp.js do the following:
+ * const soe = require("./soe");
+ * soe.getCourseInfo();
+ *  --- Check your terminal to see output ---
+ */
+const getCourseInfo = async () => {
+  let data = [];
+  // Loop through each course offered
+  for (let i = 0; i < classes.length; i++) {
+    try {
+      // Get the page of the course using its id
+      const response = await axios.get(
+        `https://courses.soe.ucsc.edu/courses/${classes[i].courseID}`
+      );
+
+      // Check if page is valid
+      if (response.status === 200) {
+        // Get the data (html) of the page, load scraper
+        const html = await response.data;
+        const $ = cheerio.load(html);
+
+        // Get 1st paragraph below the <div> -- description
+        const desc = $("soe-classes-department-notes")
+          .next()
+          .text()
+          .trim();
+
+        // Get 2nd paragraph below the <div> -- credits
+        const credit = $("soe-classes-department-notes")
+          .next()
+          .next()
+          .text()
+          .trim();
+
+        // Push the acquired info into an array as an object
+        data.push({
+          courseID: classes[i].courseID,
+          description: desc,
+          credits: credit
+        });
+
+        /* Log data to terminal to check if correct.
+         * If data is correct, create json by uncommenting
+         * the code below the try/catch. 
+         */
+        console.log(data);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  // // Write data to JSON
+  // fs.writeFile(`data/info.json`, JSON.stringify(data, null, 4), err => {
+  //   console.log("File successfully written");
+  // });
+};
+
 /* Merge all course data into one JSON file
  * DON'T CALL UNLESS FRESH JSON IS NEEDED
  * go to /api/data to check out the new schedule.json
@@ -202,6 +262,7 @@ const mergeData = () => {
       }
       curr = 0;
     });
+
     // Write file to JSON
     fs.writeFile(
       "data/schedule.json",
@@ -262,7 +323,7 @@ const checkSchedule = id => {
 };
 
 module.exports = {
-  mergeData,
+  getCourseInfo,
   checkGE,
   checkDepartment,
   checkCourse,
