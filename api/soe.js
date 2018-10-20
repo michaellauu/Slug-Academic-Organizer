@@ -196,13 +196,13 @@ const getCourseInfo = async () => {
         const $ = cheerio.load(html);
 
         // Get 1st paragraph below the <div> -- description
-        const desc = $("soe-classes-department-notes")
+        const desc = $(".soe-classes-department-notes")
           .next()
           .text()
           .trim();
 
         // Get 2nd paragraph below the <div> -- credits
-        const credit = $("soe-classes-department-notes")
+        const credit = $(".soe-classes-department-notes")
           .next()
           .next()
           .text()
@@ -214,12 +214,6 @@ const getCourseInfo = async () => {
           description: desc,
           credits: credit
         });
-
-        /* Log data to terminal to check if correct.
-         * If data is correct, create json by uncommenting
-         * the code below the try/catch. 
-         */
-        console.log(data);
       }
     } catch (e) {
       console.log(e);
@@ -227,9 +221,9 @@ const getCourseInfo = async () => {
   }
 
   // // Write data to JSON
-  // fs.writeFile(`data/info.json`, JSON.stringify(data, null, 4), err => {
-  //   console.log("File successfully written");
-  // });
+  fs.writeFile(`data/info.json`, JSON.stringify(data, null, 4), err => {
+    console.log("File successfully written");
+  });
 };
 
 /* Merge all course data into one JSON file
