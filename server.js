@@ -7,12 +7,12 @@ const port = process.env.PORT || 5000;
 
 
 // Set up Mongoose
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds137003.mlab.com:37003/re');
+mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds137483.mlab.com:37483/db1');
 mongoose.Promise = global.Promise;
 
 
 // API routes
-require('./server/routes/')(app);
+require('./server/routes/api/signin');
 
 
 app.use(
