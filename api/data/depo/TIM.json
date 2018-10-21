@@ -1,0 +1,344 @@
+[
+    {
+        "courseID": "TIM20",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM21",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM50",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)",
+            "Section 01",
+            "Staff",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM58",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM80A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM80B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM80C",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM80L",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM101",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)",
+            "Section 01",
+            "Subhas Desa (sdesa)",
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM105",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM115",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM125",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM130",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM145",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM158",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Lee (dlee105)"
+        ]
+    },
+    {
+        "courseID": "TIM165",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)"
+        ]
+    },
+    {
+        "courseID": "TIM166A",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "John T Musacchio (musacchi)"
+        ]
+    },
+    {
+        "courseID": "TIM194F",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM204",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM205",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM206",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "John T Musacchio (musacchi)"
+        ]
+    },
+    {
+        "courseID": "TIM207",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "John T Musacchio (musacchi)"
+        ]
+    },
+    {
+        "courseID": "TIM209",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM210",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM211",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM215",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM225",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Subhas Desa (sdesa)"
+        ]
+    },
+    {
+        "courseID": "TIM230",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM240",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM243",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Lee (dlee105)"
+        ]
+    },
+    {
+        "courseID": "TIM245",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "TIM250",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM251",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM260",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM270",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM275",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)"
+        ]
+    },
+    {
+        "courseID": "TIM280A",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yihsu Chen (ychen225)"
+        ]
+    },
+    {
+        "courseID": "TIM280I",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ramakrishna Akella (rakella)"
+        ]
+    },
+    {
+        "courseID": "TIM280M",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM280S",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "David Lee (dlee105)"
+        ]
+    },
+    {
+        "courseID": "TIM283",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM293",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "TIM299",
+        "quarters": [],
+        "sections": []
+    }
+]

@@ -1,0 +1,172 @@
+[
+    {
+        "courseID": "GAME200",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME210",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME215",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "GAME221",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME222",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME223",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME230",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 50",
+            "Walt David Johnson Destler (wdestler)"
+        ]
+    },
+    {
+        "courseID": "GAME231",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Edward Franklin Melcer (emelcer)"
+        ]
+    },
+    {
+        "courseID": "GAME232",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME235",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME236",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME238",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME250",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Edward Franklin Melcer (emelcer)"
+        ]
+    },
+    {
+        "courseID": "GAME255",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME256",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME257",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME270",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME271",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME272",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME273",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "GAME280A",
+        "quarters": [
+            "Fall18",
+            "Winter19"
+        ],
+        "sections": [
+            "Section 50",
+            "Edward Franklin Melcer (emelcer)",
+            "Section 01",
+            "Michael B John (mbjohn)",
+            "Section 50",
+            "Michael B John (mbjohn)"
+        ]
+    },
+    {
+        "courseID": "GAME290A",
+        "quarters": [],
+        "sections": []
+    }
+]
