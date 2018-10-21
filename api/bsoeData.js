@@ -1,12 +1,11 @@
 "use strict";
 
-// Refer to test.js which handles testing for the web scraper
-
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 const path = require("path");
-const classes = require("./data/courses");
+const classes = require("./data/courses.json");
+const info = require("./data/info.json");
 
 const dirPath = path.join(__dirname, "/data/depo");
 
@@ -14,12 +13,13 @@ const dirPath = path.join(__dirname, "/data/depo");
  * https://www.npmjs.com/package/cheerio
  * https://www.npmjs.com/package/axios
  * https://nodejs.org/api/fs.html
+ * 
+ * These functions scrape data off various BSOE
+ * url's, and if they were to be ran again, JSON might
+ * be overwritten. Use with caution.
 */
 
-/* Return all BSOE departments in JSON
- * DON'T CALL UNLESS FRESH JSON IS NEEDED
- * go to ./data to check departments.json
- */
+// Return all BSOE departments in JSON
 const getDepartments = () => {
   axios
     .get("https://courses.soe.ucsc.edu/")
@@ -49,10 +49,7 @@ const getDepartments = () => {
     .catch(e => console.log(e));
 };
 
-/* Return all BSOE courses in JSON
- * DON'T CALL UNLESS FRESH JSON IS NEEDED
- * go to ./data to check courses.json
- */
+// Return all BSOE courses in JSON
 const getCourses = () => {
   axios
     .get("https://courses.soe.ucsc.edu/")
@@ -84,10 +81,7 @@ const getCourses = () => {
     .catch(e => console.log(e));
 };
 
-/* Return all BSOE course schedules in JSON
- * DON'T CALL UNLESS FRESH JSON IS NEEDED
- * go to ./data to check schedule.json
- */
+// Return all BSOE course schedules in JSON
 const getSchedule = () => {
   for (let i = 0; i < branches.length; i++) {
     axios.get(branches[i].url).then(res => {
@@ -160,6 +154,7 @@ const getSchedule = () => {
             };
           }
         });
+
         // Send data to a file in JSON
         fs.writeFile(
           `data/depo/${branches[i].depoID}.json`,
@@ -173,12 +168,7 @@ const getSchedule = () => {
   }
 };
 
-/* To test this function, create a temporary file in /api, call it
- * temp.js, and in temp.js do the following:
- * const soe = require("./soe");
- * soe.getCourseInfo();
- *  --- Check your terminal to see output ---
- */
+// Return all BSOE course info in JSON
 const getCourseInfo = async () => {
   let data = [];
   // Loop through each course offered
@@ -226,10 +216,7 @@ const getCourseInfo = async () => {
   });
 };
 
-/* Merge all course data into one JSON file
- * DON'T CALL UNLESS FRESH JSON IS NEEDED
- * go to /api/data to check out the new schedule.json
- */
+// Merge all course data into one JSON file
 const mergeData = () => {
   const allSchedules = [];
   let curr = 0;
@@ -238,15 +225,20 @@ const mergeData = () => {
     if (err) {
       return console.log(`Unable to scan directory ${err}`);
     }
-    // Loop through each file, require it, then merge
+
+    // Loop through each file
     files.forEach(file => {
+      // Take the contents of each file
       const data = require(`./data/depo/${file}`);
       for (let i = 0; i < classes.length; i++) {
         if (data[curr] !== undefined) {
+          // If course exists & matches, push the object
           if (classes[i].courseID === data[curr].courseID) {
             allSchedules.push({
               courseID: classes[i].courseID,
               courseTitle: classes[i].courseTitle.trim(),
+              description: info[i].description,
+              credits: info[i].credits,
               terms: data[curr].quarters,
               sections: data[curr].sections
             });
@@ -259,67 +251,11 @@ const mergeData = () => {
 
     // Write file to JSON
     fs.writeFile(
-      "data/schedule.json",
+      `data/schedule.json`,
       JSON.stringify(allSchedules, null, 4),
       err => {
         console.log("File successfully written");
       }
     );
   });
-};
-
-// Check if ge exists
-const checkGE = ge => {
-  // Loop through JSON to find a match
-  for (let i = 0; i < general.length; i++) {
-    if (general[i].geID === ge.toUpperCase()) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-// Check if department exists by title
-const checkDepartment = office => {
-  // Loop through JSON to find a match
-  for (let i = 0; i < branches.length; i++) {
-    if (branches[i].title === office) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-// Check if course exists by courseID
-const checkCourse = id => {
-  // Loop through JSON to find a match
-  for (let i = 0; i < classes.length; i++) {
-    if (classes[i].courseID === id.toUpperCase()) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-// Check if the course is offered
-const checkSchedule = id => {
-  // Loop through JSON to find a match
-  for (let i = 0; i < schedules.length; i++) {
-    if (schedules[i].courseID === id.toUpperCase()) {
-      return schedules[i].quarters;
-    }
-  }
-
-  return "No course found";
-};
-
-module.exports = {
-  getCourseInfo,
-  checkGE,
-  checkDepartment,
-  checkCourse,
-  checkSchedule
 };
