@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000/",
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "body-parser": "1.18.3",
     "react": "^16.5.2",
