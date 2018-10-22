@@ -1,0 +1,42 @@
+[
+  {
+    "depoID": "AMS",
+    "title": "Applied Mathematics & Statistics",
+    "url": "https://courses.soe.ucsc.edu/courses/ams"
+  },
+  {
+    "depoID": "BME",
+    "title": "Biomolecular Engineering",
+    "url": "https://courses.soe.ucsc.edu/courses/bme"
+  },
+  {
+    "depoID": "CMPM",
+    "title": "Computational Media",
+    "url": "https://courses.soe.ucsc.edu/courses/cmpm"
+  },
+  {
+    "depoID": "CMPE",
+    "title": "Computer Engineering",
+    "url": "https://courses.soe.ucsc.edu/courses/cmpe"
+  },
+  {
+    "depoID": "CMPS",
+    "title": "Computer Science",
+    "url": "https://courses.soe.ucsc.edu/courses/cmps"
+  },
+  {
+    "depoID": "EE",
+    "title": "Electrical Engineering",
+    "url": "https://courses.soe.ucsc.edu/courses/ee"
+  },
+  {
+    "depoID": "GAME",
+    "title": "Games and Playable Media",
+    "url": "https://courses.soe.ucsc.edu/courses/game"
+  },
+  {
+    "depoID": "TIM",
+    "title": "Technology & Information Management",
+    "url": "https://courses.soe.ucsc.edu/courses/tim"
+  }
+]
