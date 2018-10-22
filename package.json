@@ -10,7 +10,7 @@
     "test": "jest",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "jest": {
     "transform": {
