@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 
 
 // Set up Mongoose
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds137483.mlab.com:37483/db1');
+mongoose.connect('mongodb://<cmps115>:<mem3Team>@ds137483.mlab.com:37483/db1');
 mongoose.Promise = global.Promise;
 
 
