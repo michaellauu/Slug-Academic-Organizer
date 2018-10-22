@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 import ClassInput from './ClassInput.js';
 //import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      response: "", //server response
+    };
+  }
 
   //makes get request to server after the component mounts
-  componentDidMount(){
+  componentDidMount() {
     this.callApi()
-      .then(res => this.setState({response: res.express}))
+      .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch('/api');
+    const response = await fetch("/");
     const body = await response.json();
 
-    if(response.status !== 200) throw Error(body.message);
+    if (response.status !== 200) throw Error(body.message);
 
     return body;
   };
