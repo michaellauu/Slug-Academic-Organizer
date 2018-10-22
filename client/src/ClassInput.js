@@ -49,7 +49,7 @@ class ClassInput extends Component {
 
   //user enters class value
   changeClass(event){
-    this.setState({class: event.target.value});
+    this.setState({class: event.target.value.trim()});
   }
 
   //user chooses meeting days
@@ -182,63 +182,72 @@ class ClassInput extends Component {
 
           <div className="input">
             <form id="classform" onSubmit = {this.handleSubmit}>
-              <div  className="class">
-                <b>Class</b><br />
-                <input type="text" value={this.state.class} onChange={this.changeClass} />
-              </div>
+              <div className="classInfo">
+                <div className="title">
+                  <b>Class</b>
+                </div>
+                <div  className="class">
+                  <input type="text" value={this.state.class} onChange={this.changeClass} />
+                </div>
 
-              <div className="meetingDays">
-                <table className="days">
-                  <thead>
-                    <tr className="head">
-                      <th>M</th>
-                      <th>Tu</th>
-                      <th>W</th>
-                      <th>Th</th>
-                      <th>F</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><input type="checkbox" value="M" onChange={this.changeDays} checked={this.state.M} /></td> 
-                      <td><input type="checkbox" value="Tu" onChange={this.changeDays} checked={this.state.Tu} /></td> 
-                      <td><input type="checkbox" value="W" onChange={this.changeDays} checked={this.state.W} /></td>
-                      <td><input type="checkbox" value="Th" onChange={this.changeDays} checked={this.state.Th} /></td>
-                      <td><input type="checkbox" value="F" onChange={this.changeDays} checked={this.state.F} /></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              
-              <div className="time">
-                Start Time<br />
-                <TimePicker
-                  showSecond={false}
-                  onChange={this.changeStartTime}
-                  value={this.state.startTime}
-                  format={format}
-                  use12Hours
-                  minuteStep={5}
-                /><br />
-                End Time<br />
-                <TimePicker
-                  showSecond={false}
-                  value={this.state.endTime}
-                  onChange={this.changeEndTime}
-                  format={format}
-                  use12Hours
-                  minuteStep={5}
-                />
-              </div>
-              <div className="location">
-                Location<br />
-                <input type="text" value={this.state.location} onChange={this.changeLocation} />
+                <div className="meetingDays">
+                  <table className="days">
+                    <thead>
+                      <tr className="head">
+                        <th>M</th>
+                        <th>Tu</th>
+                        <th>W</th>
+                        <th>Th</th>
+                        <th>F</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox" value="M" onChange={this.changeDays} checked={this.state.M} /></td> 
+                        <td><input type="checkbox" value="Tu" onChange={this.changeDays} checked={this.state.Tu} /></td> 
+                        <td><input type="checkbox" value="W" onChange={this.changeDays} checked={this.state.W} /></td>
+                        <td><input type="checkbox" value="Th" onChange={this.changeDays} checked={this.state.Th} /></td>
+                        <td><input type="checkbox" value="F" onChange={this.changeDays} checked={this.state.F} /></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div className="time">
+                  Start Time<br />
+                  <TimePicker
+                    showSecond={false}
+                    onChange={this.changeStartTime}
+                    value={this.state.startTime}
+                    format={format}
+                    use12Hours
+                    minuteStep={5}
+                  />
+                </div>
+                <div className="time">
+                  End Time<br />
+                  <TimePicker
+                    showSecond={false}
+                    value={this.state.endTime}
+                    onChange={this.changeEndTime}
+                    format={format}
+                    use12Hours
+                    minuteStep={5}
+                  />
+                </div>
+                <div className="location">
+                  Location<br />
+                  <input type="text" value={this.state.location} onChange={this.changeLocation} />
+                </div>
+                <div className="sectionToggle">
+                  Section<input type="checkbox" onChange={this.sectionToggle} checked={this.state.section} />
+                </div>
               </div>
               {/*shows only if user has selected section*/}
               {this.state.section &&
                 <div className="sectionForm">
-                  <b>Section</b>
                   <div className="meetingDays">
+                    <b>Section</b>
                     <table className="days">
                       <thead>
                         <tr className="head">
@@ -270,7 +279,9 @@ class ClassInput extends Component {
                       value={this.state.sStartTime}
                       use12Hours
                       minuteStep={5}
-                    /><br />
+                    />
+                  </div>
+                  <div className="time">
                     End Time<br />
                     <TimePicker
                       showSecond={false}
@@ -288,8 +299,7 @@ class ClassInput extends Component {
                 </div>
               }
               <div className="submit">
-                Section<input type="checkbox" onChange={this.sectionToggle} checked={this.state.section} />
-                <input type="submit" value="Submit" />
+                <input type="submit" className="submit" value="Submit" />
               </div>
             </form>
           </div>
