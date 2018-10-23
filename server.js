@@ -23,6 +23,9 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
+// API routes
+require('./server/routes/api/signin');
+
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
   res.send({ express: "Connected!" });
