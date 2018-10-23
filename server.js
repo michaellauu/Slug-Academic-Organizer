@@ -7,8 +7,8 @@ const cors = require("cors");
 const schedule = require("./api/data/schedule.json");
 
 // Define a model of data
-const Data = require("./models/Data");
-const ClassData = require("./models/classData");
+const ClassData = require("./server/models/classData");
+const Data = require("./server/models/Data");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,7 +24,8 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
-const database = mongoose.connection;
+// API routes
+// require("./server/routes/api/signin");
 
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
@@ -50,7 +51,7 @@ app.post("/api", (req, res) => {
   res.send("Done!");
 });
 
-// A route that's still in progress ...
+// Posts class form submission to database
 app.post("/api/submitClass", (req, res) => { 
 	console.log(req.body);
   const classData = new ClassData({
