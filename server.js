@@ -7,6 +7,7 @@ const cors = require("cors");
 const schedule = require("./api/data/schedule.json");
 
 // Define a model of data
+const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
 
 const app = express();
@@ -50,11 +51,23 @@ app.post("/api", (req, res) => {
   res.send("Done!");
 });
 
-// A route that's still in progress ...
-app.post("/api/getClasses", (req, res) => {
-  console.log(req.body.class);
-  //do stuff with the scraper?
-  res.send({ express: "I don't know what to put here" });
+// Posts class form submission to database
+app.post("/api/submitClass", (req, res) => { 
+	console.log(req.body);
+  const classData = new ClassData({
+  	courseID: req.body.class,
+  	meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
+  	startTime: req.body.startTime,
+  	endTime: req.body.endTime,
+  	location: req.body.location,
+  	section: req.body.section,
+  	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
+  	sStartTime: req.body.sStartTime,
+  	sEndTime: req.body.sEndTime,
+  	sLocation: req.body.sLocation
+  });
+  classData.save().then(console.log(`Saving documents ...`));
+  res.send({ express: "done" });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
