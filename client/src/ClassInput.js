@@ -140,8 +140,9 @@ class ClassInput extends Component {
 
   //form submission->post request to server
   handleSubmit(event){
+    console.log(this.state.section);
     this.submitClass({class: this.state.class, M: this.state.M, Tu: this.state.Tu, W: this.state.W,
-                    Th: this.state.Th, F: this.state.F, startTIme: this.state.startTime,
+                    Th: this.state.Th, F: this.state.F, startTime: this.state.startTime,
                     endTime: this.state.endTime, location: this.state.location, section: this.state.section,
                     sM: this.state.sM, sTu: this.state.sTu, sW: this.state.sW, sTh: this.state.sTh,
                     sF: this.state.sF, sStartTime: this.state.sStartTime, sEndTime: this.state.sEndTime,
@@ -149,25 +150,37 @@ class ClassInput extends Component {
       .then(res => this.setState({response: res.express, class: '', M: false,
             Tu: false, W: false, Th: false, F: false, startTime: undefined, endTime: undefined, 
             location: '', section: false, sM: false, sTu: false, sW: false, sTh: false, sF: false, 
-            sStartTime: undefined, eEndTime: undefined, sLocation: ''})) //then reset all states
+            sStartTime: undefined, sEndTime: undefined, sLocation: ''})) //then reset all states
       .catch(err => console.log(err));
     event.preventDefault(); //prevent default page reload
-    console.log(this.state.section);
   }
 
   //make post call to server
   submitClass = async (data) => {
+    var json;
+    if (data.section){
+      json =  JSON.stringify({
+          class: data.class, M: data.M, Tu: data.Tu, W: data.W, Th: data.Th, F: data.F,
+          startTime: data.startTime, endTime: data.endTime, location: data.location,
+          section: data.section, sM: data.sM, sTu: data.sTu, sW: data.sW, sTh: data.sTh,
+          sF: data.sF, sStartTime: data.sStartTime, sEndTime: data.sEndTime, sLocation: data.sLocation
+        });
+    }else{
+      json = JSON.stringify({
+          class: data.class, M: data.M, Tu: data.Tu, W: data.W, Th: data.Th, F: data.F,
+          startTime: data.startTime, endTime: data.endTime, location: data.location,
+          section: data.section
+        });
+    }
     const response = await fetch('/api/submitClass', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        class: data.class, M: data.M, Tu: data.Tu, W: data.W, Th: data.Th, F: data.F,
-        startTime: data.startTime, endTime: data.endTime, location: data.location
-      })
+      body: json
     });
+
     const body = await response.json();
 
     if(response.status !== 200) throw Error(body.message);

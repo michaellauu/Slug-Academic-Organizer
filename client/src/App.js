@@ -22,7 +22,6 @@ class App extends Component {
   callApi = async () => {
     const response = await fetch("/");
     const body = await response.json();
-    console.log(response);
 
     if (response.status !== 200) throw Error(body.message);
 
@@ -32,7 +31,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>{this.state.response}</p>
         <ClassInput />
       </div>
     );

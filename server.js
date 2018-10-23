@@ -8,6 +8,7 @@ const schedule = require("./api/data/schedule.json");
 
 // Define a model of data
 const Data = require("./models/Data");
+const ClassData = require("./models/classData");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -22,6 +23,8 @@ mongoose
   .connect(db)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
+
+const database = mongoose.connection;
 
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
@@ -48,11 +51,22 @@ app.post("/api", (req, res) => {
 });
 
 // A route that's still in progress ...
-app.post("/api/submitClass", (req, res) => {
-  console.log(req.body.class);
-  console.log(req.body.location);
-  //do stuff with the scraper?
-  res.send({ express: "I don't know what to put here" });
+app.post("/api/submitClass", (req, res) => { 
+	console.log(req.body);
+  const classData = new ClassData({
+  	courseID: req.body.class,
+  	meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
+  	startTime: req.body.startTime,
+  	endTime: req.body.endTime,
+  	location: req.body.location,
+  	section: req.body.section,
+  	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
+  	sStartTime: req.body.sStartTime,
+  	sEndTime: req.body.sEndTime,
+  	sLocation: req.body.sLocation
+  });
+  classData.save().then(console.log(`Saving documents ...`));
+  res.send({ express: "done" });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
