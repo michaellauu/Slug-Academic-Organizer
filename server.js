@@ -7,7 +7,7 @@ const cors = require("cors");
 const schedule = require("./api/data/schedule.json");
 
 // Define a model of data
-const Data = require("./models/Data");
+const Data = require("./server/models/Data");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,7 +24,7 @@ mongoose
   .catch(err => console.log(err));
 
 // API routes
-require('./server/routes/api/signin');
+// require("./server/routes/api/signin");
 
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
