@@ -53,8 +53,9 @@ app.post("/api", (req, res) => {
   res.send("Done!");
 });
 
+
 //ge post
-app.post("/api", (req, res) => {
+app.post("/api/ge", (req, res) => {
   for (let i = 0; i < geSchedule.length; i++) {
     // Create new model that'll hold schedule data
     const geData = new GEData({
@@ -66,6 +67,7 @@ app.post("/api", (req, res) => {
   }
   res.send("GE Done!");
 });
+
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => { 
