@@ -2,9 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const fs = require('fs');
 const historyApiFallback = require('connect-history-api-fallback');
-const path = require('path');
 
 // Import JSON data of courses
 const schedule = require("./api/data/schedule.json");
@@ -16,9 +14,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 const port = process.env.PORT || 5000;
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // Connect to MongoDB
@@ -64,4 +59,3 @@ app.post("/api/getClasses", (req, res) => {
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-module.exports = app;
