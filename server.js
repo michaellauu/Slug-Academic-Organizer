@@ -32,6 +32,47 @@ app.get("/", (req, res) => {
   res.send({ express: "Connected!" });
 });
 
+app.post("/api/userClasses", (req, res) => {
+	var userClasses = [];
+	ClassData.find(function(err, classes){
+		if(err){
+			console.log(err);
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			classes.forEach(function(userClass){
+				var newClass = {};
+				if(userClass.section){
+					newClass = {
+						meetingDays: userClass.meetingDays,
+						sMeetingDays: userClass.sMeetingDays,
+						couseID: userClass.courseID,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+						sStartTime: userClass.sStartTime,
+						sEndTime: userClass.sEndTime,
+						sLocation: userClass.sLocation
+					};
+
+				}else{
+					newClass = {
+						meetingDays: userClass.meetingDays,
+						couseID: userClass.courseID,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+					};
+				}
+				console.log(newClass);
+				userClasses.push(newClass);
+			});
+			res.send(userClasses);
+		}
+	}).then(console.log(`Getting user classes ...`));
+});
+
 // Push all JSON data into database
 app.post("/api", (req, res) => {
   for (let i = 0; i < bsoe.length; i++) {

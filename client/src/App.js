@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       response: "", //server response
+      classes: undefined
     };
   }
 
@@ -17,6 +18,10 @@ class App extends Component {
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
+    this.makePost()
+      .then(res => this.setState({ classes: res.express }))
+      .catch(err => console.log(err));
+
   }
 
   callApi = async () => {
@@ -27,6 +32,25 @@ class App extends Component {
 
     return body;
   };
+
+  makePost = async () => {
+    const response = await fetch('/api/userClasses', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: undefined
+    });
+
+    const body = await response.json();
+
+    if(response.status !== 200) throw Error(body.message);
+
+    console.log(body);
+
+    return body;
+  }
 
   render() {
     return (
