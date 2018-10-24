@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const historyApiFallback = require('connect-history-api-fallback');
 
 // Import JSON data of courses
 const schedule = require("./api/data/schedule.json");
@@ -11,10 +12,9 @@ const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 const port = process.env.PORT || 5000;
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // Connect to MongoDB
@@ -25,7 +25,7 @@ mongoose
   .catch(err => console.log(err));
 
 // API routes
-// require("./server/routes/api/signin");
+require('./server/routes/api/signin.js')(app);
 
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
@@ -71,3 +71,4 @@ app.post("/api/submitClass", (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
