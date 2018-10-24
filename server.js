@@ -9,6 +9,7 @@ const schedule = require("./api/data/schedule.json");
 // Define a model of data
 const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
+const GEData = require("./server/models/geData")
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -49,6 +50,20 @@ app.post("/api", (req, res) => {
   }
 
   res.send("Done!");
+});
+
+//ge post
+app.post("/api", (req, res) => {
+  for (let i = 0; i < geSchedule.length; i++) {
+    // Create new model that'll hold schedule data
+    const geData = new GEData({
+      geID: geSchedule[i].geID,
+      desc: geSchedule[i].desc,
+      credits: parseInt(geSchedule[i].credits),
+    });
+    geData.save().then(console.log(`Saving ${i} documents ...`));
+  }
+  res.send("GE Done!");
 });
 
 // Posts class form submission to database
