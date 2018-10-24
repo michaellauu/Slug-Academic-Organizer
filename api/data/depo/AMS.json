@@ -1,0 +1,708 @@
+[
+    {
+        "courseID": "AMS3",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Pascale Garaud (pgaraud)"
+        ]
+    },
+    {
+        "courseID": "AMS5",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 02",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 02",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 02",
+            "Yonatan Katznelson (yorik)"
+        ]
+    },
+    {
+        "courseID": "AMS6",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS7",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Draper (draper)",
+            "Section 02",
+            "Bruno S Mendes (mendes)",
+            "Section 01",
+            "Staff",
+            "Section 01",
+            "Yonatan Katznelson (yorik)"
+        ]
+    },
+    {
+        "courseID": "AMS7L",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Matthew Joseph Heiner (mheiner)",
+            "Section 02",
+            "Sharmistha Guha (shguha)",
+            "Section 01",
+            "Staff",
+            "Section 02",
+            "Staff",
+            "Section 01",
+            "Staff",
+            "Section 02",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS10",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marcella Gomez (mgomez26)",
+            "Section 01",
+            "Nicholas H Brummell (brummell)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS10A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS11A",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 01",
+            "Bruno S Mendes (mendes)",
+            "Section 01",
+            "Yonatan Katznelson (yorik)"
+        ]
+    },
+    {
+        "courseID": "AMS11B",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Yonatan Katznelson (yorik)",
+            "Section 01",
+            "Hongyun Wang (hongwang)"
+        ]
+    },
+    {
+        "courseID": "AMS15A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS15B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS20",
+        "quarters": [
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Qi Gong (qgong)",
+            "Section 01",
+            "Abhishek Halder (ahalder)"
+        ]
+    },
+    {
+        "courseID": "AMS20A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS27L",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS80A",
+        "quarters": [
+            "Fall18",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Rajarshi Guhaniyogi (rguhaniy)",
+            "Section 01",
+            "Bruno S Mendes (mendes)"
+        ]
+    },
+    {
+        "courseID": "AMS80B",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS100",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS107",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)"
+        ]
+    },
+    {
+        "courseID": "AMS113",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS114",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS115",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS129",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Youngjun Lee (ylee109)"
+        ]
+    },
+    {
+        "courseID": "AMS131",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Athanasios Kottas (thanos)",
+            "Section 02",
+            "Raquel Prado (rprado)",
+            "Section 01",
+            "Ju Hee Lee (jle297)",
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS132",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS147",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS148",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS156",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS162",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS200",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Pascale Garaud (pgaraud)",
+            "Athanasios Kottas (thanos)"
+        ]
+    },
+    {
+        "courseID": "AMS202",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS203",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Ju Hee Lee (jle297)"
+        ]
+    },
+    {
+        "courseID": "AMS204",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Raquel Prado (rprado)"
+        ]
+    },
+    {
+        "courseID": "AMS205B",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Abel Rodriguez (abel.rod)"
+        ]
+    },
+    {
+        "courseID": "AMS206",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "David Draper (draper)"
+        ]
+    },
+    {
+        "courseID": "AMS206B",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ju Hee Lee (jle297)"
+        ]
+    },
+    {
+        "courseID": "AMS207",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno Sanso (bsanso)",
+            "Section 50",
+            "Bruno Sanso (bsanso)"
+        ]
+    },
+    {
+        "courseID": "AMS211",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Hongyun Wang (hongwang)"
+        ]
+    },
+    {
+        "courseID": "AMS212A",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marcella Gomez (mgomez26)"
+        ]
+    },
+    {
+        "courseID": "AMS212B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS213",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS213A",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Dongwook Lee (dlee79)"
+        ]
+    },
+    {
+        "courseID": "AMS213B",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Hongyun Wang (hongwang)"
+        ]
+    },
+    {
+        "courseID": "AMS214",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS215",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Marcella Gomez (mgomez26)"
+        ]
+    },
+    {
+        "courseID": "AMS216",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS217",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)"
+        ]
+    },
+    {
+        "courseID": "AMS221",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno Sanso (bsanso)"
+        ]
+    },
+    {
+        "courseID": "AMS223",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS225",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS227",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS229",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Abhishek Halder (ahalder)"
+        ]
+    },
+    {
+        "courseID": "AMS230",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Qi Gong (qgong)"
+        ]
+    },
+    {
+        "courseID": "AMS231",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS232",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Abhishek Halder (ahalder)"
+        ]
+    },
+    {
+        "courseID": "AMS236",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS238",
+        "quarters": [
+            "Winter19"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniele Venturi (venturi)"
+        ]
+    },
+    {
+        "courseID": "AMS241",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS245",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Bruno Sanso (bsanso)"
+        ]
+    },
+    {
+        "courseID": "AMS250",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)"
+        ]
+    },
+    {
+        "courseID": "AMS256",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Raquel Prado (rprado)"
+        ]
+    },
+    {
+        "courseID": "AMS260",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Dongwook Lee (dlee79)"
+        ]
+    },
+    {
+        "courseID": "AMS261",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS263",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Rajarshi Guhaniyogi (rguhaniy)"
+        ]
+    },
+    {
+        "courseID": "AMS266A",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Daniel Spencer (daspence)"
+        ]
+    },
+    {
+        "courseID": "AMS266B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS266C",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS268",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS274",
+        "quarters": [
+            "Fall18"
+        ],
+        "sections": [
+            "Section 01",
+            "Athanasios Kottas (thanos)"
+        ]
+    },
+    {
+        "courseID": "AMS275",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS276",
+        "quarters": [
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Staff"
+        ]
+    },
+    {
+        "courseID": "AMS280A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS280B",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Ju Hee Lee (jle297)",
+            "AMS 280B section 01 intended for Statistics graduate students",
+            "Section 02",
+            "Marcella Gomez (mgomez26)",
+            "AMS 280B section 01 intended for Applied Mathematics graduate students",
+            "Section 01",
+            "Staff",
+            "AMS 280B section 01 intended for Statistics graduate students",
+            "Section 02",
+            "Abhishek Halder (ahalder)",
+            "AMS 280B section 02 intended for Applied Mathematics graduate students",
+            "Section 01",
+            "Rajarshi Guhaniyogi (rguhaniy)",
+            "AMS 280B section 01 intended for Statistics graduate students",
+            "Section 02",
+            "Daniele Venturi (venturi)",
+            "AMS 280B section 02 intended for Applied Mathematics graduate students"
+        ]
+    },
+    {
+        "courseID": "AMS280C",
+        "quarters": [
+            "Fall18",
+            "Winter19",
+            "Spring19"
+        ],
+        "sections": [
+            "Section 01",
+            "Nicholas H Brummell (brummell)",
+            "Section 01",
+            "Pascale Garaud (pgaraud)",
+            "Section 01",
+            "Dongwook Lee (dlee79)"
+        ]
+    },
+    {
+        "courseID": "AMS280D",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS285",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS290A",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS290B",
+        "quarters": [],
+        "sections": []
+    },
+    {
+        "courseID": "AMS291",
+        "quarters": [],
+        "sections": []
+    }
+]

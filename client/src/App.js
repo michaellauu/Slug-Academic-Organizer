@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      response: '', //server response
-      class: '' //class value from form
+      response: "", //server response
+      class: "" //class value from form
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,40 +15,40 @@ class App extends Component {
   }
 
   //makes get request to server after the component mounts
-  componentDidMount(){
+  componentDidMount() {
     this.callApi()
-      .then(res => this.setState({response: res.express}))
+      .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch('/api');
+    const response = await fetch("/");
     const body = await response.json();
 
-    if(response.status !== 200) throw Error(body.message);
+    if (response.status !== 200) throw Error(body.message);
 
     return body;
   };
 
   //change to form
-  handleChange(event){
-    this.setState({class: event.target.value});
+  handleChange(event) {
+    this.setState({ class: event.target.value });
   }
 
   //form submission->post request to server
-  handleSubmit(event){
+  handleSubmit(event) {
     this.getClasses(this.state.class)
-      .then(res => this.setState({response: res.express, class: ''}))
+      .then(res => this.setState({ response: res.express, class: "" }))
       .catch(err => console.log(err));
     event.preventDefault();
   }
 
-  getClasses = async (data) => {
-    const response = await fetch('/api/getClasses', {
-      method: 'POST',
+  getClasses = async data => {
+    const response = await fetch("/api/getClasses", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         class: data
@@ -57,10 +56,10 @@ class App extends Component {
     });
     const body = await response.json();
 
-    if(response.status !== 200) throw Error(body.message);
+    if (response.status !== 200) throw Error(body.message);
 
     return body;
-  }
+  };
 
   render() {
     return (
@@ -68,10 +67,14 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1>{this.state.response}</h1>
-          <form onSubmit = {this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <label>
               Search:
-              <input type="text" value={this.state.class} onChange={this.handleChange} />
+              <input
+                type="text"
+                value={this.state.class}
+                onChange={this.handleChange}
+              />
             </label>
             <input type="submit" value="Submit" />
           </form>

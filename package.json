@@ -7,11 +7,16 @@
     "lib": "lib"
   },
   "scripts": {
-    "scraper": "node scraper.js",
-    "test": "node test.js",
+    "test": "jest",
     "server": "nodemon server.js",
-    "client": "cd client && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "verbose": true
   },
   "repository": {
     "type": "git",
@@ -24,14 +29,24 @@
   },
   "homepage": "https://github.com/chtzou/Slug-Academic-Organizer#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.2",
     "cheerio": "^1.0.0-rc.2",
+    "connect-history-api-fallback": "^1.5.0",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
+    "fs": "0.0.1-security",
     "mongoose": "^5.3.4",
-    "react-router-dom": "^4.3.1",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "nodemon": "^1.18.4",
+    "path": "^0.12.7"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "concurrently": "^3.5.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1"
   }
 }
