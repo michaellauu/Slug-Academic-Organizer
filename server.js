@@ -5,6 +5,7 @@ const cors = require("cors");
 
 // Import JSON data of courses
 const schedule = require("./api/data/schedule.json");
+const geSchedule = require("./api/data/ge.json")
 
 // Define a model of data
 const ClassData = require("./server/models/classData");
@@ -35,7 +36,7 @@ app.get("/", (req, res) => {
 
 // Push all JSON data into database
 app.post("/api", (req, res) => {
-  for (let i = 0; i < bsoe.length; i++) {
+  for (let i = 0; i < schedule.length; i++) {
     // Create new model that'll hold schedule data
     const newData = new Data({
       courseID: schedule[i].courseID,

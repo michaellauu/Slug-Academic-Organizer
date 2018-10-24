@@ -14,4 +14,5 @@ const GEDataSchema = new Schema({
   },
 });
 
+//Data or GEData???
 module.exports = GEData = mongoose.model("GEData", GEDataSchema);
