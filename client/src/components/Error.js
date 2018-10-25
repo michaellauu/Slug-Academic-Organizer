@@ -7,7 +7,7 @@ const Error = () => {
     <div>
       <p>Error: You Shouldn't Be Here. :P</p>
     </div>
-  );
-};
+  )
+}
 
 export default Error;
