@@ -19,6 +19,12 @@ Our project is to create a web app to help students keep track of their educatio
 
 ---
 
+## Team Files
+
+Any documents or writeups pertaining to the project can be found under the **team-files** folder. It will be updated regularly and stay in sync with the course outline.
+
+---
+
 ## Installation
 
 Steps to get a clone of your fork locally:

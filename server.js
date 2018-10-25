@@ -1,21 +1,23 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const historyApiFallback = require('connect-history-api-fallback');
 
-// Import JSON data of courses
-const schedule = require("./api/data/schedule.json");
+const app = express();
 
-// Define a model of data
+// JSON
+const schedule = require("./lib/data/schedule.json");
+
+// Models
 const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
 
-const app = express();
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-const port = process.env.PORT || 5000;
 app.use(cors());
+
+// Port
+const port = process.env.PORT || 5000;
 
 // Connect to MongoDB
 const db = require("./config/keys").mongoURI;
@@ -25,7 +27,7 @@ mongoose
   .catch(err => console.log(err));
 
 // API routes
-require('./server/routes/api/signin.js')(app);
+require("./server/routes/api/signin.js")(app);
 
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
@@ -34,17 +36,18 @@ app.get("/", (req, res) => {
 
 app.post("/api/userClasses", (req, res) => {
 	var userClasses = [];
-	ClassData.find(function(err, classes){
+	console.log(req.body);
+	ClassData.find({'userToken': req.body.token}, function(err, classes){
 		if(err){
 			console.log(err);
 			return res.status(500).send({message: 'Failed to load user classes'});
 		}else{
 			classes.forEach(function(userClass){
-				var newClass = {};
+				/*var newClass = {};
 				if(userClass.section){
 					newClass = {
 						courseID: userClass.courseID,
-						/*meetingDays: userClass.meetingDays,
+						meetingDays: userClass.meetingDays,
 						sMeetingDays: userClass.sMeetingDays,
 						startTime: userClass.startTime,
 						endTime: userClass.endTime,
@@ -52,19 +55,20 @@ app.post("/api/userClasses", (req, res) => {
 						section: userClass.section,
 						sStartTime: userClass.sStartTime,
 						sEndTime: userClass.sEndTime,
-						sLocation: userClass.sLocation*/
+						sLocation: userClass.sLocation
 					};
 
 				}else{
 					newClass = {
 						courseID: userClass.courseID,
-						/*meetingDays: userClass.meetingDays,
+						meetingDays: userClass.meetingDays,
 						startTime: userClass.startTime,
 						endTime: userClass.endTime,
 						location: userClass.location,
-						section: userClass.section,*/
+						section: userClass.section,
 					};
-				}
+				}*/
+				const newClass = {courseID: userClass.courseID, _id:userClass._id};
 
 				userClasses.push(newClass);
 			});
@@ -86,6 +90,7 @@ app.post("/api", (req, res) => {
       sections: schedule[i].sections
     });
 
+    // Save to db under collection data(s)
     newData.save().then(console.log(`Saving ${i} documents ...`));
   }
 
@@ -93,10 +98,11 @@ app.post("/api", (req, res) => {
 });
 
 // Posts class form submission to database
-app.post("/api/submitClass", (req, res) => { 
-	console.log(req.body);
+app.post("/api/submitClass", (req, res) => {
+  console.log(req.body);
   const classData = new ClassData({
   	courseID: req.body.class,
+  	userToken: req.body.token
   	/*meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
   	startTime: req.body.startTime,
   	endTime: req.body.endTime,
@@ -112,4 +118,3 @@ app.post("/api/submitClass", (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-

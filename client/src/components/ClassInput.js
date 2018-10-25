@@ -7,7 +7,7 @@ class ClassInput extends Component {
     super(props);
     this.state = {
       response: '', //server response
-      class: '' //class value from form
+      class: '', //class value from form
     };
 
     this.changeClass = this.changeClass.bind(this);
@@ -20,7 +20,7 @@ class ClassInput extends Component {
   }
   //form submission->post request to server
   handleSubmit(event){
-    this.submitClass({class: this.state.class}) //send all form data to server
+    this.submitClass({class: this.state.class, token: this.props.token}) //send all form data to server
       .then(res => this.setState({response: res.express, class: ''})) //then reset all states
       .catch(err => console.log(err));
     event.preventDefault(); //prevent default page reload
@@ -35,7 +35,7 @@ class ClassInput extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({class: data.class})
+      body: JSON.stringify({class: data.class, token: data.token})
     });
 
     const body = await response.json();

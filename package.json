@@ -10,7 +10,8 @@
     "test": "jest",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev2": "concurrently \"npm run server\" \"npm run client\""
   },
   "jest": {
     "transform": {
@@ -35,10 +36,8 @@
     "connect-history-api-fallback": "^1.5.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "fs": "0.0.1-security",
     "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4",
-    "path": "^0.12.7"
+    "nodemon": "^1.18.4"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
