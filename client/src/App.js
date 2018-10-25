@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import ClassInput from "./components/ClassInput";
-//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
