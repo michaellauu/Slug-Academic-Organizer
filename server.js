@@ -1,19 +1,19 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const historyApiFallback = require('connect-history-api-fallback');
+// const historyApiFallback = require('connect-history-api-fallback');
 
 // Import JSON data of courses
 const schedule = require("./api/data/schedule.json");
 
-// Define a model of data
+// Define a models of data
 const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 const port = process.env.PORT || 5000;
 app.use(cors());
 
@@ -25,7 +25,7 @@ mongoose
   .catch(err => console.log(err));
 
 // API routes
-require('./server/routes/api/signin.js')(app);
+require("./server/routes/api/signin.js")(app);
 
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
@@ -52,23 +52,28 @@ app.post("/api", (req, res) => {
 });
 
 // Posts class form submission to database
-app.post("/api/submitClass", (req, res) => { 
-	console.log(req.body);
+app.post("/api/submitClass", (req, res) => {
+  console.log(req.body);
   const classData = new ClassData({
-  	courseID: req.body.class,
-  	meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
-  	startTime: req.body.startTime,
-  	endTime: req.body.endTime,
-  	location: req.body.location,
-  	section: req.body.section,
-  	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
-  	sStartTime: req.body.sStartTime,
-  	sEndTime: req.body.sEndTime,
-  	sLocation: req.body.sLocation
+    courseID: req.body.class,
+    meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
+    startTime: req.body.startTime,
+    endTime: req.body.endTime,
+    location: req.body.location,
+    section: req.body.section,
+    sMeetingDays: [
+      req.body.sM,
+      req.body.sTu,
+      req.body.sW,
+      req.body.sTh,
+      req.body.sF
+    ],
+    sStartTime: req.body.sStartTime,
+    sEndTime: req.body.sEndTime,
+    sLocation: req.body.sLocation
   });
   classData.save().then(console.log(`Saving documents ...`));
   res.send({ express: "done" });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
