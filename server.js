@@ -43,29 +43,29 @@ app.post("/api/userClasses", (req, res) => {
 				var newClass = {};
 				if(userClass.section){
 					newClass = {
-						meetingDays: userClass.meetingDays,
+						courseID: userClass.courseID,
+						/*meetingDays: userClass.meetingDays,
 						sMeetingDays: userClass.sMeetingDays,
-						couseID: userClass.courseID,
 						startTime: userClass.startTime,
 						endTime: userClass.endTime,
 						location: userClass.location,
 						section: userClass.section,
 						sStartTime: userClass.sStartTime,
 						sEndTime: userClass.sEndTime,
-						sLocation: userClass.sLocation
+						sLocation: userClass.sLocation*/
 					};
 
 				}else{
 					newClass = {
-						meetingDays: userClass.meetingDays,
-						couseID: userClass.courseID,
+						courseID: userClass.courseID,
+						/*meetingDays: userClass.meetingDays,
 						startTime: userClass.startTime,
 						endTime: userClass.endTime,
 						location: userClass.location,
-						section: userClass.section,
+						section: userClass.section,*/
 					};
 				}
-				console.log(newClass);
+
 				userClasses.push(newClass);
 			});
 			res.send(userClasses);
@@ -97,7 +97,7 @@ app.post("/api/submitClass", (req, res) => {
 	console.log(req.body);
   const classData = new ClassData({
   	courseID: req.body.class,
-  	meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
+  	/*meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
   	startTime: req.body.startTime,
   	endTime: req.body.endTime,
   	location: req.body.location,
@@ -105,7 +105,7 @@ app.post("/api/submitClass", (req, res) => {
   	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
   	sStartTime: req.body.sStartTime,
   	sEndTime: req.body.sEndTime,
-  	sLocation: req.body.sLocation
+  	sLocation: req.body.sLocation*/
   });
   classData.save().then(console.log(`Saving documents ...`));
   res.send({ express: "done" });

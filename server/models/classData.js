@@ -7,7 +7,7 @@ const classDataSchema = new Schema({
     type: String,
     trim: true,
     required: true
-  },
+  },/*
   meetingDays: {
     type: [Boolean],
     required: true
@@ -35,7 +35,7 @@ const classDataSchema = new Schema({
   sLocation: {
     type: String,
     trim: true
-  }
+  }*/
 });
 
 module.exports = ClassData = mongoose.model("ClassData", classDataSchema, "userClasses");

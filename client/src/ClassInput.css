@@ -1,33 +1,13 @@
 .classInfo{
 	padding: 20px;
 	width: 200px;
-	height: 360px;
+	height: 110px;
 	box-sizing: border-box;
 	background: #fdf7ff;
 	border-radius: 20px;
 }
 
 .class {
-	padding: 5px;
-}
-
-.meetingDays {
-	padding: 5px;
-}
-
-.time {
-	padding: 5px;
-}
-
-.title {
-	padding: 5px;
-}
-
-.sectionToggle{
-	padding: 5px;
-}
-
-.location {
 	padding: 5px;
 }
 
@@ -45,32 +25,7 @@ input {
     border:solid 1px #DCDCDC;
 }
 
-.sectionForm{
-	padding-top: 20px;
-}
-
-table{
-	padding: 1px;
-	border: 1px solid #fdf7ff;
-}
-
-th, td {
-	padding: 2px;
-	text-align: center;
-	border: 1px solid #fdf7ff;
-}
-
 .submit input {
 	cursor:pointer;
 	border: solid 2px #ddc8f7;
-}
-
-.sectionForm {
-	margin-top: 10px;
-	padding: 20px;
-	width: 200px;
-	height: 300px;
-	box-sizing: border-box;
-	background: #fdf7ff;
-	border-radius: 20px;
 }

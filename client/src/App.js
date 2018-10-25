@@ -9,8 +9,17 @@ class App extends Component {
     super(props);
     this.state = {
       response: "", //server response
-      classes: undefined
+      classes: []
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    console.log("here");
+    this.makePost()
+      .then(res => this.setState({ classes: res }))
+      .catch(err => console.log(err));
   }
 
   //makes get request to server after the component mounts
@@ -19,7 +28,7 @@ class App extends Component {
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
     this.makePost()
-      .then(res => this.setState({ classes: res.express }))
+      .then(res => this.setState({ classes: res }))
       .catch(err => console.log(err));
 
   }
@@ -55,7 +64,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ClassInput />
+        <div className="wrapper">
+          <div className="one">
+            <ClassInput onSubmit = {this.handleSubmit}/>
+          </div>
+          <div className="two">
+            <table className="classLog">
+              <thead>
+                <tr>
+                  <th>
+                    Class
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.classes.map(function(d, idx){
+                 return (<tr key={idx}><td key={idx}>{d.courseID}</td></tr>)
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     );
   }
