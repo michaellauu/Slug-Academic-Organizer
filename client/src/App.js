@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   handleSubmit() {
-    console.log("here");
     this.makePost()
       .then(res => this.setState({ classes: res }))
       .catch(err => console.log(err));
