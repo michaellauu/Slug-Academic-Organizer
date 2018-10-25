@@ -35,7 +35,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route path="/" component={ClassInput} exact />
+	    <Route path="/" component={ClassInput} exact />
 	    <Route path="/signin" component={Home} />
 	    <Route component={Error} />
           </Switch>
