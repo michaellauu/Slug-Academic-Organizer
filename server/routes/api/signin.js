@@ -1,3 +1,5 @@
+// some code is used from @Keithweaver_ on medium.com
+
 const User = require("../../models/User");
 const UserSession = require("../../models/UserSession");
 

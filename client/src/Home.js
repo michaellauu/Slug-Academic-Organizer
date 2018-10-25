@@ -1,3 +1,5 @@
+// some code is used from @Keithweaver_ on medium.com
+
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 

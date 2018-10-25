@@ -32,10 +32,13 @@
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "cheerio": "^1.0.0-rc.2",
+    "connect-history-api-fallback": "^1.5.0",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "fs": "0.0.1-security",
     "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
