@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import ClassInput from './ClassInput.js';
-//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import ClassInput from "./components/ClassInput";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: "", //server response
+      response: "" //server response
     };
   }
 
