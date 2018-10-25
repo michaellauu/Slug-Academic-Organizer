@@ -1,6 +1,7 @@
 // Code is used from @Keithweaver_ on medium.com
 
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "whatwg-fetch";
 
 import { getFromStorage, setInStorage } from "./storage";
@@ -258,6 +259,7 @@ class Home extends Component {
             <br />
             <button onClick={this.onSignUp}>Sign Up</button>
           </div>
+		  <li><Link to='/'>Class Lookup Page</Link></li>
         </div>
       );
     }

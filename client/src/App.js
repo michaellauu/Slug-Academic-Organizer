@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ClassInput from "./components/ClassInput";
+import Home from "./components/Home";
+import Error from "./components/Error";
 
 class App extends Component {
   constructor(props) {
@@ -28,11 +31,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <ClassInput />
-      </div>
+	//this lets connect to different components of our site
+      <BrowserRouter>
+        <div>
+          <Switch>
+	    <Route path="/" component={ClassInput} exact />
+	    <Route path="/signin" component={Home} />
+	    <Route component={Error} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
-}
-
+};
 export default App;

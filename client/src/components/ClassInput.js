@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "./ClassInput.css";
 import "rc-time-picker/assets/index.css";
 import TimePicker from "rc-time-picker";
@@ -461,6 +462,7 @@ class ClassInput extends Component {
               </div>
             </form>
           </div>
+		  <li><Link to='/signin'>Account Page</Link></li>
         </header>
       </div>
     );
