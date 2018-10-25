@@ -1,3 +1,5 @@
+//basic error page for bad redirects/unauthorized attempts.
+
 import React from 'react';
 
 const Error = () => {

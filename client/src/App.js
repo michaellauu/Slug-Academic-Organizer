@@ -31,6 +31,7 @@ class App extends Component {
 
   render() {
     return (
+	//this lets connect to different components of our site
       <BrowserRouter>
         <div>
           <Switch>
