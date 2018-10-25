@@ -36,8 +36,8 @@ class App extends Component {
         <div>
           <Switch>
             <Route path="/" component={ClassInput} exact />
-			<Route path="/signin" component={Home} />
-			<Route component={Error} />
+	    <Route path="/signin" component={Home} />
+	    <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>
