@@ -113,8 +113,20 @@ app.post("/api/submitClass", (req, res) => {
   	sEndTime: req.body.sEndTime,
   	sLocation: req.body.sLocation*/
   });
-  classData.save().then(console.log(`Saving documents ...`));
-  res.send({ express: "done" });
+  classData.save(function(err, newClass){
+  	res.send({ express: "done", _id: newClass._id });
+  });
+});
+
+app.post("/api/deleteClass", (req, res) =>{
+	ClassData.findByIdAndRemove(req.body._id, function(err, classes){
+		if(err){
+			console.log(err);
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			res.send({ express: "done" });
+		}
+	});
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

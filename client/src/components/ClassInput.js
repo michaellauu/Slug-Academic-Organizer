@@ -20,11 +20,14 @@ class ClassInput extends Component {
   }
   //form submission->post request to server
   handleSubmit(event){
+    var result, newClass = this.state.class;
     this.submitClass({class: this.state.class, token: this.props.token}) //send all form data to server
-      .then(res => this.setState({response: res.express, class: ''})) //then reset all states
-      .catch(err => console.log(err));
+      .then(res => {
+          result = res._id;
+          this.setState({response: res.express, class: ''});
+          this.props.onSubmit(newClass, result);
+      }).catch(err => console.log(err));
     event.preventDefault(); //prevent default page reload
-    this.props.onSubmit();
   }
 
   //make post call to server

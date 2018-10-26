@@ -14,13 +14,25 @@ class ClassLogging extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    this.delete = this.delete.bind(this);
+  };
 
-  handleSubmit() {
-    this.makePost(this.state.token)
-      .then(res => this.setState({ classes: res }))
+  delete(_id, idx) {
+    this.deletePost(_id)
+      .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
-  }
+      var newClasses = this.state.classes;
+      newClasses.splice(idx, 1);
+      this.setState({classes: newClasses});
+  };
+
+  handleSubmit(newClass, _id) {
+    console.log(_id);
+    var newClasses = this.state.classes;
+    newClasses.push({courseID: newClass, _id: _id});
+    this.setState({classes: newClasses});
+    console.log(newClasses);
+  };
 
   //makes get request to server after the component mounts
   componentDidMount() {
@@ -81,7 +93,26 @@ class ClassLogging extends Component {
     console.log(body);
 
     return body;
-  }
+  };
+
+  deletePost = async (_id) => {
+    const response = await fetch('/api/deleteClass', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({_id: _id})
+    });
+
+    const body = await response.json();
+
+    if(response.status !== 200) throw Error(body.message);
+
+    console.log(body);
+
+    return body;
+  };
 
   render() {
     if(!this.state.isLoading){
@@ -101,8 +132,17 @@ class ClassLogging extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.classes.map(function(d, idx){
-                   return (<tr key={idx}><td key={idx}>{d.courseID}</td></tr>)
+                  {this.state.classes.map((d, idx) => {
+                    return (
+                      <tr key={idx}>
+                        <td>
+                          {d.courseID}
+                        </td>
+                        <td>
+                          <button key={idx} onClick={() => {this.delete(d._id, idx)}}>Delete</button>
+                        </td>
+                      </tr>
+                    );
                   })}
                 </tbody>
               </table>
