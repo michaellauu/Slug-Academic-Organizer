@@ -54,7 +54,7 @@ app.post("/api", (req, res) => {
 });
 
 
-//ge post
+//ge post request
 app.post("/api/ge", (req, res) => {
   for (let i = 0; i < geSchedule.length; i++) {
     // Create new model that'll hold schedule data
@@ -66,6 +66,32 @@ app.post("/api/ge", (req, res) => {
     geData.save().then(console.log(`Saving ${i} documents ...`));
   }
   res.send("GE Done!");
+});
+
+//ge get request
+app.get("/api/GERequirements", (req, res) => {
+  GEData.find(function(err, ge){
+    if(err){
+      //error messages
+      console.log("error");
+      return res.status(500).send({geError: "Error"});
+    }else{
+      //array requirements
+      requirements = [];
+      //for each GE, put each category in the right place
+      ge.forEach(function(GE){
+        const NewGE = {
+          geID: GE.geID,
+          desc: GE.desc,
+          credits: GE.credits,
+        };
+        //pushing each GE onto the array
+        requirements.push(NewGE);
+      });
+      //send the array to GERequirements.js
+      res.send(requirements);
+    }
+  });
 });
 
 
