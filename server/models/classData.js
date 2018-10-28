@@ -12,7 +12,16 @@ const classDataSchema = new Schema({
     type: String,
     trim: true,
     required: true
-  },/*
+  },
+  year: {
+    type: Number,
+    required: true
+  },
+  quarter: {
+    type: Number, //again: 3-fall, 2-winter, 1-spring, 0-summer
+    required: true
+  }
+  /*
   meetingDays: {
     type: [Boolean],
     required: true

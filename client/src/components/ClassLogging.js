@@ -8,7 +8,7 @@ class ClassLogging extends Component {
     super(props);
     this.state = {
       response: "", //server response
-      classes: [],
+      classes: {},
       isLoading: false,
       token: ''
     };
@@ -17,19 +17,28 @@ class ClassLogging extends Component {
     this.delete = this.delete.bind(this);
   };
 
-  delete(_id, idx) {
+  delete(_id, idx, quarter, year) {
     this.deletePost(_id)
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
       var newClasses = this.state.classes;
-      newClasses.splice(idx, 1);
+      newClasses[year][quarter].splice(idx, 1);
+      const size = newClasses[year][0].length+newClasses[year][1].length+newClasses[year][2].length
+        +newClasses[year][3].length;
+      if(size === 0){
+        delete(newClasses[year]);
+      }
       this.setState({classes: newClasses});
   };
 
-  handleSubmit(newClass, _id) {
-    console.log(_id);
+  handleSubmit(newClass, _id, quarter, year) {
     var newClasses = this.state.classes;
-    newClasses.push({courseID: newClass, _id: _id});
+    if(year in newClasses){
+      newClasses[year][quarter].push({courseID: newClass, _id: _id});
+    }else{
+      newClasses[year] = [[],[],[],[]];
+      newClasses[year][quarter].push({courseID: newClass, _id:_id});
+    }
     this.setState({classes: newClasses});
     console.log(newClasses);
   };
@@ -123,29 +132,52 @@ class ClassLogging extends Component {
               <ClassInput onSubmit = {this.handleSubmit} token = {this.state.token}/>
             </div>
             <div className="two">
-              <table className="classLog">
-                <thead>
-                  <tr>
-                    <th>
-                      Class
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.classes.map((d, idx) => {
-                    return (
-                      <tr key={idx}>
-                        <td>
-                          {d.courseID}
-                        </td>
-                        <td>
-                          <button key={idx} onClick={() => {this.delete(d._id, idx)}}>Delete</button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+              <b>Year</b>
+                {Object.keys(this.state.classes).slice(0).reverse().map((year, idx) => {
+                  return (
+                    <table key={idx} className="classLog">
+                      <thead key={idx}>
+                        <tr>
+                          <th>
+                            {year}
+                          </th>
+                        </tr>
+                      </thead>
+                        {this.state.classes[year].map((i, quarter) => {
+                          return(
+                            <tbody key={quarter}>
+                              <tr key={quarter}>
+                                {quarter === 3 && this.state.classes[year][quarter].length !== 0 &&
+                                  <td><b>Fall</b></td>}
+                                {quarter === 2 && this.state.classes[year][quarter].length !== 0 &&
+                                  <td><b>Winter</b></td>}
+                                {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
+                                  <td><b>Spring</b></td>}
+                                {quarter === 0 && this.state.classes[year][quarter].length !== 0 &&
+                                  <td><b>Summer</b></td>}
+                              </tr>
+                              <>
+                                {this.state.classes[year][quarter].map((userClass, classIdx) => {
+                                  return(
+                                    <tr key={classIdx}>
+                                      <td key={classIdx}>
+                                        {userClass.courseID}
+                                      </td>
+                                      <td>
+                                        <button key={classIdx} onClick={() => {this.delete(userClass._id, classIdx, quarter, year)}}>
+                                          Delete
+                                        </button>
+                                      </td>
+                                    </tr >
+                                  );
+                                })}
+                              </>
+                            </tbody>
+                          );
+                        })}
+                    </table>
+                  );
+                })}
             </div>
           </div>
         </div>
