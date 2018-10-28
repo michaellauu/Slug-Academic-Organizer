@@ -9,7 +9,9 @@ class ClassInput extends Component {
       response: '', //server response
       class: '', //class value from form
       quarter: 3, //0: fall, 1: winter, 2: spring, 3: summer
-      year: ''
+      year: '',
+      classError: '',
+      yearError: ''
     };
 
     this.changeClass = this.changeClass.bind(this);
@@ -34,13 +36,35 @@ class ClassInput extends Component {
   //form submission->post request to server
   handleSubmit(event){
     const newClass = {class: this.state.class, quarter: this.state.quarter, year: this.state.year};
-    this.submitClass({class: this.state.class, token: this.props.token,
-      quarter: this.state.quarter, year: this.state.year}) //send all form data to server
-      .then(res => {
-          this.setState({response: res.express, class: '', quarter: 3, year: ''});
-          this.props.onSubmit(newClass.class, res._id, newClass.quarter, newClass.year);
-      }).catch(err => console.log(err));
+    if(this.validate(newClass)){
+      this.submitClass({class: this.state.class, token: this.props.token,
+        quarter: this.state.quarter, year: this.state.year}) //send all form data to server
+        .then(res => {
+            this.setState({response: res.express, class: '', quarter: 3, year: '', yearError: '', classError:''});
+            this.props.onSubmit(newClass.class, res._id, newClass.quarter, newClass.year);
+        }).catch(err => console.log(err));
+    }
     event.preventDefault(); //prevent default page reload
+  }
+
+
+  validate = (form) => {
+    var bool=true;
+    if(form.class.length === 0){
+      bool = false;
+      this.setState({classError: "CourseID can't be empty"});
+    }
+    if(form.year.length === 0){
+      bool = false;
+      this.setState({yearError: "Year can't be empty"});
+    }
+    if(form.class.length !== 0){
+      this.setState({classError: ""});
+    }
+    if(form.year.length !== 0){
+      this.setState({yearError: ""});
+    }
+    return bool;
   }
 
   //make post call to server
@@ -92,6 +116,10 @@ class ClassInput extends Component {
                 <input type="submit" className="submit" value="Submit" />
               </div>
             </form>
+            <div className="errors">
+              {this.state.classError.length!==0 && <b>{this.state.classError} <br/></b>}
+              {this.state.yearError.length!==0 && <b>{this.state.yearError}</b>}
+            </div>
           </div>
 
         </header>
