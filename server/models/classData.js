@@ -18,7 +18,7 @@ const classDataSchema = new Schema({
     required: true
   },
   quarter: {
-    type: Number, //again: 3-fall, 2-winter, 1-spring, 0-summer
+    type: Number, //again: 0-summer, 1-fall, 2-spring, 3-winter
     required: true
   }
   /*

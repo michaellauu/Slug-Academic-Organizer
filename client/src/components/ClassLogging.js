@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./ClassLogging.css";
 import ClassInput from "./ClassInput";
-import {getFromStorage} from './storage';
+import { getFromStorage } from './storage';
+import { Button, Table, Container, Row, Col } from 'reactstrap';
 
 class ClassLogging extends Component {
   constructor(props) {
@@ -54,10 +55,10 @@ class ClassLogging extends Component {
         .then(json => {
           if (json.success) {
             this.setState({
-              token,
+              token: json.userId,
               isLoading: false
             });
-              this.makePost(token)
+              this.makePost(json.userId)
                 .then(res => this.setState({ classes: res }))
                 .catch(err => console.log(err));
           } else {
@@ -127,59 +128,64 @@ class ClassLogging extends Component {
     if(!this.state.isLoading){
       return (
         <div className="App">
-          <div className="wrapper">
-            <div className="one">
-              <ClassInput onSubmit = {this.handleSubmit} token = {this.state.token}/>
-            </div>
-            <div className="two">
-              <b>Year</b>
+          <Container>
+            <Row>
+              <Col>
+                <ClassInput onSubmit = {this.handleSubmit} token = {this.state.token}/>
+              </Col>
+              <Col>
                 {Object.keys(this.state.classes).slice(0).reverse().map((year, idx) => {
                   return (
-                    <table key={idx} className="classLog">
-                      <thead key={idx}>
-                        <tr>
-                          <th>
-                            {year}
-                          </th>
-                        </tr>
-                      </thead>
-                        {this.state.classes[year].map((i, quarter) => {
-                          return(
-                            <tbody key={quarter}>
-                              <tr key={quarter}>
-                                {quarter === 3 && this.state.classes[year][quarter].length !== 0 &&
-                                  <td><b>Fall</b></td>}
-                                {quarter === 2 && this.state.classes[year][quarter].length !== 0 &&
-                                  <td><b>Winter</b></td>}
-                                {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
-                                  <td><b>Spring</b></td>}
-                                {quarter === 0 && this.state.classes[year][quarter].length !== 0 &&
-                                  <td><b>Summer</b></td>}
-                              </tr>
-                              <>
-                                {this.state.classes[year][quarter].map((userClass, classIdx) => {
-                                  return(
-                                    <tr key={classIdx}>
-                                      <td key={classIdx}>
-                                        {userClass.courseID}
-                                      </td>
-                                      <td>
-                                        <button key={classIdx} onClick={() => {this.delete(userClass._id, classIdx, quarter, year)}}>
-                                          Delete
-                                        </button>
-                                      </td>
-                                    </tr >
-                                  );
-                                })}
-                              </>
-                            </tbody>
-                          );
-                        })}
-                    </table>
+                    <>
+                      <Table key={idx} className="classLog">
+                        <thead key={idx}>
+                          <tr>
+                            <th>
+                              {year}
+                            </th>
+                          </tr>
+                        </thead>
+                          {this.state.classes[year].map((i, quarter) => {
+                            return(
+                              <tbody key={quarter}>
+                                <tr key={quarter}>
+
+                                  {quarter === 0 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Summer</b></td>}
+                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Fall</b></td>}
+                                  {quarter === 2 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Spring</b></td>}
+                                  {quarter === 3 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Winter</b></td>}
+                                </tr>
+                                <>
+                                  {this.state.classes[year][quarter].map((userClass, classIdx) => {
+                                    return(
+                                      <tr key={classIdx}>
+                                        <td key={classIdx}>
+                                          {userClass.courseID}
+                                        </td>
+                                        <td>
+                                          <Button key={classIdx} onClick={() => {this.delete(userClass._id, classIdx, quarter, year)}}>
+                                            Delete
+                                          </Button>
+                                        </td>
+                                      </tr >
+                                    );
+                                  })}
+                                </>
+                              </tbody>
+                            );
+                          })}
+                      </Table>
+                      <br/>
+                    </>
                   );
                 })}
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
         </div>
       );
     }else{

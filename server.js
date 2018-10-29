@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   res.send({ express: "Connected!" });
 });
 
-// Sorts User Class data into dictionary: {year: [summer classes], [spring classes], [winter classes], [fall classes]}
+// Sorts User Class data into dictionary: {year: [summer classes], [fall classes], [spring classes], [winter classes]}
 function sort(userClasses){
 	var sorted = {};
 	for(i=0; i<userClasses.length; i++){

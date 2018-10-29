@@ -1,19 +1,18 @@
 .classInfo{
 	padding: 20px;
-	width: 200px;
-	height: 110px;
+	width: 245px;
+	height: 200px;
 	box-sizing: border-box;
 	background: #fdf7ff;
 	border-radius: 20px;
 }
 
-.class {
+.class, .quarter, .year {
 	padding: 5px;
 }
 
 .submit {
-	padding: 5px;
-	margin: 3px;
+	margin: 5px;
 }
 
 input {

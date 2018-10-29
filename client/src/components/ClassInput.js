@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ClassInput.css';
+import { Alert } from 'reactstrap';
 
 class ClassInput extends Component {
 
@@ -8,7 +9,7 @@ class ClassInput extends Component {
     this.state = {
       response: '', //server response
       class: '', //class value from form
-      quarter: 3, //0: fall, 1: winter, 2: spring, 3: summer
+      quarter: 1, //0: fall, 1: winter, 2: spring, 3: summer
       year: '',
       classError: '',
       yearError: ''
@@ -40,7 +41,7 @@ class ClassInput extends Component {
       this.submitClass({class: this.state.class, token: this.props.token,
         quarter: this.state.quarter, year: this.state.year}) //send all form data to server
         .then(res => {
-            this.setState({response: res.express, class: '', quarter: 3, year: '', yearError: '', classError:''});
+            this.setState({response: res.express, class: '', quarter: 1, year: '', yearError: '', classError:''});
             this.props.onSubmit(newClass.class, res._id, newClass.quarter, newClass.year);
         }).catch(err => console.log(err));
     }
@@ -102,9 +103,9 @@ class ClassInput extends Component {
                 </div>
                 <div className="quarter"> 
                   <select value={this.state.quarter} onChange={this.changeQuarter} className="quarter">
-                    <option value="3">Fall</option>
-                    <option value="2">Winter</option>
-                    <option value="1">Spring</option>
+                    <option value="1">Fall</option>
+                    <option value="3">Winter</option>
+                    <option value="2">Spring</option>
                     <option value="0">Summer</option>
                   </select>
                   <div className="year">
@@ -117,8 +118,14 @@ class ClassInput extends Component {
               </div>
             </form>
             <div className="errors">
-              {this.state.classError.length!==0 && <b>{this.state.classError} <br/></b>}
-              {this.state.yearError.length!==0 && <b>{this.state.yearError}</b>}
+              {this.state.classError.length!==0 && 
+                <Alert color="warning">
+                  <b>{this.state.classError} <br/></b>
+                </Alert>}
+              {this.state.yearError.length!==0 && 
+                <Alert color="warning">
+                  <b>{this.state.yearError}</b>
+                </Alert>}
             </div>
           </div>
 
