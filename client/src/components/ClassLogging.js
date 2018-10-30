@@ -9,19 +9,21 @@ class ClassLogging extends Component {
     super(props);
     this.state = {
       response: "", //server response
-      classes: {},
+      classes: {}, 
       isLoading: false,
-      token: ''
+      userID: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.delete = this.delete.bind(this);
   };
 
+  // Send request to server to delete the class
   delete(_id, idx, quarter, year) {
     this.deletePost(_id)
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
+      //remove the class from the state
       var newClasses = this.state.classes;
       newClasses[year][quarter].splice(idx, 1);
       const size = newClasses[year][0].length+newClasses[year][1].length+newClasses[year][2].length
@@ -32,6 +34,7 @@ class ClassLogging extends Component {
       this.setState({classes: newClasses});
   };
 
+  // Called by ClassInput component when there's a submit, basically adds the new class to the state 
   handleSubmit(newClass, _id, quarter, year) {
     var newClasses = this.state.classes;
     if(year in newClasses){
@@ -44,8 +47,9 @@ class ClassLogging extends Component {
     console.log(newClasses);
   };
 
-  //makes get request to server after the component mounts
+  // Makes get request to server after the component mounts
   componentDidMount() {
+    // Stolen from Michael's code: verifies the token and gets the userID
     const obj = getFromStorage('the_main_app');
     if (obj && obj.token) {
       const { token } = obj;
@@ -53,9 +57,10 @@ class ClassLogging extends Component {
       fetch('/api/account/verify?token=' + token)
         .then(res => res.json())
         .then(json => {
+          // Store the userID in the state
           if (json.success) {
             this.setState({
-              token: json.userId,
+              userID: json.userId,
               isLoading: false
             });
               this.makePost(json.userId)
@@ -72,6 +77,7 @@ class ClassLogging extends Component {
         isLoading: false,
       });
     }
+    // Get the user classes from the database
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
@@ -86,14 +92,15 @@ class ClassLogging extends Component {
     return body;
   };
 
-  makePost = async (token) => {
+  // Post call to the database to get the user classes
+  makePost = async (userID) => {
     const response = await fetch('/api/userClasses', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({token: token})
+      body: JSON.stringify({userID: userID})
     });
 
     const body = await response.json();
@@ -105,6 +112,7 @@ class ClassLogging extends Component {
     return body;
   };
 
+  // Post to delete the selected class from the server
   deletePost = async (_id) => {
     const response = await fetch('/api/deleteClass', {
       method: 'POST',
@@ -131,7 +139,7 @@ class ClassLogging extends Component {
           <Container>
             <Row>
               <Col>
-                <ClassInput onSubmit = {this.handleSubmit} token = {this.state.token}/>
+                <ClassInput onSubmit = {this.handleSubmit} userID = {this.state.userID}/>
               </Col>
               <Col>
                 {Object.keys(this.state.classes).slice(0).reverse().map((year, idx) => {

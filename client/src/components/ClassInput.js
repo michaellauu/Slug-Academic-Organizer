@@ -7,9 +7,9 @@ class ClassInput extends Component {
   constructor(props){
     super(props);
     this.state = {
-      response: '', //server response
-      class: '', //class value from form
-      quarter: 1, //0: fall, 1: winter, 2: spring, 3: summer
+      response: '', // Server response
+      class: '', // Class value from form
+      quarter: 1, // 0: fall, 1: winter, 2: spring, 3: summer
       year: '',
       classError: '',
       yearError: ''
@@ -21,34 +21,37 @@ class ClassInput extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //user enters class value
+  // User enters class value
   changeClass(event){
     this.setState({class: event.target.value.trim()});
   }
 
+  // User changes quarter form
   changeQuarter(event){
     this.setState({quarter: parseInt(event.target.value)});
   }
 
+  // User enters a year
   changeYear(event){
     this.setState({year: parseInt(event.target.value)});
   }
 
-  //form submission->post request to server
+  // Form submission->post request to server
   handleSubmit(event){
     const newClass = {class: this.state.class, quarter: this.state.quarter, year: this.state.year};
     if(this.validate(newClass)){
-      this.submitClass({class: this.state.class, token: this.props.token,
-        quarter: this.state.quarter, year: this.state.year}) //send all form data to server
+      this.submitClass({class: this.state.class, userID: this.props.userID,
+        quarter: this.state.quarter, year: this.state.year}) // Send all form data to server
         .then(res => {
-            this.setState({response: res.express, class: '', quarter: 1, year: '', yearError: '', classError:''});
-            this.props.onSubmit(newClass.class, res._id, newClass.quarter, newClass.year);
+            // Reset the state
+            this.setState({response: res.express, class: '', quarter: 1 , year: '', yearError: '', classError:''});
+            this.props.onSubmit(newClass.class, res._id, newClass.quarter, newClass.year); // Get classLogging to update
         }).catch(err => console.log(err));
     }
-    event.preventDefault(); //prevent default page reload
+    event.preventDefault(); // Prevent default page reload
   }
 
-
+  // Validate the form before posting
   validate = (form) => {
     var bool=true;
     if(form.class.length === 0){
@@ -68,7 +71,7 @@ class ClassInput extends Component {
     return bool;
   }
 
-  //make post call to server
+  // Make post call to server to submit form data
   submitClass = async (data) => {
     const response = await fetch('/api/submitClass', {
       method: 'POST',
@@ -76,7 +79,7 @@ class ClassInput extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({class: data.class, token: data.token, quarter: data.quarter,
+      body: JSON.stringify({class: data.class, userID: data.userID, quarter: data.quarter,
         year: data.year})
     });
 

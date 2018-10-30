@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 function sort(userClasses){
 	var sorted = {};
 	for(i=0; i<userClasses.length; i++){
-		if (!(userClasses[i].year in sorted)){ //if not in dictionary
+		if (!(userClasses[i].year in sorted)){ // If not in dictionary
 			sorted[userClasses[i].year] = [[], [], [], []];
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
 				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
@@ -54,8 +54,8 @@ function sort(userClasses){
 app.post("/api/userClasses", (req, res) => {
 	var userClasses = [];
 	var sorted = {};
-	console.log(req.body);
-	ClassData.find({'userToken': req.body.token}, function(err, classes){
+	// Find all the user classes
+	ClassData.find({'userToken': req.body.userID}, function(err, classes){
 		if(err){
 			console.log(err);
 			return res.status(500).send({message: 'Failed to load user classes'});
@@ -90,8 +90,8 @@ app.post("/api/userClasses", (req, res) => {
 					quarter: userClass.quarter, _id: userClass._id};
 
 				userClasses.push(newClass);
-				sorted = sort(userClasses);
 			});
+			sorted = sort(userClasses); // Sort all the data so we can display it easily
 			res.send(sorted);
 		}
 	}).then(console.log(`Getting user classes ...`));
@@ -122,7 +122,7 @@ app.post("/api/submitClass", (req, res) => {
   console.log(req.body);
   const classData = new ClassData({
   	courseID: req.body.class,
-  	userToken: req.body.token,
+  	userToken: req.body.userID,
   	quarter: req.body.quarter,
   	year: req.body.year
   	/*meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
