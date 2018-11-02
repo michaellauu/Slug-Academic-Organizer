@@ -53,7 +53,6 @@ app.post("/api", (req, res) => {
   res.send("Done!");
 });
 
-
 //ge post request
 app.post("/api/ge", (req, res) => {
   for (let i = 0; i < geSchedule.length; i++) {
