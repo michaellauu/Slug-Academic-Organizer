@@ -10,7 +10,8 @@
     "test": "jest",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "dev2": "concurrently \"npm run server\" \"npm run client\""
   },
   "jest": {
     "transform": {
@@ -32,6 +33,7 @@
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "cheerio": "^1.0.0-rc.2",
+    "connect-history-api-fallback": "^1.5.0",
     "cors": "^2.8.4",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",

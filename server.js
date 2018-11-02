@@ -1,23 +1,25 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-// Import JSON data of courses
-const schedule = require("./api/data/schedule.json");
-const geSchedule = require("./api/data/ge.json")
+const app = express();
 
-// Define a model of data
+// JSON
+const schedule = require("./lib/data/schedule.json");
+const geSchedule = require("./lib/data/ge.json")
+
+// Models
 const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
 const GEData = require("./server/models/geData")
 
-const app = express();
-const port = process.env.PORT || 5000;
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
+
+// Port
+const port = process.env.PORT || 5000;
 
 // Connect to MongoDB
 const db = require("./config/keys").mongoURI;
@@ -27,7 +29,7 @@ mongoose
   .catch(err => console.log(err));
 
 // API routes
-// require("./server/routes/api/signin");
+require("./server/routes/api/signin.js")(app);
 
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
@@ -47,6 +49,7 @@ app.post("/api", (req, res) => {
       sections: schedule[i].sections
     });
 
+    // Save to db under collection data(s)
     newData.save().then(console.log(`Saving ${i} documents ...`));
   }
 
@@ -95,19 +98,25 @@ app.get("/api/GERequirements", (req, res) => {
 
 
 // Posts class form submission to database
-app.post("/api/submitClass", (req, res) => { 
-	console.log(req.body);
+app.post("/api/submitClass", (req, res) => {
+  console.log(req.body);
   const classData = new ClassData({
-  	courseID: req.body.class,
-  	meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
-  	startTime: req.body.startTime,
-  	endTime: req.body.endTime,
-  	location: req.body.location,
-  	section: req.body.section,
-  	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
-  	sStartTime: req.body.sStartTime,
-  	sEndTime: req.body.sEndTime,
-  	sLocation: req.body.sLocation
+    courseID: req.body.class,
+    meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
+    startTime: req.body.startTime,
+    endTime: req.body.endTime,
+    location: req.body.location,
+    section: req.body.section,
+    sMeetingDays: [
+      req.body.sM,
+      req.body.sTu,
+      req.body.sW,
+      req.body.sTh,
+      req.body.sF
+    ],
+    sStartTime: req.body.sStartTime,
+    sEndTime: req.body.sEndTime,
+    sLocation: req.body.sLocation
   });
   classData.save().then(console.log(`Saving documents ...`));
   res.send({ express: "done" });
