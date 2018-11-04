@@ -462,7 +462,6 @@ class ClassInput extends Component {
               </div>
             </form>
           </div>
-		  <li><Link to='/signin'>Account Page</Link></li>
         </header>
       </div>
     );

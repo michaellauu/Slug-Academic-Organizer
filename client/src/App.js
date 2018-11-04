@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import NavBar from "./components/NavBar";
+import GEReqs from "./components/GEReqs"
+import MajorReqs from "./components/MajorReqs"
 import ClassInput from "./components/ClassInput";
 import Home from "./components/Home";
 import Error from "./components/Error";
+import { Button } from 'reactstrap';
 
 class App extends Component {
   constructor(props) {
@@ -35,8 +39,11 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Switch>
-	    <Route path="/" component={ClassInput} exact />
+	    <Route path="/" component={NavBar} exact />
+      <Route path="/classinput"component={ClassInput} />
 	    <Route path="/signin" component={Home} />
+      <Route path="/gereqs" component={GEReqs} />
+      <Route path="/majorreqs" component={MajorReqs} />
 	    <Route component={Error} />
           </Switch>
         </div>
