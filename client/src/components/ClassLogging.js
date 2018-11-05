@@ -63,9 +63,10 @@ class ClassLogging extends Component {
               userID: json.userId,
               isLoading: false
             });
-              this.makePost(json.userId)
-                .then(res => this.setState({ classes: res }))
-                .catch(err => console.log(err));
+            // Get the user classes from the database
+            this.makePost(json.userId)
+              .then(res => this.setState({ classes: res }))
+              .catch(err => console.log(err));
           } else {
             this.setState({
               isLoading: false,
@@ -77,7 +78,6 @@ class ClassLogging extends Component {
         isLoading: false,
       });
     }
-    // Get the user classes from the database
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
