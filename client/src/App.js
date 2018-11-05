@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ClassInput from "./components/ClassInput";
 import Home from "./components/Home";
 import Error from "./components/Error";
+import GERequirements from "./components/GERequirements";
 
 class App extends Component {
   constructor(props) {
@@ -31,13 +32,14 @@ class App extends Component {
 
   render() {
     return (
-	//this lets connect to different components of our site
+      //this lets connect to different components of our site
       <BrowserRouter>
         <div>
           <Switch>
-	    <Route path="/" component={ClassInput} exact />
-	    <Route path="/signin" component={Home} />
-	    <Route component={Error} />
+            <Route path="/" component={ClassInput} exact />
+            <Route path="/signin" component={Home} />
+            <Route path="/ge" component={GERequirements} />
+            <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>

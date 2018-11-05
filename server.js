@@ -6,10 +6,12 @@ const app = express();
 
 // JSON
 const schedule = require("./lib/data/schedule.json");
+const geSchedule = require("./lib/data/ge.json")
 
 // Models
 const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
+const GEData = require("./server/models/geData")
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -36,7 +38,7 @@ app.get("/", (req, res) => {
 
 // Push all JSON data into database
 app.post("/api", (req, res) => {
-  for (let i = 0; i < bsoe.length; i++) {
+  for (let i = 0; i < schedule.length; i++) {
     // Create new model that'll hold schedule data
     const newData = new Data({
       courseID: schedule[i].courseID,
@@ -53,6 +55,48 @@ app.post("/api", (req, res) => {
 
   res.send("Done!");
 });
+
+//ge post request
+app.post("/api/ge", (req, res) => {
+  for (let i = 0; i < geSchedule.length; i++) {
+    // Create new model that'll hold schedule data
+    const geData = new GEData({
+      geID: geSchedule[i].geID,
+      desc: geSchedule[i].desc,
+      credits: parseInt(geSchedule[i].credits),
+    });
+    geData.save().then(console.log(`Saving ${i} documents ...`));
+  }
+  res.send("GE Done!");
+});    
+
+
+//ge get request
+app.get("/api/GERequirements", (req, res) => {
+  GEData.find(function (err, ge) {
+    if (err) {
+      //error messages
+      console.log("error");
+      return res.status(500).send({ geError: "Error" });
+    } else {
+      //array requirements
+      requirements = [];
+      //for each GE, put each category in the right place
+      ge.forEach(function (GE) {
+        const NewGE = {
+          geID: GE.geID,
+          desc: GE.desc,
+          credits: GE.credits,
+        };
+        //pushing each GE onto the array
+        requirements.push(NewGE);
+      });
+      //send the array to GERequirements.js
+      res.send(requirements);
+    }
+  });
+});
+
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {
