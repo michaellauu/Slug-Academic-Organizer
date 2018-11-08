@@ -36,6 +36,69 @@ app.get("/", (req, res) => {
   res.send({ express: "Connected!" });
 });
 
+// Sorts User Class data into dictionary: {year: [summer classes], [fall classes], [spring classes], [winter classes]}
+function sort(userClasses){
+	var sorted = {};
+	for(i=0; i<userClasses.length; i++){
+		if (!(userClasses[i].year in sorted)){ // If not in dictionary
+			sorted[userClasses[i].year] = [[], [], [], []];
+			sorted[userClasses[i].year][userClasses[i].quarter].push(
+				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+		}else{
+			sorted[userClasses[i].year][userClasses[i].quarter].push(
+				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+		}
+	}
+	return sorted;
+}
+
+// Gets all user classes from the database and returns in a sorted manner
+app.post("/api/userClasses", (req, res) => {
+	var userClasses = [];
+	var sorted = {};
+	// Find all the user classes
+	ClassData.find({'userToken': req.body.userID}, function(err, classes){
+		if(err){
+			console.log(err);
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			classes.forEach(function(userClass){
+				/*var newClass = {};
+				if(userClass.section){
+					newClass = {
+						courseID: userClass.courseID,
+						meetingDays: userClass.meetingDays,
+						sMeetingDays: userClass.sMeetingDays,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+						sStartTime: userClass.sStartTime,
+						sEndTime: userClass.sEndTime,
+						sLocation: userClass.sLocation
+					};
+
+				}else{
+					newClass = {
+						courseID: userClass.courseID,
+						meetingDays: userClass.meetingDays,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+					};
+				}*/
+				const newClass = {courseID: userClass.courseID, year: userClass.year,
+					quarter: userClass.quarter, _id: userClass._id};
+
+				userClasses.push(newClass);
+			});
+			sorted = sort(userClasses); // Sort all the data so we can display it easily
+			res.send(sorted);
+		}
+	}).then(console.log(`Getting user classes ...`));
+});
+
 // Push all JSON data into database
 app.post("/api", (req, res) => {
   for (let i = 0; i < schedule.length; i++) {
@@ -102,25 +165,35 @@ app.get("/api/GERequirements", (req, res) => {
 app.post("/api/submitClass", (req, res) => {
   console.log(req.body);
   const classData = new ClassData({
-    courseID: req.body.class,
-    meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
-    startTime: req.body.startTime,
-    endTime: req.body.endTime,
-    location: req.body.location,
-    section: req.body.section,
-    sMeetingDays: [
-      req.body.sM,
-      req.body.sTu,
-      req.body.sW,
-      req.body.sTh,
-      req.body.sF
-    ],
-    sStartTime: req.body.sStartTime,
-    sEndTime: req.body.sEndTime,
-    sLocation: req.body.sLocation
+  	courseID: req.body.class,
+  	userToken: req.body.userID,
+  	quarter: req.body.quarter,
+  	year: req.body.year
+  	/*meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
+  	startTime: req.body.startTime,
+  	endTime: req.body.endTime,
+  	location: req.body.location,
+  	section: req.body.section,
+  	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
+  	sStartTime: req.body.sStartTime,
+  	sEndTime: req.body.sEndTime,
+  	sLocation: req.body.sLocation*/
   });
-  classData.save().then(console.log(`Saving documents ...`));
-  res.send({ express: "done" });
+  classData.save(function(err, newClass){
+  	res.send({ express: "done", _id: newClass._id });
+  });
+});
+
+// Deletes class from the database
+app.post("/api/deleteClass", (req, res) =>{
+	ClassData.findByIdAndRemove(req.body._id, function(err, classes){
+		if(err){
+			console.log(err);
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			res.send({ express: "done" });
+		}
+	});
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
