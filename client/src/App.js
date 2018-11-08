@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ClassInput from "./components/ClassInput";
 import Home from "./components/Home";
 import Error from "./components/Error";
 import GERequirements from "./components/GERequirements";
+import Calendar from "./components/Calendar";
 
 class App extends Component {
   constructor(props) {
@@ -39,11 +40,12 @@ class App extends Component {
             <Route path="/" component={ClassInput} exact />
             <Route path="/signin" component={Home} />
             <Route path="/ge" component={GERequirements} />
+            <Route path="/calendar" component={Calendar} />
             <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>
     );
   }
-};
+}
 export default App;

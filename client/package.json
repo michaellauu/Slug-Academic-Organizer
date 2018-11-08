@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "fullcalendar-reactwrapper-with-scheduler": "^1.0.10",
     "rc-time-picker": "3.4.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
