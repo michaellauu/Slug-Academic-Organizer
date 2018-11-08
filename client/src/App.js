@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ClassLogging from "./components/ClassLogging";
 import Home from "./components/Home";
 import Error from "./components/Error";
+import GERequirements from "./components/GERequirements";
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class App extends Component {
           <Switch>
       	    <Route path="/" component={ClassLogging} exact />
       	    <Route path="/signin" component={Home} />
+            <Route path="/ge" component={GERequirements} />
       	    <Route component={Error} />
           </Switch>
         </div>
