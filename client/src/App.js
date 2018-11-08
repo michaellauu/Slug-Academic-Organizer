@@ -5,6 +5,7 @@ import ClassLogging from "./components/ClassLogging";
 import Home from "./components/Home";
 import Error from "./components/Error";
 import GERequirements from "./components/GERequirements";
+import Calendar from "./components/Calendar";
 
 class App extends Component {
   constructor(props) {
@@ -40,11 +41,12 @@ class App extends Component {
       	    <Route path="/" component={ClassLogging} exact />
       	    <Route path="/signin" component={Home} />
             <Route path="/ge" component={GERequirements} />
-      	    <Route component={Error} />
+            <Route path="/calendar" component={Calendar} />
+            <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>
     );
   }
-};
+}
 export default App;
