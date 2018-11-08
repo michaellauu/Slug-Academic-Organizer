@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 import FullCalendar from "fullcalendar-reactwrapper-with-scheduler";
 import "../styles/Calendar.css";
-import "../dist/fullcalendar.min.css";
+import "../dist/fullcalendar.css";
 
-export default class CalendarView extends Component {
+/* Events are what we'll have to automatically sync w/ user
+ * Uses v3 of fullCalendar
+ * Calendar component is basic, but I showed how to use our
+ * own custom css with it for now in ../styles/Calendar.css
+ *
+ * Reference:
+ * https://github.com/sanjeev07/fullcalendar-reactWrapper
+ * https://github.com/fullcalendar/fullcalendar
+ */
+
+export default class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,16 +31,10 @@ export default class CalendarView extends Component {
     };
   }
 
-  /* TO DO:
-   * Make it smaller in size, shouldn't cover whole screen.
-   * Style it better so it looks nice.
-   * Figure out how events work and how to optionally add them.
-   * Read through docs & get familiar with v3 in React.
-   */
-
   render() {
     return (
       <div id="calendar">
+        <h1>Class Calendar</h1>
         <FullCalendar
           schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
           id="your-custom-ID"
@@ -40,9 +44,9 @@ export default class CalendarView extends Component {
             right: "month,basicWeek,basicDay"
           }}
           defaultDate={Date.now()}
-          navLinks={true} // can click day/week names to navigate views
+          navLinks={true}
           editable={true}
-          eventLimit={true} // allow "more" link when too many events
+          eventLimit={true}
           events={this.state.events}
         />
       </div>
