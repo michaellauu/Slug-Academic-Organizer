@@ -21,6 +21,13 @@ export default class CalendarView extends Component {
     };
   }
 
+  /* TO DO:
+   * Make it smaller in size, shouldn't cover whole screen.
+   * Style it better so it looks nice.
+   * Figure out how events work and how to optionally add them.
+   * Read through docs & get familiar with v3 in React.
+   */
+
   render() {
     return (
       <div id="calendar">
