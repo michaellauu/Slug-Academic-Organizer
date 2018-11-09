@@ -6,6 +6,8 @@ Our project is to create a web app to help students keep track of their educatio
 
 **Members**: Charles, Hannah, Michael, Jazmin, Anthony
 
+---
+
 ## Prerequisites
 
 | Prerequisite | Version |
@@ -13,37 +15,71 @@ Our project is to create a web app to help students keep track of their educatio
 | Node.js      | 8.12^   |
 | NPM          | 5^      |
 | React.js     | 16^     |
+| Git          | 2.18^   |
+
+---
+
+## Team Files
+
+Any documents or writeups pertaining to the project can be found under the **team-files** folder. It will be updated regularly and stay in sync with the course outline.
+
+---
 
 ## Installation
 
-After forking, cloning, all that fun stuff of getting your dev environment setup, this is how you can get all the modules that'll be used in development.
+Steps to get a clone of your fork locally:
+
+```javascript
+  // First make sure Git is properly installed in your terminal
+  git --version
+
+  // If git is installed, great! Check Nodejs & npm now
+  node -v
+  npm -v
+
+  // Great! If the following above worked, continue!
+
+  // Open up a directory to save to on your computer & clone
+  // USER_NAME = your github username
+  cd /<your directory>
+  git clone https://github.com/USER_NAME/Slug-Academic-Organizer.git
+
+  // Great! Now you have a clone of your fork. Set the upstream!
+  cd Slug-Academic-Organizer/
+  git remote add upstream https://github.com/chtzou/Slug-Academic-Organizer.git
+
+  // Check if the config is good
+  git remote -v
+
+  // You're now setup for development
+  // Follow these for a more in-depth guide
+
+  https://github.com/firstcontributions/first-contributions
+  https://help.github.com/articles/syncing-a-fork/
+```
+---
+
+**IMPORTANT:** 
+Always create a new branch if you are making changes. So the first thing to do if you're ready to develop is 
+  ```javascript
+  git checkout -b <SOME-BRANCH-NAME>
+  ```
+This will create a new branch and move you into it. That way any changes you make will now be inside this branch and not within your Master branch. It's really great for development and helps eliminate merge conflicts. Give your branch a semi-descriptive name too!
+
+---
 
 **Note**: *Don't upload node_modules/ folder, it's not needed. Your package.json has a record of all modules that'll it'll pull from to get installed in your local environment.*
 
+To get all the modules/dependencies in the project:
 ```javascript
 // To download all dependencies
 cd Slug-Academic-Organizer/
 npm install
 
-// To run server, or any .js file w/ node
-node server.js
+// Check if testing is working
+npm run test
 
-// To run a create-react-app (boiler for React)
-cd client/
-npm start
-
+// Run both client & server
+npm run dev
 ```
 
-React has a boiler-template that gets everything up and running smoothly, without having to configure Webpack, Babel, etc. The *create-react-app* template can be downloaded like so:
-
-```javascript
-// After Node is installed, run
-npm i -g create-react-app
-
-// Whenever you want to use create-react-app in a project, do
-// -- Use in current directory --
-create-react-app .
-
-// -- Use in a new directory --
-create-react-app client/
-```
