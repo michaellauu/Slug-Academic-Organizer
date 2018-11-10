@@ -12,6 +12,7 @@ const geSchedule = require("./lib/data/ge.json")
 const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
 const GEData = require("./server/models/geData")
+const calData = require("./server/models/calData");
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -194,6 +195,38 @@ app.post("/api/deleteClass", (req, res) =>{
 			res.send({ express: "done" });
 		}
 	});
+});
+
+//based off Chtzhou's GE
+app.get("/api/getCalendar", (req, res) => {
+  calData.find(function (err, cal) {
+    if (err) {
+      //error messages
+      console.log("error");
+      return res.status(500).send({ cError: "Error" });
+    } else {
+      events = [];
+      //parse data into readable for FullCalendar
+      cal.forEach(function (c) {
+		var str = c.lecture.MeetingDates;
+		console.log(str);
+		if(str == null) return; //without this it crashes because not all classes have dates
+		var cut = str.split("-", 2);
+		console.log(cut);
+        const newCal = {
+          title: c.courseTitle,
+		  start: cut[0],
+		  end: cut[1],
+        };
+        //push data to events
+        events.push(newCal);
+      });
+      //send events
+      res.send(events);
+	  //logging
+	  console.log(events);
+    }
+  });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
