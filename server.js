@@ -208,15 +208,33 @@ app.get("/api/getCalendar", (req, res) => {
       events = [];
       //parse data into readable for FullCalendar
       cal.forEach(function (c) {
-		var str = c.lecture.MeetingDates;
-		console.log(str);
-		if(str == null) return; //without this it crashes because not all classes have dates
-		var cut = str.split("-", 2);
-		console.log(cut);
+		var dateString = c.lecture.MeetingDates;
+		//console.log(dateString);
+		if(dateString == null) return; //without this it crashes because not all classes have dates
+		var dateCut = dateString.split("-", 2);
+		//console.log(dateCut);
+		var daysString = c.lecture.DaysTimes;
+		console.log(daysString);
+		if(daysString == null) return;
+		var daysCut = daysString.split(" ", 2);
+		if(daysCut[0] == "MWF") {
+			var day = [1,3,5];
+			//console.log(daysCut[0]);
+		}
+		if(daysCut[0] == "MW") {
+			var day = [1,3];
+			//console.log(daysCut[0]);
+		}
+		if(daysCut[0] == "TuTh") {
+			var day = [2,4];
+			//console.log(daysCut[0]);
+		}
+		
         const newCal = {
           title: c.courseTitle,
-		  start: cut[0],
-		  end: cut[1],
+		  start: dateCut[0],
+		  end: dateCut[1],
+		  daysOfWeek: day, //dow doesnt work either
         };
         //push data to events
         events.push(newCal);
