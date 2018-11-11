@@ -159,9 +159,9 @@ class ClassLogging extends Component {
                                 <tr key={quarter}>
 
                                   {quarter === 0 && this.state.classes[year][quarter].length !== 0 &&
-                                    <td><b>Summer</b></td>}
-                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
                                     <td><b>Fall</b></td>}
+                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Summer</b></td>}
                                   {quarter === 2 && this.state.classes[year][quarter].length !== 0 &&
                                     <td><b>Spring</b></td>}
                                   {quarter === 3 && this.state.classes[year][quarter].length !== 0 &&

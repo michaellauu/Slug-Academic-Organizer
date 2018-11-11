@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ClassLogging from "./components/ClassLogging";
 import Home from "./components/Home";
+import Major from "./components/Major";
 import Error from "./components/Error";
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
           <Switch>
       	    <Route path="/" component={ClassLogging} exact />
       	    <Route path="/signin" component={Home} />
+            <Route path="/major" component={Major} />
       	    <Route component={Error} />
           </Switch>
         </div>

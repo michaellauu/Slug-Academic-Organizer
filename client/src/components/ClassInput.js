@@ -9,7 +9,7 @@ class ClassInput extends Component {
     this.state = {
       response: '', // Server response
       class: '', // Class value from form
-      quarter: 1, // 0: fall, 1: winter, 2: spring, 3: summer
+      quarter: 0, // 0: fall, 1: summer, 2: spring, 3: winter
       year: '',
       classError: '',
       yearError: ''
@@ -44,7 +44,7 @@ class ClassInput extends Component {
         quarter: this.state.quarter, year: this.state.year}) // Send all form data to server
         .then(res => {
             // Reset the state
-            this.setState({response: res.express, class: '', quarter: 1 , year: '', yearError: '', classError:''});
+            this.setState({response: res.express, class: '', quarter: 0, year: '', yearError: '', classError:''});
             this.props.onSubmit(newClass.class, res._id, newClass.quarter, newClass.year); // Get classLogging to update
         }).catch(err => console.log(err));
     }
@@ -106,10 +106,10 @@ class ClassInput extends Component {
                 </div>
                 <div className="quarter"> 
                   <select value={this.state.quarter} onChange={this.changeQuarter} className="quarter">
-                    <option value="1">Fall</option>
+                    <option value="0">Fall</option>
                     <option value="3">Winter</option>
                     <option value="2">Spring</option>
-                    <option value="0">Summer</option>
+                    <option value="1">Summer</option>
                   </select>
                   <div className="year">
                     <input type="number" value={this.state.year} onChange={this.changeYear} placeholder="Year"/>

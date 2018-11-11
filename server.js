@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   res.send({ express: "Connected!" });
 });
 
-// Sorts User Class data into dictionary: {year: [summer classes], [fall classes], [spring classes], [winter classes]}
+// Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
 function sort(userClasses){
 	var sorted = {};
 	for(i=0; i<userClasses.length; i++){
@@ -93,6 +93,23 @@ app.post("/api/userClasses", (req, res) => {
 			});
 			sorted = sort(userClasses); // Sort all the data so we can display it easily
 			res.send(sorted);
+		}
+	}).then(console.log(`Getting user classes ...`));
+});
+
+// Gets user claasses for the major requirments page
+app.post("/api/majorClasses", (req, res) =>{
+	var userClasses = [];
+	ClassData.find({'userToken': req.body.userID}, function(err, classes){
+		if (err) {
+			console.log(err);
+			return res.status(500).send({ message: 'Failed to load user classes' });
+		} else {
+			classes.forEach(function(userClass){
+				const newClass = {courseID: userClass.courseID};
+				userClasses.push(newClass);
+			});
+			res.send(userClasses);
 		}
 	}).then(console.log(`Getting user classes ...`));
 });
