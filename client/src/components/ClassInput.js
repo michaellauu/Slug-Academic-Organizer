@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import './ClassInput.css';
-import { Alert } from 'reactstrap';
+import React, { Component } from "react";
+import "../styles/ClassInput.css";
+import { Alert } from "reactstrap";
 
 class ClassInput extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       response: '', // Server response
@@ -22,26 +21,34 @@ class ClassInput extends Component {
   }
 
   // User enters class value
-  changeClass(event){
-    this.setState({class: event.target.value.trim()});
+  changeClass(event) {
+    this.setState({ class: event.target.value.trim() });
   }
 
   // User changes quarter form
-  changeQuarter(event){
-    this.setState({quarter: parseInt(event.target.value)});
+  changeQuarter(event) {
+    this.setState({ quarter: parseInt(event.target.value) });
   }
 
   // User enters a year
-  changeYear(event){
-    this.setState({year: parseInt(event.target.value)});
+  changeYear(event) {
+    this.setState({ year: parseInt(event.target.value) });
   }
 
   // Form submission->post request to server
-  handleSubmit(event){
-    const newClass = {class: this.state.class, quarter: this.state.quarter, year: this.state.year};
-    if(this.validate(newClass)){
-      this.submitClass({class: this.state.class, userID: this.props.userID,
-        quarter: this.state.quarter, year: this.state.year}) // Send all form data to server
+  handleSubmit(event) {
+    const newClass = {
+      class: this.state.class,
+      quarter: this.state.quarter,
+      year: this.state.year
+    };
+    if (this.validate(newClass)) {
+      this.submitClass({
+        class: this.state.class,
+        userID: this.props.userID,
+        quarter: this.state.quarter,
+        year: this.state.year
+      }) // Send all form data to server
         .then(res => {
             // Reset the state
             this.setState({response: res.express, class: '', quarter: 0, year: '', yearError: '', classError:''});
@@ -52,57 +59,65 @@ class ClassInput extends Component {
   }
 
   // Validate the form before posting
-  validate = (form) => {
-    var bool=true;
-    if(form.class.length === 0){
+  validate = form => {
+    var bool = true;
+    if (form.class.length === 0) {
       bool = false;
-      this.setState({classError: "CourseID can't be empty"});
+      this.setState({ classError: "CourseID can't be empty" });
     }
-    if(form.year.length === 0){
+    if (form.year.length === 0) {
       bool = false;
-      this.setState({yearError: "Year can't be empty"});
+      this.setState({ yearError: "Year can't be empty" });
     }
-    if(form.class.length !== 0){
-      this.setState({classError: ""});
+    if (form.class.length !== 0) {
+      this.setState({ classError: "" });
     }
-    if(form.year.length !== 0){
-      this.setState({yearError: ""});
+    if (form.year.length !== 0) {
+      this.setState({ yearError: "" });
     }
     return bool;
-  }
+  };
 
   // Make post call to server to submit form data
-  submitClass = async (data) => {
-    const response = await fetch('/api/submitClass', {
-      method: 'POST',
+  submitClass = async data => {
+    const response = await fetch("/api/submitClass", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({class: data.class, userID: data.userID, quarter: data.quarter,
-        year: data.year})
+      body: JSON.stringify({
+        class: data.class,
+        userID: data.userID,
+        quarter: data.quarter,
+        year: data.year
+      })
     });
 
     const body = await response.json();
 
-    if(response.status !== 200) throw Error(body.message);
+    if (response.status !== 200) throw Error(body.message);
 
     return body;
-  }
+  };
 
   render() {
     return (
       <div className="classInput">
         <header className="classInput-header">
-
           <div className="input">
-            <form id="classform" onSubmit = {this.handleSubmit}>
+            <form id="classform" onSubmit={this.handleSubmit}>
               <div className="classInfo">
                 <div className="title">
                   <b>Class</b>
                 </div>
-                <div  className="class">
-                  <input type="text" value={this.state.class} onChange={this.changeClass} placeholder="Course ID"/>
+                <div className="class">
+                  <input
+                    type="text"
+                    value={this.state.class}
+                    onChange={this.changeClass}
+                    placeholder="Course ID"
+                  />
                 </div>
                 <div className="quarter"> 
                   <select value={this.state.quarter} onChange={this.changeQuarter} className="quarter">
@@ -112,7 +127,12 @@ class ClassInput extends Component {
                     <option value="1">Summer</option>
                   </select>
                   <div className="year">
-                    <input type="number" value={this.state.year} onChange={this.changeYear} placeholder="Year"/>
+                    <input
+                      type="number"
+                      value={this.state.year}
+                      onChange={this.changeYear}
+                      placeholder="Year"
+                    />
                   </div>
                 </div>
               </div>
@@ -121,17 +141,20 @@ class ClassInput extends Component {
               </div>
             </form>
             <div className="errors">
-              {this.state.classError.length!==0 && 
+              {this.state.classError.length !== 0 && (
                 <Alert color="warning">
-                  <b>{this.state.classError} <br/></b>
-                </Alert>}
-              {this.state.yearError.length!==0 && 
+                  <b>
+                    {this.state.classError} <br />
+                  </b>
+                </Alert>
+              )}
+              {this.state.yearError.length !== 0 && (
                 <Alert color="warning">
                   <b>{this.state.yearError}</b>
-                </Alert>}
+                </Alert>
+              )}
             </div>
           </div>
-
         </header>
       </div>
     );

@@ -1,60 +1,63 @@
 import React, { Component } from "react";
-import "./ClassLogging.css";
+import "../styles/ClassLogging.css";
 import ClassInput from "./ClassInput";
-import { getFromStorage } from './storage';
-import { Button, Table, Container, Row, Col } from 'reactstrap';
+import { getFromStorage } from "./storage";
+import { Button, Table, Container, Row, Col } from "reactstrap";
 
 class ClassLogging extends Component {
   constructor(props) {
     super(props);
     this.state = {
       response: "", //server response
-      classes: {}, 
+      classes: {},
       isLoading: false,
-      userID: ''
+      userID: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.delete = this.delete.bind(this);
-  };
+  }
 
   // Send request to server to delete the class
   delete(_id, idx, quarter, year) {
     this.deletePost(_id)
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
-      //remove the class from the state
-      var newClasses = this.state.classes;
-      newClasses[year][quarter].splice(idx, 1);
-      const size = newClasses[year][0].length+newClasses[year][1].length+newClasses[year][2].length
-        +newClasses[year][3].length;
-      if(size === 0){
-        delete(newClasses[year]);
-      }
-      this.setState({classes: newClasses});
-  };
+    //remove the class from the state
+    var newClasses = this.state.classes;
+    newClasses[year][quarter].splice(idx, 1);
+    const size =
+      newClasses[year][0].length +
+      newClasses[year][1].length +
+      newClasses[year][2].length +
+      newClasses[year][3].length;
+    if (size === 0) {
+      delete newClasses[year];
+    }
+    this.setState({ classes: newClasses });
+  }
 
-  // Called by ClassInput component when there's a submit, basically adds the new class to the state 
+  // Called by ClassInput component when there's a submit, basically adds the new class to the state
   handleSubmit(newClass, _id, quarter, year) {
     var newClasses = this.state.classes;
-    if(year in newClasses){
-      newClasses[year][quarter].push({courseID: newClass, _id: _id});
-    }else{
-      newClasses[year] = [[],[],[],[]];
-      newClasses[year][quarter].push({courseID: newClass, _id:_id});
+    if (year in newClasses) {
+      newClasses[year][quarter].push({ courseID: newClass, _id: _id });
+    } else {
+      newClasses[year] = [[], [], [], []];
+      newClasses[year][quarter].push({ courseID: newClass, _id: _id });
     }
-    this.setState({classes: newClasses});
+    this.setState({ classes: newClasses });
     console.log(newClasses);
-  };
+  }
 
   // Makes get request to server after the component mounts
   componentDidMount() {
     // Stolen from Michael's code: verifies the token and gets the userID
-    const obj = getFromStorage('the_main_app');
+    const obj = getFromStorage("the_main_app");
     if (obj && obj.token) {
       const { token } = obj;
       // Verify token
-      fetch('/api/account/verify?token=' + token)
+      fetch("/api/account/verify?token=" + token)
         .then(res => res.json())
         .then(json => {
           // Store the userID in the state
@@ -69,13 +72,13 @@ class ClassLogging extends Component {
               .catch(err => console.log(err));
           } else {
             this.setState({
-              isLoading: false,
+              isLoading: false
             });
           }
         });
     } else {
       this.setState({
-        isLoading: false,
+        isLoading: false
       });
     }
     this.callApi()
@@ -93,19 +96,19 @@ class ClassLogging extends Component {
   };
 
   // Post call to the database to get the user classes
-  makePost = async (userID) => {
-    const response = await fetch('/api/userClasses', {
-      method: 'POST',
+  makePost = async userID => {
+    const response = await fetch("/api/userClasses", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({userID: userID})
+      body: JSON.stringify({ userID: userID })
     });
 
     const body = await response.json();
 
-    if(response.status !== 200) throw Error(body.message);
+    if (response.status !== 200) throw Error(body.message);
 
     console.log(body);
 
@@ -113,19 +116,19 @@ class ClassLogging extends Component {
   };
 
   // Post to delete the selected class from the server
-  deletePost = async (_id) => {
-    const response = await fetch('/api/deleteClass', {
-      method: 'POST',
+  deletePost = async _id => {
+    const response = await fetch("/api/deleteClass", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({_id: _id})
+      body: JSON.stringify({ _id: _id })
     });
 
     const body = await response.json();
 
-    if(response.status !== 200) throw Error(body.message);
+    if (response.status !== 200) throw Error(body.message);
 
     console.log(body);
 
@@ -133,31 +136,34 @@ class ClassLogging extends Component {
   };
 
   render() {
-    if(!this.state.isLoading){
+    if (!this.state.isLoading) {
       return (
-        <div className="App">
+        <div>
           <Container>
             <Row>
               <Col>
-                <ClassInput onSubmit = {this.handleSubmit} userID = {this.state.userID}/>
+                <ClassInput
+                  onSubmit={this.handleSubmit}
+                  userID={this.state.userID}
+                />
               </Col>
               <Col>
-                {Object.keys(this.state.classes).slice(0).reverse().map((year, idx) => {
-                  return (
-                    <>
-                      <Table key={idx} className="classLog">
-                        <thead key={idx}>
-                          <tr>
-                            <th>
-                              {year}
-                            </th>
-                          </tr>
-                        </thead>
+                {Object.keys(this.state.classes)
+                  .slice(0)
+                  .reverse()
+                  .map((year, idx) => {
+                    return (
+                      <>
+                        <Table key={idx} className="classLog">
+                          <thead key={idx}>
+                            <tr>
+                              <th>{year}</th>
+                            </tr>
+                          </thead>
                           {this.state.classes[year].map((i, quarter) => {
-                            return(
+                            return (
                               <tbody key={quarter}>
                                 <tr key={quarter}>
-
                                   {quarter === 0 && this.state.classes[year][quarter].length !== 0 &&
                                     <td><b>Fall</b></td>}
                                   {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
@@ -168,41 +174,53 @@ class ClassLogging extends Component {
                                     <td><b>Winter</b></td>}
                                 </tr>
                                 <>
-                                  {this.state.classes[year][quarter].map((userClass, classIdx) => {
-                                    return(
-                                      <tr key={classIdx}>
-                                        <td key={classIdx}>
-                                          {userClass.courseID}
-                                        </td>
-                                        <td>
-                                          <Button key={classIdx} onClick={() => {this.delete(userClass._id, classIdx, quarter, year)}}>
-                                            Delete
-                                          </Button>
-                                        </td>
-                                      </tr >
-                                    );
-                                  })}
+                                  {this.state.classes[year][quarter].map(
+                                    (userClass, classIdx) => {
+                                      return (
+                                        <tr key={classIdx}>
+                                          <td key={classIdx}>
+                                            {userClass.courseID}
+                                          </td>
+                                          <td>
+                                            <Button
+                                              key={classIdx}
+                                              onClick={() => {
+                                                this.delete(
+                                                  userClass._id,
+                                                  classIdx,
+                                                  quarter,
+                                                  year
+                                                );
+                                              }}
+                                            >
+                                              Delete
+                                            </Button>
+                                          </td>
+                                        </tr>
+                                      );
+                                    }
+                                  )}
                                 </>
                               </tbody>
                             );
                           })}
-                      </Table>
-                      <br/>
-                    </>
-                  );
-                })}
+                        </Table>
+                        <br />
+                      </>
+                    );
+                  })}
               </Col>
             </Row>
           </Container>
         </div>
       );
-    }else{
-      return(
+    } else {
+      return (
         <div className="Loading">
           <p> loading ... </p>
         </div>
       );
     }
   }
-};
+}
 export default ClassLogging;

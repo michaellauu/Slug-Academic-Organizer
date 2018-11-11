@@ -5,6 +5,9 @@ import ClassLogging from "./components/ClassLogging";
 import Home from "./components/Home";
 import Major from "./components/Major";
 import Error from "./components/Error";
+import GERequirements from "./components/GERequirements";
+import Calendar from "./components/Calendar";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -37,14 +40,17 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Switch>
-      	    <Route path="/" component={ClassLogging} exact />
-      	    <Route path="/signin" component={Home} />
-            <Route path="/major" component={Major} />
-      	    <Route component={Error} />
+	    <Route path="/" component={NavBar} exact /> 
+      <Route path="/logging" component={ClassLogging} />
+	    <Route path="/signin" component={Home} />
+      <Route path="/ge" component={GERequirements} />
+      <Route path="/calendar" component={Calendar} />
+      <Route path="/major" component={Major} />
+	    <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>
     );
   }
-};
+}
 export default App;

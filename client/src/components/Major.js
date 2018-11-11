@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { getFromStorage } from './storage';
 import { Button, Row, Col, Container } from "reactstrap";
-import './Major.css';
-import { isThisMinute } from "date-fns";
+import '../styles/Major.css';
 
 /* 
  * This component displays the major requirement page for 
