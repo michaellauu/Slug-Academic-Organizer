@@ -234,7 +234,7 @@ app.get("/api/getCalendar", (req, res) => {
           title: c.courseTitle,
 		  start: dateCut[0],
 		  end: dateCut[1],
-		  daysOfWeek: day, //dow doesnt work either
+		  dow: day, //wip
         };
         //push data to events
         events.push(newCal);
