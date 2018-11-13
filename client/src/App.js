@@ -41,7 +41,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Switch>
-	    <Route path="/" component={NavBar} exact /> 
+	    <Route path="/" component={NavBar} exact />
       <Route path="/logging" component={ClassLogging} />
 	    <Route path="/signin" component={Home} />
       <Route path="/ge" component={GERequirements} />
