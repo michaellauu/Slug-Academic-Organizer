@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { getFromStorage } from './storage';
-import { Row, Col, Container } from "reactstrap";
 import '../styles/Major.css';
 import LowerDiv from "./MajorComponents/LowerDiv";
 import UpperDiv from "./MajorComponents/UpperDiv";
