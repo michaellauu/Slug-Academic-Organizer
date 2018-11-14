@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
-import '../styles/Major.css';
+import '../../styles/Major.css';
 import ClassDataTooltips from "./ClassDataTooltips";
 
 const upperDivs = {

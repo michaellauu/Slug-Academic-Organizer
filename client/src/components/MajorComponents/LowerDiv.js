@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ClassDataTooltips from "./ClassDataTooltips";
 import { Row, Col, Container } from "reactstrap";
-import '../styles/Major.css';
+import '../../styles/Major.css';
 
 function parseTakenClasses(taken, classes) {
     for (var i = 0; i < classes.length; i++) {

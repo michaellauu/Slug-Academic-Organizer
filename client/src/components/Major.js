@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { getFromStorage } from './storage';
 import { Row, Col, Container } from "reactstrap";
 import '../styles/Major.css';
-import LowerDiv from "./LowerDiv";
-import UpperDiv from "./UpperDiv";
-import Capstone from "./Capstone";
-import DC from "./DC";
-import Electives from "./Electives";
+import LowerDiv from "./MajorComponents/LowerDiv";
+import UpperDiv from "./MajorComponents/UpperDiv";
+import Capstone from "./MajorComponents/Capstone";
+import DC from "./MajorComponents/DC";
+import Electives from "./MajorComponents/Electives";
 
 /* 
  * This component displays the major requirement page for 
