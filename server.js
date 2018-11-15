@@ -234,6 +234,7 @@ app.get("/api/getCalendar", (req, res) => {
 		  dow: day,
 		  start: timeCutA,
 		  end: timeCutB,
+		  ranges: [{ start: '9/27/18', end: '12/27/18'}]
         };
         //push data to events
         events.push(newCal);

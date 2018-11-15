@@ -45,8 +45,10 @@ export default class Calendar extends Component {
           header={{
             left: "prev,next today",
             center: "title",
-            right: "month,basicWeek,basicDay"
+            right: "month,agendaWeek,agendaDay",
           }}
+		  minTime={"08:00"}
+		  maxTime={"24:00"}
           defaultDate={Date.now()}
           navLinks={true}
           editable={true}
