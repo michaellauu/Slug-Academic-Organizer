@@ -202,8 +202,8 @@ app.get("/api/getCalendar", (req, res) => {
   calData.find(function (err, cal) {
     if (err) {
       //error messages
-      console.log("error");
-      return res.status(500).send({ cError: "Error" });
+      console.log("Can't get class data");
+      return res.status(500).send({ Error: "Can't get class data" });
     } else {
       events = [];
       //parse data into readable for FullCalendar
@@ -240,7 +240,7 @@ app.get("/api/getCalendar", (req, res) => {
       //send events
       res.send(events);
 	  //logging
-	  console.log(events);
+	  //console.log(events);
     }
   });
 });
