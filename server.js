@@ -212,7 +212,7 @@ app.get("/api/getCalendar", (req, res) => {
 		var dateString = c.lecture.MeetingDates;
 		if(dateString == null) return; //without this it crashes because not all classes have dates
 		dateString.trim(); //trim excess
-		var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27-10/27
+		var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
 		//Meeting Days MWF etc + Class Time
 		var daysString = c.lecture.DaysTimes;
 		daysString.trim(); //trim excess
@@ -223,14 +223,10 @@ app.get("/api/getCalendar", (req, res) => {
 		var timeCutA = timeCut[0]; //start time
 		var timeCutB = timeCut[1]; // end time
 		// converts first time into 24 hour format
-		if (timeCutA.includes("AM")) {
-			timeCutA = convertAM(timeCutA);
-		}
+		if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
 		else timeCutA = convertPM(timeCutA);
 		//converts second time into 24 hour format
-		if (timeCutB.includes("AM")) {
-			timeCutB = convertAM(timeCutB);
-		}
+		if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
 		else timeCutB = convertPM(timeCutB);
 
         const newCal = {
