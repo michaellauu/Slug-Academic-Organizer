@@ -208,33 +208,36 @@ app.get("/api/getCalendar", (req, res) => {
       events = [];
       //parse data into readable for FullCalendar
       cal.forEach(function (c) {
+		//calendar date string
 		var dateString = c.lecture.MeetingDates;
-		//console.log(dateString);
 		if(dateString == null) return; //without this it crashes because not all classes have dates
-		var dateCut = dateString.split("-", 2);
-		//console.log(dateCut);
+		dateString.trim(); //trim excess
+		var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27-10/27
+		//Meeting Days MWF etc + Class Time
 		var daysString = c.lecture.DaysTimes;
-		console.log(daysString);
+		daysString.trim(); //trim excess
 		if(daysString == null) return;
-		var daysCut = daysString.split(" ", 2);
-		if(daysCut[0] == "MWF") {
-			var day = [1,3,5];
-			//console.log(daysCut[0]);
+		var daysCut = daysString.split(" ", 2); //splits the entry into Meeting Days MWF etc + Class Time
+		var day = checkDays(daysCut[0]); // returns which weekdays class is held
+		var timeCut = daysCut[1].split("-", 2); //takes the time range and splits it
+		var timeCutA = timeCut[0]; //start time
+		var timeCutB = timeCut[1]; // end time
+		// converts first time into 24 hour format
+		if (timeCutA.includes("AM")) {
+			timeCutA = convertAM(timeCutA);
 		}
-		if(daysCut[0] == "MW") {
-			var day = [1,3];
-			//console.log(daysCut[0]);
+		else timeCutA = convertPM(timeCutA);
+		//converts second time into 24 hour format
+		if (timeCutB.includes("AM")) {
+			timeCutB = convertAM(timeCutB);
 		}
-		if(daysCut[0] == "TuTh") {
-			var day = [2,4];
-			//console.log(daysCut[0]);
-		}
-		
+		else timeCutB = convertPM(timeCutB);
+
         const newCal = {
           title: c.courseTitle,
-		  start: dateCut[0],
-		  end: dateCut[1],
-		  dow: day, //wip
+		  dow: day,
+		  start: timeCutA,
+		  end: timeCutB,
         };
         //push data to events
         events.push(newCal);
@@ -246,5 +249,38 @@ app.get("/api/getCalendar", (req, res) => {
     }
   });
 });
+// trims AM
+function convertAM(timeAM) {
+  const [time, modifier] = timeAM.split('AM');
+  return time;
+}
+//trims PM + 12 hours
+function convertPM(timePM) {
+  const [time, modifier] = timePM.split('PM');
+  let [hours, minutes] = time.split(':');
+  if (hours === '12') {
+    hours = '00';
+  }
+  hours = parseInt(hours, 10) + 12;
+  return hours + ':' + minutes;
+}
+//converts written weekdays into a numerical array of the weekdays
+function checkDays(daysInput) {
+	if(daysInput == "MWF") {
+		return '[1,3,5]';		
+		}
+	if(daysInput == "MW") {
+		return '[1,3]';		
+		}
+	if(daysInput == "TuTh") {
+		return '[2,4]';		
+		}
+	if(daysInput == "Tu") {
+		return '[2]';		
+		}
+	if(daysInput == "Th") {
+		return '[4]';		
+		}
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

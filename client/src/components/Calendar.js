@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FullCalendar from "fullcalendar-reactwrapper;
+import FullCalendar from "fullcalendar-reactwrapper";
 import "../styles/Calendar.css";
 import "../dist/fullcalendar.css";
 
