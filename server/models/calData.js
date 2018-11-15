@@ -7,8 +7,11 @@ const cDataSchema = new Schema({
     type: String,
   },
   lecture: {
-	DaysTimes: String,
-	MeetingDates: String,
+	days: String,
+	times: String,
+	room: String,
+	instructor: String,
+	meetingDates: String,
   }	
 });
 

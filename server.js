@@ -209,17 +209,15 @@ app.get("/api/getCalendar", (req, res) => {
       //parse data into readable for FullCalendar
       cal.forEach(function (c) {
 		//calendar date string
-		var dateString = c.lecture.MeetingDates;
+		var dateString = c.lecture.meetingDates;
 		if(dateString == null) return; //without this it crashes because not all classes have dates
-		dateString.trim(); //trim excess
 		var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
-		//Meeting Days MWF etc + Class Time
-		var daysString = c.lecture.DaysTimes;
-		daysString.trim(); //trim excess
+		//Meeting Days MWF
+		var daysString = c.lecture.days;
 		if(daysString == null) return;
-		var daysCut = daysString.split(" ", 2); //splits the entry into Meeting Days MWF etc + Class Time
-		var day = checkDays(daysCut[0]); // returns which weekdays class is held
-		var timeCut = daysCut[1].split("-", 2); //takes the time range and splits it
+		var day = checkDays(daysString); // returns which weekdays class is held
+		var timeCut = c.lecture.times;
+		timeCut = timeCut.split("-", 2); //takes the time range and splits it
 		var timeCutA = timeCut[0]; //start time
 		var timeCutB = timeCut[1]; // end time
 		// converts first time into 24 hour format
@@ -228,13 +226,13 @@ app.get("/api/getCalendar", (req, res) => {
 		//converts second time into 24 hour format
 		if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
 		else timeCutB = convertPM(timeCutB);
-
         const newCal = {
           title: c.courseTitle,
 		  dow: day,
 		  start: timeCutA,
 		  end: timeCutB,
-		  ranges: [{ start: '9/27/18', end: '12/27/18'}]
+		  ranges: [{ start: dateCut[0], end: dateCut[1]}],
+		  room: c.lecture.room
         };
         //push data to events
         events.push(newCal);

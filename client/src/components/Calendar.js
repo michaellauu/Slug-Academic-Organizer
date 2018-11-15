@@ -47,8 +47,18 @@ export default class Calendar extends Component {
             center: "title",
             right: "month,agendaWeek,agendaDay",
           }}
+			//credits @slicedtoad and the community at stackoverflow.com
+			eventRender = {function(event) {
+				if(event.ranges) {
+					return (event.ranges.filter(function(range) { // test event against all the ranges
+						return (event.start.isBefore(range.end) &&
+						event.end.isAfter(range.start));
+				}).length) > 0; //if it isn't in one of the ranges, don't render it (by returning false)
+			} 
+			else return true;
+		}}
 		  minTime={"08:00"}
-		  maxTime={"24:00"}
+		  maxTime={"23:00"}
           defaultDate={Date.now()}
           navLinks={true}
           editable={true}
