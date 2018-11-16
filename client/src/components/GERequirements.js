@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./GERequirements.css";
+import "../styles/GERequirements.css";
 
 class GERequirements extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ge: [], //server response
+      ge: [] //server response
     };
   }
 
@@ -27,34 +27,39 @@ class GERequirements extends Component {
 
   render() {
     return (
-        <div>
-          <h3 className="pageTitle">GE Requirements</h3>
-          <table>
-            {this.state.ge.map(function (current, index) {
-              return (
-                <div className="GETable">
-                  <tbody>
-                    <tr>
-                      <td className="category"><b>GE ID:</b></td>
-                      <td className="GE">{current.geID}</td>
-                    </tr>
-                    <tr>
-                      <td className="category"><b>Description:</b></td>
-                      <td className="GE">{current.desc}</td>
-                    </tr>
-                    <tr>
-                      <td className="category"><b>Credits:</b></td>
-                      <td className="GE">{current.credits}</td>
-                    </tr>
-                  </tbody>
-                </div>
-              );
-            })
-            }
-          </table>
-        </div>
+      <div>
+        <h3 className="pageTitle">GE Requirements</h3>
+        <table>
+          {this.state.ge.map(function(current, index) {
+            return (
+              <div className="GETable">
+                <tbody>
+                  <tr>
+                    <td className="category">
+                      <b>GE ID:</b>
+                    </td>
+                    <td className="GE">{current.geID}</td>
+                  </tr>
+                  <tr>
+                    <td className="category">
+                      <b>Description:</b>
+                    </td>
+                    <td className="GE">{current.desc}</td>
+                  </tr>
+                  <tr>
+                    <td className="category">
+                      <b>Credits:</b>
+                    </td>
+                    <td className="GE">{current.credits}</td>
+                  </tr>
+                </tbody>
+              </div>
+            );
+          })}
+        </table>
+      </div>
     );
   }
 }
 
-export default GERequirements
+export default GERequirements;

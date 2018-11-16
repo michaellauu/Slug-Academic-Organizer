@@ -12,6 +12,7 @@ const geSchedule = require("./lib/data/ge.json")
 const ClassData = require("./server/models/classData");
 const Data = require("./server/models/Data");
 const GEData = require("./server/models/geData")
+const calData = require("./server/models/calData");
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -34,6 +35,69 @@ require("./server/routes/api/signin.js")(app);
 // Base route that's still in progress ...
 app.get("/", (req, res) => {
   res.send({ express: "Connected!" });
+});
+
+// Sorts User Class data into dictionary: {year: [summer classes], [fall classes], [spring classes], [winter classes]}
+function sort(userClasses){
+	var sorted = {};
+	for(i=0; i<userClasses.length; i++){
+		if (!(userClasses[i].year in sorted)){ // If not in dictionary
+			sorted[userClasses[i].year] = [[], [], [], []];
+			sorted[userClasses[i].year][userClasses[i].quarter].push(
+				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+		}else{
+			sorted[userClasses[i].year][userClasses[i].quarter].push(
+				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+		}
+	}
+	return sorted;
+}
+
+// Gets all user classes from the database and returns in a sorted manner
+app.post("/api/userClasses", (req, res) => {
+	var userClasses = [];
+	var sorted = {};
+	// Find all the user classes
+	ClassData.find({'userToken': req.body.userID}, function(err, classes){
+		if(err){
+			console.log(err);
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			classes.forEach(function(userClass){
+				/*var newClass = {};
+				if(userClass.section){
+					newClass = {
+						courseID: userClass.courseID,
+						meetingDays: userClass.meetingDays,
+						sMeetingDays: userClass.sMeetingDays,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+						sStartTime: userClass.sStartTime,
+						sEndTime: userClass.sEndTime,
+						sLocation: userClass.sLocation
+					};
+
+				}else{
+					newClass = {
+						courseID: userClass.courseID,
+						meetingDays: userClass.meetingDays,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+					};
+				}*/
+				const newClass = {courseID: userClass.courseID, year: userClass.year,
+					quarter: userClass.quarter, _id: userClass._id};
+
+				userClasses.push(newClass);
+			});
+			sorted = sort(userClasses); // Sort all the data so we can display it easily
+			res.send(sorted);
+		}
+	}).then(console.log(`Getting user classes ...`));
 });
 
 // Push all JSON data into database
@@ -102,25 +166,116 @@ app.get("/api/GERequirements", (req, res) => {
 app.post("/api/submitClass", (req, res) => {
   console.log(req.body);
   const classData = new ClassData({
-    courseID: req.body.class,
-    meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
-    startTime: req.body.startTime,
-    endTime: req.body.endTime,
-    location: req.body.location,
-    section: req.body.section,
-    sMeetingDays: [
-      req.body.sM,
-      req.body.sTu,
-      req.body.sW,
-      req.body.sTh,
-      req.body.sF
-    ],
-    sStartTime: req.body.sStartTime,
-    sEndTime: req.body.sEndTime,
-    sLocation: req.body.sLocation
+  	courseID: req.body.class,
+  	userToken: req.body.userID,
+  	quarter: req.body.quarter,
+  	year: req.body.year
+  	/*meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
+  	startTime: req.body.startTime,
+  	endTime: req.body.endTime,
+  	location: req.body.location,
+  	section: req.body.section,
+  	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
+  	sStartTime: req.body.sStartTime,
+  	sEndTime: req.body.sEndTime,
+  	sLocation: req.body.sLocation*/
   });
-  classData.save().then(console.log(`Saving documents ...`));
-  res.send({ express: "done" });
+  classData.save(function(err, newClass){
+  	res.send({ express: "done", _id: newClass._id });
+  });
 });
+
+// Deletes class from the database
+app.post("/api/deleteClass", (req, res) =>{
+	ClassData.findByIdAndRemove(req.body._id, function(err, classes){
+		if(err){
+			console.log(err);
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			res.send({ express: "done" });
+		}
+	});
+});
+
+//based off Chtzhou's GE
+app.get("/api/getCalendar", (req, res) => {
+  calData.find(function (err, cal) {
+    if (err) {
+      //error messages
+      console.log("Can't get class data");
+      return res.status(500).send({ Error: "Can't get class data" });
+    } else {
+      events = [];
+      //parse data into readable for FullCalendar
+      cal.forEach(function (c) {
+		//calendar date string
+		var dateString = c.lecture.meetingDates;
+		if(dateString == null) return; //without this it crashes because not all classes have dates
+		var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
+		//Meeting Days MWF
+		var daysString = c.lecture.days;
+		if(daysString == null) return;
+		var day = checkDays(daysString); // returns which weekdays class is held
+		var timeCut = c.lecture.times;
+		timeCut = timeCut.split("-", 2); //takes the time range and splits it
+		var timeCutA = timeCut[0]; //start time
+		var timeCutB = timeCut[1]; // end time
+		// converts first time into 24 hour format
+		if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
+		else timeCutA = convertPM(timeCutA);
+		//converts second time into 24 hour format
+		if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
+		else timeCutB = convertPM(timeCutB);
+        const newCal = {
+          title: c.courseTitle,
+		  dow: day,
+		  start: timeCutA,
+		  end: timeCutB,
+		  ranges: [{ start: dateCut[0], end: dateCut[1]}],
+		  room: c.lecture.room
+        };
+        //push data to events
+        events.push(newCal);
+      });
+      //send events
+      res.send(events);
+	  //logging
+	  //console.log(events);
+    }
+  });
+});
+// trims AM
+function convertAM(timeAM) {
+  const [time, modifier] = timeAM.split('AM');
+  return time;
+}
+//trims PM + 12 hours
+function convertPM(timePM) {
+  const [time, modifier] = timePM.split('PM');
+  let [hours, minutes] = time.split(':');
+  if (hours === '12') {
+    hours = '00';
+  }
+  hours = parseInt(hours, 10) + 12;
+  return hours + ':' + minutes;
+}
+//converts written weekdays into a numerical array of the weekdays
+function checkDays(daysInput) {
+	if(daysInput == "MWF") {
+		return '[1,3,5]';		
+		}
+	if(daysInput == "MW") {
+		return '[1,3]';		
+		}
+	if(daysInput == "TuTh") {
+		return '[2,4]';		
+		}
+	if(daysInput == "Tu") {
+		return '[2]';		
+		}
+	if(daysInput == "Th") {
+		return '[4]';		
+		}
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ClassInput from "./components/ClassInput";
+import ClassLogging from "./components/ClassLogging";
 import Home from "./components/Home";
 import Error from "./components/Error";
 import GERequirements from "./components/GERequirements";
+import Calendar from "./components/Calendar";
+import NavBar from "./components/NavBar";
+import ClassInput from "./components/ClassInput";
+import { Button } from 'reactstrap';
 import SearchCourse from "./components/SearchCourse";
 
 class App extends Component {
@@ -13,14 +17,15 @@ class App extends Component {
     this.state = {
       response: "" //server response
     };
-  }
+  };
 
   //makes get request to server after the component mounts
   componentDidMount() {
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
-  }
+
+  };
 
   callApi = async () => {
     const response = await fetch("/");
@@ -33,19 +38,21 @@ class App extends Component {
 
   render() {
     return (
-      //this lets connect to different components of our site
+	   //this lets connect to different components of our site
       <BrowserRouter>
         <div>
           <Switch>
-            <Route path="/" component={ClassInput} exact />
-            <Route path="/signin" component={Home} />
-            <Route path="/ge" component={GERequirements} />
-            <Route path="/search" component={SearchCourse} />
-            <Route component={Error} />
+	    <Route path="/" component={NavBar} exact /> 
+      <Route path="/logging" component={ClassLogging} />
+	    <Route path="/signin" component={Home} />
+      <Route path="/ge" component={GERequirements} />
+      <Route path="/calendar" component={Calendar} />
+      <Route path="/search" component={SearchCourse} />
+	    <Route component={Error} />
           </Switch>
         </div>
       </BrowserRouter>
     );
   }
-};
+}
 export default App;
