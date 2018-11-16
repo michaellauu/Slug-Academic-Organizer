@@ -26,23 +26,25 @@ module.exports = app => {
     }
 	// function to check password criteria
 	function checkCase(pw) {
-		var uppercase = 0;
-		var numeric = 0;
+		const uppercase = 0;
+		const numeric = 0;
 		for(i = 0; i < pw.length; i++) {
 			if('A' <= pw[i] && pw[i] <= 'Z') uppercase++; // check if you have an uppercase
 			if('0' <= pw[i] && pw[i] <= '9') numeric++; // check if you have a numeric
 		}
 		if((uppercase >= 1) && (numeric >= 1)) return true;
+		else return false;
 	}
 	// function to check username criteria
 	function checkUser(usr) {
-		var uppercase = 0;
-		var lowercase = 0;
+		const uppercase = 0;
+		const lowercase = 0;
 		for(i = 0; i < usr.length; i++) {
 			if('A' <= usr[i] && usr[i] <= 'Z') uppercase++; // check if you have an uppercase
 			if('a' <= usr[i] && usr[i] <= 'z') lowercase++; // check if you have a lowercase
 		}
 		if(uppercase+lowercase >= 3) return true;
+		else return false;
 	}
 
     username = username.toLowerCase();
