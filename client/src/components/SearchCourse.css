@@ -3,6 +3,55 @@
   fill: blue;
 }
 
+.ais-ClearRefinements-button {
+  color: red;
+}
+
+.ais-CurrentRefinements-item {
+  padding: 5px;
+}
+
 .ais-Pagination-item {
   padding: 10px;
+}
+
+.ais-CurrentRefinements {
+  border: 1px solid #99ddff;
+  padding: 5px;
+}
+
+.ais-CurrentRefinements--noRefinement {
+  border: 1px solid #99ddff;
+  padding: 20px;
+}
+
+.ais-CurrentRefinements-delete {
+  color: red;
+}
+
+.ais-CurrentRefinements-category{
+  padding-right: 10px;
+}
+
+button.clear{
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.Filters{
+  padding: 10px 0px 10px 0px;
+}
+
+.container{
+  padding: 10px;
+}
+
+.pages{
+  margin: auto;
+  width: 50%;
+}
+
+.poweredBy{
+  padding: 10px;
+  float: right;
 }

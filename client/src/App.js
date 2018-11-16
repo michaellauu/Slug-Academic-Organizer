@@ -5,6 +5,7 @@ import ClassInput from "./components/ClassInput";
 import Home from "./components/Home";
 import Error from "./components/Error";
 import GERequirements from "./components/GERequirements";
+import SearchCourse from "./components/SearchCourse";
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class App extends Component {
             <Route path="/" component={ClassInput} exact />
             <Route path="/signin" component={Home} />
             <Route path="/ge" component={GERequirements} />
+            <Route path="/search" component={SearchCourse} />
             <Route component={Error} />
           </Switch>
         </div>
