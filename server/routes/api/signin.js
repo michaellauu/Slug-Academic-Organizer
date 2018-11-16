@@ -12,28 +12,37 @@ module.exports = app => {
     const { password } = body;
     let { username } = body;
 
-    if ((username.length < 3)) {
+    if ((username.length < 3) || !checkUser(username)) {
       return res.send({
         success: false,
-        message: "Error: Username can't be shorter than 3 characters"
+        message: "Error: Username must contain at least 3 letters"
       });
     }
-    if ((password.length < 5) && !checkCase(password)) {
+    if ((password.length < 5) || !checkCase(password)) {
       return res.send({
         success: false,
-        message: "Error: Password must contain an uppercase and numeric"
+        message: "Error: Password must contain an uppercase and numeric and be longer than 5 characters"
       });
     }
 	// function to check password criteria
 	function checkCase(pw) {
-		var lowercase, numeric;
-		for(i=0;i<pw.length;i++) {
-			if('A' <= pw[i] && pw[i] <= 'Z') // check if you have an uppercase
-				lowercase++;
-			if('0' <= pw[i] && pw[i] <= '9') // check if you have a numeric
-				numeric++;
+		var uppercase = 0;
+		var numeric = 0;
+		for(i = 0; i < pw.length; i++) {
+			if('A' <= pw[i] && pw[i] <= 'Z') uppercase++; // check if you have an uppercase
+			if('0' <= pw[i] && pw[i] <= '9') numeric++; // check if you have a numeric
 		}
-		if((lowercase >= 1) && (numeric >= 1)) return true;
+		if((uppercase >= 1) && (numeric >= 1)) return true;
+	}
+	// function to check username criteria
+	function checkUser(usr) {
+		var uppercase = 0;
+		var lowercase = 0;
+		for(i = 0; i < usr.length; i++) {
+			if('A' <= usr[i] && usr[i] <= 'Z') uppercase++; // check if you have an uppercase
+			if('a' <= usr[i] && usr[i] <= 'z') lowercase++; // check if you have a lowercase
+		}
+		if(uppercase+lowercase >= 3) return true;
 	}
 
     username = username.toLowerCase();
