@@ -10,30 +10,41 @@ module.exports = app => {
   app.post("/api/account/signup", (req, res, next) => {
     const { body } = req;
     const { password } = body;
-    let { email } = body;
+    let { username } = body;
 
-    if (!email) {
+    if ((username.length < 3)) {
       return res.send({
         success: false,
-        message: "Error: Email cannot be blank."
+        message: "Error: Username can't be shorter than 3 characters"
       });
     }
-    if (!password) {
+    if ((password.length < 5) && !checkCase(password)) {
       return res.send({
         success: false,
-        message: "Error: Password cannot be blank."
+        message: "Error: Password must contain an uppercase and numeric"
       });
     }
+	// function to check password criteria
+	function checkCase(pw) {
+		var lowercase, numeric;
+		for(i=0;i<pw.length;i++) {
+			if('A' <= pw[i] && pw[i] <= 'Z') // check if you have an uppercase
+				lowercase++;
+			if('0' <= pw[i] && pw[i] <= '9') // check if you have a numeric
+				numeric++;
+		}
+		if((lowercase >= 1) && (numeric >= 1)) return true;
+	}
 
-    email = email.toLowerCase();
-    email = email.trim();
+    username = username.toLowerCase();
+    username = username.trim();
 
     // Steps:
-    // 1. Verify email doesn't exist
+    // 1. Verify username doesn't exist
     // 2. Save
     User.find(
       {
-        email: email
+        username: username
       },
       (err, previousUsers) => {
         if (err) {
@@ -51,7 +62,7 @@ module.exports = app => {
         // Save the new user
         const newUser = new User();
 
-        newUser.email = email;
+        newUser.username = username;
         newUser.password = newUser.generateHash(password);
         newUser.save((err, user) => {
           if (err) {
@@ -72,9 +83,9 @@ module.exports = app => {
   app.post("/api/account/signin", (req, res, next) => {
     const { body } = req;
     const { password } = body;
-    let { email } = body;
+    let { username } = body;
 
-    if (!email) {
+    if (!username) {
       return res.send({
         success: false,
         message: "Error: Email cannot be blank."
@@ -87,12 +98,12 @@ module.exports = app => {
       });
     }
 
-    email = email.toLowerCase();
-    email = email.trim();
+    username = username.toLowerCase();
+    username = username.trim();
 
     User.find(
       {
-        email: email
+        username: username
       },
       (err, users) => {
         if (err) {
