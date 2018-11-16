@@ -14,8 +14,11 @@ import {
 import 'instantsearch.css/themes/reset.css';
 import './SearchCourse.css';
 import { CollapsibleComponent, CollapsibleHead, CollapsibleContent } from 'react-collapsible-component'
-//Refinement list would be good
-//100+ is upper div 200+ grad
+
+/*
+*Used to display course information (course Title, description, instructor, days, times, room)
+*parts of the course will highlight when user is searching in searchbar
+*/
 function Course({ hit }) {
     return (
         <div style={{ padding: '10px' }}>
@@ -32,8 +35,10 @@ function Course({ hit }) {
     );
 }
 
-/*RefinementList used to refine searches with like a checkbox list
-*so probably not necessary
+/*
+*Used to implement widgets
+*Refinment List in collapsible menus, Current Refinements, Pagination
+*Collapsile Menu: https://www.npmjs.com/package/react-collapsible-component
 */
 function Search() {
     return (
@@ -72,9 +77,7 @@ function Search() {
     );
 }
 
-//we need to create an indexName on the algolia dashboard
-//we can also consider using connectors to implement different UI
-
+//Used for the search
 const App = () => (
     <InstantSearch
         apiKey="e0f4e3542265d408d5be8de22d00a12e"
@@ -85,6 +88,7 @@ const App = () => (
     </InstantSearch>
 )
 
+//renders the search
 class SearchCourse extends Component {
     render() {
         return (
