@@ -26,8 +26,8 @@ module.exports = app => {
     }
 	// function to check password criteria
 	function checkCase(pw) {
-		const uppercase = 0;
-		const numeric = 0;
+		let uppercase = 0;
+		let numeric = 0;
 		for(i = 0; i < pw.length; i++) {
 			if('A' <= pw[i] && pw[i] <= 'Z') uppercase++; // check if you have an uppercase
 			if('0' <= pw[i] && pw[i] <= '9') numeric++; // check if you have a numeric
@@ -37,8 +37,8 @@ module.exports = app => {
 	}
 	// function to check username criteria
 	function checkUser(usr) {
-		const uppercase = 0;
-		const lowercase = 0;
+		let uppercase = 0;
+		let lowercase = 0;
 		for(i = 0; i < usr.length; i++) {
 			if('A' <= usr[i] && usr[i] <= 'Z') uppercase++; // check if you have an uppercase
 			if('a' <= usr[i] && usr[i] <= 'z') lowercase++; // check if you have a lowercase
