@@ -20,36 +20,34 @@ const classDataSchema = new Schema({
   quarter: {
     type: Number, //again: 0-fall, 1-summer, 2-spring, 3-winter
     required: true
-  }
-  /*
-  meetingDays: {
-    type: [Boolean],
-    required: true
   },
-  startTime: {
-    type: String,
-    required: true
-  },
-  endTime: {
-    type: String,
-    required: true
-  },
-  location: {
-    type: String,
-    trim: true,
-    required: true
-  },
-  section: {
-    type: Boolean,
-    required: true
-  },
-  sMeetingDays: [Boolean],
-  sStartTime: String,
-  sEndTime: String,
-  sLocation: {
+  meetingDates: {
     type: String,
     trim: true
-  }*/
+  }, 
+  times: {
+    type: String,
+     trim: true
+  },
+  days: {
+    type:String,
+    trim: true
+  },
+  room: {
+    type:String,
+     trim: true
+  },
+  instructor: {
+    type: String,
+    trim: true
+  },
+  section: {
+    type: {}
+  },
+  GE: {
+    type: String,
+    trim: true
+  }
 });
 
 module.exports = ClassData = mongoose.model("ClassData", classDataSchema, "userClasses");

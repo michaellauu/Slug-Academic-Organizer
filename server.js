@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const axios = require('axios');
 
 const app = express();
 
@@ -155,19 +156,63 @@ app.get("/api/GERequirements", (req, res) => {
 	});
 });
 
+function parseYear(year) {
+	year = year.toString();
+	if (year.length === 4){
+		return year.slice(2);
+	}
+	return year;
+}
+
+function quarterNumberToString(quarter){
+	if(quarter === 0){
+		quarter = 'Fall';
+	}else if(quarter === 1){
+		quarter = 'Summer';
+	}else if(quarter === 2){
+		quarter = 'Spring';
+	}else if(quarter === 3){
+		quarter = 'Winter';
+	}
+	return quarter;
+}
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {
 	console.log(req.body);
-	const classData = new ClassData({
-		courseID: req.body.class,
-		userToken: req.body.userID,
-		quarter: req.body.quarter,
-		year: req.body.year
-	});
-	classData.save(function (err, newClass) {
-		res.send({ express: "done", _id: newClass._id });
-	});
+	let schema = quarterNumberToString(req.body.quarter)+parseYear(req.body.year);
+	console.log(schema);
+	if(Courses[schema] === undefined){
+		const classData = new ClassData({
+			courseID: req.body.class,
+			userToken: req.body.userID,
+			quarter: req.body.quarter,
+			year: req.body.year
+		});
+		classData.save(function (err, newClass) {
+			res.send({ express: "done", _id: newClass._id });
+		});
+	}else{
+		Courses[schema].find({courseID: req.body.class}, function(err, classData){
+			if(err){
+				console.log(err);
+				return res.status(500).send({ message: 'Failed to find submitted class' });
+			}else{
+				classData.forEach(function (data) {
+					const userClass = new ClassData({
+						courseID: data.courseID,
+						userToken: req.body.userID,
+						quarter: req.body.quarter,
+						year: req.body.year,
+						GE: data.meta.general_education
+					});
+					userClass.save(function (err, newClass) {
+						res.send({ express: "done", _id: newClass._id });
+					});
+				});
+			}
+		})
+	}
 });
 
 // Deletes class from the database
@@ -183,19 +228,46 @@ app.post("/api/deleteClass", (req, res) => {
 });
 
 // Gets course datas from requested classes
-app.post("/api/getMajorClassData", (req, res) => {
+app.post("/api/getMajorClassData", async (req, res) => {
+	/*const quarterNames = Object.keys(Courses);
+	let quarterData = [];
+	for(let quarter = 0; quarter<quarterNames.length; quarter++){
+		quarterData.push(quarterNames[quarter] = axios.post('api/getEachQuarter', 
+			{
+				classes: req.body.classes,
+				quarter: quarterNames[quarter]
+			}
+		));
+	}
+	console.log(quarterData);
+	let returnData = await Promise.all(quarterData);
+	console.log(returnData);*/
+});
+
+function getQuarter (quarter, classes) {
+	return (axios.post('api/getEachQuarter',
+		{
+			classes: classes,
+			quarter: quarter
+		}
+	));
+}
+
+app.post("/api/getEachQuarter", (req,res) => {
+	console.log(req.body.classes);
 	const classes = Object.keys(req.body.classes);
 	let classDatas = {}, find = [];
-	for(let i = 0; i<classes.length; i++){
-		find.push({courseID: classes[i]});
+	for (let i = 0; i < classes.length; i++) {
+		find.push({ courseID: classes[i] });
 	}
-	Courses.find({$or: find}, function (err, classData) {
+
+	Courses[req.body.quarter].find({ $or: find }, function (err, classData) {
 		if (err) {
 			console.log("error");
 			return res.status(500).send({ geError: "Error" });
 		} else {
 			classData.forEach(function (data) {
-				const courseTitle = data.courseTitle.slice(data.courseID.length+9);
+				const courseTitle = data.courseTitle.slice(data.courseID.length + 9);
 				classDatas[data.courseID] = {
 					description: data.description,
 					prereqs: data.prereqs,
