@@ -197,7 +197,7 @@ app.post("/api/deleteClass", (req, res) =>{
 	});
 });
 
-//based off Chtzhou's GE
+//based off Chtzou's GE
 app.get("/api/getCalendar", (req, res) => {
   calData.find(function (err, cal) {
     if (err) {
