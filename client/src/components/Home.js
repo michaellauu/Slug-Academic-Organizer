@@ -15,19 +15,19 @@ class Home extends Component {
       token: "",
       signUpError: "",
       signInError: "",
-      signInEmail: "",
+      signInUsername: "",
       signInPassword: "",
-      signUpEmail: "",
+      signUpUsername: "",
       signUpPassword: ""
     };
 
-    this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(
+    this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(
       this
     );
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(
       this
     );
-    this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(
+    this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(
       this
     );
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(
@@ -65,9 +65,9 @@ class Home extends Component {
     }
   }
 
-  onTextboxChangeSignInEmail(event) {
+  onTextboxChangeSignInUsername(event) {
     this.setState({
-      signInEmail: event.target.value
+      signInUsername: event.target.value
     });
   }
 
@@ -77,9 +77,9 @@ class Home extends Component {
     });
   }
 
-  onTextboxChangeSignUpEmail(event) {
+  onTextboxChangeSignUpUsername(event) {
     this.setState({
-      signUpEmail: event.target.value
+      signUpUsername: event.target.value
     });
   }
 
@@ -91,7 +91,7 @@ class Home extends Component {
 
   onSignUp() {
     // Grab state
-    const { signUpEmail, signUpPassword } = this.state;
+    const { signUpUsername, signUpPassword } = this.state;
 
     this.setState({
       isLoading: true
@@ -104,7 +104,7 @@ class Home extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        email: signUpEmail,
+        username: signUpUsername,
         password: signUpPassword
       })
     })
@@ -115,7 +115,7 @@ class Home extends Component {
           this.setState({
             signUpError: json.message,
             isLoading: false,
-            signUpEmail: "",
+            signUpUsername: "",
             signUpPassword: ""
           });
         } else {
@@ -129,7 +129,7 @@ class Home extends Component {
 
   onSignIn() {
     // Grab state
-    const { signInEmail, signInPassword } = this.state;
+    const { signInUsername, signInPassword } = this.state;
 
     this.setState({
       isLoading: true
@@ -142,7 +142,7 @@ class Home extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        email: signInEmail,
+        username: signInUsername,
         password: signInPassword
       })
     })
@@ -155,7 +155,7 @@ class Home extends Component {
             signInError: json.message,
             isLoading: false,
             signInPassword: "",
-            signInEmail: "",
+            signInUsername: "",
             token: json.token
           });
         } else {
@@ -201,9 +201,9 @@ class Home extends Component {
       isLoading,
       token,
       signInError,
-      signInEmail,
+      signInUsername,
       signInPassword,
-      signUpEmail,
+      signUpUsername,
       signUpPassword,
       signUpError
     } = this.state;
@@ -223,10 +223,10 @@ class Home extends Component {
             {signInError ? <p>{signInError}</p> : null}
             <p>Sign In</p>
             <input
-              type="email"
-              placeholder="Email"
-              value={signInEmail}
-              onChange={this.onTextboxChangeSignInEmail}
+              type="username"
+              placeholder="Username"
+              value={signInUsername}
+              onChange={this.onTextboxChangeSignInUsername}
             />
             <br />
             <input
@@ -244,10 +244,10 @@ class Home extends Component {
             {signUpError ? <p>{signUpError}</p> : null}
             <p>Sign Up</p>
             <input
-              type="email"
-              placeholder="Email"
-              value={signUpEmail}
-              onChange={this.onTextboxChangeSignUpEmail}
+              type="username"
+              placeholder="Username"
+              value={signUpUsername}
+              onChange={this.onTextboxChangeSignUpUsername}
             />
             <br />
             <input
