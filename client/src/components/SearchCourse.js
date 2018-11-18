@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     InstantSearch,
     Hits,
+    connectHits, 
     SearchBox,
     Highlight,
     RefinementList,
@@ -13,23 +14,49 @@ import {
 } from 'react-instantsearch-dom';
 import 'instantsearch.css/themes/reset.css';
 import './SearchCourse.css';
+import { Button, UncontrolledCollapse } from 'reactstrap';
 import { CollapsibleComponent, CollapsibleHead, CollapsibleContent } from 'react-collapsible-component'
 
 /*
 *Used to display course information (course Title, description, instructor, days, times, room)
 *parts of the course will highlight when user is searching in searchbar
 */
+/*const Course = connectHits(({ hits }) => (    
+    <div style={{ padding: '10px' }}>
+        {hits.map(hit =>
+            <span key={hit.objectID}>
+                <Button id={hit.courseID}>
+                    {<Highlight attribute="courseTitle" hit={hit} tagName="mark" />}
+                </Button>
+                <Button onClick={console.log(hit)}>pls</Button>
+                <UncontrolledCollapse toggler={'#' + hit.courseID}>
+                    <p><Highlight attribute="description" hit={hit} tagName="mark" /></p>
+                    <p>
+                        Instructor: <Highlight attribute="lecture.Instructor" hit={hit} tagName="mark" />
+                        <br />Days and Times: <Highlight attribute="lecture.DaysTimes" hit={hit} tagName="mark" />
+                        <br />Room: <Highlight attribute="lecture.Room" hit={hit} tagName="mark" />
+                    </p>
+                </UncontrolledCollapse>
+            </span>
+        )}
+    </div>
+));*/
 function Course({ hit }) {
     return (
         <div style={{ padding: '10px' }}>
             <span className="hit-name">
-                <Highlight attribute="courseTitle" hit={hit} tagName="mark" />
-                <p><Highlight attribute="description" hit={hit} tagName="mark" /></p>
-                <p>
-                    Instrutor: <Highlight attribute="lecture.Instructor" hit={hit} tagName="mark" />
-                    <br />Days and Times: <Highlight attribute="lecture.DaysTimes" hit={hit} tagName="mark" />
-                    <br />Room: <Highlight attribute="lecture.Room" hit={hit} tagName="mark" />
-                </p>
+                <Button id={hit.courseID}>
+                    {<Highlight attribute="courseTitle" hit={hit} tagName="mark" />}
+                </Button>
+                <Button onClick={console.log(hit)}>pls</Button>
+                <UncontrolledCollapse toggler={'#' + hit.courseID}>
+                    <p><Highlight attribute="description" hit={hit} tagName="mark" /></p>
+                    <p>
+                        Instructor: <Highlight attribute="lecture.Instructor" hit={hit} tagName="mark" />
+                        <br />Days and Times: <Highlight attribute="lecture.DaysTimes" hit={hit} tagName="mark" />
+                        <br />Room: <Highlight attribute="lecture.Room" hit={hit} tagName="mark" />
+                    </p>
+                </UncontrolledCollapse>
             </span>
         </div>
     );
@@ -90,6 +117,24 @@ const App = () => (
 
 //renders the search
 class SearchCourse extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+
+        this.handleResize = this.handleResize.bind(this);
+    }
+
+    handleResize() {
+        console.log("??");
+    }
+
+    componentDidMount() {
+        window.addEventListener('click', this.handleResize);
+    };
+
+    componentWillUnmount() {
+        window.removeEventListener('click', this.handleResize);
+    }
     render() {
         return (
             <App />

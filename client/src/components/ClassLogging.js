@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "../styles/ClassLogging.css";
-import ClassInput from "./ClassInput";
+//import ClassInput from "./ClassInput";
 import { getFromStorage } from "./storage";
 import { Button, Table, Container, Row, Col } from "reactstrap";
+import SearchCourse from "./SearchCourse";
 
 class ClassLogging extends Component {
   constructor(props) {
@@ -142,7 +143,7 @@ class ClassLogging extends Component {
           <Container>
             <Row>
               <Col>
-                <ClassInput
+                <SearchCourse
                   onSubmit={this.handleSubmit}
                   userID={this.state.userID}
                 />
