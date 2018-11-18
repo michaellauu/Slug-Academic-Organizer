@@ -121,22 +121,28 @@ class GPACalculator extends Component {
     gpaCredits[11] = 0.7;
     gpaCredits[12] = 0.0;
 
+    var i = 0;
+    var total = 0;
+    var achieved = 0;
+    var tempUnits = 0;
+    var units = 0;
+    var grade = 0;
+
     if (this.state.gpatype === 0){
       var yearKeys = Object.keys(this.state.classes);
       var k = 0;
-      var total = 0;
-      var achieved = 0;
+      total = 0;
+      achieved = 0;
 
       for(k = 0; k < yearKeys.length; k++){
         var j = 0;
 
         for(j = 0; j < 4; j++){
-          var i = 0;
           for (i = 0; i < this.state.classes[yearKeys[k]][j].length; i++){
-            var tempUnits = this.state.classes[yearKeys[k]][j][i].units;
-            var units = 0;
-            var grade = this.state.classes[yearKeys[k]][j][i].grade;
-            if (grade != 13 && grade != 14 && grade != 15 && grade != 16){
+            tempUnits = this.state.classes[yearKeys[k]][j][i].units;
+            units = 0;
+            grade = this.state.classes[yearKeys[k]][j][i].grade;
+            if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16){
               if(tempUnits === 0){
                 units = 5;
                 total += 5;
@@ -157,15 +163,14 @@ class GPACalculator extends Component {
       }
     }
     else if (this.state.gpatype === 1){
-      var i = 0;
-      var total = 0;
-      var achieved = 0;
+      total = 0;
+      achieved = 0;
       if (this.state.year in this.state.classes){
         for (i = 0; i < this.state.classes[this.state.year][this.state.quarter].length; i++){
-          var tempUnits = this.state.classes[this.state.year][this.state.quarter][i].units;
-          var units = 0;
-          var grade = this.state.classes[this.state.year][this.state.quarter][i].grade;
-          if (grade != 13 && grade != 14 && grade != 15 && grade != 16){
+          tempUnits = this.state.classes[this.state.year][this.state.quarter][i].units;
+          units = 0;
+          grade = this.state.classes[this.state.year][this.state.quarter][i].grade;
+          if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16){
             if(tempUnits === 0){
               units = 5;
               total += 5;

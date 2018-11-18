@@ -97,7 +97,7 @@ class PNPProgress extends Component{
         var i = 0;
 
         for(i = 0; i < this.state.classes[yearKeys[k]][j].length; i++){
-          if(this.state.classes[yearKeys[k]][j][i].grade != 13 && this.state.classes[yearKeys[k]][j][i].grade != 14){
+          if(this.state.classes[yearKeys[k]][j][i].grade !== 13 && this.state.classes[yearKeys[k]][j][i].grade !== 14){
             total++;
           }
           if(this.state.classes[yearKeys[k]][j][i].grade === 15 || this.state.classes[yearKeys[k]][j][i].grade === 16){
