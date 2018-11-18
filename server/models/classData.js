@@ -20,6 +20,16 @@ const classDataSchema = new Schema({
   quarter: {
     type: Number, //again: 0-summer, 1-fall, 2-spring, 3-winter
     required: true
+  },
+  grade: {
+    type: Number,
+    required: true,
+    default: 14
+  },
+  units: {
+    type: Number,
+    required:true,
+    default: 0
   }
   /*
   meetingDays: {

@@ -8,7 +8,7 @@ class ClassInput extends Component {
     this.state = {
       response: "", // Server response
       class: "", // Class value from form
-      quarter: 1, // 0: fall, 1: winter, 2: spring, 3: summer
+      quarter: 1, // 1: fall, 3: winter, 2: spring, 0: summer
       year: "",
       classError: "",
       yearError: "",

@@ -8,6 +8,8 @@ import GERequirements from "./components/GERequirements";
 import Calendar from "./components/Calendar";
 import NavBar from "./components/NavBar";
 import ClassInput from "./components/ClassInput";
+import PNPProgress from "./components/PNPProgress";
+import GPACalculator from "./components/GPACalculator"
 import { Button } from 'reactstrap';
 
 class App extends Component {

@@ -38,7 +38,7 @@ class ClassLogging extends Component {
   }
 
   // Called by ClassInput component when there's a submit, basically adds the new class to the state
-  handleSubmit(newClass, _id, quarter, year) {
+  handleSubmit(newClass, _id, quarter, year, grade, units) {
     var newClasses = this.state.classes;
     if (year in newClasses) {
       newClasses[year][quarter].push({ courseID: newClass, _id: _id });
