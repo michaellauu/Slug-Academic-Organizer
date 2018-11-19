@@ -157,42 +157,16 @@ class ClassLogging extends Component {
                       <>
                         <Table key={idx} className="classLog">
                           <thead key={idx}>
-                            <tr>
-                              <th>{year}</th>
-                            </tr>
+                            <tr><th>{year}</th></tr>
                           </thead>
                           {this.state.classes[year].map((i, quarter) => {
                             return (
                               <tbody key={quarter}>
                                 <tr key={quarter}>
-                                  {quarter === 0 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Summer</b>
-                                      </td>
-                                    )}
-                                  {quarter === 1 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Fall</b>
-                                      </td>
-                                    )}
-                                  {quarter === 2 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Spring</b>
-                                      </td>
-                                    )}
-                                  {quarter === 3 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Winter</b>
-                                      </td>
-                                    )}
+                                  {quarter === 0 && this.state.classes[year][quarter].length !== 0 && (<td><b>Fall</b></td>)}
+                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 && (<td><b>Summer</b></td>)}
+                                  {quarter === 2 && this.state.classes[year][quarter].length !== 0 && (<td><b>Spring</b></td>)}
+                                  {quarter === 3 && this.state.classes[year][quarter].length !== 0 && (<td><b>Winter</b></td>)}
                                 </tr>
                                 <>
                                   {this.state.classes[year][quarter].map(
@@ -203,17 +177,7 @@ class ClassLogging extends Component {
                                             {userClass.courseID}
                                           </td>
                                           <td>
-                                            <Button
-                                              key={classIdx}
-                                              onClick={() => {
-                                                this.delete(
-                                                  userClass._id,
-                                                  classIdx,
-                                                  quarter,
-                                                  year
-                                                );
-                                              }}
-                                            >
+                                            <Button key={classIdx} onClick={() => {this.delete(userClass._id,classIdx, quarter, year);}}>
                                               Delete
                                             </Button>
                                           </td>

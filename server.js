@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
   res.send({ express: "Connected!" });
 });
 
-// Sorts User Class data into dictionary: {year: [summer classes], [fall classes], [spring classes], [winter classes]}
+// Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
 function sort(userClasses){
 	var sorted = {};
 	for(i=0; i<userClasses.length; i++){
@@ -64,31 +64,6 @@ app.post("/api/userClasses", (req, res) => {
 			return res.status(500).send({message: 'Failed to load user classes'});
 		}else{
 			classes.forEach(function(userClass){
-				/*var newClass = {};
-				if(userClass.section){
-					newClass = {
-						courseID: userClass.courseID,
-						meetingDays: userClass.meetingDays,
-						sMeetingDays: userClass.sMeetingDays,
-						startTime: userClass.startTime,
-						endTime: userClass.endTime,
-						location: userClass.location,
-						section: userClass.section,
-						sStartTime: userClass.sStartTime,
-						sEndTime: userClass.sEndTime,
-						sLocation: userClass.sLocation
-					};
-
-				}else{
-					newClass = {
-						courseID: userClass.courseID,
-						meetingDays: userClass.meetingDays,
-						startTime: userClass.startTime,
-						endTime: userClass.endTime,
-						location: userClass.location,
-						section: userClass.section,
-					};
-				}*/
 				const newClass = {courseID: userClass.courseID, year: userClass.year,
 					quarter: userClass.quarter, _id: userClass._id};
 
@@ -164,21 +139,21 @@ app.get("/api/GERequirements", (req, res) => {
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {
-  console.log(req.body);
+	console.log(req.body);
+	const lecture = {
+		daysTimes: req.body.daysTimes,
+		room: req.body.location,
+		meetingDates: req.body.meetingDates
+	};
+	const credits = req.body.credits[0];
   const classData = new ClassData({
   	courseID: req.body.class,
   	userToken: req.body.userID,
   	quarter: req.body.quarter,
-  	year: req.body.year
-  	/*meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
-  	startTime: req.body.startTime,
-  	endTime: req.body.endTime,
-  	location: req.body.location,
-  	section: req.body.section,
-  	sMeetingDays: [req.body.sM, req.body.sTu, req.body.sW, req.body.sTh, req.body.sF],
-  	sStartTime: req.body.sStartTime,
-  	sEndTime: req.body.sEndTime,
-  	sLocation: req.body.sLocation*/
+		year: req.body.year,
+		lecture: lecture,
+		ge: req.body.ge,
+		units: credits
   });
   classData.save(function(err, newClass){
   	res.send({ express: "done", _id: newClass._id });

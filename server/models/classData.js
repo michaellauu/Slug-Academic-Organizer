@@ -18,38 +18,19 @@ const classDataSchema = new Schema({
     required: true
   },
   quarter: {
-    type: Number, //again: 0-summer, 1-fall, 2-spring, 3-winter
-    required: true
-  }
-  /*
-  meetingDays: {
-    type: [Boolean],
+    type: Number, //again: 0-fall, 1-summer, 2-spring, 3-winter
     required: true
   },
-  startTime: {
-    type: String,
-    required: true
+  lecture: {
+    type: mongoose.Schema.Types.Mixed
   },
-  endTime: {
-    type: String,
-    required: true
-  },
-  location: {
-    type: String,
-    trim: true,
-    required: true
-  },
-  section: {
-    type: Boolean,
-    required: true
-  },
-  sMeetingDays: [Boolean],
-  sStartTime: String,
-  sEndTime: String,
-  sLocation: {
+  ge: {
     type: String,
     trim: true
-  }*/
+  },
+  units: {
+    type: Number
+  }
 });
 
 module.exports = ClassData = mongoose.model("ClassData", classDataSchema, "userClasses");
