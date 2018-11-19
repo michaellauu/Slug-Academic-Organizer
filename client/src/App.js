@@ -8,6 +8,8 @@ import GERequirements from "./components/GERequirements";
 import Calendar from "./components/Calendar";
 import NavBar from "./components/NavBar";
 import ClassInput from "./components/ClassInput";
+import PNPProgress from "./components/PNPProgress";
+import GPACalculator from "./components/GPACalculator"
 import { Button } from 'reactstrap';
 
 class App extends Component {
@@ -41,7 +43,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Switch>
-	    <Route path="/" component={NavBar} exact /> 
+	    <Route path="/" component={NavBar} exact />
       <Route path="/logging" component={ClassLogging} />
 	    <Route path="/signin" component={Home} />
       <Route path="/ge" component={GERequirements} />

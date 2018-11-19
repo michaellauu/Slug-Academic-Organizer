@@ -44,10 +44,12 @@ function sort(userClasses){
 		if (!(userClasses[i].year in sorted)){ // If not in dictionary
 			sorted[userClasses[i].year] = [[], [], [], []];
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+          units: userClasses[i].units, _id: userClasses[i]._id});
 		}else{
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+          units: userClasses[i].units, _id: userClasses[i]._id});
 		}
 	}
 	return sorted;
@@ -90,7 +92,8 @@ app.post("/api/userClasses", (req, res) => {
 					};
 				}*/
 				const newClass = {courseID: userClass.courseID, year: userClass.year,
-					quarter: userClass.quarter, _id: userClass._id};
+					quarter: userClass.quarter, grade: userClass.grade, units: userClass.units,
+          _id: userClass._id};
 
 				userClasses.push(newClass);
 			});
@@ -132,7 +135,7 @@ app.post("/api/ge", (req, res) => {
     geData.save().then(console.log(`Saving ${i} documents ...`));
   }
   res.send("GE Done!");
-});    
+});
 
 
 //ge get request
@@ -169,7 +172,9 @@ app.post("/api/submitClass", (req, res) => {
   	courseID: req.body.class,
   	userToken: req.body.userID,
   	quarter: req.body.quarter,
-  	year: req.body.year
+  	year: req.body.year,
+    grade: req.body.grade,
+    units: req.body.units
   	/*meetingDays: [req.body.M, req.body.Tu, req.body.W, req.body.Th, req.body.F],
   	startTime: req.body.startTime,
   	endTime: req.body.endTime,
