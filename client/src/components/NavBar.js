@@ -10,13 +10,6 @@ import {
   NavLink
 } from "reactstrap";
 import "../styles/NavBar.css";
-// import SignIn from "./Home";
-// import GERequirements from "./GERequirements";
-// import ClassLogging from "./ClassLogging";
-// import Calendar from "./Calendar";
-// import PNPProgress from "./PNPProgress";
-// import GPACalculator from "./GPACalculator";
-// import "../styles/NavBar.css";
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -83,45 +76,3 @@ export default class NavBar extends Component {
     );
   }
 }
-
-// {
-//   /* <div>
-//           <h1>Slug Academic Organizer</h1>
-//           <ul className="header">
-//             <li>
-//               <NavLink exact to="/">
-//                 Sign In
-//               </NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/logging">Class Logging</NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/pnp">Pass/No Pass Percentage</NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/gpa">GPA Calculator</NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/ge">GE Requirements</NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/calendar">Calendar</NavLink>
-//             </li>
-//           </ul> */
-// }
-// {
-//   /* <div className="content">
-//             <Route exact path="/" component={SignIn} />
-//             <Route path="/logging" component={ClassLogging} />
-//             <Route path="/pnp" component={PNPProgress} />
-//             <Route path="/gpa" component={GPACalculator} />
-//             <Route path="/ge" component={GERequirements} />
-//             <Route path="/calendar" component={Calendar} />
-//           </div> */
-// }
-// {
-//   /* </div> */
-// }
-
-// export default NavBar;

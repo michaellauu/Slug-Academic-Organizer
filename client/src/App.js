@@ -1,19 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ClassLogging from "./components/ClassLogging";
-// import Home from "./components/Home";
-// import Error from "./components/Error";
 import GERequirements from "./components/GERequirements";
 import Calendar from "./components/Calendar";
 import NavBar from "./components/NavBar";
-// import ClassInput from "./components/ClassInput";
 import SignIn from "./components/Home";
 import PNPProgress from "./components/PNPProgress";
 import GPACalculator from "./components/GPACalculator";
 import "./App.css";
 import "./styles/NavBar.css";
-
-// import { Button } from "reactstrap";
 
 class App extends Component {
   constructor(props) {
