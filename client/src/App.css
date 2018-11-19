@@ -1,7 +1,11 @@
-.App {
-  margin-top: 15px;
+body {
+  background: radial-gradient(
+    circle,
+    rgba(174, 231, 238, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
 
-.App .navbar-brand {
-  font-weight: bold;
+.main {
+  margin-top: 3rem;
 }

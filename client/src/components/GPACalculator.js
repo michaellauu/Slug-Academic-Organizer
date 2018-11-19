@@ -3,7 +3,6 @@ import "../styles/GPACalculator.css";
 import { Alert } from "reactstrap";
 import { getFromStorage } from "./storage";
 
-
 class GPACalculator extends Component {
   constructor(props) {
     super(props);
@@ -103,10 +102,9 @@ class GPACalculator extends Component {
 
   //GPA is updated
   changeGPA(event) {
-
     var newGPA = 0.0;
 
-    var gpaCredits = new Array();
+    var gpaCredits = [];
     gpaCredits[0] = 4.0;
     gpaCredits[1] = 4.0;
     gpaCredits[2] = 3.7;
@@ -128,30 +126,28 @@ class GPACalculator extends Component {
     var units = 0;
     var grade = 0;
 
-    if (this.state.gpatype === 0){
+    if (this.state.gpatype === 0) {
       var yearKeys = Object.keys(this.state.classes);
       var k = 0;
       total = 0;
       achieved = 0;
 
-      for(k = 0; k < yearKeys.length; k++){
+      for (k = 0; k < yearKeys.length; k++) {
         var j = 0;
 
-        for(j = 0; j < 4; j++){
-          for (i = 0; i < this.state.classes[yearKeys[k]][j].length; i++){
+        for (j = 0; j < 4; j++) {
+          for (i = 0; i < this.state.classes[yearKeys[k]][j].length; i++) {
             tempUnits = this.state.classes[yearKeys[k]][j][i].units;
             units = 0;
             grade = this.state.classes[yearKeys[k]][j][i].grade;
-            if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16){
-              if(tempUnits === 0){
+            if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
+              if (tempUnits === 0) {
                 units = 5;
                 total += 5;
-              }
-              else if(tempUnits === 1){
+              } else if (tempUnits === 1) {
                 units = 2;
                 total += 2;
-              }
-              else if(tempUnits === 2){
+              } else if (tempUnits === 2) {
                 units = 0;
                 total += 0;
               }
@@ -161,44 +157,45 @@ class GPACalculator extends Component {
           newGPA = achieved / total;
         }
       }
-    }
-    else if (this.state.gpatype === 1){
+    } else if (this.state.gpatype === 1) {
       total = 0;
       achieved = 0;
-      if (this.state.year in this.state.classes){
-        for (i = 0; i < this.state.classes[this.state.year][this.state.quarter].length; i++){
-          tempUnits = this.state.classes[this.state.year][this.state.quarter][i].units;
+      if (this.state.year in this.state.classes) {
+        for (
+          i = 0;
+          i < this.state.classes[this.state.year][this.state.quarter].length;
+          i++
+        ) {
+          tempUnits = this.state.classes[this.state.year][this.state.quarter][i]
+            .units;
           units = 0;
-          grade = this.state.classes[this.state.year][this.state.quarter][i].grade;
-          if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16){
-            if(tempUnits === 0){
+          grade = this.state.classes[this.state.year][this.state.quarter][i]
+            .grade;
+          if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
+            if (tempUnits === 0) {
               units = 5;
               total += 5;
-            }
-            else if(tempUnits === 1){
+            } else if (tempUnits === 1) {
               units = 2;
               total += 2;
-            }
-            else if(tempUnits === 2){
+            } else if (tempUnits === 2) {
               units = 0;
               total += 0;
             }
             achieved = achieved + gpaCredits[grade] * units;
           }
         }
-        if(achieved === 0 && total === 0){
+        if (achieved === 0 && total === 0) {
           newGPA = 0.0;
-        }
-        else{
+        } else {
           newGPA = achieved / total;
         }
-      }
-      else{
+      } else {
         newGPA = 0.0;
       }
     }
 
-    this.setState({ gpa: newGPA.toFixed(1)});
+    this.setState({ gpa: newGPA.toFixed(1) });
   }
 
   // Form submission "Calculate"->pull request from server
@@ -222,15 +219,14 @@ class GPACalculator extends Component {
                   <b>GPA</b>
                 </div>
                 <div className="gpatype">
-                <select
-                  value={this.state.gpatype}
-                  onChange={this.changeGPAType}
-                  className="gpatype"
-                >
-                <option value="0">Cumulative</option>
-                <option value="1">Quarterly</option>
-                </select>
-
+                  <select
+                    value={this.state.gpatype}
+                    onChange={this.changeGPAType}
+                    className="gpatype"
+                  >
+                    <option value="0">Cumulative</option>
+                    <option value="1">Quarterly</option>
+                  </select>
 
                   <div className="quarter">
                     <select
@@ -239,10 +235,18 @@ class GPACalculator extends Component {
                       className="quarter"
                       disabled={this.gpatype === 0}
                     >
-                      <option value="1" disabled={this.state.gpatype === 0}>Fall</option>
-                      <option value="3" disabled={this.state.gpatype === 0}>Winter</option>
-                      <option value="2" disabled={this.state.gpatype === 0}>Spring</option>
-                      <option value="0" disabled={this.state.gpatype === 0}>Summer</option>
+                      <option value="1" disabled={this.state.gpatype === 0}>
+                        Fall
+                      </option>
+                      <option value="3" disabled={this.state.gpatype === 0}>
+                        Winter
+                      </option>
+                      <option value="2" disabled={this.state.gpatype === 0}>
+                        Spring
+                      </option>
+                      <option value="0" disabled={this.state.gpatype === 0}>
+                        Summer
+                      </option>
                     </select>
                     <div className="year">
                       <input
@@ -258,7 +262,7 @@ class GPACalculator extends Component {
               </div>
             </form>
             <div>
-            <b>Type = {this.state.gpatype}</b>
+              <b>Type = {this.state.gpatype}</b>
             </div>
             <button onClick={this.changeGPA}>Calculate</button>
             <div className="result">
