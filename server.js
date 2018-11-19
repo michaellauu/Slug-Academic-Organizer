@@ -243,18 +243,6 @@ app.post("/api/getMajorClassData", async (req, res) => {
 	console.log(quarterData);
 	let returnData = await Promise.all(quarterData);
 	console.log(returnData);*/
-});
-
-function getQuarter (quarter, classes) {
-	return (axios.post('api/getEachQuarter',
-		{
-			classes: classes,
-			quarter: quarter
-		}
-	));
-}
-
-app.post("/api/getEachQuarter", (req,res) => {
 	console.log(req.body.classes);
 	const classes = Object.keys(req.body.classes);
 	let classDatas = {}, find = [];
@@ -262,7 +250,7 @@ app.post("/api/getEachQuarter", (req,res) => {
 		find.push({ courseID: classes[i] });
 	}
 
-	Courses[req.body.quarter].find({ $or: find }, function (err, classData) {
+	Courses['Fall18'].find({ $or: find }, function (err, classData) {
 		if (err) {
 			console.log("error");
 			return res.status(500).send({ geError: "Error" });
@@ -279,6 +267,16 @@ app.post("/api/getEachQuarter", (req,res) => {
 		}
 	});
 });
+
+function getQuarter (quarter, classes) {
+	return (axios.post('api/getEachQuarter',
+		{
+			classes: classes,
+			quarter: quarter
+		}
+	));
+}
+
 //based off Chtzou's GE
 app.get("/api/getCalendar", (req, res) => {
   calData.find(function (err, cal) {
