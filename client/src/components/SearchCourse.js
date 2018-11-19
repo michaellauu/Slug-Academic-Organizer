@@ -17,29 +17,6 @@ import { CollapsibleComponent, CollapsibleHead, CollapsibleContent } from 'react
 import algoliasearch from 'algoliasearch';
 
 /*
-const chunk = require('lodash.chunk')
-const client = algoliasearch('Z4ZULV1BRS', '1b0bac00d91c1064ed69c2b075bdc690');
-const index = client.initIndex('fall18');
-function fetchDataFromDatabase() {
-    const fall18 = new mongoose.Schema({
-        description: { type: String, required: true, algoliaIndex: true },
-        prereqs: { type: String, required: true, algoliaIndex: true },
-        lecture: { type: Object, required: true, algoliaIndex: true },
-        sections: { type: Array, required: true, algoliaIndex: true },
-        courseTitle: { type: String, required: true, algoliaIndex: true },
-        courseID: { type: String, required: true, algoliaIndex: true },
-        meta: { type: Object, required: true, algoliaIndex: true },
-      });
-    return fall18;
-}
-const records = fetchDataFromDatabase();
-const chunks = chunk(records, 1000);
-chunks.map(function(batch) {
-  return index.addObjects(batch);
-});
-*/
-
-/*
 *Used to display course information (course Title, description, instructor, days, times, room)
 *parts of the course will highlight when user is searching in searchbar
 */

@@ -31,7 +31,8 @@ mongoose
 	.catch(err => console.log(err));
 
 // Algolia credentials to access dashboard for indexing
-newIndexSchema.plugin(mongoolia, {
+const mongoolia = require('mongoolia').default;
+newCourse.plugin(mongoolia, {
 	apiKey: "e0f4e3542265d408d5be8de22d00a12e",
 	appId: "Z4ZULV1BRS",
 	indexName: "fall18"
@@ -39,8 +40,8 @@ newIndexSchema.plugin(mongoolia, {
 
 app.get("/api/mongoolia", (req, res) => {
 	//sync Algolia index with Mongodb
-	newCourse = mongoose.model("course", newIndexSchema)
-	newCourse.syncWithAlgolia();
+	const newIndex = mongoose.model("course", newCourse)
+	newIndex.syncWithAlgolia();
 });
 
 

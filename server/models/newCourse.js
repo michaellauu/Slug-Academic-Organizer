@@ -13,4 +13,4 @@ const newIndexSchema = new Schema({
     meta: { type: mongoose.Schema.Types.Mixed, required: true, algoliaIndex: true },
   });
 
-  module.exports = newCourse = mongoose.model("newCourse", newIndexSchema);
+  module.exports = newIndexSchema;
