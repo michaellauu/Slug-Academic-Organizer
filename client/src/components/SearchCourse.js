@@ -77,15 +77,14 @@ class Course extends Component {
     };
 
     render(){
-        console.log(this.props.hit);
         return (
             <div style={{ padding: '10px' }}>
                 <span className="hits">
-                    <Button id={this.props.hit.courseID}>
+                    <Button id={'id'+this.props.hit.objectID}>
                         {<Highlight attribute="courseTitle" hit={this.props.hit} tagName="mark" />}
                     </Button>
                     <Button onClick={this.submit}>Add Class</Button>  {this.state.response}
-                    <UncontrolledCollapse toggler={'#' + this.props.hit.courseID}>
+                    <UncontrolledCollapse toggler={'#id' + this.props.hit.objectID}>
                         <p><Highlight attribute="description" hit={this.props.hit} tagName="mark" /></p>
                         <p>
                             Instructor: <Highlight attribute="lecture.Instructor" hit={this.props.hit} tagName="mark" />
