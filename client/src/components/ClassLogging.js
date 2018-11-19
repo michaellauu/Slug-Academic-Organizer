@@ -135,8 +135,8 @@ class ClassLogging extends Component {
     return body;
   };
 
-  convertGrade(grade){
-    switch(grade){
+  convertGrade(grade) {
+    switch (grade) {
       case 0:
         return "A+";
       case 1:
@@ -176,8 +176,8 @@ class ClassLogging extends Component {
     }
   }
 
-  convertUnits(grade){
-    switch(grade){
+  convertUnits(grade) {
+    switch (grade) {
       case 0:
         return 5;
       case 1:
@@ -253,9 +253,15 @@ class ClassLogging extends Component {
                                       return (
                                         <tr key={classIdx}>
                                           <td key={classIdx}>
-                                            {userClass.courseID + " Grade: " +
-                                            this.convertGrade(userClass.grade) +
-                                            " Units: " + this.convertUnits(userClass.units)}
+                                            {userClass.courseID +
+                                              " Grade: " +
+                                              this.convertGrade(
+                                                userClass.grade
+                                              ) +
+                                              " Units: " +
+                                              this.convertUnits(
+                                                userClass.units
+                                              )}
                                           </td>
                                           <td>
                                             <Button
