@@ -30,6 +30,11 @@ const classDataSchema = new Schema({
   },
   units: {
     type: Number
+  },
+  grade: {
+    type: Number,
+    required: true,
+    default: 14
   }
 });
 

@@ -44,10 +44,12 @@ function sort(userClasses){
 		if (!(userClasses[i].year in sorted)){ // If not in dictionary
 			sorted[userClasses[i].year] = [[], [], [], []];
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+          units: userClasses[i].units, _id: userClasses[i]._id});
 		}else{
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, _id: userClasses[i]._id});
+				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+          units: userClasses[i].units, _id: userClasses[i]._id});
 		}
 	}
 	return sorted;
@@ -65,7 +67,8 @@ app.post("/api/userClasses", (req, res) => {
 		}else{
 			classes.forEach(function(userClass){
 				const newClass = {courseID: userClass.courseID, year: userClass.year,
-					quarter: userClass.quarter, _id: userClass._id};
+					quarter: userClass.quarter, grade: userClass.grade, units: userClass.units,
+          _id: userClass._id};
 
 				userClasses.push(newClass);
 			});
@@ -107,7 +110,7 @@ app.post("/api/ge", (req, res) => {
     geData.save().then(console.log(`Saving ${i} documents ...`));
   }
   res.send("GE Done!");
-});    
+});
 
 
 //ge get request
