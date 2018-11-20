@@ -33,7 +33,7 @@ mongoose
 // Algolia credentials to access dashboard for indexing
 const mongoolia = require('mongoolia').default;
 newCourse.plugin(mongoolia, {
-	apiKey: "e0f4e3542265d408d5be8de22d00a12e",
+	apiKey: "1b0bac00d91c1064ed69c2b075bdc690",
 	appId: "Z4ZULV1BRS",
 	indexName: "fall18"
 })
