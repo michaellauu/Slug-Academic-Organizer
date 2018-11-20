@@ -39,13 +39,13 @@ class ClassLogging extends Component {
   }
 
   // Called by ClassInput component when there's a submit, basically adds the new class to the state
-  handleSubmit(newClass, _id, quarter, year, grade, units) {
+  handleSubmit(newClass, _id, quarter, year, grade) {
     var newClasses = this.state.classes;
     if (year in newClasses) {
-      newClasses[year][quarter].push({ courseID: newClass, _id: _id });
+      newClasses[year][quarter].push({ courseID: newClass, _id: _id, grade: grade });
     } else {
       newClasses[year] = [[], [], [], []];
-      newClasses[year][quarter].push({ courseID: newClass, _id: _id });
+      newClasses[year][quarter].push({ courseID: newClass, _id: _id, grade: grade });
     }
     this.setState({ classes: newClasses });
     console.log(newClasses);
@@ -219,9 +219,7 @@ class ClassLogging extends Component {
                                               " Grade: " +
                                               this.convertGrade(
                                                 userClass.grade
-                                              ) +
-                                              " Units: " +
-                                              userClass.units
+                                              )
                                             }
                                           </td>
                                           <td>

@@ -44,7 +44,7 @@ class Course extends Component {
             credits: this.props.hit.meta.credits
         }) // Send all form data to server
             .then(res => {
-                this.props.onClick(this.props.hit.courseID, res._id, quarter, year); // Get classLogging to update
+                this.props.onClick(this.props.hit.courseID, res._id, quarter, year, 14); // Get classLogging to update
             }).catch(err => console.log(err));
     }
 

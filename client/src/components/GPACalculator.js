@@ -122,7 +122,6 @@ class GPACalculator extends Component {
     var i = 0;
     var total = 0;
     var achieved = 0;
-    var tempUnits = 0;
     var units = 0;
     var grade = 0;
 
@@ -137,20 +136,10 @@ class GPACalculator extends Component {
 
         for (j = 0; j < 4; j++) {
           for (i = 0; i < this.state.classes[yearKeys[k]][j].length; i++) {
-            tempUnits = this.state.classes[yearKeys[k]][j][i].units;
-            units = 0;
+            units = this.state.classes[yearKeys[k]][j][i].units;
             grade = this.state.classes[yearKeys[k]][j][i].grade;
             if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
-              if (tempUnits === 0) {
-                units = 5;
-                total += 5;
-              } else if (tempUnits === 1) {
-                units = 2;
-                total += 2;
-              } else if (tempUnits === 2) {
-                units = 0;
-                total += 0;
-              }
+              total += units;
               achieved = achieved + gpaCredits[grade] * units;
             }
           }
@@ -166,22 +155,11 @@ class GPACalculator extends Component {
           i < this.state.classes[this.state.year][this.state.quarter].length;
           i++
         ) {
-          tempUnits = this.state.classes[this.state.year][this.state.quarter][i]
-            .units;
-          units = 0;
+          units = this.state.classes[this.state.year][this.state.quarter][i].units;
           grade = this.state.classes[this.state.year][this.state.quarter][i]
             .grade;
           if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
-            if (tempUnits === 0) {
-              units = 5;
-              total += 5;
-            } else if (tempUnits === 1) {
-              units = 2;
-              total += 2;
-            } else if (tempUnits === 2) {
-              units = 0;
-              total += 0;
-            }
+            total+=units;
             achieved = achieved + gpaCredits[grade] * units;
           }
         }
