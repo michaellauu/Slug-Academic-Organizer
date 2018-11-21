@@ -6,14 +6,6 @@ class ClassInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
-      response: '', // Server response
-      class: '', // Class value from form
-      quarter: 0, // 0: fall, 1: summer, 2: spring, 3: winter
-      year: '',
-      classError: '',
-      yearError: ''
-=======
       response: "", // Server response
       class: "", // Class value from form
       quarter: 1, // 1: fall, 3: winter, 2: spring, 0: summer
@@ -22,7 +14,6 @@ class ClassInput extends Component {
       yearError: "",
       grade: 0,
       units: 0
->>>>>>> 1464514d290e980813368510d30a10051c48e060
     };
 
     this.changeClass = this.changeClass.bind(this);
