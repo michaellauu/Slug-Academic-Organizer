@@ -167,7 +167,7 @@ class ClassLogging extends Component {
       case 13:
         return "W";
       case 14:
-        return "Not Completed";
+        return "N/A";
       case 15:
         return "Pass";
       case 16:
@@ -215,12 +215,10 @@ class ClassLogging extends Component {
                                       return (
                                         <tr key={classIdx}>
                                           <td key={classIdx}>
-                                            {userClass.courseID +
-                                              " Grade: " +
-                                              this.convertGrade(
-                                                userClass.grade
-                                              )
-                                            }
+                                            {userClass.courseID}
+                                          </td>
+                                          <td>
+                                            {"Grade: " + this.convertGrade(userClass.grade)}
                                           </td>
                                           <td>
                                             <Button key={classIdx} onClick={() => {this.delete(userClass._id,classIdx, quarter, year);}}>
