@@ -46,19 +46,12 @@ function sortByQuarter(userClasses) {
 		if (!(userClasses[i].year in sorted)) { // If not in dictionary
 			sorted[userClasses[i].year] = [[], [], [], []];
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-<<<<<<< HEAD
-				{ courseID: userClasses[i].courseID, _id: userClasses[i]._id });
-		} else {
-			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{ courseID: userClasses[i].courseID, _id: userClasses[i]._id });
-=======
 				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
-          units: userClasses[i].units, _id: userClasses[i]._id});
+          		units: userClasses[i].units, _id: userClasses[i]._id});
 		}else{
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
 				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
-          units: userClasses[i].units, _id: userClasses[i]._id});
->>>>>>> 1464514d290e980813368510d30a10051c48e060
+          		units: userClasses[i].units, _id: userClasses[i]._id});
 		}
 	}
 	return sorted;
@@ -72,47 +65,14 @@ app.post("/api/userClasses", (req, res) => {
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
 		if (err) {
 			console.log(err);
-<<<<<<< HEAD
 			return res.status(500).send({ message: 'Failed to load user classes' });
 		} else {
 			classes.forEach(function (userClass) {
 				const newClass = {
 					courseID: userClass.courseID, year: userClass.year,
-					quarter: userClass.quarter, _id: userClass._id
+					quarter: userClass.quarter, _id: userClass._id,
+					grade: userClass.grade, units: userClass.units
 				};
-=======
-			return res.status(500).send({message: 'Failed to load user classes'});
-		}else{
-			classes.forEach(function(userClass){
-				/*var newClass = {};
-				if(userClass.section){
-					newClass = {
-						courseID: userClass.courseID,
-						meetingDays: userClass.meetingDays,
-						sMeetingDays: userClass.sMeetingDays,
-						startTime: userClass.startTime,
-						endTime: userClass.endTime,
-						location: userClass.location,
-						section: userClass.section,
-						sStartTime: userClass.sStartTime,
-						sEndTime: userClass.sEndTime,
-						sLocation: userClass.sLocation
-					};
-
-				}else{
-					newClass = {
-						courseID: userClass.courseID,
-						meetingDays: userClass.meetingDays,
-						startTime: userClass.startTime,
-						endTime: userClass.endTime,
-						location: userClass.location,
-						section: userClass.section,
-					};
-				}*/
-				const newClass = {courseID: userClass.courseID, year: userClass.year,
-					quarter: userClass.quarter, grade: userClass.grade, units: userClass.units,
-          _id: userClass._id};
->>>>>>> 1464514d290e980813368510d30a10051c48e060
 
 				userClasses.push(newClass);
 			});
