@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FullCalendar from "fullcalendar-reactwrapper";
+import { getFromStorage } from "./storage";
 import "../styles/Calendar.css";
 import "../dist/fullcalendar.css";
 
@@ -17,16 +18,44 @@ export default class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: []
+      events: [],
+	  isLoading: false,
+	  userID: ""
     };
   }
     componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ events: res }))
-      .catch(err => console.log(err));
-  }
+	//get userToken and return courses
+    const obj = getFromStorage("the_main_app");
+    if (obj && obj.token) {
+      const { token } = obj;
+      // Verify token
+      fetch("/api/account/verify?token=" + token)
+        .then(res => res.json())
+        .then(json => {
+          // Store the userID in the state
+          if (json.success) {
+            this.setState({
+              userID: json.userId,
+              isLoading: false
+            });
+            // Get the user classes from the database
+			this.callApi()
+			.then(res => this.setState({ events: res }))
+			.catch(err => console.log(err));
+          } else {
+            this.setState({
+              isLoading: false
+            });
+          }
+        });
+    } else {
+      this.setState({
+        isLoading: false
+		});
+		}
+	}
 
-  callApi = async () => {
+  callApi = async userID => {
     const response = await fetch("/api/getCalendar");
     const body = await response.json();
 

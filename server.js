@@ -199,7 +199,7 @@ app.post("/api/deleteClass", (req, res) =>{
 
 //based off Chtzou's GE
 app.get("/api/getCalendar", (req, res) => {
-  calData.find(function (err, cal) {
+  calData.find({'userToken': req.body.userID}, function (err, cal) {
     if (err) {
       //error messages
       console.log("Can't get class data");
