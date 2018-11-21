@@ -8,7 +8,7 @@ class GPACalculator extends Component {
     super(props);
     this.state = {
       response: "", // Server response
-      quarter: 1, // 1: fall, 3: winter, 2: spring, 0: summer
+      quarter: 0, // 0: fall, 3: winter, 2: spring, 1: summer
       year: 2018,
       gpa: "0.0",
       gpatype: 0, // 0: cumulative, 1: quarterly
@@ -150,14 +150,14 @@ class GPACalculator extends Component {
       total = 0;
       achieved = 0;
       if (this.state.year in this.state.classes) {
+        console.log(this.state.classes[this.state.year][this.state.quarter]);
         for (
           i = 0;
           i < this.state.classes[this.state.year][this.state.quarter].length;
           i++
         ) {
           units = this.state.classes[this.state.year][this.state.quarter][i].units;
-          grade = this.state.classes[this.state.year][this.state.quarter][i]
-            .grade;
+          grade = this.state.classes[this.state.year][this.state.quarter][i].grade;
           if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
             total+=units;
             achieved = achieved + gpaCredits[grade] * units;
@@ -173,7 +173,7 @@ class GPACalculator extends Component {
       }
     }
 
-    this.setState({ gpa: newGPA.toFixed(1) });
+    this.setState({ gpa: newGPA.toFixed(2) });
   }
 
   // Form submission "Calculate"->pull request from server
@@ -213,7 +213,7 @@ class GPACalculator extends Component {
                       className="quarter"
                       disabled={this.gpatype === 0}
                     >
-                      <option value="1" disabled={this.state.gpatype === 0}>
+                      <option value="0" disabled={this.state.gpatype === 0}>
                         Fall
                       </option>
                       <option value="3" disabled={this.state.gpatype === 0}>
@@ -222,7 +222,7 @@ class GPACalculator extends Component {
                       <option value="2" disabled={this.state.gpatype === 0}>
                         Spring
                       </option>
-                      <option value="0" disabled={this.state.gpatype === 0}>
+                      <option value="1" disabled={this.state.gpatype === 0}>
                         Summer
                       </option>
                     </select>

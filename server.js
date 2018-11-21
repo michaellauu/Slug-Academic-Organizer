@@ -145,22 +145,24 @@ app.post("/api/submitClass", (req, res) => {
 	console.log(req.body);
 	const lecture = {
 		daysTimes: req.body.daysTimes,
-		room: req.body.location,
-		meetingDates: req.body.meetingDates
+		room: req.body.room,
+		meetingDates: req.body.meetingDates,
+		instructor: req.body.instructor,
 	};
 	const credits = req.body.credits[0];
-  const classData = new ClassData({
-  	courseID: req.body.class,
-  	userToken: req.body.userID,
-  	quarter: req.body.quarter,
+  	const classData = new ClassData({
+		courseID: req.body.class,
+		userToken: req.body.userID,
+		quarter: req.body.quarter,
 		year: req.body.year,
 		lecture: lecture,
 		ge: req.body.ge,
-		units: credits
-  });
-  classData.save(function(err, newClass){
-  	res.send({ express: "done", _id: newClass._id });
-  });
+		units: credits,
+		courseTitle: req.body.courseTitle
+	});
+	classData.save(function(err, newClass){
+		res.send({ express: "done", _id: newClass._id });
+	});
 });
 
 // Deletes class from the database
@@ -174,6 +176,18 @@ app.post("/api/deleteClass", (req, res) =>{
 		}
 	});
 });
+
+app.post("/api/editGrade", (req, res) => {
+	console.log("here");
+	ClassData.findByIdAndUpdate(req.body._id, { $set: { grade: req.body.grade } }, function(err, classes){
+		if (err) {
+			console.log(err);
+			return res.status(500).send({ message: 'Failed to load user classes' });
+		} else {
+			res.send({ express: "done" });
+		}
+	})
+})
 
 //based off Chtzou's GE
 app.get("/api/getCalendar", (req, res) => {

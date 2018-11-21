@@ -177,6 +177,32 @@ class ClassLogging extends Component {
     }
   }
 
+  changeGrade = (_id, idx, quarter, year) => (event) => {
+    let classes = this.state.classes;
+    classes[year][quarter][idx].grade = parseInt(event.target.value);
+    this.editPost({ _id: _id, grade: parseInt(event.target.value)});
+    this.setState({classes: classes});
+  }
+
+  editPost = async data => {
+    const response = await fetch("/api/editGrade", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ _id: data._id, grade: data.grade })
+    });
+
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    console.log(body);
+
+    return body;
+  };
+
   render() {
     if (!this.state.isLoading) {
       return (
@@ -218,7 +244,30 @@ class ClassLogging extends Component {
                                             {userClass.courseID}
                                           </td>
                                           <td>
-                                            {"Grade: " + this.convertGrade(userClass.grade)}
+                                            {"Grade: "}
+                                            <select
+                                              value={userClass.grade}
+                                              onChange={this.changeGrade(userClass._id, classIdx, quarter, year)}
+                                              className="grade"
+                                            >
+                                              <option value="0">A+</option>
+                                              <option value="1">A</option>
+                                              <option value="2">A-</option>
+                                              <option value="3">B+</option>
+                                              <option value="4">B</option>
+                                              <option value="5">B-</option>
+                                              <option value="6">C+</option>
+                                              <option value="7">C</option>
+                                              <option value="8">C-</option>
+                                              <option value="9">D+</option>
+                                              <option value="10">D</option>
+                                              <option value="11">D-</option>
+                                              <option value="12">F</option>
+                                              <option value="13">W</option>
+                                              <option value="14">Not Completed</option>
+                                              <option value="15">Pass</option>
+                                              <option value="16">No Pass</option>
+                                            </select>
                                           </td>
                                           <td>
                                             <Button key={classIdx} onClick={() => {this.delete(userClass._id,classIdx, quarter, year);}}>

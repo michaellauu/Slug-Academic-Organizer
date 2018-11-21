@@ -35,6 +35,10 @@ const classDataSchema = new Schema({
     type: Number,
     required: true,
     default: 14
+  },
+  courseTitle: {
+    type: String,
+    trim: true
   }
 });
 

@@ -32,16 +32,19 @@ class Course extends Component {
 
     submit(){
         let quarter = 0, year = 2018;
+        console.log(this.props.hit);
         this.submitClass({
             class: this.props.hit.courseID,
             userID: this.props.userID,
             quarter: quarter,
             year: year,
-            location: this.props.hit.lecture.room,
+            room: this.props.hit.lecture.Room,
             daysTimes: this.props.hit.lecture.DaysTimes,
             meetingDates: this.props.hit.lecture.MeetingDates,
             ge: this.props.hit.meta.general_education,
-            credits: this.props.hit.meta.credits
+            credits: this.props.hit.meta.credits,
+            instructor: this.props.hit.lecture.Instructor,
+            courseTitle: this.props.hit.courseTitle
         }) // Send all form data to server
             .then(res => {
                 this.props.onClick(this.props.hit.courseID, res._id, quarter, year, 14); // Get classLogging to update
@@ -61,11 +64,13 @@ class Course extends Component {
                 userID: data.userID,
                 quarter: data.quarter,
                 year: data.year,
-                locaton: data.location,
+                room: data.room,
                 daysTimes: data.daysTimes,
                 meetingDates: data.meetingDates,
                 ge: data.ge,
-                credits: data.credits
+                credits: data.credits,
+                instructor: data.instructor,
+                courseTitle: data.courseTitle,
             })
         });
 
