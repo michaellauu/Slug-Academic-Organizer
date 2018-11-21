@@ -1,11 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css';
-=======
-import "bootstrap/dist/css/bootstrap.min.css";
->>>>>>> 1464514d290e980813368510d30a10051c48e060
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
