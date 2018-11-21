@@ -18,35 +18,18 @@ const classDataSchema = new Schema({
     required: true
   },
   quarter: {
-    type: Number, //again: 0-fall, 1-summer, 2-spring, 3-winter
+    type: Number, //again: 0-summer, 1-fall, 2-spring, 3-winter
     required: true
   },
-  meetingDates: {
-    type: String,
-    trim: true
-  }, 
-  times: {
-    type: String,
-     trim: true
+  grade: {
+    type: Number,
+    required: true,
+    default: 14
   },
-  days: {
-    type:String,
-    trim: true
-  },
-  room: {
-    type:String,
-     trim: true
-  },
-  instructor: {
-    type: String,
-    trim: true
-  },
-  section: {
-    type: {}
-  },
-  GE: {
-    type: String,
-    trim: true
+  units: {
+    type: Number,
+    required:true,
+    default: 0
   }
 });
 

@@ -46,10 +46,19 @@ function sortByQuarter(userClasses) {
 		if (!(userClasses[i].year in sorted)) { // If not in dictionary
 			sorted[userClasses[i].year] = [[], [], [], []];
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
+<<<<<<< HEAD
 				{ courseID: userClasses[i].courseID, _id: userClasses[i]._id });
 		} else {
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
 				{ courseID: userClasses[i].courseID, _id: userClasses[i]._id });
+=======
+				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+          units: userClasses[i].units, _id: userClasses[i]._id});
+		}else{
+			sorted[userClasses[i].year][userClasses[i].quarter].push(
+				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+          units: userClasses[i].units, _id: userClasses[i]._id});
+>>>>>>> 1464514d290e980813368510d30a10051c48e060
 		}
 	}
 	return sorted;
@@ -63,6 +72,7 @@ app.post("/api/userClasses", (req, res) => {
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
 		if (err) {
 			console.log(err);
+<<<<<<< HEAD
 			return res.status(500).send({ message: 'Failed to load user classes' });
 		} else {
 			classes.forEach(function (userClass) {
@@ -70,6 +80,39 @@ app.post("/api/userClasses", (req, res) => {
 					courseID: userClass.courseID, year: userClass.year,
 					quarter: userClass.quarter, _id: userClass._id
 				};
+=======
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			classes.forEach(function(userClass){
+				/*var newClass = {};
+				if(userClass.section){
+					newClass = {
+						courseID: userClass.courseID,
+						meetingDays: userClass.meetingDays,
+						sMeetingDays: userClass.sMeetingDays,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+						sStartTime: userClass.sStartTime,
+						sEndTime: userClass.sEndTime,
+						sLocation: userClass.sLocation
+					};
+
+				}else{
+					newClass = {
+						courseID: userClass.courseID,
+						meetingDays: userClass.meetingDays,
+						startTime: userClass.startTime,
+						endTime: userClass.endTime,
+						location: userClass.location,
+						section: userClass.section,
+					};
+				}*/
+				const newClass = {courseID: userClass.courseID, year: userClass.year,
+					quarter: userClass.quarter, grade: userClass.grade, units: userClass.units,
+          _id: userClass._id};
+>>>>>>> 1464514d290e980813368510d30a10051c48e060
 
 				userClasses.push(newClass);
 			});
@@ -118,16 +161,16 @@ app.post("/api", (req, res) => {
 
 //ge post request
 app.post("/api/ge", (req, res) => {
-	for (let i = 0; i < geSchedule.length; i++) {
-		// Create new model that'll hold schedule data
-		const geData = new GEData({
-			geID: geSchedule[i].geID,
-			desc: geSchedule[i].desc,
-			credits: parseInt(geSchedule[i].credits),
-		});
-		geData.save().then(console.log(`Saving ${i} documents ...`));
-	}
-	res.send("GE Done!");
+  for (let i = 0; i < geSchedule.length; i++) {
+    // Create new model that'll hold schedule data
+    const geData = new GEData({
+      geID: geSchedule[i].geID,
+      desc: geSchedule[i].desc,
+      credits: parseInt(geSchedule[i].credits),
+    });
+    geData.save().then(console.log(`Saving ${i} documents ...`));
+  }
+  res.send("GE Done!");
 });
 
 
@@ -180,40 +223,18 @@ function quarterNumberToString(quarter){
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {
-	console.log(req.body);
-	let schema = quarterNumberToString(req.body.quarter)+parseYear(req.body.year);
-	console.log(schema);
-	if(Courses[schema] === undefined){
-		const classData = new ClassData({
-			courseID: req.body.class,
-			userToken: req.body.userID,
-			quarter: req.body.quarter,
-			year: req.body.year
-		});
-		classData.save(function (err, newClass) {
-			res.send({ express: "done", _id: newClass._id });
-		});
-	}else{
-		Courses[schema].find({courseID: req.body.class}, function(err, classData){
-			if(err){
-				console.log(err);
-				return res.status(500).send({ message: 'Failed to find submitted class' });
-			}else{
-				classData.forEach(function (data) {
-					const userClass = new ClassData({
-						courseID: data.courseID,
-						userToken: req.body.userID,
-						quarter: req.body.quarter,
-						year: req.body.year,
-						GE: data.meta.general_education
-					});
-					userClass.save(function (err, newClass) {
-						res.send({ express: "done", _id: newClass._id });
-					});
-				});
-			}
-		})
-	}
+  console.log(req.body);
+  const classData = new ClassData({
+  	courseID: req.body.class,
+  	userToken: req.body.userID,
+  	quarter: req.body.quarter,
+  	year: req.body.year,
+    grade: req.body.grade,
+    units: req.body.units
+  });
+  classData.save(function(err, newClass){
+  	res.send({ express: "done", _id: newClass._id });
+  });
 });
 
 // Deletes class from the database

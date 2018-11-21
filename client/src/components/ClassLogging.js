@@ -38,7 +38,7 @@ class ClassLogging extends Component {
   }
 
   // Called by ClassInput component when there's a submit, basically adds the new class to the state
-  handleSubmit(newClass, _id, quarter, year) {
+  handleSubmit(newClass, _id, quarter, year, grade, units) {
     var newClasses = this.state.classes;
     if (year in newClasses) {
       newClasses[year][quarter].push({ courseID: newClass, _id: _id });
@@ -135,6 +135,60 @@ class ClassLogging extends Component {
     return body;
   };
 
+  convertGrade(grade) {
+    switch (grade) {
+      case 0:
+        return "A+";
+      case 1:
+        return "A";
+      case 2:
+        return "A-";
+      case 3:
+        return "B+";
+      case 4:
+        return "B";
+      case 5:
+        return "B-";
+      case 6:
+        return "C+";
+      case 7:
+        return "C";
+      case 8:
+        return "C-";
+      case 9:
+        return "D+";
+      case 10:
+        return "D";
+      case 11:
+        return "D-";
+      case 12:
+        return "F";
+      case 13:
+        return "W";
+      case 14:
+        return "Not Completed";
+      case 15:
+        return "Pass";
+      case 16:
+        return "No Pass";
+      default:
+        return "error";
+    }
+  }
+
+  convertUnits(grade) {
+    switch (grade) {
+      case 0:
+        return 5;
+      case 1:
+        return 2;
+      case 2:
+        return 0;
+      default:
+        return -1;
+    }
+  }
+
   render() {
     if (!this.state.isLoading) {
       return (
@@ -179,7 +233,15 @@ class ClassLogging extends Component {
                                       return (
                                         <tr key={classIdx}>
                                           <td key={classIdx}>
-                                            {userClass.courseID}
+                                            {userClass.courseID +
+                                              " Grade: " +
+                                              this.convertGrade(
+                                                userClass.grade
+                                              ) +
+                                              " Units: " +
+                                              this.convertUnits(
+                                                userClass.units
+                                              )}
                                           </td>
                                           <td>
                                             <Button
