@@ -206,7 +206,7 @@ class ClassLogging extends Component {
   render() {
     if (!this.state.isLoading) {
       return (
-        <div className="App">
+        <div>
           <Container>
             <Row>
               <Col>
