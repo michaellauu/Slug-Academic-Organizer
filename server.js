@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require('path');
 
 const app = express();
 
@@ -18,6 +19,7 @@ const calData = require("./server/models/calData");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Port
 const port = process.env.PORT || 5000;
@@ -32,9 +34,8 @@ mongoose
 // API routes
 require("./server/routes/api/signin.js")(app);
 
-// Base route that's still in progress ...
-app.get("/", (req, res) => {
-  res.send({ express: "Connected!" });
+app.get('/*', function (req, res) {
+	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
