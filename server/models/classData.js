@@ -31,35 +31,6 @@ const classDataSchema = new Schema({
     required:true,
     default: 0
   }
-  /*
-  meetingDays: {
-    type: [Boolean],
-    required: true
-  },
-  startTime: {
-    type: String,
-    required: true
-  },
-  endTime: {
-    type: String,
-    required: true
-  },
-  location: {
-    type: String,
-    trim: true,
-    required: true
-  },
-  section: {
-    type: Boolean,
-    required: true
-  },
-  sMeetingDays: [Boolean],
-  sStartTime: String,
-  sEndTime: String,
-  sLocation: {
-    type: String,
-    trim: true
-  }*/
 });
 
 module.exports = ClassData = mongoose.model("ClassData", classDataSchema, "userClasses");

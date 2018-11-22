@@ -158,15 +158,11 @@ class ClassInput extends Component {
                   />
                 </div>
                 <div className="quarter">
-                  <select
-                    value={this.state.quarter}
-                    onChange={this.changeQuarter}
-                    className="quarter"
-                  >
-                    <option value="1">Fall</option>
+                  <select value={this.state.quarter} onChange={this.changeQuarter} className="quarter">
+                    <option value="0">Fall</option>
                     <option value="3">Winter</option>
                     <option value="2">Spring</option>
-                    <option value="0">Summer</option>
+                    <option value="1">Summer</option>
                   </select>
                   <div className="year">
                     <input

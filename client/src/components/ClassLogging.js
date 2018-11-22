@@ -192,7 +192,7 @@ class ClassLogging extends Component {
   render() {
     if (!this.state.isLoading) {
       return (
-        <div className="App">
+        <div>
           <Container>
             <Row>
               <Col>
@@ -218,34 +218,14 @@ class ClassLogging extends Component {
                             return (
                               <tbody key={quarter}>
                                 <tr key={quarter}>
-                                  {quarter === 0 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Summer</b>
-                                      </td>
-                                    )}
-                                  {quarter === 1 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Fall</b>
-                                      </td>
-                                    )}
-                                  {quarter === 2 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Spring</b>
-                                      </td>
-                                    )}
-                                  {quarter === 3 &&
-                                    this.state.classes[year][quarter].length !==
-                                      0 && (
-                                      <td>
-                                        <b>Winter</b>
-                                      </td>
-                                    )}
+                                  {quarter === 0 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Fall</b></td>}
+                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Summer</b></td>}
+                                  {quarter === 2 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Spring</b></td>}
+                                  {quarter === 3 && this.state.classes[year][quarter].length !== 0 &&
+                                    <td><b>Winter</b></td>}
                                 </tr>
                                 <>
                                   {this.state.classes[year][quarter].map(
