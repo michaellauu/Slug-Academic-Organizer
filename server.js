@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 });
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
-function sort(userClasses){
+function sortByQuarter(userClasses){
 	var sorted = {};
 	for (i = 0; i < userClasses.length; i++) {
 		if (!(userClasses[i].year in sorted)) { // If not in dictionary
