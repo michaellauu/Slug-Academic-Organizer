@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 });
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
-function sortByQuarter(userClasses) {
+function sort(userClasses){
 	var sorted = {};
 	for (i = 0; i < userClasses.length; i++) {
 		if (!(userClasses[i].year in sorted)) { // If not in dictionary
@@ -65,14 +65,12 @@ app.post("/api/userClasses", (req, res) => {
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
 		if (err) {
 			console.log(err);
-			return res.status(500).send({ message: 'Failed to load user classes' });
-		} else {
-			classes.forEach(function (userClass) {
-				const newClass = {
-					courseID: userClass.courseID, year: userClass.year,
-					quarter: userClass.quarter, _id: userClass._id,
-					grade: userClass.grade, units: userClass.units
-				};
+			return res.status(500).send({message: 'Failed to load user classes'});
+		}else{
+			classes.forEach(function(userClass){
+				const newClass = {courseID: userClass.courseID, year: userClass.year,
+					quarter: userClass.quarter, grade: userClass.grade, units: userClass.units,
+          _id: userClass._id};
 
 				userClasses.push(newClass);
 			});
@@ -183,18 +181,27 @@ function quarterNumberToString(quarter){
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {
-  console.log(req.body);
-  const classData = new ClassData({
-  	courseID: req.body.class,
-  	userToken: req.body.userID,
-  	quarter: req.body.quarter,
-  	year: req.body.year,
-    grade: req.body.grade,
-    units: req.body.units
-  });
-  classData.save(function(err, newClass){
-  	res.send({ express: "done", _id: newClass._id });
-  });
+	console.log(req.body);
+	const lecture = {
+		daysTimes: req.body.daysTimes,
+		room: req.body.room,
+		meetingDates: req.body.meetingDates,
+		instructor: req.body.instructor,
+	};
+	const credits = req.body.credits[0];
+  	const classData = new ClassData({
+		courseID: req.body.class,
+		userToken: req.body.userID,
+		quarter: req.body.quarter,
+		year: req.body.year,
+		lecture: lecture,
+		ge: req.body.ge,
+		units: credits,
+		courseTitle: req.body.courseTitle
+	});
+	classData.save(function(err, newClass){
+		res.send({ express: "done", _id: newClass._id });
+	});
 });
 
 // Deletes class from the database
@@ -209,54 +216,17 @@ app.post("/api/deleteClass", (req, res) => {
 	});
 });
 
-// Gets course datas from requested classes
-app.post("/api/getMajorClassData", async (req, res) => {
-	/*const quarterNames = Object.keys(Courses);
-	let quarterData = [];
-	for(let quarter = 0; quarter<quarterNames.length; quarter++){
-		quarterData.push(quarterNames[quarter] = axios.post('api/getEachQuarter', 
-			{
-				classes: req.body.classes,
-				quarter: quarterNames[quarter]
-			}
-		));
-	}
-	console.log(quarterData);
-	let returnData = await Promise.all(quarterData);
-	console.log(returnData);*/
-	console.log(req.body.classes);
-	const classes = Object.keys(req.body.classes);
-	let classDatas = {}, find = [];
-	for (let i = 0; i < classes.length; i++) {
-		find.push({ courseID: classes[i] });
-	}
-
-	Courses['Fall18'].find({ $or: find }, function (err, classData) {
+app.post("/api/editGrade", (req, res) => {
+	console.log("here");
+	ClassData.findByIdAndUpdate(req.body._id, { $set: { grade: req.body.grade } }, function(err, classes){
 		if (err) {
-			console.log("error");
-			return res.status(500).send({ geError: "Error" });
+			console.log(err);
+			return res.status(500).send({ message: 'Failed to load user classes' });
 		} else {
-			classData.forEach(function (data) {
-				const courseTitle = data.courseTitle.slice(data.courseID.length + 9);
-				classDatas[data.courseID] = {
-					description: data.description,
-					prereqs: data.prereqs,
-					courseTitle: courseTitle
-				};
-			});
-			res.send(classDatas);
+			res.send({ express: "done" });
 		}
-	});
-});
-
-function getQuarter (quarter, classes) {
-	return (axios.post('api/getEachQuarter',
-		{
-			classes: classes,
-			quarter: quarter
-		}
-	));
-}
+	})
+})
 
 //based off Chtzou's GE
 app.get("/api/getCalendar", (req, res) => {

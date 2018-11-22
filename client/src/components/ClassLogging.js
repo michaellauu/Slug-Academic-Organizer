@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "../styles/ClassLogging.css";
-import ClassInput from "./ClassInput";
+//import ClassInput from "./ClassInput";
 import { getFromStorage } from "./storage";
 import { Button, Table, Container, Row, Col } from "reactstrap";
+import SearchCourse from "./SearchCourse";
 
 class ClassLogging extends Component {
   constructor(props) {
@@ -38,13 +39,13 @@ class ClassLogging extends Component {
   }
 
   // Called by ClassInput component when there's a submit, basically adds the new class to the state
-  handleSubmit(newClass, _id, quarter, year, grade, units) {
+  handleSubmit(newClass, _id, quarter, year, grade) {
     var newClasses = this.state.classes;
     if (year in newClasses) {
-      newClasses[year][quarter].push({ courseID: newClass, _id: _id });
+      newClasses[year][quarter].push({ courseID: newClass, _id: _id, grade: grade });
     } else {
       newClasses[year] = [[], [], [], []];
-      newClasses[year][quarter].push({ courseID: newClass, _id: _id });
+      newClasses[year][quarter].push({ courseID: newClass, _id: _id, grade: grade });
     }
     this.setState({ classes: newClasses });
     console.log(newClasses);
@@ -166,7 +167,7 @@ class ClassLogging extends Component {
       case 13:
         return "W";
       case 14:
-        return "Not Completed";
+        return "N/A";
       case 15:
         return "Pass";
       case 16:
@@ -176,18 +177,31 @@ class ClassLogging extends Component {
     }
   }
 
-  convertUnits(grade) {
-    switch (grade) {
-      case 0:
-        return 5;
-      case 1:
-        return 2;
-      case 2:
-        return 0;
-      default:
-        return -1;
-    }
+  changeGrade = (_id, idx, quarter, year) => (event) => {
+    let classes = this.state.classes;
+    classes[year][quarter][idx].grade = parseInt(event.target.value);
+    this.editPost({ _id: _id, grade: parseInt(event.target.value)});
+    this.setState({classes: classes});
   }
+
+  editPost = async data => {
+    const response = await fetch("/api/editGrade", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ _id: data._id, grade: data.grade })
+    });
+
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    console.log(body);
+
+    return body;
+  };
 
   render() {
     if (!this.state.isLoading) {
@@ -196,7 +210,7 @@ class ClassLogging extends Component {
           <Container>
             <Row>
               <Col>
-                <ClassInput
+                <SearchCourse
                   onSubmit={this.handleSubmit}
                   userID={this.state.userID}
                 />
@@ -210,22 +224,16 @@ class ClassLogging extends Component {
                       <>
                         <Table key={idx} className="classLog">
                           <thead key={idx}>
-                            <tr>
-                              <th>{year}</th>
-                            </tr>
+                            <tr><th>{year}</th></tr>
                           </thead>
                           {this.state.classes[year].map((i, quarter) => {
                             return (
                               <tbody key={quarter}>
                                 <tr key={quarter}>
-                                  {quarter === 0 && this.state.classes[year][quarter].length !== 0 &&
-                                    <td><b>Fall</b></td>}
-                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 &&
-                                    <td><b>Summer</b></td>}
-                                  {quarter === 2 && this.state.classes[year][quarter].length !== 0 &&
-                                    <td><b>Spring</b></td>}
-                                  {quarter === 3 && this.state.classes[year][quarter].length !== 0 &&
-                                    <td><b>Winter</b></td>}
+                                  {quarter === 0 && this.state.classes[year][quarter].length !== 0 && (<td><b>Fall</b></td>)}
+                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 && (<td><b>Summer</b></td>)}
+                                  {quarter === 2 && this.state.classes[year][quarter].length !== 0 && (<td><b>Spring</b></td>)}
+                                  {quarter === 3 && this.state.classes[year][quarter].length !== 0 && (<td><b>Winter</b></td>)}
                                 </tr>
                                 <>
                                   {this.state.classes[year][quarter].map(
@@ -233,28 +241,36 @@ class ClassLogging extends Component {
                                       return (
                                         <tr key={classIdx}>
                                           <td key={classIdx}>
-                                            {userClass.courseID +
-                                              " Grade: " +
-                                              this.convertGrade(
-                                                userClass.grade
-                                              ) +
-                                              " Units: " +
-                                              this.convertUnits(
-                                                userClass.units
-                                              )}
+                                            {userClass.courseID}
                                           </td>
                                           <td>
-                                            <Button
-                                              key={classIdx}
-                                              onClick={() => {
-                                                this.delete(
-                                                  userClass._id,
-                                                  classIdx,
-                                                  quarter,
-                                                  year
-                                                );
-                                              }}
+                                            {"Grade: "}
+                                            <select
+                                              value={userClass.grade}
+                                              onChange={this.changeGrade(userClass._id, classIdx, quarter, year)}
+                                              className="grade"
                                             >
+                                              <option value="0">A+</option>
+                                              <option value="1">A</option>
+                                              <option value="2">A-</option>
+                                              <option value="3">B+</option>
+                                              <option value="4">B</option>
+                                              <option value="5">B-</option>
+                                              <option value="6">C+</option>
+                                              <option value="7">C</option>
+                                              <option value="8">C-</option>
+                                              <option value="9">D+</option>
+                                              <option value="10">D</option>
+                                              <option value="11">D-</option>
+                                              <option value="12">F</option>
+                                              <option value="13">W</option>
+                                              <option value="14">Not Completed</option>
+                                              <option value="15">Pass</option>
+                                              <option value="16">No Pass</option>
+                                            </select>
+                                          </td>
+                                          <td>
+                                            <Button key={classIdx} onClick={() => {this.delete(userClass._id,classIdx, quarter, year);}}>
                                               Delete
                                             </Button>
                                           </td>

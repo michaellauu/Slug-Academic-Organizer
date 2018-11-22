@@ -8,7 +8,7 @@ class GPACalculator extends Component {
     super(props);
     this.state = {
       response: "", // Server response
-      quarter: 1, // 1: fall, 3: winter, 2: spring, 0: summer
+      quarter: 0, // 0: fall, 3: winter, 2: spring, 1: summer
       year: 2018,
       gpa: "0.0",
       gpatype: 0, // 0: cumulative, 1: quarterly
@@ -122,7 +122,6 @@ class GPACalculator extends Component {
     var i = 0;
     var total = 0;
     var achieved = 0;
-    var tempUnits = 0;
     var units = 0;
     var grade = 0;
 
@@ -137,20 +136,10 @@ class GPACalculator extends Component {
 
         for (j = 0; j < 4; j++) {
           for (i = 0; i < this.state.classes[yearKeys[k]][j].length; i++) {
-            tempUnits = this.state.classes[yearKeys[k]][j][i].units;
-            units = 0;
+            units = this.state.classes[yearKeys[k]][j][i].units;
             grade = this.state.classes[yearKeys[k]][j][i].grade;
             if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
-              if (tempUnits === 0) {
-                units = 5;
-                total += 5;
-              } else if (tempUnits === 1) {
-                units = 2;
-                total += 2;
-              } else if (tempUnits === 2) {
-                units = 0;
-                total += 0;
-              }
+              total += units;
               achieved = achieved + gpaCredits[grade] * units;
             }
           }
@@ -161,27 +150,16 @@ class GPACalculator extends Component {
       total = 0;
       achieved = 0;
       if (this.state.year in this.state.classes) {
+        console.log(this.state.classes[this.state.year][this.state.quarter]);
         for (
           i = 0;
           i < this.state.classes[this.state.year][this.state.quarter].length;
           i++
         ) {
-          tempUnits = this.state.classes[this.state.year][this.state.quarter][i]
-            .units;
-          units = 0;
-          grade = this.state.classes[this.state.year][this.state.quarter][i]
-            .grade;
+          units = this.state.classes[this.state.year][this.state.quarter][i].units;
+          grade = this.state.classes[this.state.year][this.state.quarter][i].grade;
           if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
-            if (tempUnits === 0) {
-              units = 5;
-              total += 5;
-            } else if (tempUnits === 1) {
-              units = 2;
-              total += 2;
-            } else if (tempUnits === 2) {
-              units = 0;
-              total += 0;
-            }
+            total+=units;
             achieved = achieved + gpaCredits[grade] * units;
           }
         }
@@ -195,7 +173,7 @@ class GPACalculator extends Component {
       }
     }
 
-    this.setState({ gpa: newGPA.toFixed(1) });
+    this.setState({ gpa: newGPA.toFixed(2) });
   }
 
   // Form submission "Calculate"->pull request from server
@@ -235,7 +213,7 @@ class GPACalculator extends Component {
                       className="quarter"
                       disabled={this.gpatype === 0}
                     >
-                      <option value="1" disabled={this.state.gpatype === 0}>
+                      <option value="0" disabled={this.state.gpatype === 0}>
                         Fall
                       </option>
                       <option value="3" disabled={this.state.gpatype === 0}>
@@ -244,7 +222,7 @@ class GPACalculator extends Component {
                       <option value="2" disabled={this.state.gpatype === 0}>
                         Spring
                       </option>
-                      <option value="0" disabled={this.state.gpatype === 0}>
+                      <option value="1" disabled={this.state.gpatype === 0}>
                         Summer
                       </option>
                     </select>

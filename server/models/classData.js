@@ -18,18 +18,27 @@ const classDataSchema = new Schema({
     required: true
   },
   quarter: {
-    type: Number, //again: 0-summer, 1-fall, 2-spring, 3-winter
+    type: Number, //again: 0-fall, 1-summer, 2-spring, 3-winter
     required: true
+  },
+  lecture: {
+    type: mongoose.Schema.Types.Mixed
+  },
+  ge: {
+    type: String,
+    trim: true
+  },
+  units: {
+    type: Number
   },
   grade: {
     type: Number,
     required: true,
     default: 14
   },
-  units: {
-    type: Number,
-    required:true,
-    default: 0
+  courseTitle: {
+    type: String,
+    trim: true
   }
 });
 
