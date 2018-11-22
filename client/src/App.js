@@ -8,6 +8,7 @@ import SearchCourse from "./components/SearchCourse";
 import SignIn from "./components/Home";
 import PNPProgress from "./components/PNPProgress";
 import GPACalculator from "./components/GPACalculator";
+import Major from "./components/Major";
 import "./App.css";
 import "./styles/NavBar.css";
 
@@ -50,6 +51,7 @@ class App extends Component {
               <Route path="/logging" component={ClassLogging} />
               <Route path="/pnp" component={PNPProgress} />
               <Route path="/gpa" component={GPACalculator} />
+              <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />
               <Route path="/calendar" component={Calendar} />
               <Route path="/search" component={SearchCourse} />
