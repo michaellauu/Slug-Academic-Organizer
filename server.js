@@ -347,6 +347,15 @@ function checkDays(daysInput) {
 	if(daysInput == "Th") {
 		return '[4]';		
 		}
+	if(daysInput == "M") {
+		return '[1]';		
+		}
+	if(daysInput == "W") {
+		return '[3]';		
+		}
+	if(daysInput == "F") {
+		return '[5]';		
+		}
 }
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
