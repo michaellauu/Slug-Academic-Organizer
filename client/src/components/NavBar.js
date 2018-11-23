@@ -60,11 +60,16 @@ export default class NavBar extends Component {
                 </NavLink>
               </NavItem>
               <NavItem className="link-5">
+                <NavLink tag={Link} to="/major">
+                  Major Requirements
+                </NavLink>
+              </NavItem>
+              <NavItem className="link-6">
                 <NavLink tag={Link} to="/ge">
                   GE Requirements
                 </NavLink>
               </NavItem>
-              <NavItem className="link-6">
+              <NavItem className="link-7">
                 <NavLink tag={Link} to="/calendar">
                   Calendar
                 </NavLink>

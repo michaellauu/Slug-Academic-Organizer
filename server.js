@@ -112,7 +112,7 @@ app.post("/api/getMajorClassData", async (req, res) => {
 	console.log(quarterData);
 	let returnData = await Promise.all(quarterData);
 	console.log(returnData);*/
-	console.log(req.body.classes);
+	//console.log(req.body.classes);
 	const classes = Object.keys(req.body.classes);
 	let classDatas = {}, find = [];
 	for (let i = 0; i < classes.length; i++) {
