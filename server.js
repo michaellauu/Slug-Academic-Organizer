@@ -269,8 +269,8 @@ app.post("/api/editGrade", (req, res) => {
 })
 
 //based off Chtzou's GE
-app.get("/api/getCalendar", (req, res) => {
-  calData.find(function (err, cal) {
+app.post("/api/getCalendar", (req, res) => {
+  calData.find({'userToken': req.body.userID}, function (err, cal) {
     if (err) {
       //error messages
       console.log("Can't get class data");
@@ -303,7 +303,7 @@ app.get("/api/getCalendar", (req, res) => {
 		  start: timeCutA,
 		  end: timeCutB,
 		  ranges: [{ start: dateCut[0], end: dateCut[1]}],
-		  room: c.lecture.room
+		  description: c.lecture.room
         };
         //push data to events
         events.push(newCal);
@@ -346,6 +346,15 @@ function checkDays(daysInput) {
 		}
 	if(daysInput == "Th") {
 		return '[4]';		
+		}
+	if(daysInput == "M") {
+		return '[1]';		
+		}
+	if(daysInput == "W") {
+		return '[3]';		
+		}
+	if(daysInput == "F") {
+		return '[5]';		
 		}
 }
 
