@@ -10,6 +10,8 @@ class GERequirements extends Component {
       userID: '',
       classes: {}
     };
+
+    this.completed = this.completed.bind(this);
   }
 
   //makes get request to server after the component mounts
@@ -69,14 +71,18 @@ class GERequirements extends Component {
     return body;
   };
 
+  completed = (ge) => {
+    return(ge in this.state.classes);
+  }
+
   render() {
     return (
       <div>
         <h3 className="pageTitle">GE Requirements</h3>
         <table>
-          {this.state.ge.map(function(current, index) {
+          {this.state.ge.map((current, index) => {
             return (
-                <tbody className="GETable" key={index}>
+              <tbody className={this.completed(current.geID) ? 'completed' : 'uncompleted'} key={index}>
                   <tr>
                     <td className="category">
                       <b>GE ID:</b>
@@ -94,6 +100,12 @@ class GERequirements extends Component {
                       <b>Credits:</b>
                     </td>
                     <td className="GE">{current.credits}</td>
+                  </tr>
+                  <tr>
+                    <td className="category">
+                      <b>Satisfied By:</b>
+                    </td>
+                    <td className="GE">{this.state.classes[current.geID]}</td>
                   </tr>
                 </tbody>
             );

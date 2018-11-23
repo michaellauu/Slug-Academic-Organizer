@@ -59,6 +59,11 @@ export default class NavBar extends Component {
                   GPA Calculator
                 </NavLink>
               </NavItem>
+              <NavItem className="link-7">
+                <NavLink tag={Link} to="/major">
+                  Major Requirements
+                </NavLink>
+              </NavItem>
               <NavItem className="link-5">
                 <NavLink tag={Link} to="/ge">
                   GE Requirements
