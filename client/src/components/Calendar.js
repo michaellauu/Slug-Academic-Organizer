@@ -67,7 +67,7 @@ export default class Calendar extends Component {
     return body;
   };
   
-   // Post call to the database to get the user classes
+   // Post call to the database to get the user classes (from Hannah's code)
   getCalendar = async userID => {
     const response = await fetch("/api/getCalendar", {
       method: "POST",
