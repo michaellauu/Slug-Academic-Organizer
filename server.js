@@ -124,7 +124,7 @@ app.post("/api/getMajorClassData", async (req, res) => {
 	});
 });
 
-// Gets user claasses for the ge requirments page
+// Gets user claasses for the ge requirements page
 app.post("/api/geClasses", (req, res) => {
 	let ges = {};
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
