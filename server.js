@@ -30,22 +30,6 @@ mongoose
 	.then(() => console.log("MongoDB connected"))
 	.catch(err => console.log(err));
 
-// Algolia credentials to access dashboard for indexing
-const mongoolia = require('mongoolia').default;
-newCourse.plugin(mongoolia, {
-	apiKey: "e0f4e3542265d408d5be8de22d00a12e",
-	appId: "Z4ZULV1BRS",
-	indexName: "fall18"
-})
-
-app.get("/api/mongoolia", (req, res) => {
-	//sync Algolia index with Mongodb
-	const newIndex = mongoose.model("course", newCourse)
-	newIndex.syncWithAlgolia();
-});
-
-
-
 // API routes
 require("./server/routes/api/signin.js")(app);
 
