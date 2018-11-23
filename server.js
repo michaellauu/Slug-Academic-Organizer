@@ -97,6 +97,46 @@ app.post("/api/majorClasses", (req, res) => {
 	}).then(console.log(`Getting user classes ...`));
 });
 
+// Gets course datas from requested classes
+app.post("/api/getMajorClassData", async (req, res) => {
+	/*const quarterNames = Object.keys(Courses);
+	let quarterData = [];
+	for(let quarter = 0; quarter<quarterNames.length; quarter++){
+		quarterData.push(quarterNames[quarter] = axios.post('api/getEachQuarter', 
+			{
+				classes: req.body.classes,
+				quarter: quarterNames[quarter]
+			}
+		));
+	}
+	console.log(quarterData);
+	let returnData = await Promise.all(quarterData);
+	console.log(returnData);*/
+	console.log(req.body.classes);
+	const classes = Object.keys(req.body.classes);
+	let classDatas = {}, find = [];
+	for (let i = 0; i < classes.length; i++) {
+		find.push({ courseID: classes[i] });
+	}
+
+	Courses['Fall18'].find({ $or: find }, function (err, classData) {
+		if (err) {
+			console.log("error");
+			return res.status(500).send({ geError: "Error" });
+		} else {
+			classData.forEach(function (data) {
+				const courseTitle = data.courseTitle.slice(data.courseID.length + 9);
+				classDatas[data.courseID] = {
+					description: data.description,
+					prereqs: data.prereqs,
+					courseTitle: courseTitle
+				};
+			});
+			res.send(classDatas);
+		}
+	});
+});
+
 // Push all JSON data into database
 app.post("/api", (req, res) => {
 	for (let i = 0; i < schedule.length; i++) {
