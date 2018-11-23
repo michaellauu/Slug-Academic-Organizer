@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create data schema that'll hold schedule info
 const cDataSchema = new Schema({
+  userToken: {
+	type: String,
+	required: true
+  },	
   courseTitle: {
     type: String,
   },
@@ -15,4 +19,4 @@ const cDataSchema = new Schema({
   }	
 });
 
-module.exports = calData = mongoose.model("calData", cDataSchema, "test");
+module.exports = calData = mongoose.model("calData", cDataSchema, "userClasses");

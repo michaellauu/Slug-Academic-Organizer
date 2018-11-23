@@ -4,14 +4,6 @@ h1 {
   margin-bottom: 4%;
 }
 
-button {
-  background-color: #ffefd5;
-}
-
-button:hover {
-  background-color: #fded80;
-}
-
 .fc-event,
 .fc-event-dot {
   background-color: palevioletred !important;
