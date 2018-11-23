@@ -15,7 +15,6 @@ const Data = require("./server/models/Data");
 const GEData = require("./server/models/geData");
 const Courses = require("./server/models/Courses");
 const calData = require("./server/models/calData");
-const newCourse = require("./server/models/newCourse");
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
