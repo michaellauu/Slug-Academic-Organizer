@@ -96,7 +96,7 @@ class Course extends Component {
                             Instructor: <Highlight attribute="lecture.instructor" hit={this.props.hit} tagName="mark" />
                             <br />Days and Times: <Highlight attribute="lecture.days" hit={this.props.hit} tagName="mark" /> <Highlight attribute="lecture.times" hit={this.props.hit} tagName="mark" />
                             <br />Room: <Highlight attribute="lecture.room" hit={this.props.hit} tagName="mark" />
-                            <br />Meeting Dates: <Highlight attribute="lecture.meetingDates" hit={this.props.hit} tagName="mark" />
+                            <br />Quarter: <Highlight attribute="quarter" hit={this.props.hit} tagName="mark" />
                         </p>
                     </UncontrolledCollapse>
                 </span>
@@ -136,8 +136,8 @@ class Search extends Component {
                     <CollapsibleHead>Days</CollapsibleHead>
                     <CollapsibleContent><RefinementList attribute="lecture.days" /></CollapsibleContent>
 
-                    <CollapsibleHead>Meeting Dates</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="lecture.meetingDates" /></CollapsibleContent>
+                    <CollapsibleHead>Quarter</CollapsibleHead>
+                    <CollapsibleContent><RefinementList attribute="quarter" /></CollapsibleContent>
                 </CollapsibleComponent>
                 <div className="Filters">
                     <CurrentRefinements />
