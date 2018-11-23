@@ -39,9 +39,9 @@ export default class Calendar extends Component {
               isLoading: false
             });
             // Get the user classes from the database
-			this.callApi()
-			.then(res => this.setState({ events: res }))
-			.catch(err => console.log(err));
+            this.getCalendar(json.userId)
+              .then(res => this.setState({ events: res }))
+              .catch(err => console.log(err));
           } else {
             this.setState({
               isLoading: false
@@ -51,16 +51,35 @@ export default class Calendar extends Component {
     } else {
       this.setState({
         isLoading: false
-		});
-		}
-	}
+      });
+    }
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
 
-  callApi = async userID => {
-    const response = await fetch("/api/getCalendar");
+  callApi = async () => {
+    const response = await fetch("/");
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-    console.log(body);
+
+    return body;
+  };
+  
+   // Post call to the database to get the user classes
+  getCalendar = async userID => {
+    const response = await fetch("/api/getCalendar", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ userID: userID })
+    });
+
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
     return body;
   };
 
@@ -76,8 +95,9 @@ export default class Calendar extends Component {
             center: "title",
             right: "month,agendaWeek,agendaDay",
           }}
-			//credits @slicedtoad and the community at stackoverflow.com
-			eventRender = {function(event) {
+			//credits @slicedtoad and the community at stackoverflow.com for the filter portion of the code
+			eventRender = {function(event, element) {
+				element.find('.fc-title').append("<br/>" + event.description); 
 				if(event.ranges) {
 					return (event.ranges.filter(function(range) { // test event against all the ranges
 						return (event.start.isBefore(range.end) &&
