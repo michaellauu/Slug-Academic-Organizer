@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import "../styles/GERequirements.css";
+import { getFromStorage } from './storage';
 
 class GERequirements extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ge: [] //server response
+      ge: [], //server response,
+      userID: '',
+      classes: {}
     };
   }
 
@@ -14,6 +17,27 @@ class GERequirements extends Component {
     this.callApi()
       .then(res => this.setState({ ge: res }))
       .catch(err => console.log(err));
+    // Stolen from Michael's code: verifies the token and gets the userID
+    const obj = getFromStorage('the_main_app');
+    if (obj && obj.token) {
+      const { token } = obj;
+      // Verify token
+      fetch('/api/account/verify?token=' + token)
+        .then(res => res.json())
+        .then(json => {
+          // Store the userID in the state
+          if (json.success) {
+            this.setState({
+              userID: json.userId,
+              isLoading: false
+            });
+            // Get the user classes from the database
+            this.makePost(json.userId)
+              .then(res => this.setState({ classes: res }))
+              .catch(err => console.log(err));
+          }
+        });
+    }
   }
 
   callApi = async () => {
@@ -25,6 +49,26 @@ class GERequirements extends Component {
     return body;
   };
 
+  // Post call to the database to get the user classes
+  makePost = async (userID) => {
+    const response = await fetch('/api/geClasses', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ userID: userID })
+    });
+
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    console.log(body);
+
+    return body;
+  };
+
   render() {
     return (
       <div>
@@ -32,8 +76,7 @@ class GERequirements extends Component {
         <table>
           {this.state.ge.map(function(current, index) {
             return (
-              <div className="GETable">
-                <tbody>
+                <tbody className="GETable" key={index}>
                   <tr>
                     <td className="category">
                       <b>GE ID:</b>
@@ -53,7 +96,6 @@ class GERequirements extends Component {
                     <td className="GE">{current.credits}</td>
                   </tr>
                 </tbody>
-              </div>
             );
           })}
         </table>

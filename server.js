@@ -82,7 +82,7 @@ app.post("/api/userClasses", (req, res) => {
 
 // Gets user claasses for the major requirments page
 app.post("/api/majorClasses", (req, res) => {
-	var userClasses = [];
+	let userClasses = [];
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
 		if (err) {
 			console.log(err);
@@ -99,19 +99,6 @@ app.post("/api/majorClasses", (req, res) => {
 
 // Gets course datas from requested classes
 app.post("/api/getMajorClassData", async (req, res) => {
-	/*const quarterNames = Object.keys(Courses);
-	let quarterData = [];
-	for(let quarter = 0; quarter<quarterNames.length; quarter++){
-		quarterData.push(quarterNames[quarter] = axios.post('api/getEachQuarter', 
-			{
-				classes: req.body.classes,
-				quarter: quarterNames[quarter]
-			}
-		));
-	}
-	console.log(quarterData);
-	let returnData = await Promise.all(quarterData);
-	console.log(returnData);*/
 	console.log(req.body.classes);
 	const classes = Object.keys(req.body.classes);
 	let classDatas = {}, find = [];
@@ -135,6 +122,26 @@ app.post("/api/getMajorClassData", async (req, res) => {
 			res.send(classDatas);
 		}
 	});
+});
+
+// Gets user claasses for the ge requirments page
+app.post("/api/geClasses", (req, res) => {
+	let ges = {};
+	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
+		if (err) {
+			console.log(err);
+			return res.status(500).send({ message: 'Failed to load user classes' });
+		} else {
+			classes.forEach(function (userClass) {
+				if(!(userClass.ge in ges) && userClass.ge !== ''){
+					//console.log(userClass.ge);
+					ges[userClass.ge] = userClass.courseID;
+				}
+			});
+			console.log(ges);
+			res.send(ges);
+		}
+	}).then(console.log(`Getting user classes ...`));
 });
 
 // Push all JSON data into database
@@ -223,7 +230,8 @@ function quarterNumberToString(quarter){
 app.post("/api/submitClass", (req, res) => {
 	console.log(req.body);
 	const lecture = {
-		daysTimes: req.body.daysTimes,
+		days: req.body.days,
+		times: req.body.times,
 		room: req.body.room,
 		meetingDates: req.body.meetingDates,
 		instructor: req.body.instructor,

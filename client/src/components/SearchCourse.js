@@ -37,13 +37,13 @@ class Course extends Component {
             userID: this.props.userID,
             quarter: quarter,
             year: year,
-            room: this.props.hit.lecture.Room,
+            room: this.props.hit.lecture.room,
             days: this.props.hit.lecture.days,
             times: this.props.hit.lecture.times,
-            meetingDates: this.props.hit.lecture.MeetingDates,
+            meetingDates: this.props.hit.lecture.meetingDates,
             ge: this.props.hit.meta.general_education,
             credits: this.props.hit.meta.credits,
-            instructor: this.props.hit.lecture.Instructor,
+            instructor: this.props.hit.lecture.instructor,
             courseTitle: this.props.hit.courseTitle
         }) // Send all form data to server
             .then(res => {
