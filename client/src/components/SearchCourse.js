@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     InstantSearch,
     Hits,
-    connectHits, 
     SearchBox,
     Highlight,
     RefinementList,
@@ -30,7 +29,7 @@ class Course extends Component {
         this.submit = this.submit.bind(this);
     }
 
-    submit(){
+    submit() {
         let quarter = 0, year = 2018;
         console.log(this.props.hit);
         this.submitClass({
@@ -38,12 +37,13 @@ class Course extends Component {
             userID: this.props.userID,
             quarter: quarter,
             year: year,
-            room: this.props.hit.lecture.Room,
-            daysTimes: this.props.hit.lecture.DaysTimes,
-            meetingDates: this.props.hit.lecture.MeetingDates,
+            room: this.props.hit.lecture.room,
+            days: this.props.hit.lecture.days,
+            times: this.props.hit.lecture.times,
+            meetingDates: this.props.hit.lecture.meetingDates,
             ge: this.props.hit.meta.general_education,
             credits: this.props.hit.meta.credits,
-            instructor: this.props.hit.lecture.Instructor,
+            instructor: this.props.hit.lecture.instructor,
             courseTitle: this.props.hit.courseTitle
         }) // Send all form data to server
             .then(res => {
@@ -65,7 +65,8 @@ class Course extends Component {
                 quarter: data.quarter,
                 year: data.year,
                 room: data.room,
-                daysTimes: data.daysTimes,
+                days: data.days,
+                times: data.times,
                 meetingDates: data.meetingDates,
                 ge: data.ge,
                 credits: data.credits,
@@ -81,20 +82,21 @@ class Course extends Component {
         return body;
     };
 
-    render(){
+    render() {
         return (
             <div style={{ padding: '10px' }}>
                 <span className="hits">
-                    <Button id={'id'+this.props.hit.objectID}>
+                    <Button id={'id' + this.props.hit.objectID}>
                         {<Highlight attribute="courseTitle" hit={this.props.hit} tagName="mark" />}
                     </Button>
                     <Button onClick={this.submit}>Add Class</Button>  {this.state.response}
                     <UncontrolledCollapse toggler={'#id' + this.props.hit.objectID}>
                         <p><Highlight attribute="description" hit={this.props.hit} tagName="mark" /></p>
                         <p>
-                            Instructor: <Highlight attribute="lecture.Instructor" hit={this.props.hit} tagName="mark" />
-                            <br />Days and Times: <Highlight attribute="lecture.DaysTimes" hit={this.props.hit} tagName="mark" />
-                            <br />Room: <Highlight attribute="lecture.Room" hit={this.props.hit} tagName="mark" />
+                            Instructor: <Highlight attribute="lecture.instructor" hit={this.props.hit} tagName="mark" />
+                            <br />Days and Times: <Highlight attribute="lecture.days" hit={this.props.hit} tagName="mark" /> <Highlight attribute="lecture.times" hit={this.props.hit} tagName="mark" />
+                            <br />Room: <Highlight attribute="lecture.room" hit={this.props.hit} tagName="mark" />
+                            <br />Meeting Dates: <Highlight attribute="lecture.meetingDates" hit={this.props.hit} tagName="mark" />
                         </p>
                     </UncontrolledCollapse>
                 </span>
@@ -113,7 +115,7 @@ class Search extends Component {
         super(props);
         this.state = {};
     }
-    render(){
+    render() {
         return (
             <div className="container">
                 <SearchBox />
@@ -131,14 +133,17 @@ class Search extends Component {
                     <CollapsibleHead>Status</CollapsibleHead>
                     <CollapsibleContent><RefinementList attribute="meta.status" /></CollapsibleContent>
 
-                    <CollapsibleHead>Days and Times</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="lecture.DaysTimes" /></CollapsibleContent>
+                    <CollapsibleHead>Days</CollapsibleHead>
+                    <CollapsibleContent><RefinementList attribute="lecture.days" /></CollapsibleContent>
+
+                    <CollapsibleHead>Meeting Dates</CollapsibleHead>
+                    <CollapsibleContent><RefinementList attribute="lecture.meetingDates" /></CollapsibleContent>
                 </CollapsibleComponent>
                 <div className="Filters">
                     <CurrentRefinements />
                 </div>
                 <button className="clear"><ClearRefinements /></button>
-                <Hits hitComponent={({ hit }) => (<Course hit = {hit} onClick={this.props.onClick} userID={this.props.userID} />)}  />
+                <Hits hitComponent={({ hit }) => (<Course hit={hit} onClick={this.props.onClick} userID={this.props.userID} />)} />
                 <Configure hitsPerPage={10} />
                 <div className="pages">
                     <Pagination showLast={true} />
@@ -149,21 +154,24 @@ class Search extends Component {
             </div>
         );
     }
-    
+
 }
 
 //Used for the search
+//Apparently Algolia does not like it when you try to search from a combination of two indices at the same time
+//https://stackoverflow.com/questions/32615483/compare-ranking-of-algolia-query-across-multiple-indices
+//https://github.com/algolia/instantsearch.js/issues/2129
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
-    render(){
-        return(
+    render() {
+        return (
             <InstantSearch
                 apiKey="e0f4e3542265d408d5be8de22d00a12e"
                 appId="Z4ZULV1BRS"
-                indexName="Slug Academic Organizer"
+                indexName="combined"
             >
                 <Search onClick={this.props.onClick} userID={this.props.userID} />
             </InstantSearch>
@@ -179,7 +187,7 @@ class SearchCourse extends Component {
     }
     render() {
         return (
-            <App onClick = {this.props.onSubmit} userID = {this.props.userID} />
+            <App onClick={this.props.onSubmit} userID={this.props.userID} />
         );
     }
 }

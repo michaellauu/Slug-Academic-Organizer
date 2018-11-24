@@ -30,7 +30,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md" role="navigation">
+        <Navbar color="faded" dark expand="md" role="navigation">
           <div className="home-link">
             <NavbarBrand tag={Link} to="/" className="mr-auto">
               Slug Organizer
@@ -57,6 +57,11 @@ export default class NavBar extends Component {
               <NavItem className="link-4">
                 <NavLink tag={Link} to="/gpa">
                   GPA Calculator
+                </NavLink>
+              </NavItem>
+              <NavItem className="link-7">
+                <NavLink tag={Link} to="/major">
+                  Major Requirements
                 </NavLink>
               </NavItem>
               <NavItem className="link-5">
