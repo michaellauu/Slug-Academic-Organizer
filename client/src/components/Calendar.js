@@ -118,7 +118,7 @@ export default class Calendar extends Component {
 		  maxTime={"23:00"}
           defaultDate={Date.now()}
           navLinks={true}
-          editable={true}
+          editable={false}
           eventLimit={true}
           events={this.state.events}
         />
