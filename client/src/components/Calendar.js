@@ -18,10 +18,12 @@ export default class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+	  mobileCheck: window.innerWidth < 768,
       events: [],
 	  isLoading: false,
 	  userID: ""
     };
+	
   }
     componentDidMount() {
 	//get userToken and return courses
@@ -67,6 +69,12 @@ export default class Calendar extends Component {
     return body;
   };
   
+  //checks screen height
+  mobileView() {
+	  if (this.state.mobileCheck) return "month,basicWeek,basicDay";
+	  else return "month,agendaWeek,agendaDay";
+  }
+  
    // Post call to the database to get the user classes (from Hannah's code)
   getCalendar = async userID => {
     const response = await fetch("/api/getCalendar", {
@@ -82,7 +90,7 @@ export default class Calendar extends Component {
     if (response.status !== 200) throw Error(body.message);
     return body;
   };
-
+  
   render() {
     return (
       <div id="calendar">
@@ -91,9 +99,9 @@ export default class Calendar extends Component {
           schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
           id="your-custom-ID"
           header={{
-            left: "prev,next today",
+            left: "prev,next,today",
             center: "title",
-            right: "month,agendaWeek,agendaDay",
+            right: this.mobileView()
           }}
 			//credits @slicedtoad and the community at stackoverflow.com for the filter portion of the code
 			eventRender = {function(event, element) {
