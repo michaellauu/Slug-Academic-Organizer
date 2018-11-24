@@ -30,7 +30,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md" role="navigation">
+        <Navbar color="faded" dark expand="md" role="navigation">
           <div className="home-link">
             <NavbarBrand tag={Link} to="/" className="mr-auto">
               Slug Organizer
