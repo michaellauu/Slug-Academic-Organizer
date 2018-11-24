@@ -1,8 +1,9 @@
 .content {
-  border-top: 2px solid black;
+  border-top: 2px solid rgb(255, 255, 255);
   background-color: transparent;
   /* background-color: #96b1c3; Grayish blue paragraph background */
   padding: 20px;
+  color: white;
 }
 
 .content h2 {
@@ -22,9 +23,12 @@
 .link-1,
 .link-2,
 .link-3,
-.link-4 {
+.link-4,
+.link-5,
+.link-6,
+.link-7 {
   display: inline-block;
-  color: #000;
+  color: white !important;
   text-decoration: none;
 }
 
@@ -129,6 +133,21 @@
 }
 
 .link-6:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+
+/* Calendar Link */
+.link-7::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s;
+}
+
+.link-7:hover::after {
   width: 100%;
   transition: width 0.3s;
 }
