@@ -1,0 +1,12 @@
+.tooltip-inner{
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #5BADC5;
+    text-align: left;
+}
+.tooltip.show{
+    opacity: 1;
+}
+.arrow{
+    opacity: 0;
+}

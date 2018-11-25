@@ -6,3 +6,19 @@ body {
 .main {
   margin-top: 3rem;
 }
+
+
+select {
+    color: white;
+    background-color: #707088;
+}
+
+
+button{
+  background-color: #5BADC5 !important;
+  transition: 0.2s;
+}
+
+Button:hover{
+  background-color:	#3A849D !important;
+}

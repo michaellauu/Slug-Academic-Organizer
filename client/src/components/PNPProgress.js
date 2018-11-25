@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Progress} from 'reactstrap';
+import {Progress, Button} from 'reactstrap';
 import { getFromStorage } from "./storage";
+import  "../styles/PNPProgress.css";
 
 class PNPProgress extends Component{
   constructor(props) {
@@ -114,7 +115,7 @@ class PNPProgress extends Component{
       <div>
         <div className="text-center">{this.state.percentage} of 25%</div>
         <Progress value={this.state.percentage} max="25"/>
-        <button onClick={this.calculatePNP}>Calculate</button>
+        <Button className="calculatePNPButton" onClick={this.calculatePNP}>Calculate</Button>
       </div>
     );
   };

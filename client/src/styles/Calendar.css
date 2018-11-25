@@ -6,7 +6,11 @@ h1 {
 
 .fc-event,
 .fc-event-dot {
-  background-color: palevioletred !important;
+  background-color: #5BADC5 !important;
+}
+
+#calendar button {
+  color: white;
 }
 
 #calendar {

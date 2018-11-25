@@ -1,3 +1,24 @@
 .completed{
     background-color: #707088;
+    transition: 0.3s;
+}
+hr{
+    margin: 0em;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.dcCapContainer{
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media screen
+and (max-width: 1024px) {
+    .dcCapContainer{
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: 1fr;
+}
 }

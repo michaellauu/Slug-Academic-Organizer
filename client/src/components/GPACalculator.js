@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/GPACalculator.css";
-import { Alert } from "reactstrap";
+import { Alert, Button } from "reactstrap";
 import { getFromStorage } from "./storage";
 
 class GPACalculator extends Component {
@@ -159,7 +159,7 @@ class GPACalculator extends Component {
           units = this.state.classes[this.state.year][this.state.quarter][i].units;
           grade = this.state.classes[this.state.year][this.state.quarter][i].grade;
           if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
-            total+=units;
+            total += units;
             achieved = achieved + gpaCredits[grade] * units;
           }
         }
@@ -194,7 +194,7 @@ class GPACalculator extends Component {
             <form id="gpaform" onSubmit={this.handleCalculate}>
               <div className="GPAInfo">
                 <div className="title">
-                  <b>GPA</b>
+                  <h4>GPA Calculator</h4>
                 </div>
                 <div className="gpatype">
                   <select
@@ -205,7 +205,6 @@ class GPACalculator extends Component {
                     <option value="0">Cumulative</option>
                     <option value="1">Quarterly</option>
                   </select>
-
                   <div className="quarter">
                     <select
                       value={this.state.quarter}
@@ -239,12 +238,13 @@ class GPACalculator extends Component {
                 </div>
               </div>
             </form>
-            <div>
-              <b>Type = {this.state.gpatype}</b>
-            </div>
-            <button onClick={this.changeGPA}>Calculate</button>
-            <div className="result">
-              <b>{this.state.gpa}</b>
+            <div className="resultContainer">
+              <div className="GPASubmitButton">
+                <Button onClick={this.changeGPA}>Calculate</Button>
+              </div>
+              <div className="result">
+                <h5>GPA: {this.state.gpa}</h5>
+              </div>
             </div>
             <div className="errors">
               {this.state.yearError.length !== 0 && (

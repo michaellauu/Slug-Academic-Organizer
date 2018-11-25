@@ -288,33 +288,35 @@ app.post("/api/getCalendar", (req, res) => {
       //parse data into readable for FullCalendar
       cal.forEach(function (c) {
 		//calendar date string
-		var dateString = c.lecture.meetingDates;
-		if(dateString == null) return; //without this it crashes because not all classes have dates
-		var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
-		//Meeting Days MWF
-		var daysString = c.lecture.days;
-		if(daysString == null) return;
-		var day = checkDays(daysString); // returns which weekdays class is held
-		var timeCut = c.lecture.times;
-		timeCut = timeCut.split("-", 2); //takes the time range and splits it
-		var timeCutA = timeCut[0]; //start time
-		var timeCutB = timeCut[1]; // end time
-		// converts first time into 24 hour format
-		if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
-		else timeCutA = convertPM(timeCutA);
-		//converts second time into 24 hour format
-		if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
-		else timeCutB = convertPM(timeCutB);
-        const newCal = {
-          title: c.courseTitle,
-		  dow: day,
-		  start: timeCutA,
-		  end: timeCutB,
-		  ranges: [{ start: dateCut[0], end: dateCut[1]}],
-		  description: c.lecture.room
-        };
-        //push data to events
-        events.push(newCal);
+		if(c.lecture.times !== "TBA"){
+			var dateString = c.lecture.meetingDates;
+			if(dateString == null) return; //without this it crashes because not all classes have dates
+			var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
+			//Meeting Days MWF
+			var daysString = c.lecture.days;
+			if(daysString == null) return;
+			var day = checkDays(daysString); // returns which weekdays class is held
+			var timeCut = c.lecture.times;
+			timeCut = timeCut.split("-", 2); //takes the time range and splits it
+			var timeCutA = timeCut[0]; //start time
+			var timeCutB = timeCut[1]; // end time
+			// converts first time into 24 hour format
+			if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
+			else timeCutA = convertPM(timeCutA);
+			//converts second time into 24 hour format
+			if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
+			else timeCutB = convertPM(timeCutB);
+			const newCal = {
+			title: c.courseTitle,
+			dow: day,
+			start: timeCutA,
+			end: timeCutB,
+			ranges: [{ start: dateCut[0], end: dateCut[1]}],
+			description: c.lecture.room
+			};
+			//push data to events
+			events.push(newCal);
+		}
       });
       //send events
       res.send(events);

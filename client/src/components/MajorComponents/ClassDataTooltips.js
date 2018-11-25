@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../styles/ClassDataTooltips.css';
 import { UncontrolledTooltip } from 'reactstrap';
 
 class ClassDataToolTips extends Component {
@@ -38,7 +39,7 @@ class ClassDataToolTips extends Component {
                 <span id={this.props.id}>
                     {this.state.text}
                 </span>
-                <UncontrolledTooltip placement="bottom" autohide={false} target={this.props.id}>
+                <UncontrolledTooltip className="tooltip" placement="bottom" autohide={false} target={this.props.id}>
                     {this.state.classData['courseTitle']} <br /> <br />
                     {this.state.classData['description']}
                 </UncontrolledTooltip>

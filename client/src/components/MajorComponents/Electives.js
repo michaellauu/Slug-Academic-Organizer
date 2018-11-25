@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Container } from "reactstrap";
+import '../../styles/Electives.css';
 import '../../styles/Major.css';
 import ClassDataTooltips from "./ClassDataTooltips";
 
@@ -78,7 +78,7 @@ export default class Electives extends Component {
 
         this.state = {
             classes: [],
-            cmpmData:{},
+            cmpmData: {},
             mathData: {},
             electives: [],
             additionalElectives: []
@@ -173,68 +173,65 @@ export default class Electives extends Component {
 
         if (response.status !== 200) throw Error(body.message);
 
-        console.log(body);
-
         return body;
     };
 
     render() {
         return (
-            <div className="electives">
-                <Container>
-                    <Row>
-                        <Col>
-                            <h3>Upper Division Electives</h3>
-                            <Container>
-                                <div className="cmpsElective">
-                                    <Row>
-                                        <h5>CMPS Electives:</h5>
-                                        CS upper div 190 and below or CMPS195 <br />
-                                        <Container>
-                                            <Row className={this.state.electives.length > 0 ? 'completed' : 'uncompleted'}>
-                                                1: {this.state.electives.length > 0 && <>{this.state.electives[0]}</>}
-                                            </Row>
-                                            <Row className={this.state.electives.length > 1 ? 'completed' : 'uncompleted'}>
-                                                2: {this.state.electives.length > 1 && <>{this.state.electives[1]}</>}
-                                            </Row>
-                                        </Container>
-                                    </Row>
-                                </div>
-                                <div className="electives">
-                                    <Row>
-                                        <h5>Additional Electives:</h5>
-                                        CS/CE upper div 190 and below, CMPS195, or a course from the math or CMPM electives list <br />
-                                        <Container>
-                                            <Row className={this.state.additionalElectives.length > 0 ? 'completed' : 'uncompleted'}>
-                                                1: {this.state.additionalElectives.length > 0 && <>{this.state.additionalElectives[0]}</>}
-                                            </Row>
-                                            <Row className={this.state.additionalElectives.length > 1 ? 'completed' : 'uncompleted'}>
-                                                2: {this.state.additionalElectives.length > 1 && <>{this.state.additionalElectives[1]}</>}
-                                            </Row>
-                                        </Container>
-                                    </Row>
-                                </div>
-                            </Container>
-                        </Col>
-                        <Col>
-                            <h5>Mathematics Electives</h5>
+            <div>
+                <h3>Upper Division Electives</h3>
+                <hr />
+                <div className="electives">
+                    <div className="cmpsElective">
+                        <b>CMPS Electives:</b> <br />
+                        CS upper div 190 and below or CMPS195 <br /><br />
+                        <hr />
+                        <div className="csElectiveContainer">
+                            <div className={this.state.electives.length > 0 ? 'elec completed' : 'elec uncompleted'}>
+                                {(this.state.electives.length > 0 && <>{this.state.electives[0]}</>) || <>1</>}
+                            </div>
+                            <div className={this.state.electives.length > 1 ? 'elec completed' : 'elec uncompleted'}>
+                                {(this.state.electives.length > 1 && <>{this.state.electives[1]}</>) || <>2</>}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="addElectives">
+                        <b>Additional Electives:</b> <br />
+                        CS/CE upper div 190 and below, CMPS195, or a course from the Math Elective Options list or CMPM Elective Options list
+                                        <hr />
+                        <div classname="addElectiveContainer">
+                            <div className={this.state.additionalElectives.length > 0 ? 'elec completed' : 'elec uncompleted'}>
+                                {(this.state.additionalElectives.length > 0 && <>{this.state.additionalElectives[0]}</>) || <>1</>}
+                            </div>
+                            <div className={this.state.additionalElectives.length > 1 ? 'elec completed' : 'elec uncompleted'}>
+                                {(this.state.additionalElectives.length > 1 && <>{this.state.additionalElectives[1]}</>) || <>2</>}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mathElec">
+                        <b>Mathematics Elective Options</b>
+                        <hr />
+                        <div className="mathElecList">
                             {Object.keys(mathElectives).map((course, i) => (
-                                <React.Fragment key={i}>
-                                    <ClassDataTooltips id={course} text={course} classData={this.state.mathData[course]} /><br key={i} />
-                                </React.Fragment>
+                                <div className={i/2 === Math.floor(i/2) ? 'mathElec1' : 'mathElec2'} key={i}>
+                                    &bull; <ClassDataTooltips id={course} text={course} classData={this.state.mathData[course]} /><br key={i} />
+                                </div>
                             ))}
-                        </Col>
-                        <Col>
-                            <h5>Computational Media Electives</h5>
+                        </div>
+                    </div>
+                    <div className="cmpmElec">
+                        <b>Computational Media Elective Options</b>
+                        <hr />
+                        <div className="cmpmElecList">
                             {Object.keys(cmpmElectives).map((course, i) => (
-                                <React.Fragment key={i}>
-                                    <ClassDataTooltips id={course} text={course} classData={this.state.cmpmData[course]} /><br key={i} /
-                                ></React.Fragment>
+                                <div className={i/2 === Math.floor(i/2) ? 'cmpmElec1' : 'cmpmElec2'} key={i}>
+                                    &bull; <ClassDataTooltips id={course} text={course} classData={this.state.cmpmData[course]} /><br key={i} />
+                                </div>
                             ))}
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
+                        </div>
+                    </div>
+                </div>
+            </div >
         );
     }
 }

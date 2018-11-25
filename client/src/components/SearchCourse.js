@@ -12,9 +12,8 @@ import {
     PoweredBy
 } from 'react-instantsearch-dom';
 import 'instantsearch.css/themes/reset.css';
-import './SearchCourse.css';
-import { Button, UncontrolledCollapse } from 'reactstrap';
-import { CollapsibleComponent, CollapsibleHead, CollapsibleContent } from 'react-collapsible-component'
+import '../styles/SearchCourse.css';
+import { Button, UncontrolledCollapse, TabContent, TabPane, Nav, NavItem, NavLink, } from 'reactstrap';
 
 /*
 *Used to display course information (course Title, description, instructor, days, times, room)
@@ -30,25 +29,27 @@ class Course extends Component {
     }
 
     submit() {
-        let quarter = 0, year = 2018;
-        console.log(this.props.hit);
-        this.submitClass({
-            class: this.props.hit.courseID,
-            userID: this.props.userID,
-            quarter: quarter,
-            year: year,
-            room: this.props.hit.lecture.room,
-            days: this.props.hit.lecture.days,
-            times: this.props.hit.lecture.times,
-            meetingDates: this.props.hit.lecture.meetingDates,
-            ge: this.props.hit.meta.general_education,
-            credits: this.props.hit.meta.credits,
-            instructor: this.props.hit.lecture.instructor,
-            courseTitle: this.props.hit.courseTitle
-        }) // Send all form data to server
-            .then(res => {
-                this.props.onClick(this.props.hit.courseID, res._id, quarter, year, 14); // Get classLogging to update
-            }).catch(err => console.log(err));
+        if(this.props.userID!==''){
+            let quarter = 0, year = 2018;
+            console.log(this.props.hit);
+            this.submitClass({
+                class: this.props.hit.courseID,
+                userID: this.props.userID,
+                quarter: quarter,
+                year: year,
+                room: this.props.hit.lecture.room,
+                days: this.props.hit.lecture.days,
+                times: this.props.hit.lecture.times,
+                meetingDates: this.props.hit.lecture.meetingDates,
+                ge: this.props.hit.meta.general_education,
+                credits: this.props.hit.meta.credits,
+                instructor: this.props.hit.lecture.instructor,
+                courseTitle: this.props.hit.courseTitle
+            }) // Send all form data to server
+                .then(res => {
+                    this.props.onClick(this.props.hit.courseID, res._id, quarter, year, 14); // Get classLogging to update
+                }).catch(err => console.log(err));
+        }
     }
 
     // Make post call to server to submit form data
@@ -82,22 +83,38 @@ class Course extends Component {
         return body;
     };
 
+    parseCourseTitle() {
+        let courseSplit = this.props.hit.courseTitle.split(" ");
+        return courseSplit[0]+" "+courseSplit[1]+" "+courseSplit[2]+" "+courseSplit[3];
+    }
+
     render() {
         return (
             <div style={{ padding: '10px' }}>
                 <span className="hits">
-                    <Button id={'id' + this.props.hit.objectID}>
-                        {<Highlight attribute="courseTitle" hit={this.props.hit} tagName="mark" />}
-                    </Button>
-                    <Button onClick={this.submit}>Add Class</Button>  {this.state.response}
+                    <div className="hitContainer">
+                        <div>
+                            <Button className="hitButton" id={'id' + this.props.hit.objectID}>
+                                {this.parseCourseTitle()}
+                            </Button>
+                        </div>
+                        {this.props.userID !== '' &&
+                            <div>
+                                <p align="right"><Button onClick={this.submit}>Add Class</Button></p>
+                            </div>
+                        }
+                    </div>
                     <UncontrolledCollapse toggler={'#id' + this.props.hit.objectID}>
-                        <p><Highlight attribute="description" hit={this.props.hit} tagName="mark" /></p>
-                        <p>
-                            Instructor: <Highlight attribute="lecture.instructor" hit={this.props.hit} tagName="mark" />
-                            <br />Days and Times: <Highlight attribute="lecture.days" hit={this.props.hit} tagName="mark" /> <Highlight attribute="lecture.times" hit={this.props.hit} tagName="mark" />
-                            <br />Room: <Highlight attribute="lecture.room" hit={this.props.hit} tagName="mark" />
-                            <br />Meeting Dates: <Highlight attribute="lecture.meetingDates" hit={this.props.hit} tagName="mark" />
-                        </p>
+                        <div className="hitResult">
+                            <p>{<Highlight attribute="courseTitle" hit={this.props.hit} tagName="mark" />}</p>
+                            <p><Highlight attribute="description" hit={this.props.hit} tagName="mark" /></p>
+                            <p>
+                                Instructor: <Highlight attribute="lecture.instructor" hit={this.props.hit} tagName="mark" />
+                                <br />Days and Times: <Highlight attribute="lecture.days" hit={this.props.hit} tagName="mark" /> <Highlight attribute="lecture.times" hit={this.props.hit} tagName="mark" />
+                                <br />Room: <Highlight attribute="lecture.room" hit={this.props.hit} tagName="mark" />
+                                <br />Meeting Dates: <Highlight attribute="lecture.meetingDates" hit={this.props.hit} tagName="mark" />
+                            </p>
+                        </div>
                     </UncontrolledCollapse>
                 </span>
             </div>
@@ -113,36 +130,74 @@ class Course extends Component {
 class Search extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            activeTab: '1'
+        };
+        this.toggle = this.toggle.bind(this);
     }
+
+    toggle(tab) {
+        if (this.state.activeTab !== tab) {
+            this.setState({
+                activeTab: tab
+            });
+        }
+    }
+
     render() {
         return (
             <div className="container">
-                <SearchBox />
-                <h3>Filters</h3>
-                <CollapsibleComponent>
-                    <CollapsibleHead>Career</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="meta.career" /></CollapsibleContent>
+                <SearchBox className="search"/>
+                <h4>Filters</h4>
+                <Nav tabs>
+                    <NavItem>
+                        <NavLink className="1" onClick={() => { this.toggle('1'); }}>
+                            Career
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="2" onClick={() => { this.toggle('2'); }}>
+                            Type
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="3" onClick={() => { this.toggle('3'); }}>
+                            Credits
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="4" onClick={() => { this.toggle('4'); }}>
+                            Status
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="5" onClick={() => { this.toggle('5'); }}>
+                            Days
+                        </NavLink>
+                    </NavItem>
 
-                    <CollapsibleHead>Type</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="meta.type" /></CollapsibleContent>
-
-                    <CollapsibleHead>Credits</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="meta.credits" /></CollapsibleContent>
-
-                    <CollapsibleHead>Status</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="meta.status" /></CollapsibleContent>
-
-                    <CollapsibleHead>Days</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="lecture.days" /></CollapsibleContent>
-
-                    <CollapsibleHead>Meeting Dates</CollapsibleHead>
-                    <CollapsibleContent><RefinementList attribute="lecture.meetingDates" /></CollapsibleContent>
-                </CollapsibleComponent>
+                </Nav>
+                <TabContent className="active" activeTab={this.state.activeTab}>
+                    <TabPane className="filterbox" tabId="1">
+                        <RefinementList attribute="meta.career" />
+                    </TabPane>
+                    <TabPane className="filterbox" tabId="2">
+                        <RefinementList attribute="meta.type" />
+                    </TabPane>
+                    <TabPane className="filterbox" tabId="3">
+                        <RefinementList attribute="meta.credits" />
+                    </TabPane>
+                    <TabPane className="filterbox" tabId="4">
+                        <RefinementList attribute="meta.status" />
+                    </TabPane>
+                    <TabPane className="filterbox" tabId="5">
+                        <RefinementList attribute="lecture.days" />
+                    </TabPane>
+                </TabContent>
                 <div className="Filters">
                     <CurrentRefinements />
                 </div>
-                <button className="clear"><ClearRefinements /></button>
+                <ClearRefinements />
                 <Hits hitComponent={({ hit }) => (<Course hit={hit} onClick={this.props.onClick} userID={this.props.userID} />)} />
                 <Configure hitsPerPage={10} />
                 <div className="pages">
