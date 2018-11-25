@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "../styles/ClassLogging.css";
-//import ClassInput from "./ClassInput";
 import { getFromStorage } from "./storage";
-import { Button, Table, UncontrolledCollapse } from "reactstrap";
+import { Button, UncontrolledCollapse } from "reactstrap";
 import SearchCourse from "./SearchCourse";
 
 class ClassLogging extends Component {
