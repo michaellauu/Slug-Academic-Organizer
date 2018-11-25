@@ -98,7 +98,7 @@ app.post("/api/majorClasses", (req, res) => {
 });
 
 // Gets course datas from requested classes
-app.post("/api/getMajorClassData", async (req, res) => {\
+app.post("/api/getMajorClassData", async (req, res) => {
 	const classes = Object.keys(req.body.classes);
 	let classDatas = {}, find = [];
 	for (let i = 0; i < classes.length; i++) {
