@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const axios = require('axios');
+const path = require('path');
 
 const app = express();
 
@@ -20,6 +20,7 @@ const calData = require("./server/models/calData");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Port
 const port = process.env.PORT || 5000;
@@ -34,9 +35,8 @@ mongoose
 // API routes
 require("./server/routes/api/signin.js")(app);
 
-// Base route that's still in progress ...
-app.get("/", (req, res) => {
-	res.send({ express: "Connected!" });
+app.get('/*', function (req, res) {
+	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
@@ -98,8 +98,7 @@ app.post("/api/majorClasses", (req, res) => {
 });
 
 // Gets course datas from requested classes
-app.post("/api/getMajorClassData", async (req, res) => {
-	console.log(req.body.classes);
+app.post("/api/getMajorClassData", async (req, res) => {\
 	const classes = Object.keys(req.body.classes);
 	let classDatas = {}, find = [];
 	for (let i = 0; i < classes.length; i++) {

@@ -51,6 +51,7 @@ class App extends Component {
               <Route path="/logging" component={ClassLogging} />
               <Route path="/pnp" component={PNPProgress} />
               <Route path="/gpa" component={GPACalculator} />
+              <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />
               <Route path="/major" component={Major} />
               <Route path="/calendar" component={Calendar} />
