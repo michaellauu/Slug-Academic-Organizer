@@ -76,7 +76,8 @@ button.ais-CurrentRefinements-delete{
 
 .filterbox,
 .hitResult {
-  padding: 4%;
+  margin-top: 30px;
+  padding: 20px;
   background-color: #707088;
   border-radius:10px;
 }
