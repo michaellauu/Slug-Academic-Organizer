@@ -58,10 +58,12 @@ and (max-width: 1024px) {
         justify-content: center;
     }
     .searchCol{
+        grid-row: 2;
         grid-column: auto;
     }
 
     .logCol{
+        grid-row: 1;
         grid-column: auto;
     }
 }

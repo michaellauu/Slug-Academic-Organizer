@@ -35,9 +35,10 @@ mongoose
 // API routes
 require("./server/routes/api/signin.js")(app);
 
+/* Uncomment this function for production
 app.get('/*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+}); */
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
 function sortByQuarter(userClasses){
@@ -179,7 +180,8 @@ app.post("/api/ge", (req, res) => {
 
 
 //ge get request
-app.get("/api/GERequirements", (req, res) => {
+app.post("/api/GERequirements", (req, res) => {
+	console.log("why");
 	GEData.find(function (err, ge) {
 		if (err) {
 			//error messages
@@ -203,27 +205,6 @@ app.get("/api/GERequirements", (req, res) => {
 		}
 	});
 });
-
-function parseYear(year) {
-	year = year.toString();
-	if (year.length === 4){
-		return year.slice(2);
-	}
-	return year;
-}
-
-function quarterNumberToString(quarter){
-	if(quarter === 0){
-		quarter = 'Fall';
-	}else if(quarter === 1){
-		quarter = 'Summer';
-	}else if(quarter === 2){
-		quarter = 'Spring';
-	}else if(quarter === 3){
-		quarter = 'Winter';
-	}
-	return quarter;
-}
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {

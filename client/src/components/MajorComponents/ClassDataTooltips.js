@@ -12,9 +12,7 @@ class ClassDataToolTips extends Component {
             id: 'placeholder',
             text: '',
             classData: {
-                courseTitle: '',
-                description: '',
-                prereqs: ''
+                courseTitle: ''
             }
 
         };
@@ -40,8 +38,7 @@ class ClassDataToolTips extends Component {
                     {this.state.text}
                 </span>
                 <UncontrolledTooltip className="tooltip" placement="bottom" autohide={false} target={this.props.id}>
-                    {this.state.classData['courseTitle']} <br /> <br />
-                    {this.state.classData['description']}
+                    {this.state.classData['courseTitle']}
                 </UncontrolledTooltip>
             </span>
         );

@@ -199,7 +199,7 @@ export default class Electives extends Component {
                         <b>Additional Electives:</b> <br />
                         CS/CE upper div 190 and below, CMPS195, or a course from the Math Elective Options list or CMPM Elective Options list
                                         <hr />
-                        <div classname="addElectiveContainer">
+                        <div className="addElectiveContainer">
                             <div className={this.state.additionalElectives.length > 0 ? 'elec completed' : 'elec uncompleted'}>
                                 {(this.state.additionalElectives.length > 0 && <>{this.state.additionalElectives[0]}</>) || <>1</>}
                             </div>

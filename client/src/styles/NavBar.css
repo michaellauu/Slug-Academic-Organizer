@@ -1,7 +1,6 @@
 .content {
   border-top: 2px solid rgb(255, 255, 255);
   background-color: transparent;
-  /* background-color: #96b1c3; Grayish blue paragraph background */
   padding: 20px;
 }
 
@@ -28,6 +27,12 @@
 .link-7 {
   display: inline-block;
   text-decoration: none;
+}
+
+.logo {
+  width: 50px;
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 /* Home Link */

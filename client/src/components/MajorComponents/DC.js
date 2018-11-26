@@ -81,7 +81,7 @@ export default class DC extends Component {
                         &bull; <ClassDataTooltips id='cmps180w' text='CMPS180W' classData={this.state.classData['CMPS180W']} />
                         {this.state.taken['CMPS180W'] && <b>X</b>} <br />
                     </div>
-                    <div classname="dc2">
+                    <div className="dc2">
                         &bull; <ClassDataTooltips id='cmps185' text='CMPS185' classData={this.state.classData['CMPS185']} />
                         {this.state.taken['CMPS185'] && <b>X</b>} <br />
                         &bull; <ClassDataTooltips id='cmps195' text='CMPS195' classData={this.state.classData['CMPS195']} />

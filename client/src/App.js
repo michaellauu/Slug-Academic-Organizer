@@ -4,7 +4,6 @@ import ClassLogging from "./components/ClassLogging";
 import GERequirements from "./components/GERequirements";
 import Calendar from "./components/Calendar";
 import NavBar from "./components/NavBar";
-import SearchCourse from "./components/SearchCourse";
 import SignIn from "./components/Home";
 import PNPProgress from "./components/PNPProgress";
 import GPACalculator from "./components/GPACalculator";
@@ -44,7 +43,6 @@ class App extends Component {
           <header>
             <NavBar />
           </header>
-          <br />
           <div className="content">
             <Switch>
               <Route exact path="/" component={SignIn} />
@@ -53,9 +51,7 @@ class App extends Component {
               <Route path="/gpa" component={GPACalculator} />
               <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />
-              <Route path="/major" component={Major} />
-              <Route path="/calendar" component={Calendar} />
-              <Route path="/search" component={SearchCourse} />
+              <Route path="/calendar" component={Calendar} />\
             </Switch>
           </div>
         </div>

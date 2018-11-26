@@ -34,21 +34,29 @@ class GERequirements extends Component {
               userID: json.userId,
               isLoading: false
             });
-            // Get the user classes from the database
-            this.makePost(json.userId)
+            if(json.userId!==''){
+              this.makePost(json.userId)
               .then(res => this.setState({ classes: res }))
               .catch(err => console.log(err));
+            }
           }
         });
     }
   }
 
   callApi = async () => {
-    const response = await fetch("/api/GERequirements");
+    const response = await fetch("/api/GERequirements",
+    {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-    console.log(body);
+
     return body;
   };
 
@@ -66,8 +74,6 @@ class GERequirements extends Component {
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-
-    console.log(body);
 
     return body;
   };
@@ -118,7 +124,7 @@ class GERequirements extends Component {
         <div className="grid-container">
           {this.state.ge.map((current, index) => {
             return (
-              <div className={index/2===Math.floor(index/2) ? 'a' : 'b'}>
+              <div key={index} className={index/2===Math.floor(index/2) ? 'a' : 'b'}>
                 <div className={this.completed(current.geID) ? 'entry completed' : 'entry uncompleted'} key={index}>
                   <div className="category">
                     <h5>{current.geID}-{current.desc}</h5>

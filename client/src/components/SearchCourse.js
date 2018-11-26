@@ -26,12 +26,26 @@ class Course extends Component {
             response: ''
         };
         this.submit = this.submit.bind(this);
+        this.quarterStringToNumber = this.quarterStringToNumber.bind(this);
+    }
+
+    quarterStringToNumber(quarter) {
+        if (quarter === 'Fall') {
+            quarter = 0;
+        } else if (quarter === 'Summer') {
+            quarter = 1;
+        } else if (quarter === 'Spring') {
+            quarter = 3;
+        } else if (quarter === 'Winter') {
+            quarter = 4;
+        }
+        return quarter;
     }
 
     submit() {
         if(this.props.userID!==''){
-            let quarter = 0, year = 2018;
-            console.log(this.props.hit);
+            let quarterYear =  this.props.hit.quarter.split(" ");
+            let quarter = this.quarterStringToNumber(quarterYear[0]), year = quarterYear[1];
             this.submitClass({
                 class: this.props.hit.courseID,
                 userID: this.props.userID,
@@ -95,7 +109,7 @@ class Course extends Component {
                     <div className="hitContainer">
                         <div>
                             <Button className="hitButton" id={'id' + this.props.hit.objectID}>
-                                {this.parseCourseTitle()}
+                                {this.parseCourseTitle()} {this.props.hit.quarter}
                             </Button>
                         </div>
                         {this.props.userID !== '' &&
@@ -175,7 +189,16 @@ class Search extends Component {
                             Days
                         </NavLink>
                     </NavItem>
-
+                    <NavItem>
+                        <NavLink className="7" onClick={() => { this.toggle('7'); }}>
+                            Times
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="6" onClick={() => { this.toggle('6'); }}>
+                            Quarter
+                        </NavLink>
+                    </NavItem>
                 </Nav>
                 <TabContent className="active" activeTab={this.state.activeTab}>
                     <TabPane className="filterbox" tabId="1">
@@ -192,6 +215,12 @@ class Search extends Component {
                     </TabPane>
                     <TabPane className="filterbox" tabId="5">
                         <RefinementList attribute="lecture.days" />
+                    </TabPane>
+                    <TabPane className="filterbox" tabId="7">
+                        <RefinementList attribute="lecture.times" />
+                    </TabPane>
+                    <TabPane className="filterbox" tabId="6">
+                        <RefinementList attribute="quarter" />
                     </TabPane>
                 </TabContent>
                 <div className="Filters">
