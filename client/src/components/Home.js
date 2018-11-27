@@ -23,12 +23,14 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      signInValid: true,
-      signUpValid: true,
       isLoading: true,
       token: "",
       signUpError: "",
       signInError: "",
+      signUpErrorUser: "",
+      signUpErrorPass: "",
+      signInErrorUser: "",
+      signInErrorPass: "",
       signInUsername: "",
       signInPassword: "",
       signUpUsername: "",
@@ -134,16 +136,26 @@ class Home extends Component {
         if (json.success) {
           this.setState({
             signUpError: json.message,
+            signUpErrorUser: json.messageUser,
+            signUpErrorPass: json.messagePass,
             isLoading: false,
-            signUpValid: true,
+            signInUsername: "",
+            signInPassword: "",
             signUpUsername: "",
-            signUpPassword: ""
+            signUpPassword: "",
+            signInErrorUser: null,
+            signInErrorPass: null
           });
         } else {
           this.setState({
             signUpError: json.message,
-            isLoading: false,
-            signUpValid: false,
+            signUpErrorUser: json.messageUser,
+            signUpErrorPass: json.messagePass,
+            signInUsername: "",
+            signInPassword: "",
+            signInErrorUser: null,
+            signInErrorPass: null,
+            isLoading: false
           });
         }
       });
@@ -175,17 +187,28 @@ class Home extends Component {
           setInStorage("the_main_app", { token: json.token });
           this.setState({
             signInError: json.message,
+            signInErrorUser: json.messageUser,
+            signInErrorPass: json.messagePass,
+            signUpErrorUser: null,
+            signUpErrorPass: null,
             isLoading: false,
             signInValid: true,
             signInPassword: "",
             signInUsername: "",
+            signUpPassword: "",
+            signUpUsername: "",
             token: json.token
           });
         } else {
           this.setState({
             signInError: json.message,
-            isLoading: false,
-            signInValid: false,
+            signInErrorUser: json.messageUser,
+            signInErrorPass: json.messagePass,
+            signUpPassword: "",
+            signUpUsername: "",
+            signUpErrorUser: null,
+            signUpErrorPass: null,
+            isLoading: false
           });
         }
       });
@@ -225,11 +248,15 @@ class Home extends Component {
       isLoading,
       token,
       signInError,
+      signUpError,
+      signInErrorUser,
+      signInErrorPass,
       signInUsername,
       signInPassword,
       signUpUsername,
       signUpPassword,
-      signUpError,
+      signUpErrorUser,
+      signUpErrorPass
     } = this.state;
 
     if (isLoading) {
@@ -256,32 +283,32 @@ class Home extends Component {
                 <Form>
                   <Col>
                     <FormGroup>
-                      <Label><b>Username</b></Label>
+                      <Label className="username"><b>Username</b></Label>
                       <Input
                         type="username"
                         placeholder="Username"
                         value={signInUsername}
                         onChange={this.onTextboxChangeSignInUsername}
-                        invalid={this.state.signInValid === false}
+                        invalid={this.state.signInErrorUser != null || this.state.signInError != null}
                       />
-                      <FormFeedback signInValid>
-                        {signInError}
+                      <FormFeedback invalid>
+                        {signInErrorUser}
                       </FormFeedback>
                     </FormGroup>
                   </Col>
                   <Col>
                     <FormGroup>
-                      <Label><b>Password</b></Label>
+                      <Label className="password"><b>Password</b></Label>
                       <Input
                         type="password"
                         placeholder="Password"
                         value={signInPassword}
                         onChange={this.onTextboxChangeSignInPassword}
-                        invalid={this.state.signInValid === false}
+                        invalid={this.state.signInErrorPass != null || this.state.signInError != null}
                       />
                     </FormGroup>
-                    <FormFeedback signInValid>
-                      {signInError}
+                    <FormFeedback invalid>
+                      {signInErrorPass}
                     </FormFeedback>
                   </Col>
                   <div className="submit-button">
@@ -298,36 +325,35 @@ class Home extends Component {
                       <Button color="primary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>Sign Up</Button>
                     </ButtonGroup>
                   </div>
-                  {signUpError ? <p>{signUpError}</p> : null}
                   <h2 className="sign-up">Sign Up</h2>
                   <Form>
                     <Col>
                       <FormGroup>
-                        <Label><b>Username</b></Label>
+                        <Label className="username"><b>Username</b></Label>
                         <Input
                           type="username"
                           placeholder="Username"
                           value={signUpUsername}
                           onChange={this.onTextboxChangeSignUpUsername}
-                          invalid={this.state.signUpValid === false}
+                          invalid={this.state.signUpErrorUser != null || this.state.signUpError != null}
                         />
-                        <FormFeedback signUpValid>
-                          {signUpError}
+                        <FormFeedback invalid>
+                          {signUpErrorUser}
                         </FormFeedback>
                       </FormGroup>
                     </Col>
                     <Col>
                       <FormGroup>
-                        <Label><b>Password</b></Label>
+                        <Label className="password"><b>Password</b></Label>
                         <Input
                           type="password"
                           placeholder="Password"
                           value={signUpPassword}
                           onChange={this.onTextboxChangeSignUpPassword}
-                          invalid={this.state.signUpValid === false}
+                          invalid={this.state.signUpErrorPass != null || this.state.signUpError != null}
                         />
-                        <FormFeedback signUpValid>
-                          {signUpError}
+                        <FormFeedback invalid>
+                          {signUpErrorPass}
                         </FormFeedback>
                       </FormGroup>
                     </Col>

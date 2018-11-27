@@ -10,6 +10,9 @@ class GERequirements extends Component {
       userID: '',
       classes: {}
     };
+
+    this.completed = this.completed.bind(this);
+    this.completedClass = this.completedClass.bind(this);
   }
 
   //makes get request to server after the component mounts
@@ -69,36 +72,69 @@ class GERequirements extends Component {
     return body;
   };
 
+  completed = (ge) => {
+    if (ge !== 'PR' && ge !== 'PE') {
+      return (ge in this.state.classes);
+    } else {
+      if (ge === 'PR') {
+        return ('PR-S' in this.state.classes || 'PR-E' in this.state.classes || 'PR-C' in this.state.classes);
+      } else if (ge === 'PE') {
+        return ('PE-E' in this.state.classes || 'PE-H' in this.state.classes || 'PE-T' in this.state.classes);
+      }
+    }
+  }
+
+  completedClass = (ge) => {
+    if (this.completed(ge)) {
+      if (ge !== 'PR' && ge !== 'PE') {
+        return (this.state.classes[ge]);
+      } else {
+        if (ge === 'PR') {
+          if ('PR-S' in this.state.classes) {
+            return this.state.classes['PR-S'];
+          } else if ('PR-E' in this.state.classes) {
+            return this.state.classes['PR-E'];
+          } else {
+            return this.state.classes['PR-C'];
+          }
+        } else if (ge === 'PE') {
+          if ('PE-E' in this.state.classes) {
+            return this.state.classes['PE-E'];
+          } else if ('PE-H' in this.state.classes) {
+            return this.state.classes['PE-H'];
+          } else {
+            return this.state.classes['PE-T'];
+          }
+        }
+      }
+    }
+    return "Not Satisfied";
+  }
+
   render() {
     return (
       <div>
         <h3 className="pageTitle">GE Requirements</h3>
-        <table>
-          {this.state.ge.map(function(current, index) {
+        <div className="grid-container">
+          {this.state.ge.map((current, index) => {
             return (
-                <tbody className="GETable" key={index}>
-                  <tr>
-                    <td className="category">
-                      <b>GE ID:</b>
-                    </td>
-                    <td className="GE">{current.geID}</td>
-                  </tr>
-                  <tr>
-                    <td className="category">
-                      <b>Description:</b>
-                    </td>
-                    <td className="GE">{current.desc}</td>
-                  </tr>
-                  <tr>
-                    <td className="category">
-                      <b>Credits:</b>
-                    </td>
-                    <td className="GE">{current.credits}</td>
-                  </tr>
-                </tbody>
+              <div className={index/2===Math.floor(index/2) ? 'a' : 'b'}>
+                <div className={this.completed(current.geID) ? 'entry completed' : 'entry uncompleted'} key={index}>
+                  <div className="category">
+                    <h5>{current.geID}-{current.desc}</h5>
+                  </div>
+                  <div className="category">
+                    <b>Credits: </b> {current.credits}
+                  </div>
+                  <div className="category">
+                    <b>Satisfied By: </b>
+                    {this.completedClass(current.geID)}
+                  </div>
+                </div>
+              </div>
             );
           })}
-        </table>
+        </div>
       </div>
     );
   }

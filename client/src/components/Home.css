@@ -17,11 +17,21 @@
 /*sign in title*/
 .sign-in{
     text-align: center;
+    color: black;
 }
 
 /*sign up title*/
 .sign-up{
     text-align: center;
+    color: black;
+}
+
+.username{
+    color: black;
+}
+
+.password{
+    color: black;
 }
 
 .submit-button{

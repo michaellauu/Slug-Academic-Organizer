@@ -12,16 +12,22 @@ module.exports = app => {
     const { password } = body;
     let { username } = body;
 
+	if (!password && !username) {
+      return res.send({
+        success: false,
+        message: "Error: Username and Password cannot be blank."
+      });
+    }
     if ((username.length < 3) || !checkUser(username)) {
       return res.send({
         success: false,
-        message: "Error: Username must contain at least 3 letters"
+        messageUser: "Error: Username must contain at least 3 letters"
       });
     }
     if ((password.length < 5) || !checkCase(password)) {
       return res.send({
         success: false,
-        message: "Error: Password must contain an uppercase and numeric and be longer than 5 characters"
+        messagePass: "Error: Password must contain an uppercase and numeric and be longer than 5 characters"
       });
     }
 	// function to check password criteria
@@ -96,19 +102,27 @@ module.exports = app => {
     const { password } = body;
     let { username } = body;
 
-    if (!username) {
+	
+	if (!password && !username) {
       return res.send({
         success: false,
-        message: "Error: Email cannot be blank."
-      });
-    }
-    if (!password) {
-      return res.send({
-        success: false,
-        message: "Error: Password cannot be blank."
+        message: "Error: Please fill out both fields.",
       });
     }
 
+    if (!username && password) {
+      return res.send({
+        success: false,
+        messageUser: "Error: Username cannot be blank."
+      });
+    }
+    if (!password && username) {
+      return res.send({
+        success: false,
+        messagePass: "Error: Password cannot be blank."
+      });
+    }
+	
     username = username.toLowerCase();
     username = username.trim();
 
@@ -127,7 +141,7 @@ module.exports = app => {
         if (users.length != 1) {
           return res.send({
             success: false,
-            message: "Error: Invalid"
+            messageUser: "Error: Invalid Username"
           });
         }
 
@@ -135,7 +149,7 @@ module.exports = app => {
         if (!user.validPassword(password)) {
           return res.send({
             success: false,
-            message: "Error: Invalid"
+            messagePass: "Error: Invalid Password"
           });
         }
 
