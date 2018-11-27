@@ -16,7 +16,7 @@ import {
 import "whatwg-fetch";
 
 import { getFromStorage, setInStorage } from "./storage";
-import './Home.css';
+import '../styles/Home.css';
 
 const signIn = 1;
 const signUp = 2;
@@ -26,7 +26,6 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      rstate: signIn,
       isLoading: true,
       token: "",
       signUpError: "",
@@ -243,7 +242,6 @@ class Home extends Component {
     const {
       isLoading,
       token,
-      signInError,
       signUpError,
       signInErrorUser,
       signInErrorPass,
@@ -265,12 +263,12 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <>
+        <div className="signInContainer">
           {(this.state.rSelected === 1 &&
             <div className="signInForm">
               <Container className="signIn">
-                <div className="text-right">
-                  <ButtonGroup className="signInButtons">
+              <div className="signInButtons">
+                  <ButtonGroup>
                     <Button color="primary" onClick={() => this.onRadioBtnClick(signIn)} active={this.state.rSelected === signIn}>Sign In</Button>
                     <Button color="primary" onClick={() => this.onRadioBtnClick(signUp)} active={this.state.rSelected === signUp}>Sign Up</Button>
                   </ButtonGroup>
@@ -315,7 +313,7 @@ class Home extends Component {
             </div>) || (
               <div className="signUpForm">
                 <Container className="signUp">
-                  <div className="text-right">
+                <div className="signInButtons">
                     <ButtonGroup>
                       <Button color="primary" onClick={() => this.onRadioBtnClick(signIn)} active={this.state.rSelected === signIn}>Sign In</Button>
                       <Button color="primary" onClick={() => this.onRadioBtnClick(signUp)} active={this.state.rSelected === signUp}>Sign Up</Button>
@@ -334,7 +332,7 @@ class Home extends Component {
                           invalid={this.state.signUpErrorUser != null || this.state.signUpError != null}
                         />
                         <FormFeedback invalid>
-                          {signUpErrorUser}
+                          {signUpErrorUser}{signUpError}
                         </FormFeedback>
                       </FormGroup>
                     </Col>
@@ -361,7 +359,7 @@ class Home extends Component {
               </div>
             )
           }
-        </>
+        </div>
       );
     }
 
