@@ -135,9 +135,6 @@ class Home extends Component {
         console.log("json", json);
         if (json.success) {
           this.setState({
-            signUpError: json.message,
-            signUpErrorUser: json.messageUser,
-            signUpErrorPass: json.messagePass,
             isLoading: false,
             signInUsername: "",
             signInPassword: "",
@@ -186,13 +183,9 @@ class Home extends Component {
         if (json.success) {
           setInStorage("the_main_app", { token: json.token });
           this.setState({
-            signInError: json.message,
-            signInErrorUser: json.messageUser,
-            signInErrorPass: json.messagePass,
             signUpErrorUser: null,
             signUpErrorPass: null,
             isLoading: false,
-            signInValid: true,
             signInPassword: "",
             signInUsername: "",
             signUpPassword: "",
@@ -306,10 +299,10 @@ class Home extends Component {
                         onChange={this.onTextboxChangeSignInPassword}
                         invalid={this.state.signInErrorPass != null || this.state.signInError != null}
                       />
+                      <FormFeedback invalid>
+                        {signInErrorPass}
+                      </FormFeedback>
                     </FormGroup>
-                    <FormFeedback invalid>
-                      {signInErrorPass}
-                    </FormFeedback>
                   </Col>
                   <div className="submit-button">
                     <Button onClick={this.onSignIn}>Sign In</Button>
