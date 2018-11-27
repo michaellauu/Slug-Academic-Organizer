@@ -50,14 +50,9 @@ export default class NavBar extends Component {
                   Class Logging
                 </NavLink>
               </NavItem>
-              <NavItem className="link-3">
-                <NavLink tag={Link} to="/pnp">
-                  Pass/No Pass
-                </NavLink>
-              </NavItem>
               <NavItem className="link-4">
-                <NavLink tag={Link} to="/gpa">
-                  GPA Calculator
+                <NavLink tag={Link} to="/grades">
+                  Grades
                 </NavLink>
               </NavItem>
               <NavItem className="link-5">

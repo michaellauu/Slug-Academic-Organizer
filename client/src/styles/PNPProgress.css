@@ -3,7 +3,15 @@
 }
 
 .progress-bar {
-    background-color: #5BADC5;
+    background-color: #3A849D;
+}
+
+.pnpContainer {
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	background: #5BADC5;
+	border-radius: 20px;
 }
 
 .pnpResult {
