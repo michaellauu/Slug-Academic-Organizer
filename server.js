@@ -270,11 +270,11 @@ app.post("/api/getCalendar", (req, res) => {
 		//calendar date string
 		if(c.lecture.times !== "TBA"){
 			var dateString = c.lecture.meetingDates;
-			if(dateString == null) return; //without this it crashes because not all classes have dates
+			if(dateString == null || dateString === "N/A") return; //without this it crashes because not all classes have dates
 			var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
 			//Meeting Days MWF
 			var daysString = c.lecture.days;
-			if(daysString == null) return;
+			if(daysString == null || daysString === "Cancelled") return;
 			var day = checkDays(daysString); // returns which weekdays class is held
 			var timeCut = c.lecture.times;
 			timeCut = timeCut.split("-", 2); //takes the time range and splits it

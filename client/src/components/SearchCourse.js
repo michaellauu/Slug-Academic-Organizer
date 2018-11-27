@@ -180,11 +180,6 @@ class Search extends Component {
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="4" onClick={() => { this.toggle('4'); }}>
-                            Status
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
                         <NavLink className="5" onClick={() => { this.toggle('5'); }}>
                             Days
                         </NavLink>
@@ -209,9 +204,6 @@ class Search extends Component {
                     </TabPane>
                     <TabPane className="filterbox" tabId="3">
                         <RefinementList attribute="meta.credits" />
-                    </TabPane>
-                    <TabPane className="filterbox" tabId="4">
-                        <RefinementList attribute="meta.status" />
                     </TabPane>
                     <TabPane className="filterbox" tabId="5">
                         <RefinementList attribute="lecture.days" />
