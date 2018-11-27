@@ -41,18 +41,22 @@ app.get('/*', function (req, res) {
 }); */
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
-function sortByQuarter(userClasses){
+function sortByQuarter(userClasses) {
 	var sorted = {};
 	for (i = 0; i < userClasses.length; i++) {
 		if (!(userClasses[i].year in sorted)) { // If not in dictionary
 			sorted[userClasses[i].year] = [[], [], [], []];
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
-          		units: userClasses[i].units, _id: userClasses[i]._id});
-		}else{
+				{
+					courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+					units: userClasses[i].units, _id: userClasses[i]._id
+				});
+		} else {
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
-          		units: userClasses[i].units, _id: userClasses[i]._id});
+				{
+					courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+					units: userClasses[i].units, _id: userClasses[i]._id
+				});
 		}
 	}
 	return sorted;
@@ -66,12 +70,14 @@ app.post("/api/userClasses", (req, res) => {
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
 		if (err) {
 			console.log(err);
-			return res.status(500).send({message: 'Failed to load user classes'});
-		}else{
-			classes.forEach(function(userClass){
-				const newClass = {courseID: userClass.courseID, year: userClass.year,
+			return res.status(500).send({ message: 'Failed to load user classes' });
+		} else {
+			classes.forEach(function (userClass) {
+				const newClass = {
+					courseID: userClass.courseID, year: userClass.year,
 					quarter: userClass.quarter, grade: userClass.grade, units: userClass.units,
-          _id: userClass._id};
+					_id: userClass._id
+				};
 
 				userClasses.push(newClass);
 			});
@@ -133,7 +139,7 @@ app.post("/api/geClasses", (req, res) => {
 			return res.status(500).send({ message: 'Failed to load user classes' });
 		} else {
 			classes.forEach(function (userClass) {
-				if(!(userClass.ge in ges) && userClass.ge !== ''){
+				if (!(userClass.ge in ges) && userClass.ge !== '') {
 					//console.log(userClass.ge);
 					ges[userClass.ge] = userClass.courseID;
 				}
@@ -166,16 +172,16 @@ app.post("/api", (req, res) => {
 
 //ge post request
 app.post("/api/ge", (req, res) => {
-  for (let i = 0; i < geSchedule.length; i++) {
-    // Create new model that'll hold schedule data
-    const geData = new GEData({
-      geID: geSchedule[i].geID,
-      desc: geSchedule[i].desc,
-      credits: parseInt(geSchedule[i].credits),
-    });
-    geData.save().then(console.log(`Saving ${i} documents ...`));
-  }
-  res.send("GE Done!");
+	for (let i = 0; i < geSchedule.length; i++) {
+		// Create new model that'll hold schedule data
+		const geData = new GEData({
+			geID: geSchedule[i].geID,
+			desc: geSchedule[i].desc,
+			credits: parseInt(geSchedule[i].credits),
+		});
+		geData.save().then(console.log(`Saving ${i} documents ...`));
+	}
+	res.send("GE Done!");
 });
 
 
@@ -217,7 +223,7 @@ app.post("/api/submitClass", (req, res) => {
 		instructor: req.body.instructor,
 	};
 	const credits = req.body.credits[0];
-  	const classData = new ClassData({
+	const classData = new ClassData({
 		courseID: req.body.class,
 		userToken: req.body.userID,
 		quarter: req.body.quarter,
@@ -227,7 +233,7 @@ app.post("/api/submitClass", (req, res) => {
 		units: credits,
 		courseTitle: req.body.courseTitle
 	});
-	classData.save(function(err, newClass){
+	classData.save(function (err, newClass) {
 		res.send({ express: "done", _id: newClass._id });
 	});
 });
@@ -246,7 +252,7 @@ app.post("/api/deleteClass", (req, res) => {
 
 app.post("/api/editGrade", (req, res) => {
 	console.log("here");
-	ClassData.findByIdAndUpdate(req.body._id, { $set: { grade: req.body.grade } }, function(err, classes){
+	ClassData.findByIdAndUpdate(req.body._id, { $set: { grade: req.body.grade } }, function (err, classes) {
 		if (err) {
 			console.log(err);
 			return res.status(500).send({ message: 'Failed to load user classes' });
@@ -258,52 +264,52 @@ app.post("/api/editGrade", (req, res) => {
 
 //based off Chtzou's GE
 app.post("/api/getCalendar", (req, res) => {
-  calData.find({'userToken': req.body.userID}, function (err, cal) {
-    if (err) {
-      //error messages
-      console.log("Can't get class data");
-      return res.status(500).send({ Error: "Can't get class data" });
-    } else {
-      events = [];
-      //parse data into readable for FullCalendar
-      cal.forEach(function (c) {
-		//calendar date string
-		if(c.lecture.times !== "TBA"){
-			var dateString = c.lecture.meetingDates;
-			if(dateString == null || dateString === "N/A") return; //without this it crashes because not all classes have dates
-			var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
-			//Meeting Days MWF
-			var daysString = c.lecture.days;
-			if(daysString == null || daysString === "Cancelled") return;
-			var day = checkDays(daysString); // returns which weekdays class is held
-			var timeCut = c.lecture.times;
-			timeCut = timeCut.split("-", 2); //takes the time range and splits it
-			var timeCutA = timeCut[0]; //start time
-			var timeCutB = timeCut[1]; // end time
-			// converts first time into 24 hour format
-			if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
-			else timeCutA = convertPM(timeCutA);
-			//converts second time into 24 hour format
-			if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
-			else timeCutB = convertPM(timeCutB);
-			const newCal = {
-			title: c.courseTitle,
-			dow: day,
-			start: timeCutA,
-			end: timeCutB,
-			ranges: [{ start: dateCut[0], end: dateCut[1]}],
-			description: c.lecture.room
-			};
-			//push data to events
-			events.push(newCal);
+	calData.find({ 'userToken': req.body.userID }, function (err, cal) {
+		if (err) {
+			//error messages
+			console.log("Can't get class data");
+			return res.status(500).send({ Error: "Can't get class data" });
+		} else {
+			events = [];
+			//parse data into readable for FullCalendar
+			cal.forEach(function (c) {
+				//calendar date string
+				if (c.lecture.times !== "TBA") {
+					var dateString = c.lecture.meetingDates;
+					if (dateString == null || dateString === "N/A") return; //without this it crashes because not all classes have dates
+					var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
+					//Meeting Days MWF
+					var daysString = c.lecture.days;
+					if (daysString == null || daysString === "Cancelled") return;
+					var day = checkDays(daysString); // returns which weekdays class is held
+					var timeCut = c.lecture.times;
+					timeCut = timeCut.split("-", 2); //takes the time range and splits it
+					var timeCutA = timeCut[0]; //start time
+					var timeCutB = timeCut[1]; // end time
+					// converts first time into 24 hour format
+					if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
+					else timeCutA = convertPM(timeCutA);
+					//converts second time into 24 hour format
+					if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
+					else timeCutB = convertPM(timeCutB);
+					const newCal = {
+						title: c.courseTitle,
+						dow: day,
+						start: timeCutA,
+						end: timeCutB,
+						ranges: [{ start: dateCut[0], end: dateCut[1] }],
+						description: c.lecture.room
+					};
+					//push data to events
+					events.push(newCal);
+				}
+			});
+			//send events
+			res.send(events);
+			//logging
+			//console.log(events);
 		}
-      });
-      //send events
-      res.send(events);
-	  //logging
-	  //console.log(events);
-    }
-  });
+	});
 });
 // trims AM
 function convertAM(timeAM) {
@@ -322,30 +328,30 @@ function convertPM(timePM) {
 }
 //converts written weekdays into a numerical array of the weekdays
 function checkDays(daysInput) {
-	if(daysInput == "MWF") {
-		return '[1,3,5]';		
-		}
-	if(daysInput == "MW") {
-		return '[1,3]';		
-		}
-	if(daysInput == "TuTh") {
-		return '[2,4]';		
-		}
-	if(daysInput == "Tu") {
-		return '[2]';		
-		}
-	if(daysInput == "Th") {
-		return '[4]';		
-		}
-	if(daysInput == "M") {
-		return '[1]';		
-		}
-	if(daysInput == "W") {
-		return '[3]';		
-		}
-	if(daysInput == "F") {
-		return '[5]';		
-		}
+	if (daysInput == "MWF") {
+		return '[1,3,5]';
+	}
+	if (daysInput == "MW") {
+		return '[1,3]';
+	}
+	if (daysInput == "TuTh") {
+		return '[2,4]';
+	}
+	if (daysInput == "Tu") {
+		return '[2]';
+	}
+	if (daysInput == "Th") {
+		return '[4]';
+	}
+	if (daysInput == "M") {
+		return '[1]';
+	}
+	if (daysInput == "W") {
+		return '[3]';
+	}
+	if (daysInput == "F") {
+		return '[5]';
+	}
 }
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

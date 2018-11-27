@@ -9,6 +9,10 @@ h1 {
   background-color: #5BADC5 !important;
 }
 
+.fc-state-highlight {
+  background-color: #707088 !important;
+}
+
 #calendar button {
   color: white;
 }
