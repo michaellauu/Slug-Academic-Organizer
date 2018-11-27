@@ -222,7 +222,8 @@ app.post("/api/submitClass", (req, res) => {
 		meetingDates: req.body.meetingDates,
 		instructor: req.body.instructor,
 	};
-	const credits = req.body.credits[0];
+	let split = req.body.credits.split(" ");
+	const credits = split[0];
 	const classData = new ClassData({
 		courseID: req.body.class,
 		userToken: req.body.userID,
