@@ -13,8 +13,12 @@ class Home extends Component {
     this.state = {
       isLoading: true,
       token: "",
-      signUpError: "",
-      signInError: "",
+	  signUpError: "",
+	  signInError: "",
+      signUpErrorUser: "",
+	  signUpErrorPass: "",
+	  signInErrorUser: "",
+      signInErrorPass: "",
       signInUsername: "",
       signInPassword: "",
       signUpUsername: "",
@@ -113,14 +117,26 @@ class Home extends Component {
         console.log("json", json);
         if (json.success) {
           this.setState({
-            signUpError: json.message,
+			signUpError: json.message,
+            signUpErrorUser: json.messageUser,
+			signUpErrorPass: json.messagePass,
             isLoading: false,
+			signInUsername: "",
+            signInPassword: "",
             signUpUsername: "",
-            signUpPassword: ""
+            signUpPassword: "",
+			signInErrorUser: null,
+			signInErrorPass: null
           });
         } else {
           this.setState({
-            signUpError: json.message,
+			signUpError: json.message,
+            signUpErrorUser: json.messageUser,
+			signUpErrorPass: json.messagePass,
+			signInUsername: "",
+            signInPassword: "",
+			signInErrorUser: null,
+			signInErrorPass: null,
             isLoading: false
           });
         }
@@ -152,15 +168,27 @@ class Home extends Component {
         if (json.success) {
           setInStorage("the_main_app", { token: json.token });
           this.setState({
-            signInError: json.message,
+			signInError: json.message,
+            signInErrorUser: json.messageUser,
+			signInErrorPass: json.messagePass,
+			signUpErrorUser: null,
+			signUpErrorPass: null,
             isLoading: false,
             signInPassword: "",
             signInUsername: "",
+			signUpPassword: "",
+            signUpUsername: "",
             token: json.token
           });
         } else {
           this.setState({
-            signInError: json.message,
+			signInError: json.message,
+            signInErrorUser: json.messageUser,
+			signInErrorPass: json.messagePass,
+			signUpPassword: "",
+            signUpUsername: "",
+			signUpErrorUser: null,
+			signUpErrorPass: null,
             isLoading: false
           });
         }
@@ -200,12 +228,16 @@ class Home extends Component {
     const {
       isLoading,
       token,
-      signInError,
+	  signInError,
+	  signUpError,
+      signInErrorUser,
+	  signInErrorPass,
       signInUsername,
       signInPassword,
       signUpUsername,
       signUpPassword,
-      signUpError
+      signUpErrorUser,
+	  signUpErrorPass
     } = this.state;
 
     if (isLoading) {
@@ -220,8 +252,9 @@ class Home extends Component {
       return (
         <div>
           <div>
-            {signInError ? <p>{signInError}</p> : null}
             <p>Sign In</p>
+			{signInError ? <p>{signInError}</p> : null}
+            {signInErrorUser ? <p>{signInErrorUser}</p> : null}
             <input
               type="username"
               placeholder="Username"
@@ -229,6 +262,7 @@ class Home extends Component {
               onChange={this.onTextboxChangeSignInUsername}
             />
             <br />
+			{signInErrorPass ? <p>{signInErrorPass}</p> : null}
             <input
               type="password"
               placeholder="Password"
@@ -241,8 +275,9 @@ class Home extends Component {
           <br />
           <br />
           <div>
-            {signUpError ? <p>{signUpError}</p> : null}
             <p>Sign Up</p>
+			{signUpError ? <p>{signUpError}</p> : null}
+            {signUpErrorUser ? <p>{signUpErrorUser}</p> : null}
             <input
               type="username"
               placeholder="Username"
@@ -250,6 +285,7 @@ class Home extends Component {
               onChange={this.onTextboxChangeSignUpUsername}
             />
             <br />
+			{signUpErrorPass ? <p>{signUpErrorPass}</p> : null}
             <input
               type="password"
               placeholder="Password"
