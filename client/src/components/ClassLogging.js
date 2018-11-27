@@ -228,10 +228,10 @@ class ClassLogging extends Component {
                           return (
                             <div key={quarter}>
                               <div className="quarter" key={quarter}>
-                                {quarter === 0 && this.state.classes[year][quarter].length !== 0 && (<td><b>Fall</b></td>)}
-                                {quarter === 1 && this.state.classes[year][quarter].length !== 0 && (<td><b>Summer</b></td>)}
-                                {quarter === 2 && this.state.classes[year][quarter].length !== 0 && (<td><b>Spring</b></td>)}
-                                {quarter === 3 && this.state.classes[year][quarter].length !== 0 && (<td><b>Winter</b></td>)}
+                                {quarter === 0 && this.state.classes[year][quarter].length !== 0 && (<div align="center"><b>Fall</b></div>)}
+                                {quarter === 1 && this.state.classes[year][quarter].length !== 0 && (<div align="center"><b>Summer</b></div>)}
+                                {quarter === 2 && this.state.classes[year][quarter].length !== 0 && (<div align="center"><b>Spring</b></div>)}
+                                {quarter === 3 && this.state.classes[year][quarter].length !== 0 && (<div align="center"><b>Winter</b></div>)}
                               </div>
                               <div className={this.state.classes[year][quarter].length!==0 ? 'quarterClassContainer' : 'empty'}>
                                 {this.state.classes[year][quarter].map(

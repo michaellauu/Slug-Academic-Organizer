@@ -113,9 +113,13 @@ class PNPProgress extends Component{
   render() {
     return (
       <div>
-        <div className="text-center"><b>{this.state.percentage}% of 25%</b></div>
         <Progress value={this.state.percentage} max="25"/>
-        <Button className="calculatePNPButton" onClick={this.calculatePNP}>Calculate</Button>
+        <div className="resultContainer">
+          <div>
+            <Button className="calculatePNPButton" onClick={this.calculatePNP}>Calculate</Button>
+          </div>
+          <div className="result" align="center"><b>{this.state.percentage}% of 25%</b></div>
+        </div>
       </div>
     );
   };

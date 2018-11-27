@@ -1,7 +1,14 @@
 .calculatePNPButton {
-    margin-top: 10px;
+    margin: 10px;
 }
 
 .progress-bar {
     background-color: #5BADC5;
+}
+
+.pnpResult {
+    margin-bottom: 10px;
+    padding: 10px;
+	border-radius: 15px;
+	background-color: #707088; 
 }

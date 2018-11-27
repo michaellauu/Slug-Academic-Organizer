@@ -231,7 +231,7 @@ class Search extends Component {
                 <Configure hitsPerPage={10} />
                 <div className="pages">
                     <Pagination showLast={true} />
-                </div>
+                </div> 
                 <div className="poweredBy">
                     <PoweredBy />
                 </div>
@@ -250,6 +250,7 @@ class App extends Component {
         super(props);
         this.state = {};
     }
+
     render() {
         return (
             <InstantSearch
