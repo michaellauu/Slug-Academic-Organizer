@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Progress, Button} from 'reactstrap';
 import { getFromStorage } from "./storage";
 import  "../styles/PNPProgress.css";
+import { W, uncompleted, P, NP} from  "./gradeConstants";
 
 class PNPProgress extends Component{
   constructor(props) {
@@ -93,13 +94,13 @@ class PNPProgress extends Component{
     for(let year = 0; year < yearKeys.length; year++){
 
       for(let quarter = 0; quarter < 4; quarter++){
-        let currentQuarter = this.state.classes[yearKeys][quarter];
-        for(let i = 0; i < currentQuarter.length; i++){
-          let currentClass = currentQuarter[i];
-          if(currentClass.grade !== 13 && currentClass.grade !== 14  && currentClass.grade !== 16){
+        let currentQuarter = this.state.classes[yearKeys[year]][quarter];
+        for(let classI = 0; classI < currentQuarter.length; classI++){
+          let currentClass = currentQuarter[classI];
+          if(currentClass.grade !== W && currentClass.grade !== uncompleted  && currentClass.grade !== NP){
             total+=currentClass.units;
           }
-          if(currentClass.grade === 15){
+          if(currentClass.grade === P){
             pnp+=currentClass.units;
           }
         }

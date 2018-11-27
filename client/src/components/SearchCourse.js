@@ -14,6 +14,7 @@ import {
 import 'instantsearch.css/themes/reset.css';
 import '../styles/SearchCourse.css';
 import { Button, UncontrolledCollapse, TabContent, TabPane, Nav, NavItem, NavLink, } from 'reactstrap';
+import * as Quarters from './quarterConstants';
 
 /*
 *Used to display course information (course Title, description, instructor, days, times, room)
@@ -29,15 +30,16 @@ class Course extends Component {
         this.quarterStringToNumber = this.quarterStringToNumber.bind(this);
     }
 
+    // Convert the quarter name to a number to store in the database
     quarterStringToNumber(quarter) {
         if (quarter === 'Fall') {
-            quarter = 0;
+            quarter = Quarters.Fall;
         } else if (quarter === 'Summer') {
-            quarter = 1;
+            quarter = Quarters.Summer;
         } else if (quarter === 'Spring') {
-            quarter = 3;
+            quarter = Quarters.Spring
         } else if (quarter === 'Winter') {
-            quarter = 4;
+            quarter = Quarters.Winter;
         }
         return quarter;
     }
@@ -46,6 +48,7 @@ class Course extends Component {
         if(this.props.userID!==''){
             let quarterYear =  this.props.hit.quarter.split(" ");
             let quarter = this.quarterStringToNumber(quarterYear[0]), year = quarterYear[1];
+            // Send all the class data to the server to store in the database
             this.submitClass({
                 class: this.props.hit.courseID,
                 userID: this.props.userID,
@@ -59,14 +62,14 @@ class Course extends Component {
                 credits: this.props.hit.meta.credits,
                 instructor: this.props.hit.lecture.instructor,
                 courseTitle: this.props.hit.courseTitle
-            }) // Send all form data to server
+            }) 
                 .then(res => {
-                    this.props.onClick(this.props.hit.courseID, res._id, quarter, year, 14); // Get classLogging to update
+                    this.props.onClick(this.props.hit.courseID, res._id, quarter, year, 14); // Get classLogging to add the new class to the page
                 }).catch(err => console.log(err));
         }
     }
 
-    // Make post call to server to submit form data
+    // Make post call to server to submit class data
     submitClass = async data => {
         const response = await fetch("/api/submitClass", {
             method: "POST",
@@ -97,6 +100,7 @@ class Course extends Component {
         return body;
     };
 
+    // Parses the course title to be in the format CMPS 101 - 01
     parseCourseTitle() {
         let courseSplit = this.props.hit.courseTitle.split(" ");
         return courseSplit[0]+" "+courseSplit[1]+" "+courseSplit[2]+" "+courseSplit[3];

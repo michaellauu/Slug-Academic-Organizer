@@ -2,16 +2,21 @@ import React, { Component } from "react";
 import "../styles/GPACalculator.css";
 import { Alert, Button } from "reactstrap";
 import { getFromStorage } from "./storage";
+import * as Grades from "./gradeConstants"
+import * as Quarters from "./quarterConstants";
+
+const cumulative = 0;
+const quarterly  = 0;
 
 class GPACalculator extends Component {
   constructor(props) {
     super(props);
     this.state = {
       response: "", // Server response
-      quarter: 0, // 0: fall, 3: winter, 2: spring, 1: summer
+      quarter: Quarters.Fall,
       year: 2018,
       gpa: "0.0",
-      gpatype: 0, // 0: cumulative, 1: quarterly
+      gpatype: cumulative, // 0: cumulative, 1: quarterly
       yearError: "",
       isLoading: false,
       userID: "",
@@ -102,74 +107,49 @@ class GPACalculator extends Component {
 
   //GPA is updated
   changeGPA(event) {
-    var newGPA = 0.0;
+    let newGPA = 0.0;
+    let total = 0;
+    let achieved = 0;
+    let gpaCredits = [4.0, 4.0, 3.7, 3.3, 3.0, 2.7, 2.3, 2.0, 1.7, 1.3, 1.0, 0.7, 0.0];
 
-    var gpaCredits = [];
-    gpaCredits[0] = 4.0;
-    gpaCredits[1] = 4.0;
-    gpaCredits[2] = 3.7;
-    gpaCredits[3] = 3.3;
-    gpaCredits[4] = 3.0;
-    gpaCredits[5] = 2.7;
-    gpaCredits[6] = 2.3;
-    gpaCredits[7] = 2.0;
-    gpaCredits[8] = 1.7;
-    gpaCredits[9] = 1.3;
-    gpaCredits[10] = 1.0;
-    gpaCredits[11] = 0.7;
-    gpaCredits[12] = 0.0;
+    if (this.state.gpatype === cumulative) {
+      let yearKeys = Object.keys(this.state.classes);
+      for (let year = 0; year < yearKeys.length; year++) {
+        for (let quarter = 0; quarter < 4; quarter++) {
+          let currentQuarter = this.state.classes[yearKeys[year]][quarter];
 
-    var i = 0;
-    var total = 0;
-    var achieved = 0;
-    var units = 0;
-    var grade = 0;
+          for (let classI = 0; classI < currentQuarter.length; classI++) {
+            let userClass = currentQuarter[classI];
+            let units = userClass.units;
+            let grade = userClass.grade;
 
-    if (this.state.gpatype === 0) {
-      var yearKeys = Object.keys(this.state.classes);
-      var k = 0;
-      total = 0;
-      achieved = 0;
-
-      for (k = 0; k < yearKeys.length; k++) {
-        var j = 0;
-
-        for (j = 0; j < 4; j++) {
-          for (i = 0; i < this.state.classes[yearKeys[k]][j].length; i++) {
-            units = this.state.classes[yearKeys[k]][j][i].units;
-            grade = this.state.classes[yearKeys[k]][j][i].grade;
-            if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
+            if (grade !== Grades.W && grade !== Grades.uncompleted && grade !== Grades.NP && grade !== Grades.P) {
               total += units;
               achieved = achieved + gpaCredits[grade] * units;
             }
           }
-          newGPA = achieved / total;
         }
       }
-    } else if (this.state.gpatype === 1) {
-      total = 0;
-      achieved = 0;
+      if(total !== 0){
+        newGPA = achieved / total;
+      }
+    } else if (this.state.gpatype === quarterly) {
       if (this.state.year in this.state.classes) {
-        console.log(this.state.classes[this.state.year][this.state.quarter]);
-        for (
-          i = 0;
-          i < this.state.classes[this.state.year][this.state.quarter].length;
-          i++
-        ) {
-          units = this.state.classes[this.state.year][this.state.quarter][i].units;
-          grade = this.state.classes[this.state.year][this.state.quarter][i].grade;
-          if (grade !== 13 && grade !== 14 && grade !== 15 && grade !== 16) {
+        let quarter = this.state.classes[this.state.year][this.state.quarter];
+
+        for (let classI = 0; classI < quarter.length; classI++) {
+          let userClass = quarter[classI];
+          let units = userClass.units;
+          let grade = userClass.grade;
+
+          if (grade !== Grades.NP && grade !== Grades.W && grade !== Grades.P && grade !== Grades.uncompleted) {
             total += units;
             achieved = achieved + gpaCredits[grade] * units;
           }
         }
-        if (achieved === 0 && total === 0) {
-          newGPA = 0.0;
-        } else {
+        if (total !== 0) {
           newGPA = achieved / total;
         }
-      } else {
-        newGPA = 0.0;
       }
     }
 

@@ -130,7 +130,7 @@ app.post("/api/getMajorClassData", async (req, res) => {
 	});
 });
 
-// Gets user claasses for the ge requirments page
+// Gets user classes for the ge requirements page
 app.post("/api/geClasses", (req, res) => {
 	let ges = {};
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
@@ -150,7 +150,7 @@ app.post("/api/geClasses", (req, res) => {
 	}).then(console.log(`Getting user classes ...`));
 });
 
-// Push all JSON data into database
+// Push all JSON class data into database
 app.post("/api", (req, res) => {
 	for (let i = 0; i < schedule.length; i++) {
 		// Create new model that'll hold schedule data
@@ -185,7 +185,7 @@ app.post("/api/ge", (req, res) => {
 });
 
 
-//ge get request
+// GE get request to get all the GE requirements from the database
 app.post("/api/GERequirements", (req, res) => {
 	console.log("why");
 	GEData.find(function (err, ge) {
