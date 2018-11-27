@@ -1,16 +1,30 @@
 // Code is used from @Keithweaver_ on medium.com
 
 import React, { Component } from "react";
+import {
+  Container,
+  Col,
+  Form,
+  FormGroup,
+  FormFeedback,
+  Label,
+  Input,
+  Button,
+  ButtonGroup
+} from 'reactstrap';
 // import { Link } from 'react-router-dom';
 import "whatwg-fetch";
 
 import { getFromStorage, setInStorage } from "./storage";
+import './Home.css';
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      signInValid: true,
+      signUpValid: true,
       isLoading: true,
       token: "",
       signUpError: "",
@@ -20,6 +34,8 @@ class Home extends Component {
       signUpUsername: "",
       signUpPassword: ""
     };
+
+    this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
     this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(
       this
@@ -50,7 +66,7 @@ class Home extends Component {
           if (json.success) {
             this.setState({
               token,
-              isLoading: false
+              isLoading: false,
             });
           } else {
             this.setState({
@@ -63,6 +79,10 @@ class Home extends Component {
         isLoading: false
       });
     }
+  }
+
+  onRadioBtnClick(rSelected) {
+    this.setState({ rSelected });
   }
 
   onTextboxChangeSignInUsername(event) {
@@ -115,13 +135,15 @@ class Home extends Component {
           this.setState({
             signUpError: json.message,
             isLoading: false,
+            signUpValid: true,
             signUpUsername: "",
             signUpPassword: ""
           });
         } else {
           this.setState({
             signUpError: json.message,
-            isLoading: false
+            isLoading: false,
+            signUpValid: false,
           });
         }
       });
@@ -154,6 +176,7 @@ class Home extends Component {
           this.setState({
             signInError: json.message,
             isLoading: false,
+            signInValid: true,
             signInPassword: "",
             signInUsername: "",
             token: json.token
@@ -161,7 +184,8 @@ class Home extends Component {
         } else {
           this.setState({
             signInError: json.message,
-            isLoading: false
+            isLoading: false,
+            signInValid: false,
           });
         }
       });
@@ -205,7 +229,7 @@ class Home extends Component {
       signInPassword,
       signUpUsername,
       signUpPassword,
-      signUpError
+      signUpError,
     } = this.state;
 
     if (isLoading) {
@@ -218,48 +242,104 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <div>
-          <div>
-            {signInError ? <p>{signInError}</p> : null}
-            <p>Sign In</p>
-            <input
-              type="username"
-              placeholder="Username"
-              value={signInUsername}
-              onChange={this.onTextboxChangeSignInUsername}
-            />
-            <br />
-            <input
-              type="password"
-              placeholder="Password"
-              value={signInPassword}
-              onChange={this.onTextboxChangeSignInPassword}
-            />
-            <br />
-            <button onClick={this.onSignIn}>Sign In</button>
-          </div>
-          <br />
-          <br />
-          <div>
-            {signUpError ? <p>{signUpError}</p> : null}
-            <p>Sign Up</p>
-            <input
-              type="username"
-              placeholder="Username"
-              value={signUpUsername}
-              onChange={this.onTextboxChangeSignUpUsername}
-            />
-            <br />
-            <input
-              type="password"
-              placeholder="Password"
-              value={signUpPassword}
-              onChange={this.onTextboxChangeSignUpPassword}
-            />
-            <br />
-            <button onClick={this.onSignUp}>Sign Up</button>
-          </div>
-        </div>
+        <>
+          {(this.state.rSelected === 1 &&
+            <div className="signInForm">
+              <Container className="signIn">
+                <div className="text-right">
+                  <ButtonGroup className="signInButtons">
+                    <Button color="primary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>Sign In</Button>
+                    <Button color="primary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>Sign Up</Button>
+                  </ButtonGroup>
+                </div>
+                <h2 className="sign-in">Sign In</h2>
+                <Form>
+                  <Col>
+                    <FormGroup>
+                      <Label><b>Username</b></Label>
+                      <Input
+                        type="username"
+                        placeholder="Username"
+                        value={signInUsername}
+                        onChange={this.onTextboxChangeSignInUsername}
+                        invalid={this.state.signInValid === false}
+                      />
+                      <FormFeedback signInValid>
+                        {signInError}
+                      </FormFeedback>
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label><b>Password</b></Label>
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        value={signInPassword}
+                        onChange={this.onTextboxChangeSignInPassword}
+                        invalid={this.state.signInValid === false}
+                      />
+                    </FormGroup>
+                    <FormFeedback signInValid>
+                      {signInError}
+                    </FormFeedback>
+                  </Col>
+                  <div className="submit-button">
+                    <Button onClick={this.onSignIn}>Sign In</Button>
+                  </div>
+                </Form>
+              </Container>
+            </div>) || (
+              <div className="signUpForm">
+                <Container className="signUp">
+                  <div className="text-right">
+                    <ButtonGroup>
+                      <Button color="primary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>Sign In</Button>
+                      <Button color="primary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>Sign Up</Button>
+                    </ButtonGroup>
+                  </div>
+                  {signUpError ? <p>{signUpError}</p> : null}
+                  <h2 className="sign-up">Sign Up</h2>
+                  <Form>
+                    <Col>
+                      <FormGroup>
+                        <Label><b>Username</b></Label>
+                        <Input
+                          type="username"
+                          placeholder="Username"
+                          value={signUpUsername}
+                          onChange={this.onTextboxChangeSignUpUsername}
+                          invalid={this.state.signUpValid === false}
+                        />
+                        <FormFeedback signUpValid>
+                          {signUpError}
+                        </FormFeedback>
+                      </FormGroup>
+                    </Col>
+                    <Col>
+                      <FormGroup>
+                        <Label><b>Password</b></Label>
+                        <Input
+                          type="password"
+                          placeholder="Password"
+                          value={signUpPassword}
+                          onChange={this.onTextboxChangeSignUpPassword}
+                          invalid={this.state.signUpValid === false}
+                        />
+                        <FormFeedback signUpValid>
+                          {signUpError}
+                        </FormFeedback>
+                      </FormGroup>
+                    </Col>
+                    <div className="submit-button">
+                      <Button onClick={this.onSignUp}>Sign Up</Button>
+                    </div>
+                  </Form>
+                </Container>
+              </div>
+            )
+          }
+        </>
       );
     }
 
