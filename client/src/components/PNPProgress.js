@@ -89,25 +89,23 @@ class PNPProgress extends Component{
     var pnp = 0;
     var total = 0;
     var yearKeys = Object.keys(this.state.classes);
-    var k = 0;
 
-    for(k = 0; k < yearKeys.length; k++){
-      var j = 0;
+    for(let year = 0; year < yearKeys.length; year++){
 
-      for(j = 0; j < 4; j++){
-        var i = 0;
-
-        for(i = 0; i < this.state.classes[yearKeys[k]][j].length; i++){
-          if(this.state.classes[yearKeys[k]][j][i].grade !== 13 && this.state.classes[yearKeys[k]][j][i].grade !== 14){
-            total++;
+      for(let quarter = 0; quarter < 4; quarter++){
+        let currentQuarter = this.state.classes[yearKeys][quarter];
+        for(let i = 0; i < currentQuarter.length; i++){
+          let currentClass = currentQuarter[i];
+          if(currentClass.grade !== 13 && currentClass.grade !== 14  && currentClass.grade !== 16){
+            total+=currentClass.units;
           }
-          if(this.state.classes[yearKeys[k]][j][i].grade === 15 || this.state.classes[yearKeys[k]][j][i].grade === 16){
-            pnp++;
+          if(currentClass.grade === 15){
+            pnp+=currentClass.units;
           }
         }
       }
     }
-    this.setState({ percentage: ((pnp/total) * 100).toFixed(1) });
+    this.setState({ percentage: ((pnp/total) * 100).toFixed(2) });
   }
 
   render() {
