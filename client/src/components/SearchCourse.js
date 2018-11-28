@@ -107,6 +107,7 @@ class Course extends Component {
     }
 
     render() {
+        console.log(this.props.hit);
         return (
             <div style={{ padding: '10px' }}>
                 <span className="hits">
@@ -184,6 +185,11 @@ class Search extends Component {
                         </NavLink>
                     </NavItem>
                     <NavItem>
+                        <NavLink className="4" onClick={() => { this.toggle('4'); }}>
+                            GE
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
                         <NavLink className="5" onClick={() => { this.toggle('5'); }}>
                             Days
                         </NavLink>
@@ -208,6 +214,9 @@ class Search extends Component {
                     </TabPane>
                     <TabPane id="filterbox" tabId="3">
                         <RefinementList attribute="meta.credits" />
+                    </TabPane>
+                    <TabPane id="filterbox" tabId="4">
+                        <RefinementList attribute="meta.general_education" />
                     </TabPane>
                     <TabPane id="filterbox" tabId="5">
                         <RefinementList attribute="lecture.days" />

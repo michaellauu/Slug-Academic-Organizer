@@ -141,7 +141,8 @@ export default class LowerDiv extends Component {
                                 </div>
                                 <div className="or1">or</div>
                                 <div className="cs5j">
-                                    <div className={this.state.taken['CMPS5J'] ? 'cs5j completed' : 'cs5j uncompleted'}>
+                                    <div className={this.state.taken['CMPS5J'] || this.regularIntroTrackCompleted() ||
+                                        this.introProgrammingCompleted() ? 'cs5j completed' : 'cs5j uncompleted'}>
                                         <ClassDataTooltips id='cmps5j' text='CMPS5J' classData={this.state.classData['CMPS5J']} />
                                         {this.state.taken['CMPS5J'] && <b>X</b>}
                                     </div>
@@ -158,7 +159,8 @@ export default class LowerDiv extends Component {
                                 </div>
                             </div>
                             <hr />
-                            <div className={this.state.taken['CMPS12B'] && this.state.taken['CMPS12M'] ? 'cmps12b completed' : 'cmps12b uncompleted'}>
+                            <div className={(this.state.taken['CMPS12B'] && this.state.taken['CMPS12M']) ||
+                                this.introProgrammingCompleted() ? 'cmps12b completed' : 'cmps12b uncompleted'}>
                                 <ClassDataTooltips id='cmps12b' text='CMPS12B' classData={this.state.classData['CMPS12B']} />
                                 {this.state.taken['CMPS12B'] && this.state.taken['CMPS12M'] && <b>X</b>}
                             </div>

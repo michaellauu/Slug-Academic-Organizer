@@ -18,7 +18,16 @@ h1 {
 }
 
 #calendar {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 100%;
+  max-height: 100%;
   margin: 0 auto;
+}
+
+@media screen
+and (max-width: 1024px) {
+  #calendar {
+    max-width: 100%;
+    max-height: 300%;
+    height: 300%;
+  }
 }

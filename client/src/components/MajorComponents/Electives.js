@@ -114,7 +114,7 @@ export default class Electives extends Component {
                 additionalElectives.push(courseID);
                 additional++;
             } else if (courseID in cmpmElectives && additional < 2) {
-                electives.push(courseID);
+                additionalElectives.push(courseID);
                 additional++;
             } else if (courseID in specialClassesOrLabs) {
                 if (!specialClassesOrLabs[courseID]) {
@@ -177,6 +177,7 @@ export default class Electives extends Component {
     };
 
     render() {
+        console.log(this.state.classes);
         return (
             <div>
                 <h3>Upper Division Electives</h3>
