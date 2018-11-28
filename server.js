@@ -39,7 +39,7 @@ require("./server/routes/api/signin.js")(app);
 /* Uncomment this function for production
 app.get('/*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-}); */
+});*/
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
 function sortByQuarter(userClasses) {
