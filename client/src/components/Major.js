@@ -42,10 +42,12 @@ export default class Major extends Component {
               userID: json.userId,
               isLoading: false
             });
-            // Get the user classes from the database
-            this.makePost(json.userId)
-              .then(res => this.setState({ classes: res }))
-              .catch(err => console.log(err));
+            if(json.userID!==""){
+              // Get the user classes from the database
+              this.makePost(json.userId)
+                .then(res => this.setState({ classes: res }))
+                .catch(err => console.log(err));
+            }
           }
         });
     }
@@ -66,8 +68,6 @@ export default class Major extends Component {
 
     if (response.status !== 200) throw Error(body.message);
 
-    //console.log(body);
-
     return body;
   };
 
@@ -77,8 +77,14 @@ export default class Major extends Component {
         <LowerDiv classes={this.state.classes} /> <br />
         <UpperDiv classes={this.state.classes} /> <br />
         <Electives classes={this.state.classes} /> <br />
-        <Capstone classes={this.state.classes} /> <br />
-        <DC classes={this.state.classes} />
+        <div className="dcCapContainer">
+          <div className="capComponent">
+            <Capstone classes={this.state.classes} />
+          </div>
+          <div className="dcComponent">
+            <DC classes={this.state.classes} />
+          </div>
+        </div>
       </div>
     );
   }

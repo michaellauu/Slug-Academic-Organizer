@@ -36,6 +36,7 @@
     "cheerio": "^1.0.0-rc.2",
     "connect-history-api-fallback": "^1.5.0",
     "cors": "^2.8.4",
+    "event-stream": "3.3.4",
     "express": "^4.16.4",
     "instantsearch.css": "^7.1.0",
     "lodash": "^4.17.11",

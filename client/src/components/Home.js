@@ -16,7 +16,10 @@ import {
 import "whatwg-fetch";
 
 import { getFromStorage, setInStorage } from "./storage";
-import './Home.css';
+import '../styles/Home.css';
+
+const signIn = 1;
+const signUp = 2;
 
 class Home extends Component {
   constructor(props) {
@@ -40,8 +43,7 @@ class Home extends Component {
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
     this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(
-      this
-    );
+      this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(
       this
     );
@@ -240,7 +242,6 @@ class Home extends Component {
     const {
       isLoading,
       token,
-      signInError,
       signUpError,
       signInErrorUser,
       signInErrorPass,
@@ -262,14 +263,14 @@ class Home extends Component {
 
     if (!token) {
       return (
-        <>
+        <div className="signInContainer">
           {(this.state.rSelected === 1 &&
             <div className="signInForm">
               <Container className="signIn">
-                <div className="text-right">
-                  <ButtonGroup className="signInButtons">
-                    <Button color="primary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>Sign In</Button>
-                    <Button color="primary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>Sign Up</Button>
+              <div className="signInButtons">
+                  <ButtonGroup>
+                    <Button color="primary" onClick={() => this.onRadioBtnClick(signIn)} active={this.state.rSelected === signIn}>Sign In</Button>
+                    <Button color="primary" onClick={() => this.onRadioBtnClick(signUp)} active={this.state.rSelected === signUp}>Sign Up</Button>
                   </ButtonGroup>
                 </div>
                 <h2 className="sign-in">Sign In</h2>
@@ -312,10 +313,10 @@ class Home extends Component {
             </div>) || (
               <div className="signUpForm">
                 <Container className="signUp">
-                  <div className="text-right">
+                <div className="signInButtons">
                     <ButtonGroup>
-                      <Button color="primary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 1}>Sign In</Button>
-                      <Button color="primary" onClick={() => this.onRadioBtnClick(2)} active={this.state.rSelected === 2}>Sign Up</Button>
+                      <Button color="primary" onClick={() => this.onRadioBtnClick(signIn)} active={this.state.rSelected === signIn}>Sign In</Button>
+                      <Button color="primary" onClick={() => this.onRadioBtnClick(signUp)} active={this.state.rSelected === signUp}>Sign Up</Button>
                     </ButtonGroup>
                   </div>
                   <h2 className="sign-up">Sign Up</h2>
@@ -331,7 +332,7 @@ class Home extends Component {
                           invalid={this.state.signUpErrorUser != null || this.state.signUpError != null}
                         />
                         <FormFeedback invalid>
-                          {signUpErrorUser}
+                          {signUpErrorUser}{signUpError}
                         </FormFeedback>
                       </FormGroup>
                     </Col>
@@ -358,14 +359,14 @@ class Home extends Component {
               </div>
             )
           }
-        </>
+        </div>
       );
     }
 
     return (
       <div>
         <p>Account</p>
-        <button onClick={this.logout}>Logout</button>
+        <Button onClick={this.logout}>Logout</Button>
       </div>
     );
   }

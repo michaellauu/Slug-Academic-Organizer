@@ -31,6 +31,7 @@ export default class NavBar extends Component {
     return (
       <div>
         <Navbar color="faded" dark expand="md" role="navigation">
+          <img className="logo" src={require("../images/slug.svg")} />
           <div className="home-link">
             <NavbarBrand tag={Link} to="/" className="mr-auto">
               Slug Organizer
@@ -49,27 +50,22 @@ export default class NavBar extends Component {
                   Class Logging
                 </NavLink>
               </NavItem>
-              <NavItem className="link-3">
-                <NavLink tag={Link} to="/pnp">
-                  Pass/No Pass
-                </NavLink>
-              </NavItem>
               <NavItem className="link-4">
-                <NavLink tag={Link} to="/gpa">
-                  GPA Calculator
+                <NavLink tag={Link} to="/grades">
+                  Grades
                 </NavLink>
               </NavItem>
-              <NavItem className="link-7">
+              <NavItem className="link-5">
                 <NavLink tag={Link} to="/major">
                   Major Requirements
                 </NavLink>
               </NavItem>
-              <NavItem className="link-5">
+              <NavItem className="link-6">
                 <NavLink tag={Link} to="/ge">
                   GE Requirements
                 </NavLink>
               </NavItem>
-              <NavItem className="link-6">
+              <NavItem className="link-7">
                 <NavLink tag={Link} to="/calendar">
                   Calendar
                 </NavLink>

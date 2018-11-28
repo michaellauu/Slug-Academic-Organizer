@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ClassDataTooltips from "./ClassDataTooltips";
-import { Row, Col, Container } from "reactstrap";
 import '../../styles/Major.css';
+import '../../styles/LowerDiv.css';
 
 function parseTakenClasses(taken, classes) {
     for (var i = 0; i < classes.length; i++) {
@@ -81,8 +81,6 @@ export default class LowerDiv extends Component {
 
         if (response.status !== 200) throw Error(body.message);
 
-        //console.log(body);
-
         return body;
     };
 
@@ -102,8 +100,7 @@ export default class LowerDiv extends Component {
     }
 
     introProgrammingCompleted() {
-        return ((this.regularIntroTrackCompleted() && this.dataStructuresCompleted()) ||
-            (this.state.taken['CMPS13H'] && this.state.taken['CMPS13L']));
+        return ((this.dataStructuresCompleted()) || (this.state.taken['CMPS13H'] && this.state.taken['CMPS13L']));
     }
 
     calc1Completed = () => {
@@ -130,114 +127,110 @@ export default class LowerDiv extends Component {
     render() {
         return (
             <div className="lowerDivs">
-                <Container>
-                    <h3>Lower Division Requirements</h3>
-                    <Row>
-                        <b>Intro To Programming</b>
-                    </Row>
-                    <div className={this.introProgrammingCompleted() ? 'completed' : 'uncompleted'}>
-                        <Row>
-                            <Col sm={{ size: "auto" }}>
-                                <div className="introProgramming">
-                                    <Container className={this.introProgrammingCompleted() ? 'completed' : 'uncompleted'}>
-                                        <b>Regular Track</b><br />
-                                        <Row className={this.regularIntroTrackCompleted() ? 'completed' : 'uncompleted'}>
-                                            <Col sm={{ size: "auto" }}>
-                                                <ClassDataTooltips id='cmps12al' text='CMPS12A/L' classData={this.state.classData['CMPS12A']} /> 
-                                                {this.state.taken['CMPS12A'] && this.state.taken['CMPS12L'] && <b>X</b>}
-                                            </Col>
-                                            <Col sm={{ size: "auto" }}> or </Col>
-                                            <Col sm={{ size: "auto" }} >
-                                                <Row className={this.state.taken['CMPS5J'] ? 'completed' : 'uncompleted'}>
-                                                    <ClassDataTooltips id='cmps5j' text='CMPS5J' classData={this.state.classData['CMPS5J']} />
-                                                    {this.state.taken['CMPS5J'] && <b>X</b>}
-                                                </Row>
-                                                <Row>and</Row>
-                                                <Row>
-                                                    <ClassDataTooltips id='cmps11' text='CMPS11' classData={this.state.classData['CMPS11']} />
-                                                    {this.state.taken['CMPS11'] && <b>X</b>}
-                                                </Row>
-                                            </Col>
-                                            <Col sm={{ size: "auto" }}> or </Col>
-                                            <Col sm={{ size: "auto" }} >
-                                                <ClassDataTooltips id='cmpe13' text='CMPE13/L' classData={this.state.classData['CMPE13']} />
-                                                {this.state.taken['CMPE13'] && this.state.taken['CMPE13L'] && <b>X</b>} 
-                                            </Col>
-                                        </Row>
-                                        <Row className={this.state.taken['CMPS12B'] ? 'completed' : 'uncompleted'}>
-                                            <Col sm={{ size: "auto" }}>
-                                                <ClassDataTooltips id='cmps12b' text='CMPS12B' classData={this.state.classData['CMPS12B']} />
-                                                {this.state.taken['CMPS12B'] && this.state.taken['CMPS12M'] && <b>X</b>}
-                                            </Col>
-                                        </Row>
-                                    </Container>
+                <h3>Lower Division Requirements</h3>
+                <b>Intro To Programming</b>
+                <hr />
+                <div className={this.introProgrammingCompleted() ? 'intro completed' : 'intro'}>
+                    <div>
+                        <p align="center"><b>Regular Track</b></p>
+                        <div className="regularSection" id={this.introProgrammingCompleted() ? 'completedBorder' : ''}>
+                            <div className={this.regularIntroTrackCompleted() || this.introProgrammingCompleted() ? 'regular completed' : 'regular uncompleted'}>
+                                <div className="cs12a">
+                                    <ClassDataTooltips id='cmps12al' text='CMPS12A/L' classData={this.state.classData['CMPS12A']} />
+                                    {this.state.taken['CMPS12A'] && this.state.taken['CMPS12L'] && <b>X</b>}
                                 </div>
-                            </Col>
-                            <Col sm={{ size: "auto" }}> <b>or</b> </Col>
-                            <Col sm={{ size: "auto" }}>
-                                <div className="honors">
-                                    <b>Honors Track</b><br />
-                                    <ClassDataTooltips id='cmps13h' text='CMPS13H/L' classData={this.state.classData['CMPS13H']} />
-                                    {this.state.taken['CMPS13H'] && this.state.taken['CMPS13L'] && <b>X</b>}
+                                <div className="or1">or</div>
+                                <div className="cs5j">
+                                    <div className={this.state.taken['CMPS5J'] || this.regularIntroTrackCompleted() ||
+                                        this.introProgrammingCompleted() ? 'cs5j completed' : 'cs5j uncompleted'}>
+                                        <ClassDataTooltips id='cmps5j' text='CMPS5J' classData={this.state.classData['CMPS5J']} />
+                                        {this.state.taken['CMPS5J'] && <b>X</b>}
+                                    </div>
+                                    <div>and</div>
+                                    <div>
+                                        <ClassDataTooltips id='cmps11' text='CMPS11' classData={this.state.classData['CMPS11']} />
+                                        {this.state.taken['CMPS11'] && <b>X</b>}
+                                    </div>
                                 </div>
-                            </Col>
-                        </Row>
+                                <div className="or2"> or </div>
+                                <div className="cmpe13">
+                                    <ClassDataTooltips id='cmpe13' text='CMPE13/L' classData={this.state.classData['CMPE13']} />
+                                    {this.state.taken['CMPE13'] && this.state.taken['CMPE13L'] && <b>X</b>}
+                                </div>
+                            </div>
+                            <hr />
+                            <div className={(this.state.taken['CMPS12B'] && this.state.taken['CMPS12M']) ||
+                                this.introProgrammingCompleted() ? 'cmps12b completed' : 'cmps12b uncompleted'}>
+                                <ClassDataTooltips id='cmps12b' text='CMPS12B' classData={this.state.classData['CMPS12B']} />
+                                {this.state.taken['CMPS12B'] && this.state.taken['CMPS12M'] && <b>X</b>}
+                            </div>
+                        </div>
                     </div>
-                    <Row>
+                    <div>
+                        <p align="center"><b>or</b></p>
+                    </div>
+                    <div>
+                        <p align="center"><b>Honors Track</b></p>
+                        <div className={this.introProgrammingCompleted() ? "honors completed" : "honors uncompleted"} 
+                            id={this.introProgrammingCompleted() ? 'completedBorder' : ''}>
+                            <ClassDataTooltips id='cmps13h' text='CMPS13H/L' classData={this.state.classData['CMPS13H']} />
+                            {this.state.taken['CMPS13H'] && this.state.taken['CMPS13L'] && <b>X</b>}
+                        </div>
+                    </div>
+                </div>
+                <div className='math-ce-container'>
+                    <div className="math-container">
                         <b>Math</b>
-                    </Row>
-                    <Container className={this.mathCompleted() ? 'completed' : 'uncompleted'}>
-                        <Row>
-                            <Col sm={{ size: "auto" }}>
-                                <Row className={this.calc1Completed() ? 'completed' : 'uncompleted'}>
-                                    <ClassDataTooltips id='math19a' text='MATH19A' classData={this.state.classData['MATH19A']} /> 
-                                    {this.state.taken['MATH19A'] && <b>X</b>} &nbsp; &nbsp;
-                                </Row>
-                                <Row className={this.calc2Completed() ? 'completed' : 'uncompleted'}>
-                                    <ClassDataTooltips id='math19b' text='MATH19B' classData={this.state.classData['MATH19B']} /> 
-                                    {this.state.taken['MATH19B'] && <b>X</b>} &nbsp; &nbsp;
-                                </Row>
-                                <Row className={this.linearAlgCompleted() ? 'completed' : 'uncompleted'}>
-                                    <ClassDataTooltips id='ams10' text='AMS10' classData={this.state.classData['AMS10']} /> 
-                                    {this.state.taken['AMS10'] && <b>X</b>} &nbsp; &nbsp;
-                                </Row>
-                            </Col>
-                            <Col sm={{ size: "auto" }}>
-                                <Row className={this.calc1Completed() ? 'completed' : 'uncompleted'}>or</Row>
-                                <Row className={this.calc2Completed() ? 'completed' : 'uncompleted'}>or</Row>
-                                <Row className={this.linearAlgCompleted() ? 'completed' : 'uncompleted'}>or</Row>
-                            </Col>
-                            <Col>
-                                <Row className={this.calc1Completed() ? 'completed' : 'uncompleted'}>
-                                    <ClassDataTooltips id='math20a' text='MATH20A' classData={this.state.classData['MATH20A']} />  
-                                    {this.state.taken['MATH20A'] && <b>X</b>}
-                                </Row>
-                                <Row className={this.calc2Completed() ? 'completed' : 'uncompleted'}>
-                                    <ClassDataTooltips id='math20b' text='MATH20B' classData={this.state.classData['MATH20B']} />  
-                                    {this.state.taken['MATH20B'] && <b>X</b>}
-                                </Row>
-                                <Row className={this.linearAlgCompleted() ? 'completed' : 'uncompleted'}>
-                                    <ClassDataTooltips id='math21' text='MATH21' classData={this.state.classData['MATH21']} />  
-                                    {this.state.taken['MATH21'] && <b>X</b>}
-                                </Row>
-                            </Col>
-                        </Row>
-                    </Container>
-                    <div className="CE">
-                        <Row>
-                            <b>Computer Systems & Assembly Language</b><br />
-                        </Row>
-                        <Container>
-                            <Row>
-                                <Col className={this.state.taken['CMPE12'] ? 'completed' : 'uncompleted'}>
-                                    <ClassDataTooltips id='cmpe12l' text='CMPE12/L' classData={this.state.classData['CMPE12']} /> 
-                                    {this.state.taken['CMPE12'] && this.state.taken['CMPE12L'] && <b>X</b>}
-                                </Col>
-                            </Row>
-                        </Container>
+                        <hr />
+                        <div>
+                            <div className="math">
+                                <div className={this.calc1Completed() ? 'calc1 completed' : 'calc1 uncompleted'}>
+                                    <div className="math19a">
+                                        <ClassDataTooltips id='math19a' text='MATH19A' classData={this.state.classData['MATH19A']} />
+                                        {this.state.taken['MATH19A'] && <b>X</b>}
+                                    </div>
+                                    <div className="calc1or">or</div>
+                                    <div className="math20a">
+                                        <ClassDataTooltips id='math20a' text='MATH20A' classData={this.state.classData['MATH20A']} />
+                                        {this.state.taken['MATH20A'] && <b>X</b>}
+                                    </div>
+                                </div>
+                                <div className={this.calc2Completed() ? 'calc2 completed' : 'calc2 uncompleted'}>
+                                    <div className="math19b">
+                                        <ClassDataTooltips id='math19b' text='MATH19B' classData={this.state.classData['MATH19B']} />
+                                        {this.state.taken['MATH19B'] && <b>X</b>}
+                                    </div>
+                                    <div className="calc2or">or</div>
+                                    <div className="math20b">
+                                        <ClassDataTooltips id='math20b' text='MATH20B' classData={this.state.classData['MATH20B']} />
+                                        {this.state.taken['MATH20B'] && <b>X</b>}
+                                    </div>
+                                </div>
+
+                                <div className={this.linearAlgCompleted() ? 'linear completed' : 'linear uncompleted'}>
+                                    <div className="ams10">
+                                        <ClassDataTooltips id='ams10' text='AMS10' classData={this.state.classData['AMS10']} />
+                                        {this.state.taken['AMS10'] && <b>X</b>}
+                                    </div>
+                                    <div className="linearor">or</div>
+                                    <div className="math21">
+                                        <ClassDataTooltips id='math21' text='MATH21' classData={this.state.classData['MATH21']} />
+                                        {this.state.taken['MATH21'] && <b>X</b>}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </Container>
-            </div>
+                    <div className="CE">
+                        <b>Computer Systems & Assembly Language</b>
+                        <hr />
+                        <div className={this.state.taken['CMPE12'] ? 'ce12 completed' : 'ce12 uncompleted'}>
+                            <ClassDataTooltips id='cmpe12l' text='CMPE12/L' classData={this.state.classData['CMPE12']} />
+                            {this.state.taken['CMPE12'] && this.state.taken['CMPE12L'] && <b>X</b>}
+                        </div>
+                    </div>
+                </div>
+            </div >
         );
     }
 }

@@ -94,7 +94,6 @@ export default class Calendar extends Component {
   render() {
     return (
       <div id="calendar">
-        <h1>Class Calendar</h1>
         <FullCalendar
           schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
           id="your-custom-ID"
@@ -120,6 +119,7 @@ export default class Calendar extends Component {
           navLinks={true}
           editable={false}
           eventLimit={true}
+          weekends={false}
           events={this.state.events}
         />
       </div>

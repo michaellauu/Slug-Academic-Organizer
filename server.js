@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const axios = require('axios');
+const path = require('path');
 
 const app = express();
 
@@ -20,6 +20,8 @@ const calData = require("./server/models/calData");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+// Uncomment for production
+//app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Port
 const port = process.env.PORT || 5000;
@@ -34,24 +36,28 @@ mongoose
 // API routes
 require("./server/routes/api/signin.js")(app);
 
-// Base route that's still in progress ...
-app.get("/", (req, res) => {
-	res.send({ express: "Connected!" });
-});
+/* Uncomment this function for production
+app.get('/*', function (req, res) {
+	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});*/
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
-function sortByQuarter(userClasses){
+function sortByQuarter(userClasses) {
 	var sorted = {};
 	for (i = 0; i < userClasses.length; i++) {
 		if (!(userClasses[i].year in sorted)) { // If not in dictionary
 			sorted[userClasses[i].year] = [[], [], [], []];
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
-          		units: userClasses[i].units, _id: userClasses[i]._id});
-		}else{
+				{
+					courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+					units: userClasses[i].units, _id: userClasses[i]._id
+				});
+		} else {
 			sorted[userClasses[i].year][userClasses[i].quarter].push(
-				{courseID: userClasses[i].courseID, grade: userClasses[i].grade,
-          		units: userClasses[i].units, _id: userClasses[i]._id});
+				{
+					courseID: userClasses[i].courseID, grade: userClasses[i].grade,
+					units: userClasses[i].units, _id: userClasses[i]._id
+				});
 		}
 	}
 	return sorted;
@@ -65,12 +71,14 @@ app.post("/api/userClasses", (req, res) => {
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
 		if (err) {
 			console.log(err);
-			return res.status(500).send({message: 'Failed to load user classes'});
-		}else{
-			classes.forEach(function(userClass){
-				const newClass = {courseID: userClass.courseID, year: userClass.year,
+			return res.status(500).send({ message: 'Failed to load user classes' });
+		} else {
+			classes.forEach(function (userClass) {
+				const newClass = {
+					courseID: userClass.courseID, year: userClass.year,
 					quarter: userClass.quarter, grade: userClass.grade, units: userClass.units,
-          _id: userClass._id};
+					_id: userClass._id
+				};
 
 				userClasses.push(newClass);
 			});
@@ -99,7 +107,6 @@ app.post("/api/majorClasses", (req, res) => {
 
 // Gets course datas from requested classes
 app.post("/api/getMajorClassData", async (req, res) => {
-	console.log(req.body.classes);
 	const classes = Object.keys(req.body.classes);
 	let classDatas = {}, find = [];
 	for (let i = 0; i < classes.length; i++) {
@@ -124,7 +131,7 @@ app.post("/api/getMajorClassData", async (req, res) => {
 	});
 });
 
-// Gets user claasses for the ge requirements page
+// Gets user classes for the ge requirements page
 app.post("/api/geClasses", (req, res) => {
 	let ges = {};
 	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
@@ -133,18 +140,18 @@ app.post("/api/geClasses", (req, res) => {
 			return res.status(500).send({ message: 'Failed to load user classes' });
 		} else {
 			classes.forEach(function (userClass) {
-				if(!(userClass.ge in ges) && userClass.ge !== ''){
+				if (!(userClass.ge in ges) && userClass.ge !== '') {
 					//console.log(userClass.ge);
 					ges[userClass.ge] = userClass.courseID;
 				}
 			});
-			console.log(ges);
+			//console.log(ges);
 			res.send(ges);
 		}
 	}).then(console.log(`Getting user classes ...`));
 });
 
-// Push all JSON data into database
+// Push all JSON class data into database
 app.post("/api", (req, res) => {
 	for (let i = 0; i < schedule.length; i++) {
 		// Create new model that'll hold schedule data
@@ -166,21 +173,22 @@ app.post("/api", (req, res) => {
 
 //ge post request
 app.post("/api/ge", (req, res) => {
-  for (let i = 0; i < geSchedule.length; i++) {
-    // Create new model that'll hold schedule data
-    const geData = new GEData({
-      geID: geSchedule[i].geID,
-      desc: geSchedule[i].desc,
-      credits: parseInt(geSchedule[i].credits),
-    });
-    geData.save().then(console.log(`Saving ${i} documents ...`));
-  }
-  res.send("GE Done!");
+	for (let i = 0; i < geSchedule.length; i++) {
+		// Create new model that'll hold schedule data
+		const geData = new GEData({
+			geID: geSchedule[i].geID,
+			desc: geSchedule[i].desc,
+			credits: parseInt(geSchedule[i].credits),
+		});
+		geData.save().then(console.log(`Saving ${i} documents ...`));
+	}
+	res.send("GE Done!");
 });
 
 
-//ge get request
-app.get("/api/GERequirements", (req, res) => {
+// GE get request to get all the GE requirements from the database
+app.post("/api/GERequirements", (req, res) => {
+	//console.log("why");
 	GEData.find(function (err, ge) {
 		if (err) {
 			//error messages
@@ -205,30 +213,9 @@ app.get("/api/GERequirements", (req, res) => {
 	});
 });
 
-function parseYear(year) {
-	year = year.toString();
-	if (year.length === 4){
-		return year.slice(2);
-	}
-	return year;
-}
-
-function quarterNumberToString(quarter){
-	if(quarter === 0){
-		quarter = 'Fall';
-	}else if(quarter === 1){
-		quarter = 'Summer';
-	}else if(quarter === 2){
-		quarter = 'Spring';
-	}else if(quarter === 3){
-		quarter = 'Winter';
-	}
-	return quarter;
-}
-
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {
-	console.log(req.body);
+	//console.log(req.body);
 	const lecture = {
 		days: req.body.days,
 		times: req.body.times,
@@ -236,8 +223,9 @@ app.post("/api/submitClass", (req, res) => {
 		meetingDates: req.body.meetingDates,
 		instructor: req.body.instructor,
 	};
-	const credits = req.body.credits[0];
-  	const classData = new ClassData({
+	let split = req.body.credits.split(" ");
+	const credits = split[0];
+	const classData = new ClassData({
 		courseID: req.body.class,
 		userToken: req.body.userID,
 		quarter: req.body.quarter,
@@ -247,7 +235,7 @@ app.post("/api/submitClass", (req, res) => {
 		units: credits,
 		courseTitle: req.body.courseTitle
 	});
-	classData.save(function(err, newClass){
+	classData.save(function (err, newClass) {
 		res.send({ express: "done", _id: newClass._id });
 	});
 });
@@ -265,8 +253,8 @@ app.post("/api/deleteClass", (req, res) => {
 });
 
 app.post("/api/editGrade", (req, res) => {
-	console.log("here");
-	ClassData.findByIdAndUpdate(req.body._id, { $set: { grade: req.body.grade } }, function(err, classes){
+	//console.log("here");
+	ClassData.findByIdAndUpdate(req.body._id, { $set: { grade: req.body.grade } }, function (err, classes) {
 		if (err) {
 			console.log(err);
 			return res.status(500).send({ message: 'Failed to load user classes' });
@@ -278,50 +266,52 @@ app.post("/api/editGrade", (req, res) => {
 
 //based off Chtzou's GE
 app.post("/api/getCalendar", (req, res) => {
-  calData.find({'userToken': req.body.userID}, function (err, cal) {
-    if (err) {
-      //error messages
-      console.log("Can't get class data");
-      return res.status(500).send({ Error: "Can't get class data" });
-    } else {
-      events = [];
-      //parse data into readable for FullCalendar
-      cal.forEach(function (c) {
-		//calendar date string
-		var dateString = c.lecture.meetingDates;
-		if(dateString == null) return; //without this it crashes because not all classes have dates
-		var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
-		//Meeting Days MWF
-		var daysString = c.lecture.days;
-		if(daysString == null) return;
-		var day = checkDays(daysString); // returns which weekdays class is held
-		var timeCut = c.lecture.times;
-		timeCut = timeCut.split("-", 2); //takes the time range and splits it
-		var timeCutA = timeCut[0]; //start time
-		var timeCutB = timeCut[1]; // end time
-		// converts first time into 24 hour format
-		if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
-		else timeCutA = convertPM(timeCutA);
-		//converts second time into 24 hour format
-		if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
-		else timeCutB = convertPM(timeCutB);
-        const newCal = {
-          title: c.courseTitle,
-		  dow: day,
-		  start: timeCutA,
-		  end: timeCutB,
-		  ranges: [{ start: dateCut[0], end: dateCut[1]}],
-		  description: c.lecture.room
-        };
-        //push data to events
-        events.push(newCal);
-      });
-      //send events
-      res.send(events);
-	  //logging
-	  //console.log(events);
-    }
-  });
+	calData.find({ 'userToken': req.body.userID }, function (err, cal) {
+		if (err) {
+			//error messages
+			console.log("Can't get class data");
+			return res.status(500).send({ Error: "Can't get class data" });
+		} else {
+			events = [];
+			//parse data into readable for FullCalendar
+			cal.forEach(function (c) {
+				//calendar date string
+				if (c.lecture.times !== "TBA") {
+					var dateString = c.lecture.meetingDates;
+					if (dateString == null || dateString === "N/A") return; //without this it crashes because not all classes have dates
+					var dateCut = dateString.split(" -", 2); // Calendar date ie 9/27 - 10/27
+					//Meeting Days MWF
+					var daysString = c.lecture.days;
+					if (daysString == null || daysString === "Cancelled") return;
+					var day = checkDays(daysString); // returns which weekdays class is held
+					var timeCut = c.lecture.times;
+					timeCut = timeCut.split("-", 2); //takes the time range and splits it
+					var timeCutA = timeCut[0]; //start time
+					var timeCutB = timeCut[1]; // end time
+					// converts first time into 24 hour format
+					if (timeCutA.includes("AM")) timeCutA = convertAM(timeCutA);
+					else timeCutA = convertPM(timeCutA);
+					//converts second time into 24 hour format
+					if (timeCutB.includes("AM")) timeCutB = convertAM(timeCutB);
+					else timeCutB = convertPM(timeCutB);
+					const newCal = {
+						title: c.courseTitle,
+						dow: day,
+						start: timeCutA,
+						end: timeCutB,
+						ranges: [{ start: dateCut[0], end: dateCut[1] }],
+						description: c.lecture.room
+					};
+					//push data to events
+					events.push(newCal);
+				}
+			});
+			//send events
+			res.send(events);
+			//logging
+			//console.log(events);
+		}
+	});
 });
 // trims AM
 function convertAM(timeAM) {
@@ -340,30 +330,30 @@ function convertPM(timePM) {
 }
 //converts written weekdays into a numerical array of the weekdays
 function checkDays(daysInput) {
-	if(daysInput == "MWF") {
-		return '[1,3,5]';		
-		}
-	if(daysInput == "MW") {
-		return '[1,3]';		
-		}
-	if(daysInput == "TuTh") {
-		return '[2,4]';		
-		}
-	if(daysInput == "Tu") {
-		return '[2]';		
-		}
-	if(daysInput == "Th") {
-		return '[4]';		
-		}
-	if(daysInput == "M") {
-		return '[1]';		
-		}
-	if(daysInput == "W") {
-		return '[3]';		
-		}
-	if(daysInput == "F") {
-		return '[5]';		
-		}
+	if (daysInput == "MWF") {
+		return '[1,3,5]';
+	}
+	if (daysInput == "MW") {
+		return '[1,3]';
+	}
+	if (daysInput == "TuTh") {
+		return '[2,4]';
+	}
+	if (daysInput == "Tu") {
+		return '[2]';
+	}
+	if (daysInput == "Th") {
+		return '[4]';
+	}
+	if (daysInput == "M") {
+		return '[1]';
+	}
+	if (daysInput == "W") {
+		return '[3]';
+	}
+	if (daysInput == "F") {
+		return '[5]';
+	}
 }
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

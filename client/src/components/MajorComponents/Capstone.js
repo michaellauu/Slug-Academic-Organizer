@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Container } from "reactstrap";
+import '../../styles/Capstone.css'
 import '../../styles/Major.css';
 import ClassDataTooltips from "./ClassDataTooltips";
 
@@ -64,8 +64,6 @@ export default class Capstone extends Component {
 
         if (response.status !== 200) throw Error(body.message);
 
-        //console.log(body);
-
         return body;
     };
 
@@ -78,36 +76,32 @@ export default class Capstone extends Component {
     render() {
         return (
             <div className="capstone">
-                <Container>
-                    <Row>
-                        <Col>
-                            <h3>Capstone</h3>
-                            complete a Senior Thesis or one of the following classes: <br />
-                        </Col>
-                    </Row>
-                    <Row className={this.capstoneCompleted() ? 'completed' : 'uncompleted'}>
-                        <Col>
-                            <ClassDataTooltips id='cmps104b' text='CMPS104B' classData={this.state.classData['CMPS104B']} />  
-                                {this.state.taken['CMPS104B'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps117' text='CMPS117' classData={this.state.classData['CMPS117']} />  
-                                {this.state.taken['CMPS117'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps161l' text='CMPS161/L' classData={this.state.classData['CMPS161']} />  
-                                {this.state.taken['CMPS161'] && this.state.taken['CMPS161L'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps162l' text='CMPS162/L' classData={this.state.classData['CMPS162']} />  
-                                {this.state.taken['CMPS162'] && this.state.taken['CMPS162L'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps165' text='CMPS165' classData={this.state.classData['CMPS165']} />  
-                                {this.state.taken['CMPS165'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps181' text='CMPS181' classData={this.state.classData['CMPS181']} />  
-                                {this.state.taken['CMPS181'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps183' text='CMPS183' classData={this.state.classData['CMPS183']} />  
-                                {this.state.taken['CMPS183'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps184' text='CMPS184' classData={this.state.classData['CMPS184']} />  
-                                {this.state.taken['CMPS184'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmpm172' text='CMPM172' classData={this.state.classData['CMPM172']} />  
-                                {this.state.taken['CMPM172'] && <b>X</b>}
-                        </Col>
-                    </Row>
-                </Container>
+                <h3>Capstone</h3>
+                Complete a Senior Thesis or one of the following classes: <hr />
+                <div className={this.capstoneCompleted() ? 'capList completed' : 'capList uncompleted'}>
+                    <div className="capList1">
+                        &bull; <ClassDataTooltips id='cmps104b' text='CMPS104B' classData={this.state.classData['CMPS104B']} />
+                        {this.state.taken['CMPS104B'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps117' text='CMPS117' classData={this.state.classData['CMPS117']} />
+                        {this.state.taken['CMPS117'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps161l' text='CMPS161/L' classData={this.state.classData['CMPS161']} />
+                        {this.state.taken['CMPS161'] && this.state.taken['CMPS161L'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps162l' text='CMPS162/L' classData={this.state.classData['CMPS162']} />
+                        {this.state.taken['CMPS162'] && this.state.taken['CMPS162L'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps165' text='CMPS165' classData={this.state.classData['CMPS165']} />
+                        {this.state.taken['CMPS165'] && <b>X</b>} <br />
+                    </div>
+                    <div className="capList2">
+                        &bull; <ClassDataTooltips id='cmps181' text='CMPS181' classData={this.state.classData['CMPS181']} />
+                        {this.state.taken['CMPS181'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps183' text='CMPS183' classData={this.state.classData['CMPS183']} />
+                        {this.state.taken['CMPS183'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps184' text='CMPS184' classData={this.state.classData['CMPS184']} />
+                        {this.state.taken['CMPS184'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmpm172' text='CMPM172' classData={this.state.classData['CMPM172']} />
+                        {this.state.taken['CMPM172'] && <b>X</b>}
+                    </div>
+                </div>
             </div>
         );
     }

@@ -1,9 +1,7 @@
 .content {
   border-top: 2px solid rgb(255, 255, 255);
   background-color: transparent;
-  /* background-color: #96b1c3; Grayish blue paragraph background */
   padding: 20px;
-  color: white;
 }
 
 .content h2 {
@@ -28,8 +26,13 @@
 .link-6,
 .link-7 {
   display: inline-block;
-  color: white !important;
   text-decoration: none;
+}
+
+.logo {
+  width: 50px;
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 /* Home Link */
@@ -38,7 +41,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 
@@ -53,7 +56,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 
@@ -68,7 +71,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 
@@ -83,7 +86,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 
@@ -98,7 +101,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 
@@ -113,7 +116,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 
@@ -128,7 +131,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 
@@ -143,7 +146,7 @@
   display: block;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: #5BADC5;
   transition: width 0.3s;
 }
 

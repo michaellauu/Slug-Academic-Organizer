@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Container } from "reactstrap";
+import '../../styles/DC.css';
 import '../../styles/Major.css';
 import ClassDataTooltips from "./ClassDataTooltips";
 
@@ -64,38 +64,32 @@ export default class DC extends Component {
 
         if (response.status !== 200) throw Error(body.message);
 
-        //console.log(body);
-
         return body;
     };
 
     render() {
         return (
             <div className="DC">
-                <Container>
-                    <Row>
-                        <Col>
-                            <h3>Disciplinary Communication</h3>
-                            complete one of the following classes: <br />
-                        </Col>
-                    </Row>
-                    <Row className={this.dcCompleted() ? 'completed' : 'uncompleted'}>
-                        <Col>
-                            <ClassDataTooltips id='cmps115' text='CMPS115' classData={this.state.classData['CMPS115']} />  
-                                {this.state.taken['CMPS115'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps132w' text='CMPS132W' classData={this.state.classData['CMPS132W']} />  
-                                {this.state.taken['CMPS132W'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps180w' text='CMPS180W' classData={this.state.classData['CMPS180W']} /> 
-                                {this.state.taken['CMPS180W'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps185' text='CMPS185' classData={this.state.classData['CMPS185']} />  
-                                {this.state.taken['CMPS185'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmps195' text='CMPS195' classData={this.state.classData['CMPS195']} />  
-                                {this.state.taken['CMPS195'] && <b>X</b>} <br />
-                            <ClassDataTooltips id='cmpe185' text='CMPE185' classData={this.state.classData['CMPE185']} />  
-                                {this.state.taken['CMPE185'] && <b>X</b>}
-                        </Col>
-                    </Row>
-                </Container>
+                <h3>Disciplinary Communication</h3>
+                Complete one of the following classes: <hr />
+                <div className={this.dcCompleted() ? 'dcList completed' : 'dcList uncompleted'}>
+                    <div className="dc1">
+                        &bull; <ClassDataTooltips id='cmps115' text='CMPS115' classData={this.state.classData['CMPS115']} />
+                        {this.state.taken['CMPS115'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps132w' text='CMPS132W' classData={this.state.classData['CMPS132W']} />
+                        {this.state.taken['CMPS132W'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps180w' text='CMPS180W' classData={this.state.classData['CMPS180W']} />
+                        {this.state.taken['CMPS180W'] && <b>X</b>} <br />
+                    </div>
+                    <div className="dc2">
+                        &bull; <ClassDataTooltips id='cmps185' text='CMPS185' classData={this.state.classData['CMPS185']} />
+                        {this.state.taken['CMPS185'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmps195' text='CMPS195' classData={this.state.classData['CMPS195']} />
+                        {this.state.taken['CMPS195'] && <b>X</b>} <br />
+                        &bull; <ClassDataTooltips id='cmpe185' text='CMPE185' classData={this.state.classData['CMPE185']} />
+                        {this.state.taken['CMPE185'] && <b>X</b>}
+                    </div>
+                </div>
             </div>
         );
     }

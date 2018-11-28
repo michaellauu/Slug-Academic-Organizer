@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Row, Col, Container } from "reactstrap";
 import '../../styles/Major.css';
+import '../../styles/UpperDiv.css';
 import ClassDataTooltips from "./ClassDataTooltips";
 
 function parseTakenClasses(taken, classes) {
@@ -61,8 +61,6 @@ export default class UpperDiv extends Component {
 
         if (response.status !== 200) throw Error(body.message);
 
-        //console.log(body);
-
         return body;
     };
 
@@ -72,56 +70,42 @@ export default class UpperDiv extends Component {
 
     render() {
         return (
-            <div className="upperDivs">
-                <Container>
-
-                    <Row>
-                        <Col><h3>Upper Division Requirements</h3></Col>
-                    </Row>
-                    <Container>
-                        <Row>
-                            <Col className={this.state.taken['CMPS101'] ? 'completed' : 'uncompleted'}>
-                                <ClassDataTooltips id='cmps101' text='CMPS101' classData={this.state.classData['CMPS101']} /> 
-                                {this.state.taken['CMPS101'] && <b>X</b>}
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col className={this.state.taken['CMPE110'] ? 'completed' : 'uncompleted'}>
-                                <ClassDataTooltips id='cmpe110' text='CMPE110' classData={this.state.classData['CMPE110']} />  
-                                {this.state.taken['CMPE110'] && <b>X</b>}
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col className={this.state.taken['CMPS111'] ? 'completed' : 'uncompleted'}>
-                                <ClassDataTooltips id='cmps111' text='CMPS111' classData={this.state.classData['CMPS111']} />  
-                                {this.state.taken['CMPS111'] && <b>X</b>}
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col className={this.state.taken['CMPS102'] ? 'completed' : 'uncompleted'}>
-                                <ClassDataTooltips id='cmps102' text='CMPS102' classData={this.state.classData['CMPS102']} /> 
-                                {this.state.taken['CMPS102'] && <b>X</b>}
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col className={this.state.taken['CMPS112'] ? 'completed' : 'uncompleted'}>
-                                <ClassDataTooltips id='cmps112' text='CMPS112' classData={this.state.classData['CMPS112']} />
-                                {this.state.taken['CMPS112'] && <b>X</b>}
-                            </Col>
-                        </Row>
-                        <Row className={this.statisticsCompleted() ? 'completed' : 'uncompleted'}>
-                            <Col sm={{ size: "auto" }}>
-                                <ClassDataTooltips id='ams131' text='AMS131' classData={this.state.classData['AMS131']} /> 
-                                {this.state.taken['AMS131'] && <b>X</b>}
-                            </Col>
-                            <Col sm={{ size: "auto" }}>or</Col>
-                            <Col>
-                                <ClassDataTooltips id='cmpe107' text='CMPE107' classData={this.state.classData['CMPE107']} /> 
-                                {this.state.taken['CMPE107'] && <b>X</b>}
-                            </Col>
-                        </Row>
-                    </Container>
-                </Container>
+            <div>
+                <h3>Upper Division Requirements</h3>
+                <hr />
+                <div className="upperDivs">
+                    <div className={this.state.taken['CMPS101'] ? 'upperdiv completed' : 'upperdiv uncompleted'}>
+                        <ClassDataTooltips id='cmps101' text='CMPS101' classData={this.state.classData['CMPS101']} />
+                        {this.state.taken['CMPS101'] && <b>X</b>}
+                    </div>
+                    <div className={this.state.taken['CMPE110'] ? 'upperdiv completed' : 'upperdiv uncompleted'}>
+                        <ClassDataTooltips id='cmpe110' text='CMPE110' classData={this.state.classData['CMPE110']} />
+                        {this.state.taken['CMPE110'] && <b>X</b>}
+                    </div>
+                    <div className={this.state.taken['CMPS111'] ? 'upperdiv completed' : 'upperdiv uncompleted'}>
+                        <ClassDataTooltips id='cmps111' text='CMPS111' classData={this.state.classData['CMPS111']} />
+                        {this.state.taken['CMPS111'] && <b>X</b>}
+                    </div>
+                    <div className={this.state.taken['CMPS102'] ? 'upperdiv completed' : 'upperdiv uncompleted'}>
+                        <ClassDataTooltips id='cmps102' text='CMPS102' classData={this.state.classData['CMPS102']} />
+                        {this.state.taken['CMPS102'] && <b>X</b>}
+                    </div>
+                    <div className={this.state.taken['CMPS112'] ? 'upperdiv completed' : 'upperdiv uncompleted'}>
+                        <ClassDataTooltips id='cmps112' text='CMPS112' classData={this.state.classData['CMPS112']} />
+                        {this.state.taken['CMPS112'] && <b>X</b>}
+                    </div>
+                    <div className={this.statisticsCompleted() ? 'stats upperdiv completed' : 'stats upperdiv uncompleted'}>
+                        <div className="ams131">
+                            <ClassDataTooltips id='ams131' text='AMS131' classData={this.state.classData['AMS131']} />
+                            {this.state.taken['AMS131'] && <b>X</b>}
+                        </div>
+                        <div className="statsor">or</div>
+                        <div className="ce107">
+                            <ClassDataTooltips id='cmpe107' text='CMPE107' classData={this.state.classData['CMPE107']} />
+                            {this.state.taken['CMPE107'] && <b>X</b>}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

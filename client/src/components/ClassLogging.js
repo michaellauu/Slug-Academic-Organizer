@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "../styles/ClassLogging.css";
-//import ClassInput from "./ClassInput";
 import { getFromStorage } from "./storage";
-import { Button, Table, Container, Row, Col } from "reactstrap";
+import { Button, UncontrolledCollapse } from "reactstrap";
 import SearchCourse from "./SearchCourse";
+import * as Grades from "./gradeConstants";
+import * as Quarters from './quarterConstants';
 
 class ClassLogging extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class ClassLogging extends Component {
     this.setState({ classes: newClasses });
   }
 
-  // Called by ClassInput component when there's a submit, basically adds the new class to the state
+  // Called by SearchCourse component when there's a submit, basically adds the new class to the state
   handleSubmit(newClass, _id, quarter, year, grade) {
     var newClasses = this.state.classes;
     if (year in newClasses) {
@@ -138,52 +139,54 @@ class ClassLogging extends Component {
 
   convertGrade(grade) {
     switch (grade) {
-      case 0:
+      case Grades.Aplus:
         return "A+";
-      case 1:
+      case Grades.A:
         return "A";
-      case 2:
+      case Grades.Aminus:
         return "A-";
-      case 3:
+      case Grades.Bplus:
         return "B+";
-      case 4:
+      case Grades.B:
         return "B";
-      case 5:
+      case Grades.Bminus:
         return "B-";
-      case 6:
+      case Grades.Cplus:
         return "C+";
-      case 7:
+      case Grades.C:
         return "C";
-      case 8:
+      case Grades.Cminus:
         return "C-";
-      case 9:
+      case Grades.Dplus:
         return "D+";
-      case 10:
+      case Grades.D:
         return "D";
-      case 11:
+      case Grades.Dminus:
         return "D-";
-      case 12:
+      case Grades.F:
         return "F";
-      case 13:
+      case Grades.W:
         return "W";
-      case 14:
+      case Grades.uncompleted:
         return "N/A";
-      case 15:
+      case Grades.P:
         return "Pass";
-      case 16:
+      case Grades.NP:
         return "No Pass";
       default:
         return "error";
     }
   }
 
+  // Updates the grade in the database and displays it on page
   changeGrade = (_id, idx, quarter, year) => (event) => {
     let classes = this.state.classes;
     classes[year][quarter][idx].grade = parseInt(event.target.value);
-    this.editPost({ _id: _id, grade: parseInt(event.target.value)});
-    this.setState({classes: classes});
+    this.editPost({ _id: _id, grade: parseInt(event.target.value) });
+    this.setState({ classes: classes });
   }
 
+  // Calls edit post API to update the class' grade in the database
   editPost = async data => {
     const response = await fetch("/api/editGrade", {
       method: "POST",
@@ -198,7 +201,7 @@ class ClassLogging extends Component {
 
     if (response.status !== 200) throw Error(body.message);
 
-    console.log(body);
+    //console.log(body);
 
     return body;
   };
@@ -206,91 +209,90 @@ class ClassLogging extends Component {
   render() {
     if (!this.state.isLoading) {
       return (
-        <div>
-          <Container>
-            <Row>
-              <Col>
-                <SearchCourse
-                  onSubmit={this.handleSubmit}
-                  userID={this.state.userID}
-                />
-              </Col>
-              <Col>
-                {Object.keys(this.state.classes)
-                  .slice(0)
-                  .reverse()
-                  .map((year, idx) => {
-                    return (
-                      <>
-                        <Table key={idx} className="classLog">
-                          <thead key={idx}>
-                            <tr><th>{year}</th></tr>
-                          </thead>
-                          {this.state.classes[year].map((i, quarter) => {
-                            return (
-                              <tbody key={quarter}>
-                                <tr key={quarter}>
-                                  {quarter === 0 && this.state.classes[year][quarter].length !== 0 && (<td><b>Fall</b></td>)}
-                                  {quarter === 1 && this.state.classes[year][quarter].length !== 0 && (<td><b>Summer</b></td>)}
-                                  {quarter === 2 && this.state.classes[year][quarter].length !== 0 && (<td><b>Spring</b></td>)}
-                                  {quarter === 3 && this.state.classes[year][quarter].length !== 0 && (<td><b>Winter</b></td>)}
-                                </tr>
-                                <>
-                                  {this.state.classes[year][quarter].map(
-                                    (userClass, classIdx) => {
-                                      return (
-                                        <tr key={classIdx}>
-                                          <td key={classIdx}>
-                                            {userClass.courseID}
-                                          </td>
-                                          <td>
-                                            {"Grade: "}
-                                            <select
-                                              value={userClass.grade}
-                                              onChange={this.changeGrade(userClass._id, classIdx, quarter, year)}
-                                              className="grade"
-                                            >
-                                              <option value="0">A+</option>
-                                              <option value="1">A</option>
-                                              <option value="2">A-</option>
-                                              <option value="3">B+</option>
-                                              <option value="4">B</option>
-                                              <option value="5">B-</option>
-                                              <option value="6">C+</option>
-                                              <option value="7">C</option>
-                                              <option value="8">C-</option>
-                                              <option value="9">D+</option>
-                                              <option value="10">D</option>
-                                              <option value="11">D-</option>
-                                              <option value="12">F</option>
-                                              <option value="13">W</option>
-                                              <option value="14">Not Completed</option>
-                                              <option value="15">Pass</option>
-                                              <option value="16">No Pass</option>
-                                            </select>
-                                          </td>
-                                          <td>
-                                            <Button key={classIdx} onClick={() => {this.delete(userClass._id,classIdx, quarter, year);}}>
-                                              Delete
+        <div className="logContainer">
+          <div className="searchCol">
+            <SearchCourse
+              onSubmit={this.handleSubmit}
+              userID={this.state.userID}
+            />
+          </div>
+          <div className="logCol">
+            {Object.keys(this.state.classes)
+              .slice(0)
+              .reverse()
+              .map((year, idx) => {
+                return (
+                  <>
+                    <div key={idx} className="classLog">
+                      <div key={idx}>
+                        <Button className="yearButton" id={"id" + year + idx}>{year}</Button>
+                      </div>
+                      <UncontrolledCollapse toggler={"id" + year + idx}>
+                        {this.state.classes[year].map((i, quarter) => {
+                          let currentQuarter = this.state.classes[year][quarter];
+                          return (
+                            <div key={quarter}>
+                              <div className="quarter" key={quarter}>
+                                {quarter === Quarters.Fall && currentQuarter.length !== 0 && (<div align="center"><b>Fall</b></div>)}
+                                {quarter === Quarters.Summer && currentQuarter.length !== 0 && (<div align="center"><b>Summer</b></div>)}
+                                {quarter === Quarters.Spring  && currentQuarter.length !== 0 && (<div align="center"><b>Spring</b></div>)}
+                                {quarter === Quarters.Winter && currentQuarter.length !== 0 && (<div align="center"><b>Winter</b></div>)}
+                              </div>
+                              <div className={currentQuarter.length !== 0 ? 'quarterClassContainer' : 'empty'}>
+                                {currentQuarter.map(
+                                  (userClass, classIdx) => {
+                                    return (
+                                      <div className="classContainer" key={classIdx}>
+                                        <div className="courseID" key={classIdx}>
+                                          {userClass.courseID}
+                                        </div>
+                                        <div className="gradeSelect">
+                                          {"Grade: "}
+                                          <select
+                                            value={userClass.grade}
+                                            onChange={this.changeGrade(userClass._id, classIdx, quarter, year)}
+                                            className="grade"
+                                          >
+                                            <option value = {Grades.Aplus}> A+ </option>
+                                            <option value = {Grades.A}> A </option>
+                                            <option value = {Grades.Aminus}> A- </option>
+                                            <option value = {Grades.Bplus}> B+ </option>
+                                            <option value = {Grades.B}> B </option>
+                                            <option value = {Grades.Bminus}> B- </option>
+                                            <option value = {Grades.Cplus}> C+ </option>
+                                            <option value = {Grades.C}> C </option>
+                                            <option value = {Grades.Cminus}> C- </option>
+                                            <option value = {Grades.Dplus}> D+ </option>
+                                            <option value = {Grades.D}> D </option>
+                                            <option value = {Grades.Dminus}> D- </option>
+                                            <option value = {Grades.F}> F </option>
+                                            <option value = {Grades.W}> W </option>
+                                            <option value = {Grades.uncompleted}> Not Completed </option>
+                                            <option value = {Grades.P}> Pass </option>
+                                            <option value = {Grades.NP}> No Pass </option>
+                                          </select>
+                                        </div>
+                                        <div className="deleteButton">
+                                          <Button key={classIdx} onClick={() => { this.delete(userClass._id, classIdx, quarter, year); }}>
+                                            Delete
                                             </Button>
-                                          </td>
-                                        </tr>
-                                      );
-                                    }
-                                  )}
-                                </>
-                              </tbody>
-                            );
-                          })}
-                        </Table>
-                        <br />
-                      </>
-                    );
-                  })}
-              </Col>
-            </Row>
-          </Container>
-        </div>
+                                        </div>
+                                      </div>
+                                    );
+                                  }
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </UncontrolledCollapse>
+                    </div>
+                    <br />
+                  </>
+                );
+              })}
+          </div>
+        </div >
       );
     } else {
       return (

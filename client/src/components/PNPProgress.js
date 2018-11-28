@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {Progress} from 'reactstrap';
+import {Progress, Button} from 'reactstrap';
 import { getFromStorage } from "./storage";
+import  "../styles/PNPProgress.css";
+import { W, uncompleted, P, NP} from  "./gradeConstants";
 
 class PNPProgress extends Component{
   constructor(props) {
@@ -88,33 +90,40 @@ class PNPProgress extends Component{
     var pnp = 0;
     var total = 0;
     var yearKeys = Object.keys(this.state.classes);
-    var k = 0;
 
-    for(k = 0; k < yearKeys.length; k++){
-      var j = 0;
+    for(let year = 0; year < yearKeys.length; year++){
 
-      for(j = 0; j < 4; j++){
-        var i = 0;
-
-        for(i = 0; i < this.state.classes[yearKeys[k]][j].length; i++){
-          if(this.state.classes[yearKeys[k]][j][i].grade !== 13 && this.state.classes[yearKeys[k]][j][i].grade !== 14){
-            total++;
+      for(let quarter = 0; quarter < 4; quarter++){
+        let currentQuarter = this.state.classes[yearKeys[year]][quarter];
+        for(let classI = 0; classI < currentQuarter.length; classI++){
+          let currentClass = currentQuarter[classI];
+          if(currentClass.grade !== W && currentClass.grade !== uncompleted  && currentClass.grade !== NP){
+            total+=currentClass.units;
           }
-          if(this.state.classes[yearKeys[k]][j][i].grade === 15 || this.state.classes[yearKeys[k]][j][i].grade === 16){
-            pnp++;
+          if(currentClass.grade === P){
+            pnp+=currentClass.units;
           }
         }
       }
     }
-    this.setState({ percentage: ((pnp/total) * 100).toFixed(1) });
+    if(total!==0){
+      this.setState({ percentage: ((pnp / total) * 100).toFixed(2) });
+    }
   }
 
   render() {
     return (
       <div>
-        <div className="text-center">{this.state.percentage} of 25%</div>
-        <Progress value={this.state.percentage} max="25"/>
-        <button onClick={this.calculatePNP}>Calculate</button>
+        <div className="pnpContainer">
+          <h4>Pass/No Pass Percentage</h4>
+          <Progress className="pnpBar" value={this.state.percentage} max="25" />
+        </div>
+        <div className="resultContainer">
+          <div>
+            <Button className="calculatePNPButton" onClick={this.calculatePNP}>Calculate</Button>
+          </div>
+          <div className="result" align="center"><h5>{this.state.percentage}% of 25%</h5></div>
+        </div>
       </div>
     );
   };
