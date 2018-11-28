@@ -6,7 +6,7 @@ import * as Grades from "./gradeConstants"
 import * as Quarters from "./quarterConstants";
 
 const cumulative = 0;
-const quarterly  = 0;
+const quarterly  = 1;
 
 class GPACalculator extends Component {
   constructor(props) {
@@ -136,6 +136,7 @@ class GPACalculator extends Component {
     } else if (this.state.gpatype === quarterly) {
       if (this.state.year in this.state.classes) {
         let quarter = this.state.classes[this.state.year][this.state.quarter];
+        console.log(quarter);
 
         for (let classI = 0; classI < quarter.length; classI++) {
           let userClass = quarter[classI];

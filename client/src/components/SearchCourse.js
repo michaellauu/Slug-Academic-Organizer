@@ -199,7 +199,7 @@ class Search extends Component {
                         </NavLink>
                     </NavItem>
                 </Nav>
-                <TabContent className="active" activeTab={this.state.activeTab}>
+                <TabContent className="activeTab" activeTab={this.state.activeTab}>
                     <TabPane className="filterbox" tabId="1">
                         <RefinementList attribute="meta.career" />
                     </TabPane>
