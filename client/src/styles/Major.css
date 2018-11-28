@@ -1,7 +1,12 @@
 .completed{
-    background-color: #707088;
+    background-color: #5BADC5;
     transition: 0.3s;
 }
+
+.uncompleted {
+    background-color: #585870;
+}
+
 hr{
     margin: 0em;
     border: 0;
@@ -17,8 +22,8 @@ hr{
 @media screen
 and (max-width: 1024px) {
     .dcCapContainer{
-    display: grid;
-    grid-gap: 15px;
-    grid-template-columns: 1fr;
-}
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: 1fr;
+    }
 }

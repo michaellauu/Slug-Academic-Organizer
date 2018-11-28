@@ -1,7 +1,8 @@
 .tooltip-inner{
     border-radius: 15px;
     padding: 10px;
-    background-color: #5BADC5;
+    background-color: white;
+    color: rgb(63, 65, 82);
 }
 .tooltip.show{
     opacity: 1;

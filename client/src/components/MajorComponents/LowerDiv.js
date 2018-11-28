@@ -100,8 +100,7 @@ export default class LowerDiv extends Component {
     }
 
     introProgrammingCompleted() {
-        return ((this.regularIntroTrackCompleted() && this.dataStructuresCompleted()) ||
-            (this.state.taken['CMPS13H'] && this.state.taken['CMPS13L']));
+        return ((this.dataStructuresCompleted()) || (this.state.taken['CMPS13H'] && this.state.taken['CMPS13L']));
     }
 
     calc1Completed = () => {
@@ -131,18 +130,18 @@ export default class LowerDiv extends Component {
                 <h3>Lower Division Requirements</h3>
                 <b>Intro To Programming</b>
                 <hr />
-                <div className={this.introProgrammingCompleted() ? 'intro completed' : 'intro uncompleted'}>
+                <div className={this.introProgrammingCompleted() ? 'intro completed' : 'intro'}>
                     <div>
                         <p align="center"><b>Regular Track</b></p>
-                        <div className="regularSection">
-                            <div className={this.regularIntroTrackCompleted() ? 'regular completed' : 'regular uncompleted'}>
+                        <div className="regularSection" id={this.introProgrammingCompleted() ? 'completedBorder' : ''}>
+                            <div className={this.regularIntroTrackCompleted() || this.introProgrammingCompleted() ? 'regular completed' : 'regular uncompleted'}>
                                 <div className="cs12a">
                                     <ClassDataTooltips id='cmps12al' text='CMPS12A/L' classData={this.state.classData['CMPS12A']} />
                                     {this.state.taken['CMPS12A'] && this.state.taken['CMPS12L'] && <b>X</b>}
                                 </div>
                                 <div className="or1">or</div>
                                 <div className="cs5j">
-                                    <div className={this.state.taken['CMPS5J'] ? 'completed' : 'uncompleted'}>
+                                    <div className={this.state.taken['CMPS5J'] ? 'cs5j completed' : 'cs5j uncompleted'}>
                                         <ClassDataTooltips id='cmps5j' text='CMPS5J' classData={this.state.classData['CMPS5J']} />
                                         {this.state.taken['CMPS5J'] && <b>X</b>}
                                     </div>
@@ -170,7 +169,8 @@ export default class LowerDiv extends Component {
                     </div>
                     <div>
                         <p align="center"><b>Honors Track</b></p>
-                        <div className="honors">
+                        <div className={this.introProgrammingCompleted() ? "honors completed" : "honors uncompleted"} 
+                            id={this.introProgrammingCompleted() ? 'completedBorder' : ''}>
                             <ClassDataTooltips id='cmps13h' text='CMPS13H/L' classData={this.state.classData['CMPS13H']} />
                             {this.state.taken['CMPS13H'] && this.state.taken['CMPS13L'] && <b>X</b>}
                         </div>
@@ -180,7 +180,7 @@ export default class LowerDiv extends Component {
                     <div className="math-container">
                         <b>Math</b>
                         <hr />
-                        <div className={this.mathCompleted() ? 'completed' : 'uncompleted'}>
+                        <div>
                             <div className="math">
                                 <div className={this.calc1Completed() ? 'calc1 completed' : 'calc1 uncompleted'}>
                                     <div className="math19a">
