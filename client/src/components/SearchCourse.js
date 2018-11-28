@@ -28,6 +28,7 @@ class Course extends Component {
         };
         this.submit = this.submit.bind(this);
         this.quarterStringToNumber = this.quarterStringToNumber.bind(this);
+        this.notEmpty = this.notEmpty.bind(this);
     }
 
     // Convert the quarter name to a number to store in the database
@@ -106,8 +107,16 @@ class Course extends Component {
         return courseSplit[0]+" "+courseSplit[1]+" "+courseSplit[2]+" "+courseSplit[3];
     }
 
+    notEmpty(ge) {
+        ge = ge.trim();
+        console.log(ge);
+        if(ge === ""){
+            return false;
+        }
+        return true;
+    }
+
     render() {
-        console.log(this.props.hit);
         return (
             <div style={{ padding: '10px' }}>
                 <span className="hits">
@@ -127,9 +136,11 @@ class Course extends Component {
                         <div className="hitResult">
                             <p>{<Highlight attribute="courseTitle" hit={this.props.hit} tagName="mark" />}</p>
                             <p><Highlight attribute="description" hit={this.props.hit} tagName="mark" /></p>
+                            {this.props.hit.prereqs !== "" && <p>{this.props.hit.prereqs}</p>}
                             <p>
+                                {this.notEmpty(this.props.hit.meta.general_education) &&
+                                    <><br />General Education: <Highlight attribute="meta.general_education" hit={this.props.hit} tagName="mark" /><br/></>}
                                 Instructor: <Highlight attribute="lecture.instructor" hit={this.props.hit} tagName="mark" />
-                                <br />General Education:  <Highlight attribute="meta.general_education" hit={this.props.hit} tagName="mark" />
                                 <br />Days and Times: <Highlight attribute="lecture.days" hit={this.props.hit} tagName="mark" /> <Highlight attribute="lecture.times" hit={this.props.hit} tagName="mark" />
                                 <br />Room: <Highlight attribute="lecture.room" hit={this.props.hit} tagName="mark" />
                                 <br />Meeting Dates: <Highlight attribute="lecture.meetingDates" hit={this.props.hit} tagName="mark" />

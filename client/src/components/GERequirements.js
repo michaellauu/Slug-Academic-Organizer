@@ -96,8 +96,8 @@ class GERequirements extends Component {
     if (this.completed(ge)) {
       if (ge !== 'PR' && ge !== 'PE' && ge !== 'C2') {
         return (this.state.classes[ge]);
-      }else if(ge == "C2"){
-        if(!ge in this.state.classes){
+      }else if(ge === "C2"){
+        if(!(ge in this.state.classes)){
           return (this.state.classes['C']);
         }else{
           return (this.state.classes['C2']);
