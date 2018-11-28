@@ -109,7 +109,7 @@ class Course extends Component {
 
     notEmpty(ge) {
         ge = ge.trim();
-        console.log(ge);
+        //console.log(ge);
         if(ge === ""){
             return false;
         }

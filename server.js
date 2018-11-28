@@ -145,7 +145,7 @@ app.post("/api/geClasses", (req, res) => {
 					ges[userClass.ge] = userClass.courseID;
 				}
 			});
-			console.log(ges);
+			//console.log(ges);
 			res.send(ges);
 		}
 	}).then(console.log(`Getting user classes ...`));
@@ -188,7 +188,7 @@ app.post("/api/ge", (req, res) => {
 
 // GE get request to get all the GE requirements from the database
 app.post("/api/GERequirements", (req, res) => {
-	console.log("why");
+	//console.log("why");
 	GEData.find(function (err, ge) {
 		if (err) {
 			//error messages
@@ -215,7 +215,7 @@ app.post("/api/GERequirements", (req, res) => {
 
 // Posts class form submission to database
 app.post("/api/submitClass", (req, res) => {
-	console.log(req.body);
+	//console.log(req.body);
 	const lecture = {
 		days: req.body.days,
 		times: req.body.times,
@@ -253,7 +253,7 @@ app.post("/api/deleteClass", (req, res) => {
 });
 
 app.post("/api/editGrade", (req, res) => {
-	console.log("here");
+	//console.log("here");
 	ClassData.findByIdAndUpdate(req.body._id, { $set: { grade: req.body.grade } }, function (err, classes) {
 		if (err) {
 			console.log(err);
