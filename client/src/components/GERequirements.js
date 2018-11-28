@@ -79,8 +79,10 @@ class GERequirements extends Component {
   };
 
   completed = (ge) => {
-    if (ge !== 'PR' && ge !== 'PE') {
+    if (ge !== 'PR' && ge !== 'PE' && ge !== 'C2') {
       return (ge in this.state.classes);
+    }else if(ge === 'C2'){
+      return ('C' in this.state.classes || ge in this.state.classes);
     } else {
       if (ge === 'PR') {
         return ('PR-S' in this.state.classes || 'PR-E' in this.state.classes || 'PR-C' in this.state.classes);
@@ -92,9 +94,15 @@ class GERequirements extends Component {
 
   completedClass = (ge) => {
     if (this.completed(ge)) {
-      if (ge !== 'PR' && ge !== 'PE') {
+      if (ge !== 'PR' && ge !== 'PE' && ge !== 'C2') {
         return (this.state.classes[ge]);
-      } else {
+      }else if(ge == "C2"){
+        if(!ge in this.state.classes){
+          return (this.state.classes['C']);
+        }else{
+          return (this.state.classes['C2']);
+        }
+      }else {
         if (ge === 'PR') {
           if ('PR-S' in this.state.classes) {
             return this.state.classes['PR-S'];

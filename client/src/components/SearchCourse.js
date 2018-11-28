@@ -129,6 +129,7 @@ class Course extends Component {
                             <p><Highlight attribute="description" hit={this.props.hit} tagName="mark" /></p>
                             <p>
                                 Instructor: <Highlight attribute="lecture.instructor" hit={this.props.hit} tagName="mark" />
+                                <br />General Education:  <Highlight attribute="meta.general_education" hit={this.props.hit} tagName="mark" />
                                 <br />Days and Times: <Highlight attribute="lecture.days" hit={this.props.hit} tagName="mark" /> <Highlight attribute="lecture.times" hit={this.props.hit} tagName="mark" />
                                 <br />Room: <Highlight attribute="lecture.room" hit={this.props.hit} tagName="mark" />
                                 <br />Meeting Dates: <Highlight attribute="lecture.meetingDates" hit={this.props.hit} tagName="mark" />
