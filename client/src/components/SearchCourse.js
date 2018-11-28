@@ -200,22 +200,22 @@ class Search extends Component {
                     </NavItem>
                 </Nav>
                 <TabContent className="activeTab" activeTab={this.state.activeTab}>
-                    <TabPane className="filterbox" tabId="1">
+                    <TabPane id="filterbox" tabId="1">
                         <RefinementList attribute="meta.career" />
                     </TabPane>
-                    <TabPane className="filterbox" tabId="2">
+                    <TabPane id="filterbox" tabId="2">
                         <RefinementList attribute="meta.type" />
                     </TabPane>
-                    <TabPane className="filterbox" tabId="3">
+                    <TabPane id="filterbox" tabId="3">
                         <RefinementList attribute="meta.credits" />
                     </TabPane>
-                    <TabPane className="filterbox" tabId="5">
+                    <TabPane id="filterbox" tabId="5">
                         <RefinementList attribute="lecture.days" />
                     </TabPane>
-                    <TabPane className="filterbox" tabId="7">
+                    <TabPane id="filterbox" tabId="7">
                         <RefinementList attribute="lecture.times" />
                     </TabPane>
-                    <TabPane className="filterbox" tabId="6">
+                    <TabPane id="filterbox" tabId="6">
                         <RefinementList attribute="quarter" />
                     </TabPane>
                 </TabContent>

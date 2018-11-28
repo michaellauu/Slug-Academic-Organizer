@@ -28,6 +28,7 @@
 	width: 100%;
 	padding: 10px;
 	margin: 5px;
+	border-radius: 5x;
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border:solid 1px white;
@@ -38,7 +39,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	border-radius: 15px;
-	background-color: #707088; 
+	background-color: #585870; 
 }
 
 .GPASubmitButton {

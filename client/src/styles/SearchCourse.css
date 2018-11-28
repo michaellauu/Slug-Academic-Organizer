@@ -76,11 +76,11 @@ button.ais-CurrentRefinements-delete{
   padding: 10px;
 }
 
-.filterbox,
+#filterbox,
 .hitResult {
   margin-top: 30px;
   padding: 20px;
-  background-color: #707088;
+  background-color: #585870 !important;
   border-radius:10px;
 }
 
