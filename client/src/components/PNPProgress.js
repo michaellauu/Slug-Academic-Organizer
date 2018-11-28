@@ -106,14 +106,16 @@ class PNPProgress extends Component{
         }
       }
     }
-    this.setState({ percentage: ((pnp/total) * 100).toFixed(2) });
+    if(total!==0){
+      this.setState({ percentage: ((pnp / total) * 100).toFixed(2) });
+    }
   }
 
   render() {
     return (
       <div>
         <div className="pnpContainer">
-          <h4>PNP Calculator</h4>
+          <h4>Pass/No Pass Percentage</h4>
           <Progress className="pnpBar" value={this.state.percentage} max="25" />
         </div>
         <div className="resultContainer">

@@ -15,7 +15,7 @@ class GPACalculator extends Component {
       response: "", // Server response
       quarter: Quarters.Fall,
       year: 2018,
-      gpa: "0.0",
+      gpa: "0.00",
       gpatype: cumulative, // 0: cumulative, 1: quarterly
       yearError: "",
       isLoading: false,

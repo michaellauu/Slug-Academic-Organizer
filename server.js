@@ -20,7 +20,8 @@ const calData = require("./server/models/calData");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Uncomment for production
+//app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Port
 const port = process.env.PORT || 5000;
