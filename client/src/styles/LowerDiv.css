@@ -91,7 +91,7 @@
 }
 
 .calc1, .calc2, .linear {
-    border: 1px solid #707088;
+    border: 1px solid rgb(63, 65, 82);
     text-align: center;
     padding: 3.5%;
     border-radius:10px;
@@ -122,7 +122,7 @@
 }
 
 .ce12 {
-    border: 1px solid #707088;
+    border: 1px solid rgb(63, 65, 82);
     text-align: center;
     padding: 3.5%;
     margin: 2%;
@@ -144,7 +144,7 @@ and (min-width: 400px){
     .regular {
         text-align: center;
         padding: 1%;
-        border-radius:10px;
+        border-radius:10px 10px 0px 0px;
         grid-column: auto;
         grid-row: 2;
         display: grid;
@@ -205,7 +205,7 @@ and (max-width: 400px){
     .regular {
         text-align: center;
         padding: 1%;
-        border-radius:10px;
+        border-radius:10px 10px 0px 0px;
         grid-column: auto;
         grid-row: 2;
         display: grid;
