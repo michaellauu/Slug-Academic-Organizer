@@ -35,17 +35,25 @@ class GERequirements extends Component {
             this.setState({
               userID: json.userId,
             });
-            // Get the user classes from the database
-            this.makePost(json.userId)
+            if(json.userId!==''){
+              this.makePost(json.userId)
               .then(res => this.setState({ classes: res }))
               .catch(err => console.log(err));
+            }
           }
         });
     }
   }
 
   callApi = async () => {
-    const response = await fetch("/api/GERequirements");
+    const response = await fetch("/api/GERequirements",
+    {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     return body;
@@ -65,14 +73,16 @@ class GERequirements extends Component {
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-	console.log(body);
-	this.setState({isLoading: false});
+	  //console.log(body);
+	  this.setState({isLoading: false});
     return body;
   };
 
   completed = (ge) => {
-    if (ge !== 'PR' && ge !== 'PE') {
+    if (ge !== 'PR' && ge !== 'PE' && ge !== 'C2') {
       return (ge in this.state.classes);
+    }else if(ge === 'C2'){
+      return ('C' in this.state.classes || ge in this.state.classes);
     } else {
       if (ge === 'PR') {
         return ('PR-S' in this.state.classes || 'PR-E' in this.state.classes || 'PR-C' in this.state.classes);
@@ -84,9 +94,15 @@ class GERequirements extends Component {
 
   completedClass = (ge) => {
     if (this.completed(ge)) {
-      if (ge !== 'PR' && ge !== 'PE') {
+      if (ge !== 'PR' && ge !== 'PE' && ge !== 'C2') {
         return (this.state.classes[ge]);
-      } else {
+      }else if(ge === "C2"){
+        if(!(ge in this.state.classes)){
+          return (this.state.classes['C']);
+        }else{
+          return (this.state.classes['C2']);
+        }
+      }else {
         if (ge === 'PR') {
           if ('PR-S' in this.state.classes) {
             return this.state.classes['PR-S'];
@@ -120,7 +136,7 @@ class GERequirements extends Component {
         <div className="grid-container">
           {this.state.ge.map((current, index) => {
             return (
-              <div className={index/2===Math.floor(index/2) ? 'a' : 'b'}>
+              <div key={index} className={index/2===Math.floor(index/2) ? 'a' : 'b'}>
                 <div className={this.completed(current.geID) ? 'entry completed' : 'entry uncompleted'} key={index}>
                   <div className="category">
                     <h5>{current.geID}-{current.desc}</h5>

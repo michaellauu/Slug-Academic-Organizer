@@ -15,7 +15,8 @@ module.exports = app => {
 	if (!password && !username) {
       return res.send({
         success: false,
-        message: "Error: Username and Password cannot be blank."
+        messagePass: "Error: Password cannot be blank.",
+        messageUser: "Error: Username cannot be blank"
       });
     }
     if ((username.length < 3) || !checkUser(username)) {
@@ -72,7 +73,7 @@ module.exports = app => {
         } else if (previousUsers.length > 0) {
           return res.send({
             success: false,
-            message: "Error: Account already exist."
+            message: "Error: Account already exists."
           });
         }
 
@@ -106,7 +107,8 @@ module.exports = app => {
 	if (!password && !username) {
       return res.send({
         success: false,
-        message: "Error: Username and Password cannot be blank."
+        messagePass: "Error: Password cannot be blank.",
+        messageUser: "Error: Username cannot be blank"
       });
     }
 
