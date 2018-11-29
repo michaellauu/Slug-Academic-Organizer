@@ -3,6 +3,7 @@ import "../styles/ClassLogging.css";
 import { getFromStorage } from "./storage";
 import { Button, UncontrolledCollapse } from "reactstrap";
 import SearchCourse from "./SearchCourse";
+import loader from './loader.svg';
 import * as Grades from "./gradeConstants";
 import * as Quarters from './quarterConstants';
 
@@ -12,7 +13,7 @@ class ClassLogging extends Component {
     this.state = {
       response: "", //server response
       classes: {},
-      isLoading: false,
+      isLoading: true,
       userID: ""
     };
 
@@ -66,23 +67,14 @@ class ClassLogging extends Component {
           if (json.success) {
             this.setState({
               userID: json.userId,
-              isLoading: false
             });
             // Get the user classes from the database
             this.makePost(json.userId)
               .then(res => this.setState({ classes: res }))
               .catch(err => console.log(err));
-          } else {
-            this.setState({
-              isLoading: false
-            });
-          }
+          } 
         });
-    } else {
-      this.setState({
-        isLoading: false
-      });
-    }
+    } 
     this.callApi()
       .then(res => this.setState({ response: res.express }))
       .catch(err => console.log(err));
@@ -109,11 +101,9 @@ class ClassLogging extends Component {
     });
 
     const body = await response.json();
-
+	this.setState({isLoading: false});
     if (response.status !== 200) throw Error(body.message);
-
-    console.log(body);
-
+	console.log(body);
     return body;
   };
 
@@ -129,11 +119,8 @@ class ClassLogging extends Component {
     });
 
     const body = await response.json();
-
     if (response.status !== 200) throw Error(body.message);
-
-    console.log(body);
-
+	console.log(body);
     return body;
   };
 
@@ -198,15 +185,16 @@ class ClassLogging extends Component {
     });
 
     const body = await response.json();
-
     if (response.status !== 200) throw Error(body.message);
-
     //console.log(body);
-
     return body;
   };
 
   render() {
+	if(this.state.isLoading) {
+       return(
+             <div><img src={loader} className="App-loader" alt="loader" /></div>
+    )}
     if (!this.state.isLoading) {
       return (
         <div className="logContainer">

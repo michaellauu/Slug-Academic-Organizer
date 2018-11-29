@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/GERequirements.css";
 import { getFromStorage } from './storage';
+import loader from './loader.svg';
 
 class GERequirements extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class GERequirements extends Component {
     this.state = {
       ge: [], //server response,
       userID: '',
-      classes: {}
+      classes: {},
+	  isLoading: true,
     };
 
     this.completed = this.completed.bind(this);
@@ -32,7 +34,6 @@ class GERequirements extends Component {
           if (json.success) {
             this.setState({
               userID: json.userId,
-              isLoading: false
             });
             if(json.userId!==''){
               this.makePost(json.userId)
@@ -54,9 +55,7 @@ class GERequirements extends Component {
       }
     });
     const body = await response.json();
-
     if (response.status !== 200) throw Error(body.message);
-
     return body;
   };
 
@@ -74,7 +73,8 @@ class GERequirements extends Component {
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-
+	  //console.log(body);
+	  this.setState({isLoading: false});
     return body;
   };
 
@@ -126,6 +126,10 @@ class GERequirements extends Component {
   }
 
   render() {
+	if(this.state.isLoading) {
+       return(
+             <div><img src={loader} className="App-loader" alt="loader" /></div>
+    )}
     return (
       <div>
         <h3 className="pageTitle">GE Requirements</h3>
