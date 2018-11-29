@@ -88,6 +88,17 @@ app.post("/api/userClasses", (req, res) => {
 	}).then(console.log(`Getting user classes ...`));
 });
 
+const Cminus = 8;
+const uncompleted = 14;
+const P = 15;
+
+function isNotFailedClass(grade) {
+	if (grade < Cminus || grade === uncompleted || grade === P) {
+		return true;
+	}
+	return false;
+}
+
 // Gets user claasses for the major requirments page
 app.post("/api/majorClasses", (req, res) => {
 	let userClasses = [];
@@ -97,10 +108,35 @@ app.post("/api/majorClasses", (req, res) => {
 			return res.status(500).send({ message: 'Failed to load user classes' });
 		} else {
 			classes.forEach(function (userClass) {
-				const newClass = { courseID: userClass.courseID };
-				userClasses.push(newClass);
+				if (isNotFailedClass(userClass.grade) && userClass.grade != P) {
+
+					const newClass = { courseID: userClass.courseID };
+					userClasses.push(newClass);
+				}
 			});
 			res.send(userClasses);
+		}
+	}).then(console.log(`Getting user classes ...`));
+});
+
+// Gets user classes for the ge requirements page
+app.post("/api/geClasses", (req, res) => {
+	let ges = {};
+	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
+		if (err) {
+			console.log(err);
+			return res.status(500).send({ message: 'Failed to load user classes' });
+		} else {
+			classes.forEach(function (userClass) {
+				if (!(userClass.ge in ges) && userClass.ge !== '') {
+					//console.log(userClass.ge);
+					if (isNotFailedClass(userClass.grade)) {
+						ges[userClass.ge] = userClass.courseID;
+					}
+				}
+			});
+			//console.log(ges);
+			res.send(ges);
 		}
 	}).then(console.log(`Getting user classes ...`));
 });
@@ -129,26 +165,6 @@ app.post("/api/getMajorClassData", async (req, res) => {
 			res.send(classDatas);
 		}
 	});
-});
-
-// Gets user classes for the ge requirements page
-app.post("/api/geClasses", (req, res) => {
-	let ges = {};
-	ClassData.find({ 'userToken': req.body.userID }, function (err, classes) {
-		if (err) {
-			console.log(err);
-			return res.status(500).send({ message: 'Failed to load user classes' });
-		} else {
-			classes.forEach(function (userClass) {
-				if (!(userClass.ge in ges) && userClass.ge !== '') {
-					//console.log(userClass.ge);
-					ges[userClass.ge] = userClass.courseID;
-				}
-			});
-			//console.log(ges);
-			res.send(ges);
-		}
-	}).then(console.log(`Getting user classes ...`));
 });
 
 // Push all JSON class data into database
