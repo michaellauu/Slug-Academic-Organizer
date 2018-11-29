@@ -1,0 +1,33 @@
+h1 {
+  text-align: center;
+  font-size: 6vh;
+  margin-bottom: 4%;
+}
+
+.fc-event,
+.fc-event-dot {
+  background-color: #5BADC5 !important;
+}
+
+.fc-state-highlight {
+  background-color: #585870 !important;
+}
+
+#calendar button {
+  color: white;
+}
+
+#calendar {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+@media screen
+and (max-width: 1024px) {
+  #calendar {
+    max-width: 100%;
+    max-height: 300%;
+    height: 300%;
+  }
+}

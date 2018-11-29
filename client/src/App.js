@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ClassLogging from "./components/ClassLogging";
+import GERequirements from "./components/GERequirements";
+import Calendar from "./components/Calendar";
+import NavBar from "./components/NavBar";
+import SignIn from "./components/Home";
+import Grades from "./components/Grades";
+import Major from "./components/Major";
 import "./App.css";
+import "./styles/NavBar.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: "", //server response
-      class: "" //class value from form
+      response: "" //server response
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //makes get request to server after the component mounts
@@ -30,58 +34,27 @@ class App extends Component {
     return body;
   };
 
-  //change to form
-  handleChange(event) {
-    this.setState({ class: event.target.value });
-  }
-
-  //form submission->post request to server
-  handleSubmit(event) {
-    this.getClasses(this.state.class)
-      .then(res => this.setState({ response: res.express, class: "" }))
-      .catch(err => console.log(err));
-    event.preventDefault();
-  }
-
-  getClasses = async data => {
-    const response = await fetch("/api/getClasses", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        class: data
-      })
-    });
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>{this.state.response}</h1>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Search:
-              <input
-                type="text"
-                value={this.state.class}
-                onChange={this.handleChange}
-              />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        </header>
-      </div>
+      //this lets connect to different components of our site
+      <Router>
+        <div className="container main">
+          <header>
+            <NavBar />
+          </header>
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={SignIn} />
+              <Route path="/logging" component={ClassLogging} />
+              <Route path="/grades" component={Grades} />
+              <Route path="/major" component={Major} />
+              <Route path="/ge" component={GERequirements} />
+              <Route path="/calendar" component={Calendar} />\
+            </Switch>
+          </div>
+        </div>
+      </Router>
     );
   }
 }
-
 export default App;
