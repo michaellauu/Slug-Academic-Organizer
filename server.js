@@ -356,4 +356,18 @@ function checkDays(daysInput) {
 	}
 }
 
+app.post("/api/account/info", (req, res) => {
+  User.findOne({'_id': req.body.userID}, function (err, cal) {
+    if (err) {
+      //error messages
+      console.log("Can't get userID");
+      return res.status(500).send({ Error: "Can't get userID" });
+    } else {
+		const username = cal.username;
+		res.send(username);
+        };
+      });
+    });
+
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
