@@ -143,7 +143,8 @@ class Home extends Component {
             signUpUsername: "",
             signUpPassword: "",
             signInErrorUser: null,
-            signInErrorPass: null
+            signInErrorPass: null,
+			signUpError: json.message,
           });
         } else {
           this.setState({
