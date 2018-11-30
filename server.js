@@ -364,7 +364,7 @@ app.post("/api/account/info", (req, res) => {
       return res.status(500).send({ Error: "Can't get userID" });
     } else {
 		const username = cal.username;
-		res.send(username);
+		res.send({username: username});
         };
       });
     });
