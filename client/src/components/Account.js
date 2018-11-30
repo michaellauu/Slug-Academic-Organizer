@@ -95,6 +95,46 @@ export default class Account extends Component {
       });
     }
   }
+  
+  onChange() {
+    // Grab state
+    const { checkPassword, changePassword } = this.state;
+    this.setState({
+      isLoading: true
+    });
+
+      // Post request to backend
+   fetch("/api/account/changePassword", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        checkPassword: checkPassword,
+        changePassword: changePassword
+      })
+    })
+      .then(res => res.json())
+      .then(json => {
+        console.log("json", json);
+        if (json.success) {
+          this.setState({
+            isLoading: false,
+			checkPassword: '',
+			changePassword: '',
+			checkPasswordError: '',
+			changePasswordError: '',
+			
+          });
+        } else {
+          this.setState({
+			checkPasswordError: json.messageCheckError,
+			changePasswordError: json.messageChangeError,
+            isLoading: false
+          });
+        }
+      });
+  }
 
   onTextboxChangecheckPassword(event) {
     this.setState({
@@ -118,7 +158,7 @@ export default class Account extends Component {
     } = this.state;
     if(userID) return (
       <div>
-	    <p>userID: {this.state.userID}</p> <br />
+	    <p>userID: {this.state.userID}</p>
         <p>username: {this.state.username}</p> <br />
 			<Form>
                 <Col>
