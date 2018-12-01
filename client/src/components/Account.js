@@ -9,14 +9,16 @@ import {
   Input,
   Button,
 } from 'reactstrap';
-import {Redirect } from 'react-router'
+import { Redirect } from 'react-router';
+import loader from './loader.svg';
+
 export default class Account extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
 	  toHome: false,
-	  isLoading: false,
+	  isLoading: true,
       userID: '',
 	  username: '',
 	  checkPassword: "",
@@ -44,13 +46,17 @@ export default class Account extends Component {
           if (json.success) {
             this.setState({
               userID: json.userId,
-              isLoading: false
             });
-            // Get the user classes from the database
+            // Get the username from userID
             this.getUsername(json.userId)
               .then(res => this.setState({ username: res.username }))
               .catch(err => console.log(err));
           }
+		  else {this.setState({
+			  isLoading: false,
+			  toHome: true
+				});
+		  }			
         });
     }
   }
@@ -67,7 +73,7 @@ export default class Account extends Component {
 	});
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-	console.log(body);
+	this.setState({isLoading: false});
     return body;
   };
   
@@ -169,10 +175,15 @@ export default class Account extends Component {
 	  changePasswordSuccess,
     } = this.state;
 	
+	//redirects if toHome is true because of logout
 	if (this.state.toHome === true) {
       return <Redirect to='/' />
 	}
-	
+	if(this.state.isLoading) {
+       return(
+             <div><img src={loader} className="App-loader" alt="loader" /></div>
+		)
+	}
     if(userID) return (
       <div>
 	    <p>userID: {this.state.userID}</p>
@@ -219,7 +230,7 @@ export default class Account extends Component {
       </div>
     );
 	else return(
-	<p>You shouldn't be here</p>
+	<div><img src={loader} className="App-loader" alt="loader" /></div>
 	)
   };
 }
