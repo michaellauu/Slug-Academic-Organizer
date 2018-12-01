@@ -388,7 +388,13 @@ app.post("/api/account/changePassword", (req, res, next) => {
   let { username } = body;
   const { checkPassword } = body;
   let { changePassword } = body;
-	
+  
+  if (checkPassword == changePassword) {
+      return res.send({
+        success: false,
+        checkPasswordError: "Error: Your current and new password are the same!"
+      });
+    }
   if ((changePassword.length < 5) || !checkCase(changePassword)) {
       return res.send({
         success: false,
