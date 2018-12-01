@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import SignIn from "./components/Home";
 import Grades from "./components/Grades";
 import Major from "./components/Major";
+import Account from "./components/Account";
 import "./App.css";
 import "./styles/NavBar.css";
 
@@ -49,7 +50,8 @@ class App extends Component {
               <Route path="/grades" component={Grades} />
               <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />
-              <Route path="/calendar" component={Calendar} />\
+              <Route path="/calendar" component={Calendar} />
+			  <Route path="/account" component={Account} />
             </Switch>
           </div>
         </div>

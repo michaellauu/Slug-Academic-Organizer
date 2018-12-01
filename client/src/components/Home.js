@@ -13,10 +13,11 @@ import {
   ButtonGroup
 } from 'reactstrap';
 // import { Link } from 'react-router-dom';
-import "whatwg-fetch";
 
+import "whatwg-fetch";
 import { getFromStorage, setInStorage } from "./storage";
 import '../styles/Home.css';
+import loader from './loader.svg';
 
 const signIn = 1;
 const signUp = 2;
@@ -143,7 +144,8 @@ class Home extends Component {
             signUpUsername: "",
             signUpPassword: "",
             signInErrorUser: null,
-            signInErrorPass: null
+            signInErrorPass: null,
+			signUpError: json.message,
           });
         } else {
           this.setState({
@@ -256,7 +258,7 @@ class Home extends Component {
     if (isLoading) {
       return (
         <div>
-          <p>Loading...</p>
+          <div><img src={loader} className="App-loader" alt="loader" /></div>
         </div>
       );
     }

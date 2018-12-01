@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require('path');
-
+const bcrypt = require('bcrypt');
 const app = express();
 
 // JSON
@@ -371,5 +371,107 @@ function checkDays(daysInput) {
 		return '[5]';
 	}
 }
+
+// function to check password criteria
+function checkCase(pw) {
+	let uppercase = 0;
+	let numeric = 0;
+	for(i = 0; i < pw.length; i++) {
+		if('A' <= pw[i] && pw[i] <= 'Z') uppercase++; // check if you have an uppercase
+		if('0' <= pw[i] && pw[i] <= '9') numeric++; // check if you have a numeric
+	}
+	if((uppercase >= 1) && (numeric >= 1)) return true;
+	else return false;
+	}
+	
+//get username of current user
+app.post("/api/account/info", (req, res) => {
+  User.findOne({'_id': req.body.userID}, function (err, cal) {
+    if (err) {
+      //error messages
+      console.log("Can't get userID");
+      return res.status(500).send({ Error: "Can't get userID" });
+    } else {
+		const username = cal.username;
+		res.send({username: username});
+        };
+      });
+});
+
+//change password for current user
+app.post("/api/account/changePassword", (req, res, next) => {
+  const { body } = req;
+  let { username } = body;
+  const { checkPassword } = body;
+  let { changePassword } = body;
+  
+  if (checkPassword == changePassword) {
+      return res.send({
+        success: false,
+        checkPasswordError: "Error: Your current and new password are the same!"
+      });
+    }
+  if ((changePassword.length < 5) || !checkCase(changePassword)) {
+      return res.send({
+        success: false,
+        changePasswordError: "Error: Password must contain an uppercase and numeric and be longer than 5 characters"
+      });
+    }
+	//console.log(username);
+	//console.log(checkPassword);
+	//console.log(changePassword);
+	username = username.toLowerCase();
+    username = username.trim();
+    User.find(
+      {
+        username: username
+      },
+      (err, users) => {
+        if (err) {
+          console.log("err 2:", err);
+          return res.send({
+            success: false,
+            checkPasswordError: "Error: server error"
+          });
+        }
+        if (users.length != 1) {
+          return res.send({
+            success: false,
+            checkPasswordError: "Error: Invalid Username UhRoh This Shouldn't Happen"
+          });
+        }
+
+        const user = users[0];
+        if (!user.validPassword(checkPassword)) {
+          return res.send({
+            success: false,
+            checkPasswordError: "Error: Invalid Password"
+          });
+        }
+        // Otherwise correct user
+		newPassword = generateHash(changePassword);
+		User.findByIdAndUpdate(req.body.userID, { $set: { password: newPassword } }, function (err, change) {
+		if (err) {
+			console.log(err);
+			return res.status(500).send({ message: 'Failed to change password' });
+		} else {	
+			res.send({ 
+			success: true,
+			express: "done",
+			changePasswordSuccess: "Password Changed!"
+			});
+		}
+		})
+      }
+    );
+});
+
+generateHash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+validPassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
