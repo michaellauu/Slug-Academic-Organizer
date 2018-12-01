@@ -24,7 +24,6 @@ export default class Calendar extends Component {
 	  isLoading: true,
 	  userID: ""
     };
-	
   }
     componentDidMount() {
 	//get userToken and return courses
@@ -60,10 +59,15 @@ export default class Calendar extends Component {
     return body;
   };
   
-  //checks screen height
+  //checks screen width and display listViews if mobile
   mobileView() {
-	  if (this.state.mobileCheck) return "month,basicWeek,basicDay";
+	  if (this.state.mobileCheck) return "listWeek,listDay";
 	  else return "month,agendaWeek,agendaDay";
+  }
+  //checks screen width and display listView as default if mobile
+  mobileViewDefault() {
+	  if (this.state.mobileCheck) return "listWeek";
+	  else return "month";
   }
   
    // Post call to the database to get the user classes (from Hannah's code)
@@ -99,6 +103,10 @@ export default class Calendar extends Component {
             center: "title",
             right: this.mobileView()
           }}
+		  buttonText={{
+			listWeek: 'week',
+			listDay: 'day'
+		   }}
 			//credits @slicedtoad and the community at stackoverflow.com for the filter portion of the code
 			eventRender = {function(event, element) {
 				element.find('.fc-title').append("<br/>" + event.description); 
@@ -118,6 +126,7 @@ export default class Calendar extends Component {
           eventLimit={true}
           weekends={false}
           events={this.state.events}
+		  defaultView={this.mobileViewDefault()}
         />
       </div>
     );
