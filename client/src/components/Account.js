@@ -9,11 +9,13 @@ import {
   Input,
   Button,
 } from 'reactstrap';
+import {Redirect } from 'react-router'
 export default class Account extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+	  toHome: false,
 	  isLoading: false,
       userID: '',
 	  username: '',
@@ -21,7 +23,9 @@ export default class Account extends Component {
       changePassword: "",
 	  checkPasswordError: "",
 	  changePasswordError: "",
+	  changePasswordSucces: "",
     };
+	this.onChange = this.onChange.bind(this);
 	this.logout = this.logout.bind(this);
     this.onTextboxChangecheckPassword = this.onTextboxChangecheckPassword.bind(this);
     this.onTextboxChangechangePassword = this.onTextboxChangechangePassword.bind(this);
@@ -51,7 +55,7 @@ export default class Account extends Component {
     }
   }
 
-  // Post call to the database to get the user classes
+  // Post call to the database to get the username
   getUsername = async (userID) => {
     const response = await fetch('/api/account/info', {
       method: 'POST',
@@ -67,6 +71,7 @@ export default class Account extends Component {
     return body;
   };
   
+  // logout api call
   logout() {
     this.setState({
       isLoading: true
@@ -81,7 +86,8 @@ export default class Account extends Component {
           if (json.success) {
             this.setState({
               token: "",
-              isLoading: false
+              isLoading: false,
+			  toHome: true
             });
           } else {
             this.setState({
@@ -96,20 +102,23 @@ export default class Account extends Component {
     }
   }
   
+  //change password
   onChange() {
     // Grab state
-    const { checkPassword, changePassword } = this.state;
+    const { userID, username, checkPassword, changePassword } = this.state;
     this.setState({
       isLoading: true
     });
 
-      // Post request to backend
+      // Post request to backend to change password
    fetch("/api/account/changePassword", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+		userID: userID,
+		username: username,
         checkPassword: checkPassword,
         changePassword: changePassword
       })
@@ -122,14 +131,16 @@ export default class Account extends Component {
             isLoading: false,
 			checkPassword: '',
 			changePassword: '',
-			checkPasswordError: '',
-			changePasswordError: '',
+			checkPasswordError: null,
+			changePasswordError: null,
+			changePasswordSuccess: json.changePasswordSuccess
 			
           });
         } else {
           this.setState({
-			checkPasswordError: json.messageCheckError,
-			changePasswordError: json.messageChangeError,
+			checkPasswordError: json.checkPasswordError,
+			changePasswordError: json.changePasswordError,
+			changePasswordSuccess: null,
             isLoading: false
           });
         }
@@ -149,13 +160,19 @@ export default class Account extends Component {
   }
 
   render() {
-	  const {
+	const {
 	  userID,
       checkPassword,
       changePassword,
 	  checkPasswordError,
-	  changePasswordError
+	  changePasswordError,
+	  changePasswordSuccess,
     } = this.state;
+	
+	if (this.state.toHome === true) {
+      return <Redirect to='/' />
+	}
+	
     if(userID) return (
       <div>
 	    <p>userID: {this.state.userID}</p>
@@ -184,10 +201,11 @@ export default class Account extends Component {
                         placeholder="New Password"
                         value={changePassword}
                         onChange={this.onTextboxChangechangePassword}
-                        invalid={this.state.changePasswordError != null || this.state.checkPasswordError != null}
+                        invalid={this.state.changePasswordError != null || this.state.checkPasswordError != null
+						|| this.state.changePasswordSuccess}
                       />
                       <FormFeedback invalid>
-                        {changePasswordError}
+                        {changePasswordError}{changePasswordSuccess}
 					  </FormFeedback>
                     </FormGroup>
                   </Col>
