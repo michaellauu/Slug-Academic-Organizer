@@ -75,19 +75,7 @@ class ClassLogging extends Component {
           } 
         });
     } 
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
   }
-
-  callApi = async () => {
-    const response = await fetch("/");
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
 
   // Post call to the database to get the user classes
   makePost = async userID => {
@@ -263,7 +251,7 @@ class ClassLogging extends Component {
                                         <div className="deleteButton">
                                           <Button key={classIdx} onClick={() => { this.delete(userClass._id, classIdx, quarter, year); }}>
                                             Delete
-                                            </Button>
+                                          </Button>
                                         </div>
                                       </div>
                                     );

@@ -42,7 +42,7 @@ export default class NavBar extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem className="link-1">
                 <NavLink tag={Link} to="/">
-                  Sign In
+                  Account
                 </NavLink>
               </NavItem>
               <NavItem className="link-2">

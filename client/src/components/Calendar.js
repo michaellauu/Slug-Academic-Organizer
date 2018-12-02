@@ -19,15 +19,15 @@ export default class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-	  mobileCheck: window.innerWidth < 768,
+      mobileCheck: window.innerWidth < 768,
       events: [],
-	  isLoading: true,
-	  userID: ""
+      isLoading: true,
+      userID: ""
     };
-	
+
   }
-    componentDidMount() {
-	//get userToken and return courses
+  componentDidMount() {
+    //get userToken and return courses
     const obj = getFromStorage("the_main_app");
     if (obj && obj.token) {
       const { token } = obj;
@@ -46,27 +46,16 @@ export default class Calendar extends Component {
               .catch(err => console.log(err));
           }
         });
-    } 
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
+    }
   }
 
-  callApi = async () => {
-    const response = await fetch("/");
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-	console.log(body);
-    return body;
-  };
-  
   //checks screen height
   mobileView() {
-	  if (this.state.mobileCheck) return "month,basicWeek,basicDay";
-	  else return "month,agendaWeek,agendaDay";
+    if (this.state.mobileCheck) return "month,basicWeek,basicDay";
+    else return "month,agendaWeek,agendaDay";
   }
-  
-   // Post call to the database to get the user classes (from Hannah's code)
+
+  // Post call to the database to get the user classes (from Hannah's code)
   getCalendar = async userID => {
     const response = await fetch("/api/getCalendar", {
       method: "POST",
@@ -79,16 +68,17 @@ export default class Calendar extends Component {
 
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-	console.log(body);
-	this.setState({isLoading: false});
+
+    this.setState({ isLoading: false });
     return body;
   };
-  
+
   render() {
-	if(this.state.isLoading) {
-       return(
-             <div><img src={loader} className="App-loader" alt="loader" /></div>
-    )}
+    if (this.state.isLoading) {
+      return (
+        <div><img src={loader} className="App-loader" alt="loader" /></div>
+      )
+    }
     return (
       <div id="calendar">
         <FullCalendar
@@ -99,19 +89,19 @@ export default class Calendar extends Component {
             center: "title",
             right: this.mobileView()
           }}
-			//credits @slicedtoad and the community at stackoverflow.com for the filter portion of the code
-			eventRender = {function(event, element) {
-				element.find('.fc-title').append("<br/>" + event.description); 
-				if(event.ranges) {
-					return (event.ranges.filter(function(range) { // test event against all the ranges
-						return (event.start.isBefore(range.end) &&
-						event.end.isAfter(range.start));
-				}).length) > 0; //if it isn't in one of the ranges, don't render it (by returning false)
-			} 
-			else return true;
-		}}
-		  minTime={"08:00"}
-		  maxTime={"23:00"}
+          //credits @slicedtoad and the community at stackoverflow.com for the filter portion of the code
+          eventRender={function (event, element) {
+            element.find('.fc-title').append("<br/>" + event.description);
+            if (event.ranges) {
+              return (event.ranges.filter(function (range) { // test event against all the ranges
+                return (event.start.isBefore(range.end) &&
+                  event.end.isAfter(range.start));
+              }).length) > 0; //if it isn't in one of the ranges, don't render it (by returning false)
+            }
+            else return true;
+          }}
+          minTime={"08:00"}
+          maxTime={"23:00"}
           defaultDate={Date.now()}
           navLinks={true}
           editable={false}
