@@ -72,9 +72,9 @@ class ClassLogging extends Component {
             this.makePost(json.userId)
               .then(res => this.setState({ classes: res }))
               .catch(err => console.log(err));
-          } 
+          }
         });
-    } 
+    }
   }
 
   // Post call to the database to get the user classes
@@ -89,9 +89,9 @@ class ClassLogging extends Component {
     });
 
     const body = await response.json();
-	this.setState({isLoading: false});
+    this.setState({ isLoading: false });
     if (response.status !== 200) throw Error(body.message);
-	console.log(body);
+    console.log(body);
     return body;
   };
 
@@ -108,7 +108,7 @@ class ClassLogging extends Component {
 
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-	console.log(body);
+    console.log(body);
     return body;
   };
 
@@ -179,10 +179,11 @@ class ClassLogging extends Component {
   };
 
   render() {
-	if(this.state.isLoading) {
-       return(
-             <div><img src={loader} className="App-loader" alt="loader" /></div>
-    )}
+    if (this.state.isLoading) {
+      return (
+        <div className="loaderContainer" align="center"><img src={loader} className="App-loader" alt="loader" /></div>
+      )
+    }
     if (!this.state.isLoading) {
       return (
         <div className="logContainer">
@@ -211,7 +212,7 @@ class ClassLogging extends Component {
                               <div className="quarter" key={quarter}>
                                 {quarter === Quarters.Fall && currentQuarter.length !== 0 && (<div align="center"><b>Fall</b></div>)}
                                 {quarter === Quarters.Summer && currentQuarter.length !== 0 && (<div align="center"><b>Summer</b></div>)}
-                                {quarter === Quarters.Spring  && currentQuarter.length !== 0 && (<div align="center"><b>Spring</b></div>)}
+                                {quarter === Quarters.Spring && currentQuarter.length !== 0 && (<div align="center"><b>Spring</b></div>)}
                                 {quarter === Quarters.Winter && currentQuarter.length !== 0 && (<div align="center"><b>Winter</b></div>)}
                               </div>
                               <div className={currentQuarter.length !== 0 ? 'quarterClassContainer' : 'empty'}>
@@ -229,23 +230,23 @@ class ClassLogging extends Component {
                                             onChange={this.changeGrade(userClass._id, classIdx, quarter, year)}
                                             className="grade"
                                           >
-                                            <option value = {Grades.Aplus}> A+ </option>
-                                            <option value = {Grades.A}> A </option>
-                                            <option value = {Grades.Aminus}> A- </option>
-                                            <option value = {Grades.Bplus}> B+ </option>
-                                            <option value = {Grades.B}> B </option>
-                                            <option value = {Grades.Bminus}> B- </option>
-                                            <option value = {Grades.Cplus}> C+ </option>
-                                            <option value = {Grades.C}> C </option>
-                                            <option value = {Grades.Cminus}> C- </option>
-                                            <option value = {Grades.Dplus}> D+ </option>
-                                            <option value = {Grades.D}> D </option>
-                                            <option value = {Grades.Dminus}> D- </option>
-                                            <option value = {Grades.F}> F </option>
-                                            <option value = {Grades.W}> W </option>
-                                            <option value = {Grades.uncompleted}> Not Completed </option>
-                                            <option value = {Grades.P}> Pass </option>
-                                            <option value = {Grades.NP}> No Pass </option>
+                                            <option value={Grades.Aplus}> A+ </option>
+                                            <option value={Grades.A}> A </option>
+                                            <option value={Grades.Aminus}> A- </option>
+                                            <option value={Grades.Bplus}> B+ </option>
+                                            <option value={Grades.B}> B </option>
+                                            <option value={Grades.Bminus}> B- </option>
+                                            <option value={Grades.Cplus}> C+ </option>
+                                            <option value={Grades.C}> C </option>
+                                            <option value={Grades.Cminus}> C- </option>
+                                            <option value={Grades.Dplus}> D+ </option>
+                                            <option value={Grades.D}> D </option>
+                                            <option value={Grades.Dminus}> D- </option>
+                                            <option value={Grades.F}> F </option>
+                                            <option value={Grades.W}> W </option>
+                                            <option value={Grades.uncompleted}> Not Completed </option>
+                                            <option value={Grades.P}> Pass </option>
+                                            <option value={Grades.NP}> No Pass </option>
                                           </select>
                                         </div>
                                         <div className="deleteButton">

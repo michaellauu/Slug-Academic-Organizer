@@ -257,7 +257,7 @@ class Home extends Component {
     if (isLoading) {
       return (
         <div>
-          <div><img src={loader} className="App-loader" alt="loader" /></div>
+          <div className="loaderContainer" align="center"><img src={loader} className="App-loader" alt="loader" /></div>
         </div>
       );
     }

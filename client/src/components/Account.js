@@ -173,11 +173,6 @@ export default class Account extends Component {
       changePasswordSuccess,
     } = this.state;
 
-    if (this.state.isLoading) {
-      return (
-        <div><img src={loader} className="App-loader" alt="loader" /></div>
-      )
-    }
     if (userID) return (
       <div>
         <div className="changePass">
@@ -225,7 +220,7 @@ export default class Account extends Component {
       </div>
     );
     else return (
-      <div><img src={loader} className="App-loader" alt="loader" /></div>
+      <></>
     )
   };
 }

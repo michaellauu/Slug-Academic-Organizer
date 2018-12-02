@@ -91,7 +91,7 @@ export default class Calendar extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <div><img src={loader} className="App-loader" alt="loader" /></div>
+        <div className="loaderContainer" align="center"><img src={loader} className="App-loader" alt="loader" /></div>
       )
     }
     return (
