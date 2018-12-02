@@ -19,13 +19,14 @@ export default class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobileCheck: window.innerWidth < 768,
+      mobileCheck: window.innerWidth < 1024,
       events: [],
       isLoading: true,
       userID: ""
     };
-
+    this.updateMobileCheck = this.updateMobileCheck.bind(this);
   }
+
   componentDidMount() {
     //get userToken and return courses
     const obj = getFromStorage("the_main_app");
@@ -47,12 +48,26 @@ export default class Calendar extends Component {
           }
         });
     }
+    window.addEventListener("resize", this.updateMobileCheck);
   }
 
-  //checks screen height
+  updateMobileCheck() {
+    if(this.state.mobileCheck != (window.innerWidth <= 1024)){
+      this.setState({
+        mobileCheck: window.innerWidth <= 1024,
+      });
+    }
+  }
+
+  //checks screen width and display listViews if mobile
   mobileView() {
-    if (this.state.mobileCheck) return "month,basicWeek,basicDay";
+    if (this.state.mobileCheck) return "listWeek,listDay";
     else return "month,agendaWeek,agendaDay";
+  }
+  //checks screen width and display listView as default if mobile
+  mobileViewDefault() {
+    if (this.state.mobileCheck) return "listWeek";
+    else return "month";
   }
 
   // Post call to the database to get the user classes (from Hannah's code)
@@ -89,6 +104,10 @@ export default class Calendar extends Component {
             center: "title",
             right: this.mobileView()
           }}
+          buttonText={{
+            listWeek: 'week',
+            listDay: 'day'
+          }}
           //credits @slicedtoad and the community at stackoverflow.com for the filter portion of the code
           eventRender={function (event, element) {
             element.find('.fc-title').append("<br/>" + event.description);
@@ -108,6 +127,7 @@ export default class Calendar extends Component {
           eventLimit={true}
           weekends={false}
           events={this.state.events}
+          defaultView={this.mobileViewDefault()}
         />
       </div>
     );
