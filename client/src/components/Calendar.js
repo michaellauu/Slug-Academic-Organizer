@@ -52,7 +52,7 @@ export default class Calendar extends Component {
   }
 
   updateMobileCheck() {
-    if(this.state.mobileCheck != (window.innerWidth <= 1024)){
+    if(this.state.mobileCheck !== (window.innerWidth <= 1024)){
       this.setState({
         mobileCheck: window.innerWidth <= 1024,
       });
