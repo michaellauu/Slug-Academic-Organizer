@@ -10,7 +10,6 @@ import {
   Button,
 } from 'reactstrap';
 import '../styles/Account.css'
-import loader from './loader.svg';
 
 export default class Account extends Component {
 

@@ -50,7 +50,6 @@ class ClassLogging extends Component {
       newClasses[year][quarter].push({ courseID: newClass, _id: _id, grade: grade });
     }
     this.setState({ classes: newClasses });
-    console.log(newClasses);
   }
 
   // Makes get request to server after the component mounts
@@ -91,7 +90,6 @@ class ClassLogging extends Component {
     const body = await response.json();
     this.setState({ isLoading: false });
     if (response.status !== 200) throw Error(body.message);
-    console.log(body);
     return body;
   };
 
@@ -108,7 +106,6 @@ class ClassLogging extends Component {
 
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-    console.log(body);
     return body;
   };
 

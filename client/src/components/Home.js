@@ -130,7 +130,6 @@ class Home extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        console.log("json", json);
         if (json.success) {
           this.setState({
             isLoading: false,
@@ -178,7 +177,6 @@ class Home extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        console.log("json", json);
         if (json.success) {
           setInStorage("the_main_app", { token: json.token });
           this.setState({
