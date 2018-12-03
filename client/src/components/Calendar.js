@@ -45,6 +45,8 @@ export default class Calendar extends Component {
             this.getCalendar(json.userId)
               .then(res => this.setState({ events: res }))
               .catch(err => console.log(err));
+          }else{
+            this.setState({ isLoading: false });
           }
         });
     }

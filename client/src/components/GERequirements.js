@@ -35,11 +35,15 @@ class GERequirements extends Component {
             this.setState({
               userID: json.userId,
             });
-            if (json.userId !== '') {
+            if (json.userId !== "") {
               this.makePost(json.userId)
                 .then(res => this.setState({ classes: res }))
                 .catch(err => console.log(err));
+            }else{
+              this.setState({ isLoading: false });
             }
+          }else {
+            this.setState({ isLoading: false });
           }
         });
     }

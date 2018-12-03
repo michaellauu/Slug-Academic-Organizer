@@ -71,6 +71,8 @@ class ClassLogging extends Component {
             this.makePost(json.userId)
               .then(res => this.setState({ classes: res }))
               .catch(err => console.log(err));
+          }else{
+            this.setState({ isLoading: false });
           }
         });
     }
