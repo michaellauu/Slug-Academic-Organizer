@@ -18,6 +18,7 @@ import "whatwg-fetch";
 import { getFromStorage, setInStorage } from "./storage";
 import '../styles/Home.css';
 import loader from './loader.svg';
+import Account from "./Account";
 
 const signIn = 1;
 const signUp = 2;
@@ -43,21 +44,15 @@ class Home extends Component {
 
     this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
 
-    this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(
-      this);
-    this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(
-      this
-    );
-    this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(
-      this
-    );
-    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(
-      this
-    );
+    this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(this);
+    this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
+    this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(this);
+    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
 
     this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
     this.logout = this.logout.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
@@ -135,7 +130,6 @@ class Home extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        console.log("json", json);
         if (json.success) {
           this.setState({
             isLoading: false,
@@ -145,7 +139,7 @@ class Home extends Component {
             signUpPassword: "",
             signInErrorUser: null,
             signInErrorPass: null,
-			signUpError: json.message,
+            signUpError: json.message,
           });
         } else {
           this.setState({
@@ -183,7 +177,6 @@ class Home extends Component {
     })
       .then(res => res.json())
       .then(json => {
-        console.log("json", json);
         if (json.success) {
           setInStorage("the_main_app", { token: json.token });
           this.setState({
@@ -240,6 +233,10 @@ class Home extends Component {
     }
   }
 
+  update() {
+    this.setState({token: ""})
+  }
+
   render() {
     const {
       isLoading,
@@ -258,7 +255,7 @@ class Home extends Component {
     if (isLoading) {
       return (
         <div>
-          <div><img src={loader} className="App-loader" alt="loader" /></div>
+          <div className="loaderContainer" align="center"><img src={loader} className="App-loader" alt="loader" /></div>
         </div>
       );
     }
@@ -269,7 +266,7 @@ class Home extends Component {
           {(this.state.rSelected === 1 &&
             <div className="signInForm">
               <Container className="signIn">
-              <div className="signInButtons">
+                <div className="signInButtons">
                   <ButtonGroup>
                     <Button color="primary" onClick={() => this.onRadioBtnClick(signIn)} active={this.state.rSelected === signIn}>Sign In</Button>
                     <Button color="primary" onClick={() => this.onRadioBtnClick(signUp)} active={this.state.rSelected === signUp}>Sign Up</Button>
@@ -315,7 +312,7 @@ class Home extends Component {
             </div>) || (
               <div className="signUpForm">
                 <Container className="signUp">
-                <div className="signInButtons">
+                  <div className="signInButtons">
                     <ButtonGroup>
                       <Button color="primary" onClick={() => this.onRadioBtnClick(signIn)} active={this.state.rSelected === signIn}>Sign In</Button>
                       <Button color="primary" onClick={() => this.onRadioBtnClick(signUp)} active={this.state.rSelected === signUp}>Sign Up</Button>
@@ -367,8 +364,7 @@ class Home extends Component {
 
     return (
       <div>
-        <p>Account</p>
-        <Button onClick={this.logout}>Logout</Button>
+        <Account update={this.update}/>
       </div>
     );
   }
