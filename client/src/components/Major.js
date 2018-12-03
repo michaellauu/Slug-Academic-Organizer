@@ -55,6 +55,8 @@ export default class Major extends Component {
             this.setState({ isLoading: false });
           }
         });
+    }else{
+      this.setState({ isLoading: false });
     }
   }
 

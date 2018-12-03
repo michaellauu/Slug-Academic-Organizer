@@ -75,6 +75,8 @@ class ClassLogging extends Component {
             this.setState({ isLoading: false });
           }
         });
+    }else{
+      this.setState({ isLoading: false });
     }
   }
 

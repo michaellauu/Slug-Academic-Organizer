@@ -1,0 +1,73 @@
+.jumbotron{
+  background: #585870;
+  border-radius: 10px;
+}
+
+.leadButton {
+  background-color: #5BADC5 !important;
+  transition: 0.2s;
+}
+
+.leadButton:hover{
+  background-color:	#3A849D !important;
+}
+
+.title{
+  text-align: center;
+}
+
+.subtitle{
+  text-align: center;
+}
+
+.lead{
+  text-align: center;
+}
+
+.text{
+  text-align: center;
+}
+
+.Record{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.Plan, .Track{
+   text-align: left;
+   display: grid;
+   grid-template-columns: 3fr 1fr;
+}
+
+.Record {
+  text-align: left;
+   display: grid;
+   grid-template-columns: 1fr 3fr;
+}
+
+.img, .desc {
+  margin: 5%;
+}
+
+.Track{
+   text-align: left;
+}
+
+.divider{
+  padding-bottom: 10px;
+}
+
+@media screen
+and (max-width: 1024px) {
+  .Plan, .Record, .Track{
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .GPADesc{
+    grid-row: 2;
+  }
+  .GPAImg{
+    grid-row: 1;
+  }
+}

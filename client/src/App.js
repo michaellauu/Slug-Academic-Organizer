@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import SignIn from "./components/Home";
 import Grades from "./components/Grades";
 import Major from "./components/Major";
+import Landing from "./components/Landing";
 import "./App.css";
 import "./styles/NavBar.css";
 
@@ -23,13 +24,14 @@ class App extends Component {
       //this lets connect to different components of our site
       <Router>
         <div className="container main">
-          <header>
-            <NavBar />
-          </header>
+        <header>
+          <NavBar />
+        </header>
           <div className="content">
             <Switch>
-              <Route exact path="/" component={SignIn} />
-              <Route path="/logging" component={ClassLogging} />
+              <Route exact path="/" component={Landing} />
+              <Route path="/account" component={SignIn} />
+              <Route path="/classes" component={ClassLogging} />
               <Route path="/grades" component={Grades} />
               <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />
