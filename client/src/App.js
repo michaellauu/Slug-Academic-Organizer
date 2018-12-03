@@ -34,7 +34,6 @@ class App extends Component {
               <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />
 			        <Route path="/calendar" component={Calendar} />
-			        <Route path="/account" component={Account} />
 			        <Redirect from="*" to="/" />
             </Switch>
           </div>
