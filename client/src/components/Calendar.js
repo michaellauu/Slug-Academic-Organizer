@@ -49,6 +49,8 @@ export default class Calendar extends Component {
             this.setState({ isLoading: false });
           }
         });
+    }else{
+      this.setState({ isLoading: false });
     }
     window.addEventListener("resize", this.updateMobileCheck);
   }
