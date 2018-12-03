@@ -31,7 +31,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route path="/account" component={SignIn} />
-              <Route path="/logging" component={ClassLogging} />
+              <Route path="/classes" component={ClassLogging} />
               <Route path="/grades" component={Grades} />
               <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />

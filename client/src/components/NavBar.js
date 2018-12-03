@@ -46,8 +46,8 @@ export default class NavBar extends Component {
                 </NavLink>
               </NavItem>
               <NavItem className="link-2">
-                <NavLink tag={Link} to="/logging">
-                  Class Logging
+                <NavLink tag={Link} to="/classes">
+                  My Classes
                 </NavLink>
               </NavItem>
               <NavItem className="link-4">
