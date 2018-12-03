@@ -6,6 +6,7 @@ import UpperDiv from "./MajorComponents/UpperDiv";
 import Capstone from "./MajorComponents/Capstone";
 import DC from "./MajorComponents/DC";
 import Electives from "./MajorComponents/Electives";
+import loader from './loader.svg';
 
 /* 
  * This component displays the major requirement page for 
@@ -23,7 +24,8 @@ export default class Major extends Component {
 
     this.state = {
       userID: '',
-      classes: []
+      classes: [],
+      isLoading: true,
     };
   }
 
@@ -40,14 +42,17 @@ export default class Major extends Component {
           if (json.success) {
             this.setState({
               userID: json.userId,
-              isLoading: false
             });
-            if(json.userID!==""){
+            if (json.userID !== "") {
               // Get the user classes from the database
               this.makePost(json.userId)
                 .then(res => this.setState({ classes: res }))
                 .catch(err => console.log(err));
+            }else{
+              this.setState({ isLoading: false });
             }
+          }else{
+            this.setState({ isLoading: false });
           }
         });
     }
@@ -67,11 +72,17 @@ export default class Major extends Component {
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-
+    //console.log(body);
+    this.setState({ isLoading: false });
     return body;
   };
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="loaderContainer" align="center"><img src={loader} className="App-loader" alt="loader" /></div>
+      )
+    }
     return (
       <div>
         <LowerDiv classes={this.state.classes} /> <br />

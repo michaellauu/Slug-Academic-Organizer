@@ -31,7 +31,7 @@ export default class NavBar extends Component {
     return (
       <div>
         <Navbar color="faded" dark expand="md" role="navigation">
-          <img className="logo" src={require("../images/slug.svg")} alt="Slug Logo" />
+          <img className="logo" src={require("../images/slug.svg")} alt="logo" />
           <div className="home-link">
             <NavbarBrand tag={Link} to="/" className="mr-auto">
               Slug Organizer
@@ -41,8 +41,8 @@ export default class NavBar extends Component {
           <Collapse isOpen={!this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="link-1">
-                <NavLink tag={Link} to="/signin">
-                  Sign In
+                <NavLink tag={Link} to="/account">
+                  Account
                 </NavLink>
               </NavItem>
               <NavItem className="link-2">

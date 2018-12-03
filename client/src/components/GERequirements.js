@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/GERequirements.css";
 import { getFromStorage } from './storage';
+import loader from './loader.svg';
 
 class GERequirements extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class GERequirements extends Component {
     this.state = {
       ge: [], //server response,
       userID: '',
-      classes: {}
+      classes: {},
+      isLoading: true,
     };
 
     this.completed = this.completed.bind(this);
@@ -32,13 +34,16 @@ class GERequirements extends Component {
           if (json.success) {
             this.setState({
               userID: json.userId,
-              isLoading: false
             });
-            if(json.userId!==''){
+            if (json.userId !== "") {
               this.makePost(json.userId)
-              .then(res => this.setState({ classes: res }))
-              .catch(err => console.log(err));
+                .then(res => this.setState({ classes: res }))
+                .catch(err => console.log(err));
+            }else{
+              this.setState({ isLoading: false });
             }
+          }else {
+            this.setState({ isLoading: false });
           }
         });
     }
@@ -46,17 +51,15 @@ class GERequirements extends Component {
 
   callApi = async () => {
     const response = await fetch("/api/GERequirements",
-    {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    });
+      {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
     const body = await response.json();
-
     if (response.status !== 200) throw Error(body.message);
-
     return body;
   };
 
@@ -74,14 +77,15 @@ class GERequirements extends Component {
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-
+    //console.log(body);
+    this.setState({ isLoading: false });
     return body;
   };
 
   completed = (ge) => {
     if (ge !== 'PR' && ge !== 'PE' && ge !== 'C2') {
       return (ge in this.state.classes);
-    }else if(ge === 'C2'){
+    } else if (ge === 'C2') {
       return ('C' in this.state.classes || ge in this.state.classes);
     } else {
       if (ge === 'PR') {
@@ -96,13 +100,13 @@ class GERequirements extends Component {
     if (this.completed(ge)) {
       if (ge !== 'PR' && ge !== 'PE' && ge !== 'C2') {
         return (this.state.classes[ge]);
-      }else if(ge === "C2"){
-        if(!(ge in this.state.classes)){
+      } else if (ge === "C2") {
+        if (!(ge in this.state.classes)) {
           return (this.state.classes['C']);
-        }else{
+        } else {
           return (this.state.classes['C2']);
         }
-      }else {
+      } else {
         if (ge === 'PR') {
           if ('PR-S' in this.state.classes) {
             return this.state.classes['PR-S'];
@@ -126,13 +130,18 @@ class GERequirements extends Component {
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <div className="loaderContainer" align="center"><img src={loader} className="App-loader" alt="loader" /></div>
+      )
+    }
     return (
       <div>
         <h3 className="pageTitle">GE Requirements</h3>
         <div className="grid-container">
           {this.state.ge.map((current, index) => {
             return (
-              <div key={index} className={index/2===Math.floor(index/2) ? 'a' : 'b'}>
+              <div key={index} className={index / 2 === Math.floor(index / 2) ? 'a' : 'b'}>
                 <div className={this.completed(current.geID) ? 'entry completed' : 'entry uncompleted'} key={index}>
                   <div className="category">
                     <h5>{current.geID}-{current.desc}</h5>
