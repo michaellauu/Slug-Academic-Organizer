@@ -1,0 +1,42 @@
+.jumbotron{
+  background: #707088;
+}
+
+.title{
+  text-align: center;
+}
+
+.subtitle{
+  text-align: center;
+}
+.lead{
+  text-align: center;
+}
+
+.text{
+  text-align: center;
+}
+
+.column {
+  width: 100%;
+  display: inline-block;
+}
+
+.Record{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.Plan{
+   text-align: left;
+}
+
+.Track{
+   text-align: left;
+}
+
+.divider{
+
+  padding-bottom: 10px;
+}
