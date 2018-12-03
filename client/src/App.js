@@ -33,8 +33,8 @@ class App extends Component {
               <Route path="/grades" component={Grades} />
               <Route path="/major" component={Major} />
               <Route path="/ge" component={GERequirements} />
-			        <Route path="/calendar" component={Calendar} />
-			        <Redirect from="*" to="/" />
+              <Route path="/calendar" component={Calendar} />
+              <Redirect from="*" to="/" />
             </Switch>
           </div>
         </div>
