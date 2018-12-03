@@ -113,7 +113,8 @@ class Home extends Component {
       signUpPassword: event.target.value
     });
   }
-
+  
+  //signs up and signs in
   onSignUp() {
     // Grab state
     const { signUpUsername, signUpPassword } = this.state;
