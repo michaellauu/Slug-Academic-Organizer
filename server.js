@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 // Uncomment for production
-app.use(express.static(path.join(__dirname, 'client/build')));
+//app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Port
 const port = process.env.PORT || 5000;
@@ -36,10 +36,10 @@ mongoose
 // API routes
 require("./server/routes/api/signin.js")(app);
 
-// Uncomment this function for production
+/*/ Uncomment this function for production
 app.get('/*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+});*/
 
 // Sorts User Class data into dictionary: {year: [fall classes], [summer classes], [spring classes], [winter classes]}
 function sortByQuarter(userClasses) {
