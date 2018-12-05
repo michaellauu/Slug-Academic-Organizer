@@ -13,6 +13,10 @@ h1 {
   background-color: #585870 !important;
 }
 
+.fc-unthemed .fc-list-item:hover td{
+  background-color: #585870 !important;
+}
+
 #calendar button {
   color: white;
 }

@@ -130,6 +130,7 @@ export default class Calendar extends Component {
           editable={false}
           eventLimit={true}
           weekends={false}
+          selectable={false}
           events={this.state.events}
           defaultView={this.mobileViewDefault()}
         />
