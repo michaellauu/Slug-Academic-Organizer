@@ -13,6 +13,10 @@ h1 {
   background-color: #585870 !important;
 }
 
+.fc-unthemed .fc-list-item:hover td{
+  background-color: #585870 !important;
+}
+
 #calendar button {
   color: white;
 }
@@ -23,11 +27,15 @@ h1 {
   margin: 0 auto;
 }
 
-@media screen
-and (max-width: 1024px) {
-  #calendar {
-    max-width: 100%;
-    max-height: 300%;
-    height: 300%;
-  }
+.fc-scroller {
+  min-height: 258px;
+  height: 100% !important;
+}
+
+.fc-list-heading td{
+  background-color: #5BADC5 !important;
+}
+
+.fc-list-empty {
+  background-color: #5BADC5 !important;
 }
